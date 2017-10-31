@@ -23,7 +23,7 @@ public class Question6 {
 		isEven(num5);
 	}
 	
-	// Method checks if number is even or odd
+	// Method checks if number is even or odd without using modulus operator (%)
 	// Converts integer to string and uses regular expression to evaluate
 	public static void isEven(int n)
 	{
