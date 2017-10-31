@@ -1,6 +1,10 @@
 package com.revature.Homework1.Q11a;
 
+import com.revature.Homework1.Q11b.*;
+
 public class Q11a {
-	public float a = 10.0f;
-	public float b = 212.1f;
+	public static void main(String[] args) {
+		Q11b test = new Q11b();
+		System.out.println("math from another package: "+ test.a+" + " +test.b+" = "+ (test.a+test.b));
+	}
 }

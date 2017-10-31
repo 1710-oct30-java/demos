@@ -3,8 +3,12 @@ package com.revature.Homework1.Q15;
 public class Q15 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Pair A = new Pair(4,2);
+		Pair B = new Pair(5,6);
+		System.out.println(A +" + "+ B +" = " + A.addition(A, B));
+		System.out.println(A +" - "+ B +" = " + A.subtraction(A, B));
+		System.out.println(A +" * "+ B +" = " + A.multiplication(A, B));
+		System.out.println(A +" / "+ B +" = " + A.division(A, B));
 	}
 
 }
