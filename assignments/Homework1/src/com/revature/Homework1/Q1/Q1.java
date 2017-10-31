@@ -13,7 +13,7 @@ public class Q1 {
 		
 		for(int i = 0; i < input.length; i++) {
 			
-			for(int j = 0; j <input.length-1; j++) {
+			for(int j = 0; j <input.length-1-i; j++) {
 				//check neighbors
 				if(input[j] > input[j+1]) {
 					//swap
