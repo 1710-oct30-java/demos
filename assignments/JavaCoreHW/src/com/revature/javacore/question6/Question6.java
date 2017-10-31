@@ -1,4 +1,4 @@
-package com.revature.javacore.question5;
+package com.revature.javacore.question6;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
