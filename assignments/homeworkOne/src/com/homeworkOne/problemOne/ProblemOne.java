@@ -4,25 +4,28 @@ public class ProblemOne {
 	//Perform a bubble sort on the following integer array: 1,0,5,6,3,2,3,7,9,8,4
 	public static void main(String[] args)
 	{
+	//Init variables
 	int bubbleSort[] = {1,0,5,6,3,2,3,7,9,8,4};
 	int temp;
-	for(int i = 0; i<bubbleSort.length; i++)
-	{
-		for(int j = 0; j<bubbleSort.length-1; j++)
+	
+	//double loop to perform bubble sort
+		for(int i = 0; i<bubbleSort.length; i++)
 		{
-			if(bubbleSort[i] > bubbleSort[j])
+			for(int j = 0; j<bubbleSort.length-1; j++)
 			{
-				temp = bubbleSort[i];
-				bubbleSort[i] = bubbleSort[j];
-				bubbleSort[j] = temp;
-			}
+				if(bubbleSort[i] > bubbleSort[j])
+				{   //swap elements
+					temp = bubbleSort[i];
+					bubbleSort[i] = bubbleSort[j];
+					bubbleSort[j] = temp;
+				}
+			}	
 		}
-		
-	}
-	for(int i=0 ; i<bubbleSort.length;i++)
-	{
-		System.out.println(bubbleSort[i]);
-	}
+		//print results
+		for(int i=0 ; i<bubbleSort.length;i++)
+		{
+			System.out.println(bubbleSort[i]);
+		}
 	
 	}
 
