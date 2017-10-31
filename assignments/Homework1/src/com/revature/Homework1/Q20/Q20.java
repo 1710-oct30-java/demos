@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Q20 {
-
+	//read a data file and print out stuff
 	public static void main(String[] args) {
 		Scanner reader = null;
 		try {

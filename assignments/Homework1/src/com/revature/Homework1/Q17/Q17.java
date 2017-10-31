@@ -3,7 +3,7 @@ package com.revature.Homework1.Q17;
 import java.util.Scanner;
 
 public class Q17 {
-
+	//caculate thing based on user input
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter principal: ");

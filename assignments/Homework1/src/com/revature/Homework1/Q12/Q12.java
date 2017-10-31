@@ -1,6 +1,7 @@
 package com.revature.Homework1.Q12;
 
 public class Q12 {
+	// store 1-100; print them out with 'enhanced' for loop
 	public static void main(String[] args) {
 		int[] nums = new int[100];
 		//normal

@@ -1,7 +1,10 @@
 package com.revature.Homework1.Q15;
 
 public class Q15 {
-
+	/*
+	 * define a interface; add,sub,mult,div
+	 * implement interface in a class
+	 */
 	public static void main(String[] args) {
 		Pair A = new Pair(4,2);
 		Pair B = new Pair(5,6);

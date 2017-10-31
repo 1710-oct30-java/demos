@@ -1,6 +1,7 @@
 package com.revature.Homework1.Q10;
 
 public class Q10 {
+	//min between two numbers with ternary operators
 	public static void main(String[] args) {
 		int a = 10;
 		int b = 20;

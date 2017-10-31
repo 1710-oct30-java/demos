@@ -3,6 +3,7 @@ package com.revature.Homework1.Q8;
 import java.util.ArrayList;
 
 public class Q8 {
+	//sort palindromes from other strings
 	public static void main(String[] args) {
 		String[] strings = {"karan","madam","tom","civic",
 				"radar","sexes","jimmy","kayak","john",

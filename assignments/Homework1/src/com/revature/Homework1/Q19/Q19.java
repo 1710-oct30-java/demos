@@ -3,6 +3,7 @@ package com.revature.Homework1.Q19;
 import java.util.ArrayList;
 
 public class Q19 {
+	//make an arraylist with 1-10
 	static boolean isPrime(int n) {
 		if (n == 1) {
 			return false;
@@ -25,6 +26,7 @@ public class Q19 {
 
 		System.out.println("numbers list: " + numbers);
 
+		//get sum of evens and odds
 		int sumEven = 0;
 		int sumOdd = 0;
 		for (int i = 0; i < numbers.size(); i++) {
@@ -36,7 +38,8 @@ public class Q19 {
 		}
 		System.out.println("Sum of evens: " + sumEven);
 		System.out.println("Sum of odds: " + sumOdd);
-
+		
+		//remove primes
 		for (int i = 0; i < numbers.size(); i++) {
 			if (isPrime(numbers.get(i))) {
 				numbers.remove(i);

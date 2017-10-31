@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Q7 {
+	//sort employees based on comparator 
 	public static void main(String[] args) {
-		String[] names = {"Bob","Steve","Alice","Bob"};
-		String[] departments = {"Sales","HR","Sales","IT"};
-		int[] ages = {30,32,40,33};
+		String[] names = {"Bob","Steve"};
+		String[] departments = {"Sales","HR"};
+		int[] ages = {30,32};
 		
 		ArrayList<Employee> employees = new ArrayList<Employee>();
 		
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < 2; i++) {
 			employees.add(new Employee(names[i], departments[i], ages[i]));
 		}
 		
