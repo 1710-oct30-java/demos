@@ -3,7 +3,7 @@ package com.revature.Homework1.Q1;
 public class Q1 {
 //integer bubble sort
 	public static void main(String[] args) {
-		int[] list = {1,0,5,6,3,2,3,7,9,8,4};
+		int[] list = {100,0,5,6,3,2,3,7,9,8,4};
 		System.out.println("original: "+ arrString(list));
 		int[] sortedList = Bubblesort(list);
 		System.out.println("original: "+ arrString(sortedList));
@@ -18,7 +18,7 @@ public class Q1 {
 					//swap
 					input[j+1] = input[j] + input[j+1];
 					input[j] = input[j+1] -  input[j];
-					input[j+1] = input[j+1] -  input[j];;
+					input[j+1] = input[j+1] -  input[j];
 				}
 			}
 		}

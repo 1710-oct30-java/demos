@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Q9 {
 	//create ArrayList 1-100; print the primes
 	public static void main(String[] args) {
+		
 		ArrayList<Integer> nums = new ArrayList<Integer>();
 		for(int i = 1; i <= 100; i ++) {
 			nums.add(i);
