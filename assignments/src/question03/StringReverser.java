@@ -1,5 +1,7 @@
 package question03;
 
+import java.util.stream.IntStream;
+
 /**
  * Question 3: Reverse a string without using a temporary variable.
  * Do NOT use reverse() in the StringBuffer or the StringBuilder APIs.
@@ -15,10 +17,18 @@ public class StringReverser {
 	 * @return reverse of input string
 	 */
 	public static String reverse(String str) {
-		for(int i = 0; i < str.length() / 2; i++) {
+		/*for(int i = 0; i < str.length() / 2; i++) {
 			str = swap(str, i, str.length() - (i+1));
-		}
-		return str;
+		}*/
+		
+		//CHALLENGE: USE stream ~ .reduce()
+		//EXTRA CHALLENGE: Make it 'better'
+		
+		return IntStream.range(0, str.length())
+				.map(i -> (0) - i + (str.length()) - 1)
+				.map(i -> str.charAt(i))
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+		        .toString();
 	}
 	
 	/**
@@ -27,6 +37,7 @@ public class StringReverser {
 	 * @param indexOne - first index value
 	 * @param indexTwo - second index value
 	 * @return string with values at two index positions swapped
+	 * @deprecated - Refactored out of {@link reverse(String)}
 	 */
 	public static String swap(String str, int indexOne, int indexTwo) {
 		str = str.substring(0, indexOne)   +  
