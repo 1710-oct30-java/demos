@@ -10,10 +10,12 @@ public class UserInput {
 		userInput = new Scanner(System.in);
 	}
 
-	public String getString() {
+	public String getWord() {
 		return userInput.next();
 	}
-
+	public String getString() {
+		return userInput.nextLine();
+	}
 	public int getInt() {
 		return userInput.nextInt();
 	}

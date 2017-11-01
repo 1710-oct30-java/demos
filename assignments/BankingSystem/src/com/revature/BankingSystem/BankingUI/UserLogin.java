@@ -79,7 +79,6 @@ public class UserLogin extends UIElement {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(userEntering.getPassword() +" compared to "+ uPassword);
 		return userEntering.getPassword().equals(uPassword);
 	}
 	
