@@ -5,7 +5,7 @@ public class Triangle {
 		// count variable to keep track of number
 		int count = 0;
 
-		// if the number is odd, print 1, if even print 0
+		// if the count is odd, print 1, if even print 0
 		// do this for 4 lines, each line prints the number of times equal to its row
 		// number
 		
