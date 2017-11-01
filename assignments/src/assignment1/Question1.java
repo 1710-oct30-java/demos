@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Question1
 {
 	// Perform a bubble sort on the integer array [1,0,5,6,3,2,3,7,9,8,4].
-	
 	public static void main(String[] args)
 	{
 		// Initialize the starting array.
