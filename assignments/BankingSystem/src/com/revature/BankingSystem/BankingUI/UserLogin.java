@@ -10,8 +10,7 @@ public class UserLogin extends UIElement {
 
 	private UserList userList;
 	private User userEntering;
-	
-	
+
 	public UserLogin() {
 		super();
 	}
@@ -68,8 +67,7 @@ public class UserLogin extends UIElement {
 	}
 
 	public boolean passwordValidation(String uPassword) {
-		
-		
+
 		MessageDigest messageDigest;
 		try {
 			messageDigest = MessageDigest.getInstance("SHA-256");
@@ -81,8 +79,7 @@ public class UserLogin extends UIElement {
 		}
 		return userEntering.getPassword().equals(uPassword);
 	}
-	
-	
+
 	public void newUser() {
 
 		boolean uFlag = true;

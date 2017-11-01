@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import com.revature.BankingSystem.BankClasses.*;
 
-public class UserList implements Serializable{
+public class UserList implements Serializable {
 	/**
 	 * 
 	 */

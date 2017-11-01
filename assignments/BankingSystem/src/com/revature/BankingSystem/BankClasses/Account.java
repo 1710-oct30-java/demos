@@ -2,7 +2,7 @@ package com.revature.BankingSystem.BankClasses;
 
 import java.io.Serializable;
 
-public class Account implements Serializable{
+public class Account implements Serializable {
 	/**
 	 * 
 	 */

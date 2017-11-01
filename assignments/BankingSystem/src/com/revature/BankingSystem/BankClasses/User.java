@@ -22,7 +22,7 @@ public class User implements Serializable {
 		this.firstName = "";
 		this.lastName = "";
 		this.password = hash("");
-		
+
 		userId = numberOfUsers;
 		numberOfUsers++;
 	}
@@ -33,7 +33,7 @@ public class User implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = hash(password);
-				
+
 		userId = numberOfUsers;
 		numberOfUsers++;
 	}
@@ -77,18 +77,20 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	private String hash(String word) {
 		MessageDigest messageDigest;
 		try {
 			messageDigest = MessageDigest.getInstance("SHA-256");
 			messageDigest.update(word.getBytes());
-			word= new String(messageDigest.digest());
+			word = new String(messageDigest.digest());
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return word;
 	}
+
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
