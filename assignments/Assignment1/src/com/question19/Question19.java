@@ -1,7 +1,10 @@
 package com.question19;
 
 /*
- * 
+ * display array list 1-10
+ * show sums of evens
+ * show sums of odds
+ * remove prime number and show the list 
  */
 import java.util.ArrayList;
 import java.util.List;
