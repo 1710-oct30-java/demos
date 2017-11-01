@@ -8,24 +8,26 @@ package com.revature.javacore.question3;
 public class Question3
 {
 
+	//https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
+	// use stream.reduce for extra credit
 	public static void main(String[] args)
 	{
-		String s = "Hello";
+		String s = "Hello world";
+		
+		// Method 1
 		System.out.println(reverseString(s));
 	}
 	
-	// Method returns the reverse string of input
 	public static String reverseString(String s)
 	{
-		String reversed = "";
-		
-		// Loop backwards to reverse string
+		// Append to original string
 		for(int i = s.length()-1; i >= 0; i--)
 		{
-			reversed += s.charAt(i);
+			s += s.charAt(i);
 		}
 		
-		return reversed;
+		// Return substring of string that was appended, located at middle of string
+		return s.substring( ( s.length()/2) );
 	}
 
 }
