@@ -7,7 +7,7 @@ import com.revature.beans.CandyBar;
 
 public class ReflectionLauncher {
 	public static void main(String[] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-		Object
+
 		CandyBar kitkat = new CandyBar("kitkat", 7);
 		Method[] methods = CandyBar.class.getMethods();
 		System.out.println("methods:");
