@@ -14,16 +14,20 @@ public class Bubblesort {
 		intArray[8] = 9;
 		intArray[9] = 8;
 		intArray[10] = 4;
-		
-		for (int i = 0; i < intArray.length; i++) 
-			for (int j = 0; j < intArray.length-1; j++){
-			if (intArray[j] > intArray[j+1]) {
-				int temp = intArray[j];
-				intArray[j] = intArray[j+1];
-				intArray[j+1] = temp;
+
+		// check if first index is greater than second, if it is then swap, iterate
+		// through array.
+		// do this for the rest of the elements in the array - runs n(n+1)/2 times
+		for (int i = 0; i < intArray.length; i++)
+			for (int j = 0; j < intArray.length - 1; j++) {
+				if (intArray[j] > intArray[j + 1]) {
+					// swap function
+					int temp = intArray[j];
+					intArray[j] = intArray[j + 1];
+					intArray[j + 1] = temp;
+				}
 			}
-		}
-		for (int i = 0; i< intArray.length; i++) {
+		for (int i = 0; i < intArray.length; i++) {
 			System.out.print(intArray[i] + " ");
 		}
 	}
