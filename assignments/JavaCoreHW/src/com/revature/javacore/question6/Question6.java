@@ -31,19 +31,21 @@ public class Question6 {
 			String str = Integer.toString(n);
 			String regex = "[02468]$";
 			
-			// Create pattern object
+			// Compile regex string into pattern
 			Pattern pattern = Pattern.compile(regex);
 			
-			// Create matcher object
+			// Match string against regex pattern
 			Matcher matcher = pattern.matcher(str);
 			
+			// Find even number
 			// Number is even if string ends with 0,2,4,6, or 8
 			if(matcher.find())
 			{
 				System.out.println(n + " - Number is even!");
 			}
-			else
-			{
+			
+			// Number is odd
+			else {
 				System.out.println(n + " - Number is odd!");
 			}
 		}

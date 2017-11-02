@@ -30,6 +30,7 @@ public class Converter extends Convert
 	public String toUpperCase(String str)
 	{
 		/*
+		// My own version of toUpperCase string method
 		String result = "";
 		
 		// Iterate the entire string

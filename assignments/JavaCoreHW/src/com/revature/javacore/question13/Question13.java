@@ -9,37 +9,25 @@ package com.revature.javacore.question13;
 	1 0 1			    1   0   1
 	0 1 0 1			  0   1   0   1
  */
-public class Question13 {
+public class Question13
+{
 
-	static int[] array = {0, 1, 0, 1, 0, 1, 0, 1, 0, 1};
-	
-	public static void main(String[] args) {
-		
-		int lineSpace = 8;
-		String spacing = "";
-		
-		int p;
-		for(int i = 0; i <= 3; i++)
-		{
-			
-			int q = i+i;
-			
-//			if(i == 0)
-//			{
-//				spacing = "%" + (lineSpace + 1 + "s");
-//				lineSpace -= 2;
-//				System.out.printf(spacing, array[i] + "\n");
-//			}
-			
-			if(i == 4)
-			{
-				for(p = i; p < q; p++)
-				{
-					System.out.println(p);
-				}
-			}
-				
+	static int[] arr = { 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
+
+	public static void main(String[] args)
+	{
+
+		for (int i = 1; i <= arr.length; i++) {
+
+		    for (int j = 1; j < i; j++) {
+		        System.out.printf(" ");
+		    } 
+		    for (int j = i; j <= 6; j++) {              
+		    	System.out.printf("%2d", arr[(j)]);
+		    }
+
 		}
+
 	}
-	
+
 }

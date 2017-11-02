@@ -14,7 +14,7 @@ public class Question11Launcher
 	{
 		Question11 q = new Question11();
 		
-		System.out.println(q.num1);
-		System.out.println(q.num2);
+		System.out.println(q.getNum1());
+		System.out.println(q.getNum2());
 	}
 }

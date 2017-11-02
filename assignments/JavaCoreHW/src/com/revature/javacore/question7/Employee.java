@@ -61,6 +61,7 @@ public class Employee implements Comparator<Employee>
 		return name + ", " + age + ", " + department;
 	}
 
+	// Sort first by name, then by age, then by department
 	@Override
 	public int compare(Employee e1, Employee e2)
 	{
@@ -75,7 +76,7 @@ public class Employee implements Comparator<Employee>
 			return -1;
 		}
 		
-		// If name are equal, then compare age
+		// If names are equal, then compare age
 		else if(e1.getName().compareTo(e2.getName()) == 0)
 		{
 			if(e1.getAge() > e2.getAge())

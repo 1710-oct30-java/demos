@@ -13,19 +13,25 @@ public class Question15
 	{
 		Operation op = new Operation();
 		
-		double num1 = 2.2;
-		double num2 = 4;
+		// Operands
+		double num1 = 10;
+		double num2 = 2;
 		
+		// Test 1
 		op.add(num1, num2);
 		op.subtract(num1, num2);
 		op.multiply(num1, num2);
 		op.divide(num1, num2);
 		
+		
 		System.out.println();
 		
+		
+		// Operands
 		double num3 = 5;
 		double num4 = 0;
 		
+		// Test 2
 		op.add(num3, num4);
 		op.subtract(num3, num4);
 		op.multiply(num3, num4);

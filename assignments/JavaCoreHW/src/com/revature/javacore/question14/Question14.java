@@ -20,9 +20,10 @@ public class Question14 {
 		
 		String menu = "1) Square root of a number\n"
 					+ "2) Display today's date\n"
-					+ "3) Split string and store it in a string array\n";
+					+ "3) Split string and store it in a string array\n"
+					+ "Input: ";
 		
-		System.out.println(menu);
+		System.out.print(menu);
 		
 		try {
 			Scanner scan = new Scanner(System.in);
@@ -60,7 +61,7 @@ public class Question14 {
 			int inputNum = input.nextInt();
 			System.out.println("sqrt(" + inputNum + ") = " + Math.sqrt(inputNum));
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
@@ -70,7 +71,6 @@ public class Question14 {
 		DateFormat dateFormatter = new SimpleDateFormat("EEEE, MMMM dd, yyyy");
 		Date date = new Date();
 		System.out.println(dateFormatter.format(date));
-		
 	}
 	
 	//Case 3: Split the following string and store it in a string array

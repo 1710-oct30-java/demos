@@ -21,21 +21,28 @@ public class Question8 {
 	
 	public static void main(String[] args) 
 	{
+		// Add strings to ArrayList
 		addToList(array);
 		
-		System.out.print("List: ");displayList(list);
+		// Print out original ArrayList
+		System.out.print("List: ");
+		displayList(list);
 		
+		// Print out palindrome ArrayList
 		System.out.print("Palindrome List: ");
 		displayList(palindromelist);
 	}
 	
-	// Method adds all words from array to ArrayList and palindrome words to PalindromeArrayList
+	// Method adds all words from array to ArrayList and adds palindrome words to PalindromeArrayList
 	public static void addToList(String[] array)
 	{
+		// Iterate original array of string words
 		for(String word:array)
 		{
+			// Add words to ArrayList
 			list.add(word);
 			
+			// Check if word is palindrome, then add to the palindrome ArrayList
 			if(isPalindrome(word))
 			{
 				palindromelist.add(word);
@@ -43,12 +50,14 @@ public class Question8 {
 		}
 	}
 	
+	// Method displays the words in the ArrayList given
 	public static void displayList(ArrayList<String> list)
 	{
 		int counter = 0;
 		
 		for(String word:list)
 		{
+			// Don't print comma on last word
 			if(counter == list.size()-1)
 			{
 				System.out.print(word);
@@ -66,9 +75,6 @@ public class Question8 {
 	// Method returns true or false if string is a palindrome
 	public static boolean isPalindrome(String s)
 	{
-		// Method always returns false unless string is a palindrome
-		boolean result = false; 
-		
 		// Middle index of string
 		int middle = s.length() / 2;
 		
@@ -83,10 +89,10 @@ public class Question8 {
 		// If both strings are equal, the string is a palindrome
 		if(begin.equals(end))
 		{
-			result = true;
+			return true;
 		}
 		
-		return result;
+		return false;
 	}
 
 }

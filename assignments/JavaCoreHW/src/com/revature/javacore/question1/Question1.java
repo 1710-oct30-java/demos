@@ -19,7 +19,7 @@ public class Question1
 		bubbleSort(array);
 		
 		// print array before bubble sort
-		System.out.println("Array before sort: ");
+		System.out.println("\nArray after sort: ");
 		display(array);
 	}
 
@@ -28,15 +28,15 @@ public class Question1
 	{
 		for(int i = 0; i < arr.length; i++)
 		{
-			for(int j = i+1; j < arr.length; j++)
+			for(int j = 1; j < arr.length; j++)
 			{
-				System.out.println(arr[i] + "," + arr[j]);
-//				if(i < j)
-//				{
-//					int tmp = arr[i];
-//					arr[i] = arr[j];
-//					arr[j] = tmp;
-//				}
+				// Perform swap if arr[j-1] is greater than arr[j]
+				if(arr[j-1] > arr[j])
+				{
+					int tmp = arr[j-1];
+					arr[j-1] = arr[j];
+					arr[j] = tmp;
+				}
 			}
 		}
 	}
@@ -46,6 +46,7 @@ public class Question1
 	{
 		for (int i = 0; i < arr.length; i++)
 		{
+			// If element is last, do not print comma
 			if (i == arr.length - 1)
 			{
 				System.out.print(arr[i] + "\n");

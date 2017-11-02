@@ -26,22 +26,25 @@ public class Question2
 		// Print first two numbers of sequence
 		result = previousValue + ", " + currentValue + ", ";
 
+		// Loop and print all following numbers
 		for (int i = 2; i < n; i++)
 		{
 			// Get next Fibonacci number
 			nextValue = previousValue + currentValue;
 
+			// Remove comma from last number
 			if (i == n - 1)
 			{
-				result += nextValue;
+				result += nextValue + "";
 			}
 
-			// Remove comma from last number
+			// Add Fibonacci number to result string
 			else
 			{
 				result += nextValue + ", ";
 			}
 
+			// Get next values
 			// Previous value becomes current value, and current value becomes next value
 			previousValue = currentValue;
 			currentValue = nextValue;

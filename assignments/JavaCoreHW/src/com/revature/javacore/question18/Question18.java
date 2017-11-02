@@ -18,9 +18,9 @@ public class Question18
 	{
 		Converter c = new Converter();
 		
-		String str = "This is some input for this Class.";		
-		System.out.println(c.hasUpperCase(str));
-		System.out.println(c.toUpperCase(str));
+		String str = "This is Some input for this Class.";		
+		System.out.println(c.hasUpperCase(str) + "\n");
+		System.out.println(c.toUpperCase(str) + "\n");
 		
 		String str2 = "512";
 		String str3 = "  5.!@#$%^&*1()_-azq`~ 2 ";

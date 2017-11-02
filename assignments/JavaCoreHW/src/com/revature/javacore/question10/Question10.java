@@ -5,7 +5,7 @@ package com.revature.javacore.question10;
 public class Question10 {
 
 	public static void main(String[] args) {
-		int num1 = 44;
+		int num1 = 48;
 		int num2 = 44;
 		
 		System.out.println(findMin(num1, num2));

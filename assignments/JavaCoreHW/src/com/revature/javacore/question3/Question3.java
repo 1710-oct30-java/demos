@@ -7,14 +7,12 @@ package com.revature.javacore.question3;
 
 public class Question3
 {
-
-	//https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html
-	// use stream.reduce for extra credit
+	
 	public static void main(String[] args)
 	{
 		String s = "Hello world";
 		
-		// Method 1
+		// Method to reverse string
 		System.out.println(reverseString(s));
 	}
 	

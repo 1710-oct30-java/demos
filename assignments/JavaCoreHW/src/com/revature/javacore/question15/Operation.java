@@ -1,13 +1,9 @@
 package com.revature.javacore.question15;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-
 public class Operation implements Operator
 {
-	
-	//NumberFormat formatter = new DecimalFormat("#0.00");
 
+	// Add
 	@Override
 	public double add(double num1, double num2)
 	{
@@ -25,6 +21,7 @@ public class Operation implements Operator
 		return result;
 	}
 
+	// Subtract
 	@Override
 	public double subtract(double num1, double num2)
 	{
@@ -42,6 +39,7 @@ public class Operation implements Operator
 		return result;
 	}
 
+	// Multiply
 	@Override
 	public double multiply(double num1, double num2)
 	{
@@ -59,12 +57,14 @@ public class Operation implements Operator
 		return result;
 	}
 
+	// Divide
 	public double divide(double num1, double num2)
 	{
 		double result = 0;
 
 		try
 		{
+			// Prevent division by zero
 			if (num2 == 0)
 			{
 				System.out.print(num1 + " / " + num2 + " = ");

@@ -43,6 +43,7 @@ public class Question17
 			scanner2 = new Scanner(System.in);
 			double rate = scanner2.nextDouble();
 			
+			// Enter time in years
 			System.out.print("Enter time (years): ");
 			scanner3 = new Scanner(System.in);
 			int time = scanner3.nextInt();

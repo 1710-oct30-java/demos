@@ -1,4 +1,4 @@
-1 - Perform a bubble sort on the following integer array: 1,0,5,6,3,2,3,7,9,8,4
+DONE 1 - Perform a bubble sort on the following integer array: 1,0,5,6,3,2,3,7,9,8,4
 DONE 2 - Write a program to display the first 25 Fibonacci number beginning at 0.
 DONE 3 - Reverse a string without using a temporary variable. Do NOT use reverse() in the
 	StringBuffer or the StringBuilder APIs.
@@ -12,7 +12,7 @@ DONE 7 - Sort two employees based on their name, department, and age without usi
 DONE 8 - Write a program that stores the following strings in an ArrayList and saves all the 
 	palindromes in another ArrayList.
 	"karan", "madam", "tom", "civic", "radar", "sexes", "jimmy", "kayak", "john", "refer", "billy", "did"
-9 - Create an ArrayList which stores numbers from 1 to 100 and prints out all the prime
+DONE 9 - Create an ArrayList which stores numbers from 1 to 100 and prints out all the prime
 	numbers to the console.
 DONE 10 - Find the minimum of two numbers using ternary operators.
 DONE 11 - Write a program that would access two float-variables from a class that exists in
@@ -51,8 +51,8 @@ DONE 18 - Write a program having a concrete subclass that inherits three abstrac
 		   return the result.
 		3. Convert the input string to integer and add 10, output the result in the console.
 	 Create an appropriate class have a main method to test the above setup.
-19 - Create an ArrayList and insert integers 1 through 10. Display the ArrayList. Add all
-	 the even numbers up and display the result. Add all the odd number up and display the
+DONE 19 - Create an ArrayList and insert integers 1 through 10. Display the ArrayList. Add all
+	 the even numbers up and display the result. Add all the odd numbers up and display the
 	 result. Remove the prime numbers from the ArrayList and print out the remaining ArrayList.
 20 - Create a notepad file called Data.txt and enter the following:
 

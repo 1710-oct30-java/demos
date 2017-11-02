@@ -19,13 +19,16 @@ public class Question4
 	// Method computes N factorial based on input
 	public static void computeFactorial(int n)
 	{
+		// Start result at 1 so you won;t get zero when you multiply initially
 		int result = 1;
 		
-		for (int i = 1; i <= n; i++)
+		// Loop backwards until i is greater than 1 and get result
+		for (int i = n; i > 1; i--)
 		{
 			result *= i;
 		}
 		
+		// Display result
 		System.out.println(n + "! = " + result);
 	}
 
