@@ -12,17 +12,25 @@ public class ProblemFourteen {
 	public static void main(String[] args) {
 		int number = 49;
 		Date date = new Date();
+		System.out.println("Enter a number: ");
 		Scanner userInput = new Scanner(System.in); 
+		String phrase = "I am learning Java Code";
 		int input = userInput.nextInt();
 		// Reading from User Input
-		System.out.println("Enter a number: ");
+		
 		switch(input) {
 		case 1:
+			System.out.println(Math.sqrt(number));
 			break;
 		case 2:
 			System.out.println(date.toString());
 			break;
 		case 3:
+			String[] breakUp = phrase.split(" ");
+			for(String each: breakUp)
+			{
+				System.out.print(each+ " ");
+			}
 			break;
 		}
 		
