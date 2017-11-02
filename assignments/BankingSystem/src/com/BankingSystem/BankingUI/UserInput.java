@@ -15,11 +15,6 @@ public class UserInput {
 	public String getWord() {
 		return userInput.next();
 	}
-
-	public String getString() {
-		return userInput.nextLine();
-	}
-
 	public int getInt() {
 		return userInput.nextInt();
 	}
