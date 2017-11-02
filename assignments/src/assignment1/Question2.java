@@ -6,8 +6,12 @@ public class Question2
 	public static void main(String[] args)
 	{
 		System.out.println("The first 25 Fibonacci numbers are...");
+		
+		// Initialize starting values for sequence.
 		long x = 0;
 		long y = 1;
+		
+		// Calculate and print first 25 Fibonacci numbers to the console.
 		System.out.println(x);
 		for(int a = 0; a < 12; a++)
 		{

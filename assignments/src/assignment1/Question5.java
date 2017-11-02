@@ -8,9 +8,17 @@ public class Question5
 	// StringBuilder or StringBuffer APIs.
 	public static void main(String[] args)
 	{
-		System.out.println(subString("Hai frens!", 9));
+		// Initialize variable of starting string.
+		String str = "Hai frens!";
+		
+		// Initial variable for index.
+		int idx = 9;
+		
+		// Call the subString method and print the result to console.
+		System.out.println(subString(str, idx));
 	}
 	
+	// This method returns a substring of String str from index 0 to idx-1, inclusive.
 	public static String subString(String str, int idx)
 	{
 		String output = "";

@@ -14,16 +14,29 @@ public class Question7
 		System.out.println(ec.compare(e1, e2));
 	}
 	
+	// Employee class containing an employee's name, department and age.
 	static class Employee
 	{
-		String name = "";
-		String department = "";
-		int age = 0;
+		// Variable containing an employee's name.
+		String name;
 		
+		// Variable containing an employee's department.
+		String department;
+		
+		// Variable containing an employee's age.
+		int age;
+		
+		// Default constructor for class Employee. Default strings are
+		// empty. Default age is 0.
 		public Employee()
 		{
+			name = "";
+			department = "";
+			age = 0;
 		}
 		
+		// Alternate constructor for class Employee. Allows setting
+		// initial values for Employee.
 		public Employee(String n, String d, int a)
 		{
 			this.name = n;
@@ -31,37 +44,44 @@ public class Question7
 			this.age = a;
 		}
 		
+		// Returns name of an Employee.
 		public String getName()
 		{
 			return this.name;
 		}
 		
+		// Returns the department of an Employee.
 		public String getDepartment()
 		{
 			return this.department;
 		}
 		
+		// Returns the age of an Employee.
 		public int getAge()
 		{
 			return this.age;
 		}
 		
+		// Sets the name of an Employee to n.
 		public void setName(String n)
 		{
 			this.name = n;
 		}
 		
+		// Sets the department of an Employee to d.
 		public void setDepartment(String d)
 		{
 			this.department = d;
 		}
 		
+		// Sets the age of an Employee to a.
 		public void setAge(int a)
 		{
 			this.age = a;
 		}
 	}
 
+	// Static comparator class for comparing two Employee objects.
 	static class EmployeeComparator implements Comparator<Object>
 	{
 		// This method overrides the compare method from the Comparator interface. It compares two Employee
