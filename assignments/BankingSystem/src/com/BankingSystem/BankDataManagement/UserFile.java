@@ -1,4 +1,4 @@
-package com.revature.BankingSystem.BankDataManagement;
+package com.BankingSystem.BankDataManagement;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import com.revature.BankingSystem.BankClasses.Account;
+import com.BankingSystem.BankClasses.Account;
 
 public class UserFile {
 

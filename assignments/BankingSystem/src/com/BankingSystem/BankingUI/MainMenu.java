@@ -1,7 +1,7 @@
-package com.revature.BankingSystem.BankingUI;
+package com.BankingSystem.BankingUI;
 
-import com.revature.BankingSystem.BankClasses.AdminUser;
-import com.revature.BankingSystem.BankClasses.User;
+import com.BankingSystem.BankClasses.AdminUser;
+import com.BankingSystem.BankClasses.User;
 
 public class MainMenu extends UIElement {
 

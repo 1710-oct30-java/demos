@@ -1,9 +1,8 @@
-package com.revature.BankingSystem.BankingLauncher;
+package com.BankingSystem.BankingLauncher;
 
-import com.revature.BankingSystem.BankDataManagement.UserFile;
-import com.revature.BankingSystem.BankDataManagement.UserList;
-
-import com.revature.BankingSystem.BankingUI.MenuControl;
+import com.BankingSystem.BankDataManagement.UserFile;
+import com.BankingSystem.BankDataManagement.UserList;
+import com.BankingSystem.BankingUI.MenuControl;
 
 public class BankingLauncher {
 	static UserList userList;

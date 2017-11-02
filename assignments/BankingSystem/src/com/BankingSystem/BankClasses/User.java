@@ -1,4 +1,4 @@
-package com.revature.BankingSystem.BankClasses;
+package com.BankingSystem.BankClasses;
 
 import java.io.Serializable;
 import java.security.MessageDigest;

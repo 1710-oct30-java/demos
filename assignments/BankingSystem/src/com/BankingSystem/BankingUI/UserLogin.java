@@ -1,10 +1,10 @@
-package com.revature.BankingSystem.BankingUI;
+package com.BankingSystem.BankingUI;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import com.revature.BankingSystem.BankClasses.User;
-import com.revature.BankingSystem.BankDataManagement.UserList;
+import com.BankingSystem.BankClasses.User;
+import com.BankingSystem.BankDataManagement.UserList;
 
 public class UserLogin extends UIElement {
 	/*

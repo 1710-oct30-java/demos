@@ -1,8 +1,8 @@
-package com.revature.BankingSystem.BankingUI;
+package com.BankingSystem.BankingUI;
 
 import java.util.ArrayList;
 
-import com.revature.BankingSystem.BankClasses.*;
+import com.BankingSystem.BankClasses.*;
 
 public class AccountManager extends UIElement {
 	/*

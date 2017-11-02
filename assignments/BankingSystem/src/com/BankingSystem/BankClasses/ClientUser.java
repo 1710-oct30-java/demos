@@ -1,4 +1,4 @@
-package com.revature.BankingSystem.BankClasses;
+package com.BankingSystem.BankClasses;
 
 import java.util.ArrayList;
 

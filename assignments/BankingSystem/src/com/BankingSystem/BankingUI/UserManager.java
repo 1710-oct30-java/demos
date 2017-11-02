@@ -1,7 +1,7 @@
-package com.revature.BankingSystem.BankingUI;
+package com.BankingSystem.BankingUI;
 
-import com.revature.BankingSystem.BankClasses.*;
-import com.revature.BankingSystem.BankDataManagement.UserList;
+import com.BankingSystem.BankClasses.*;
+import com.BankingSystem.BankDataManagement.UserList;
 
 public class UserManager extends UIElement {
 	/*

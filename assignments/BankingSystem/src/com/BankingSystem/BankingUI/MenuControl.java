@@ -1,9 +1,9 @@
-package com.revature.BankingSystem.BankingUI;
+package com.BankingSystem.BankingUI;
 
-import com.revature.BankingSystem.BankClasses.ClientUser;
-import com.revature.BankingSystem.BankClasses.AdminUser;
-import com.revature.BankingSystem.BankClasses.User;
-import com.revature.BankingSystem.BankDataManagement.UserList;
+import com.BankingSystem.BankClasses.AdminUser;
+import com.BankingSystem.BankClasses.ClientUser;
+import com.BankingSystem.BankClasses.User;
+import com.BankingSystem.BankDataManagement.UserList;
 
 public class MenuControl {
 

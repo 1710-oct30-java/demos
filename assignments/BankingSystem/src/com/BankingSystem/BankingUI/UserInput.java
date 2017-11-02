@@ -1,4 +1,4 @@
-package com.revature.BankingSystem.BankingUI;
+package com.BankingSystem.BankingUI;
 
 import java.util.Scanner;
 

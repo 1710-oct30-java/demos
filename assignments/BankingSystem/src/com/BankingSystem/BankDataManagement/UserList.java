@@ -1,10 +1,10 @@
-package com.revature.BankingSystem.BankDataManagement;
+package com.BankingSystem.BankDataManagement;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.revature.BankingSystem.BankClasses.*;
-import com.revature.BankingSystem.BankingUI.UserInput;
+import com.BankingSystem.BankClasses.*;
+import com.BankingSystem.BankingUI.UserInput;
 
 public class UserList implements Serializable {
 	/**

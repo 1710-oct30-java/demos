@@ -1,4 +1,4 @@
-package com.revature.BankingSystem.BankClasses;
+package com.BankingSystem.BankClasses;
 
 public class AdminUser extends User {
 	/**
