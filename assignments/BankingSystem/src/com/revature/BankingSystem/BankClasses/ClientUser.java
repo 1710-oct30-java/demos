@@ -33,7 +33,7 @@ public class ClientUser extends User {
 
 	@Override
 	public String toString() {
-		return "RegularUser [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
+		return "Client User [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
 				+ lastName + "]";
 	}
 }

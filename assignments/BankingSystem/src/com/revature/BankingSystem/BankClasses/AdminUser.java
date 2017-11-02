@@ -13,7 +13,7 @@ public class AdminUser extends User {
 
 	@Override
 	public String toString() {
-		return "ManagerUser [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
+		return "Admin User [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
 				+ lastName + "]";
 	}
 
