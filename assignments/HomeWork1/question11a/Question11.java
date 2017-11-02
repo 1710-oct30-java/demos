@@ -7,12 +7,15 @@ import question11b.IHaveFloats;
  */
 public class Question11 {
 
- 	public static void main(String[] args) {
- 		//Grab the floats from the other package
+	public static void main(String[] args) {
+		// Grab the floats from the other package
 		float newFloata = IHaveFloats.a;
 		float newFloatb = IHaveFloats.b;
-		//Print out these floats
-		System.out.println("I am from another package: " + newFloata);
-		System.out.println("I am also from another package: " + newFloatb);
+		IHaveFloats holder = new IHaveFloats();
+		// Print out these floats
+		System.out.println("I am a static from another package: " + newFloata);
+		System.out.println("I am also a static from another package: " + newFloatb);
+		System.out.println("I am a nonstatic from another package" + holder.notStaticA);
+		System.out.println("I am aother nonstatic from another package" + holder.notStaticB);
 	}
 }

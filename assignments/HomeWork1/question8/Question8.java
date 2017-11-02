@@ -28,15 +28,15 @@ public class Question8 {
 	}
 
 	private static boolean isPalindrome(String s) {
-		//check first and last characters
+		// check first and last characters
 		int i = 0;
 		int j = s.length() - 1;
 		while (i < j) {
-			//if the characters are the same then proceed
+			// if the characters are the same then proceed
 			if (s.charAt(i) == s.charAt(j)) {
 				i++;
 				j--;
-			//otherwise then it's not a palindrome
+				// otherwise then it's not a palindrome
 			} else {
 				return false;
 			}
