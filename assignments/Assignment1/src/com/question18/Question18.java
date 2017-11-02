@@ -9,10 +9,14 @@ public class Question18
 {
 	public static void main(String[] args)
 	{
-		Question18StrOps ops = new Question18StrOps("10");
+		Question18StrOps ops = new Question18StrOps("a");
 		System.out.println(ops.hasCaps());
 		System.out.println(ops.toCaps());
+		try {
 		System.out.println(ops.toIntAdd10());
-		
+		}catch (NumberFormatException e){
+			//e.printStackTrace();
+			System.out.println("Can't convert "+ "\"" +ops.getStr()+ "\""+" to an integer");
+		}
 	}
 }
