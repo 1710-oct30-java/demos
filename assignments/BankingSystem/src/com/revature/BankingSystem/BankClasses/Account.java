@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Account implements Serializable {
 	/**
-	 * 
+	 * Thing that hold money. Unique ids created from number of accounts
 	 */
 	private static final long serialVersionUID = -5816034044913084190L;
 	private int accId;
@@ -48,6 +48,14 @@ public class Account implements Serializable {
 
 	public void setAccOwner(User accOwner) {
 		this.accOwner = accOwner;
+	}
+
+	public int getNumAcc() {
+		return numberOfAccounts;
+	}
+
+	public void setNumAcc(int n) {
+		numberOfAccounts = n;
 	}
 
 	@Override

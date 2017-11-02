@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 public class User implements Serializable {
 
 	/**
-	 * 
+	 * basic user. Holds user id, basic info, and login info. User ids are based on number of Users
 	 */
 	private static final long serialVersionUID = 2231799791025255994L;
 	protected int userId;
@@ -18,6 +18,7 @@ public class User implements Serializable {
 	protected static int numberOfUsers;
 
 	public User() {
+		//default all fields are blank; still gets a userID
 		this.userName = "";
 		this.firstName = "";
 		this.lastName = "";
@@ -32,6 +33,7 @@ public class User implements Serializable {
 		this.userName = userName;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		//stores password hashed
 		this.password = hash(password);
 
 		userId = numberOfUsers;
@@ -77,13 +79,14 @@ public class User implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	private String hash(String word) {
-		MessageDigest messageDigest;
+		//hashes word with SHA-256, returns hashed
+		MessageDigest hasher;
 		try {
-			messageDigest = MessageDigest.getInstance("SHA-256");
-			messageDigest.update(word.getBytes());
-			word = new String(messageDigest.digest());
+			hasher = MessageDigest.getInstance("SHA-256");
+			hasher.update(word.getBytes());
+			word = new String(hasher.digest());
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

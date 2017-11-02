@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ClientUser extends User {
 	/**
-	 * 
+	 * Clients store a list of their accounts
 	 */
 	private static final long serialVersionUID = 6474810219741580587L;
 	private ArrayList<Account> Accounts;

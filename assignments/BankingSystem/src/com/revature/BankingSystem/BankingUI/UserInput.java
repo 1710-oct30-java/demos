@@ -3,7 +3,9 @@ package com.revature.BankingSystem.BankingUI;
 import java.util.Scanner;
 
 public class UserInput {
-
+	/*
+	 * makes managing user input easier. conditions to user input
+	 */
 	private Scanner userInput;
 
 	public UserInput() {

@@ -10,7 +10,7 @@ public class BankingLauncher {
 
 	public static void main(String[] args) {
 		userList = UserFile.loadUserList();
-		System.out.println(userList);
+
 		MenuControl menuControl = new MenuControl(userList);
 		menuControl.mainMenu();
 		UserFile.saveUserList(userList);

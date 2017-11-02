@@ -7,7 +7,9 @@ import com.revature.BankingSystem.BankClasses.User;
 import com.revature.BankingSystem.BankDataManagement.UserList;
 
 public class UserLogin extends UIElement {
-
+	/*
+	 * UI for user login as well as new client creation.
+	 */
 	private UserList userList;
 	private User userEntering;
 
@@ -16,7 +18,8 @@ public class UserLogin extends UIElement {
 	}
 
 	public User login(UserList uList) {
-
+		// user login
+		userEntering = null;
 		userList = uList;
 
 		boolean cancel;
@@ -25,28 +28,32 @@ public class UserLogin extends UIElement {
 			boolean displayFlag = true;
 			String uName = null;
 			do {
+				// input a valid username or 0 to create new user
 				System.out.print("Enter Username (Enter 0 to create new user): ");
-				uName = getUIn().getString();
-				if (usernameValidation(uName)) {
+				uName = getUIn().getWord();
+				if (userList.usernameValidation(uName)) {
+					userEntering = userList.getUserName(uName);
 					displayFlag = false;
 				} else if (uName.equals("0")) {
 					newUser();
 				} else {
+
 					System.out.print("Invalid Username\n");
 				}
 			} while (displayFlag);
-
+			// input valid password
 			displayFlag = true;
 			String uPassword = null;
 			do {
 				System.out.print("Enter 0 to cancel login\nEnter Password: ");
-				uPassword = getUIn().getString();
+				uPassword = getUIn().getWord();
 				if (uPassword.equals("0")) {
 					displayFlag = false;
 					cancel = true;
 				} else if (passwordValidation(uPassword)) {
 					displayFlag = false;
 				} else {
+
 					System.out.print("Invalid Username/Password Combonation\n");
 				}
 			} while (displayFlag);
@@ -56,23 +63,13 @@ public class UserLogin extends UIElement {
 
 	}
 
-	public boolean usernameValidation(String uName) {
-		for (int i = 0; i < userList.numberOfUsers(); i++) {
-			if (userList.get(i).getUserName().equals(uName)) {
-				userEntering = userList.get(i);
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public boolean passwordValidation(String uPassword) {
-
-		MessageDigest messageDigest;
+		// compares inputed string to stored password(hashed)
+		MessageDigest hasher;
 		try {
-			messageDigest = MessageDigest.getInstance("SHA-256");
-			messageDigest.update(uPassword.getBytes());
-			uPassword = new String(messageDigest.digest());
+			hasher = MessageDigest.getInstance("SHA-256");
+			hasher.update(uPassword.getBytes());
+			uPassword = new String(hasher.digest());
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,29 +78,8 @@ public class UserLogin extends UIElement {
 	}
 
 	public void newUser() {
-
-		boolean uFlag = true;
-		String userName = "0";
-		do {
-			System.out.print("Enter Username: ");
-			userName = getUIn().getString();
-			if (userName.equals("0")) {
-				System.out.println("username cannot be 0");
-			} else if (usernameValidation(userName)) {
-				System.out.println("username not available");
-			} else {
-				uFlag = false;
-			}
-		} while (uFlag);
-		System.out.print("Enter First Name: ");
-		String firstName = getUIn().getString();
-		System.out.print("Enter Last Name: ");
-		String lastName = getUIn().getString();
-		System.out.print("Enter Password: ");
-		String password = getUIn().getString();
-
-		userList.addClientUser(userName, firstName, lastName, password);
-		System.out.println("User: " + userList.get(userList.numberOfUsers() - 1) + " created.");
+		// Prompts for creating new client user
+		userList.createClient(getUIn());
 	}
 
 }

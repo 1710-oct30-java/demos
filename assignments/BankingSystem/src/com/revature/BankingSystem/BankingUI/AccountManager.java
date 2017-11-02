@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import com.revature.BankingSystem.BankClasses.*;
 
 public class AccountManager extends UIElement {
-
+	/*
+	 * UI for managing a user's accounts
+	 */
 	private ClientUser currUser;
 
 	public AccountManager(ClientUser currAcc) {
@@ -14,20 +16,22 @@ public class AccountManager extends UIElement {
 		currUser = currAcc;
 	}
 
-	public boolean AccounManagment() {
-
+	public void AccounManagment() {
+		// general menu options
 		boolean accManageFlag = true;
 
 		do {
+
 			System.out.println("\n1 - Deposit into account" + "\n2 - Withdraw from account" + "\n3 - Create new account"
 					+ "\n4 - Teriminate exsiting account" + "\n5 - Transfer Funds" + "\n6 - Accounts Overview"
-					+ "\n0 - Exit account managemrent\n");
+					+ "\n0 - Exit account management\n");
 			int userMenu;
 			if (currUser.getAccounts().size() != 0) {
 				userMenu = getUIn().getInt(0, 6);
 			} else {
 				do {
 					System.out.println("No accounts for this user.\nCan only create an account or exit.");
+
 					userMenu = getUIn().getInt(0, 6);
 				} while ((userMenu != 0 && userMenu != 3));
 			}
@@ -60,11 +64,12 @@ public class AccountManager extends UIElement {
 
 		} while (accManageFlag);
 
-		return true;
 	}
 
 	private void deposit() {
+		// deposit money into an account
 		Account acc = chooseAccount();
+
 		System.out.println("Amount to deposit: ");
 		double amount = getUIn().getDouble(true);
 		acc.setBalance(acc.getBalance() + amount);
@@ -72,41 +77,55 @@ public class AccountManager extends UIElement {
 	}
 
 	private void withdraw() {
+		// withdraw money from an account. Can't go negative
 		Account acc = chooseAccount();
+
 		System.out.println("Amount to withdraw: ");
 		double amount = getUIn().getDouble(true);
 		if (acc.getBalance() - amount >= 0.0) {
 			acc.setBalance(acc.getBalance() - amount);
+
 			System.out.println("New Balance: " + acc.getBalance());
 		} else {
+
 			System.out.println("Cannot have negative balance");
 		}
 
 	}
 
 	private void create() {
+		// create and add an account
 		System.out.println("Type of Account: ");
-		String type = getUIn().getString();
+		String type = getUIn().getWord();
+
 		System.out.println("Initial balance: ");
 		double b = getUIn().getDouble(true);
 		currUser.addAccount(type, b);
+
 		System.out.println(currUser.getAccounts().get(currUser.getAccounts().size() - 1) + " Succesfully created");
 	}
 
 	private void destroy() {
+		// delete an account (only when no money in it; Don't burn money!)
 		Account acc = chooseAccount();
 		if (acc.getBalance() == 0) {
+
+			System.out.println("Account destoryed");
 			currUser.getAccounts().remove(acc);
 		} else {
+
 			System.out.println("Can only terminate account with 0 balence");
 		}
 	}
 
 	private void transfer() {
+		// transfer money between user accounts
 		System.out.println("Origin of transfer: ");
 		Account acc1 = chooseAccount();
+
 		System.out.println("Destination of transfer: ");
 		Account acc2 = chooseAccount();
+
 		System.out.println("Amount to transfer: ");
 		double amount = getUIn().getDouble(true);
 
@@ -116,12 +135,14 @@ public class AccountManager extends UIElement {
 			System.out.println(acc1 + "\n" + acc2);
 
 		} else {
+
 			System.out.println("Cannot have negative balance");
 		}
 
 	}
 
 	private void overview() {
+		// display accounts and their info
 		ArrayList<Account> userAcc = currUser.getAccounts();
 
 		System.out.println("Accounts: ");
@@ -131,6 +152,7 @@ public class AccountManager extends UIElement {
 	}
 
 	private Account chooseAccount() {
+		// choose one of your accounts
 		ArrayList<Account> userAcc = currUser.getAccounts();
 
 		System.out.println("Choose account to manage: ");
