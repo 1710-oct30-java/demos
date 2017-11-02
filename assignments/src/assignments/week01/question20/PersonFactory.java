@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * instantiates Person object hydrated using a Map of
+ * instantiates a hydrated Person object using a Map of
  * properties 
  * 
  * @author john.w.brown.jr@gmail.com

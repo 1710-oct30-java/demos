@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * transforms a Person object in/out of a
- * delimited String hash and
+ * delimited String hash
  *  
  * @author john.w.brown.jr@gmail.com
  */
