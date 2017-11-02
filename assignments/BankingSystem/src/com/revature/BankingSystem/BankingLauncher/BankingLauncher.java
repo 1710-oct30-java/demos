@@ -9,6 +9,8 @@ public class BankingLauncher {
 	static UserList userList;
 
 	public static void main(String[] args) {
+		//master admin: root
+		//password : password
 		userList = UserFile.loadUserList();
 
 		MenuControl menuControl = new MenuControl(userList);

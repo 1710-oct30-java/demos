@@ -16,7 +16,7 @@ public class UserList implements Serializable {
 	public UserList() {
 		// creates default admin user
 		userList = new ArrayList<>();
-		addAdminUser("admin", "", "", "password1");
+		addAdminUser("root", "", "", "password");
 	}
 
 	public UserList(ArrayList<User> userList) {
