@@ -35,8 +35,5 @@ public class Question17 {
 		
 		// print out the interest
 		System.out.println("Your interest is: $" + calculateInterest(principal,rate,time));
-		
-		
 	}
-
 }

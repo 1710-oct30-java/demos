@@ -1,5 +1,9 @@
 package question15;
 
+/*
+ * interface that defines the operations for question 15
+ */
+
 public interface Question15Interface {
 	int addition(int num1, int num2);
 	

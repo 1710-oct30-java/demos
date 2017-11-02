@@ -8,7 +8,7 @@ public class Question16 {
 
 	public static void main(String[] args) {
 		
-		// iterates through commmand line arguments
+		// iterates through command line arguments
 		for(String arg: args) {
 			
 			// splits the strings that are given

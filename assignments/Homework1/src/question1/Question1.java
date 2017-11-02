@@ -16,6 +16,8 @@ public class Question1 {
 		// Perform bubble sort
 		for (int i = 0; i < (myArray.length-1); i++) {
 			for (int j = 0; j < (myArray.length-i-1); j++) {
+				
+				// compare two items at a time, if 1st is larger than second, switch them
 				if( myArray[j] >= myArray[j+1]) {
 					int temp = myArray[j];
 					myArray[j] = myArray[j+1];

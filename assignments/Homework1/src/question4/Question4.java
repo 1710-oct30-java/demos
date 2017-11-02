@@ -7,11 +7,14 @@ package question4;
 
 public class Question4 {
 	
-	// perform the factorial operation
+	// perform the factorial operation using recursion
 	public static int factorial(int n) {
+		
+		// base case for recursion
 		if(n == 0) {
 			return 1;
 		}
+		// recursive call
 		else {
 			return n *factorial(n-1);
 		}

@@ -1,11 +1,12 @@
 package question15;
 
+/*
+ * class that implements the interface where all of these methods are 
+ * originally defined. basic mathematical operation
+ */
+
 public class Question15 implements Question15Interface{
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 	@Override
 	public int addition(int num1, int num2) {
 		// TODO Auto-generated method stub
