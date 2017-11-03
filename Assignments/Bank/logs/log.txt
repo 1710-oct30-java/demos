@@ -1,0 +1,6 @@
+2017-11-02 14:15:24 TRACE CurrencyOptions:44 - User Selected currency: ADP
+2017-11-02 14:15:34 TRACE CurrencyOptions:44 - User Selected currency: ZWR
+2017-11-02 14:16:11 TRACE CurrencyOptions:51 - User Selected currency: USD
+2017-11-02 14:16:36 TRACE CurrencyOptions:44 - User Selected currency: AED
+2017-11-02 14:58:40 TRACE CurrencyOptions:53 - User Selected currency: USD
+2017-11-02 15:00:16 TRACE CurrencyOptions:53 - User Selected currency: USD
