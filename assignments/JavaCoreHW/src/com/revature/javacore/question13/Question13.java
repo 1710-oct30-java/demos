@@ -17,9 +17,9 @@ public class Question13
 
 	public static void main(String[] args)
 	{
+		int rows = (arr.length / 2) - 1;
 		int row = 1;
-		int rows = 4;
- 
+		
 		// Iterate four times since there are 4 rows
         for (int i = rows; i > 0; i--)
         {
