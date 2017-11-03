@@ -19,7 +19,7 @@ public class Question20 {
 	// Age: 35 years
 	// State: Arizona State
 	public static void main(String[] args) {
-		String filename = "Data.txt";
+		String filename = "C:\\Users\\denna\\Desktop\\Git\\demos\\assignments\\src\\question20\\Data.txt";
 		String line = null;
 		
 		try {
@@ -29,7 +29,7 @@ public class Question20 {
                 String[] output = line.split(":");
                 System.out.println("Name: " + output[0] + " " + output[1]);
                 System.out.println("Age: " + output[2] + " years");
-                System.out.println("State: " + output[3] + "state");
+                System.out.println("State: " + output[3] + " State\n");
 			}
 			br.close();
 		}
