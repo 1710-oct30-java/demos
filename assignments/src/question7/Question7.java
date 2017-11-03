@@ -1,4 +1,4 @@
-package assignment1;
+package question7;
 
 import java.util.Comparator;
 
