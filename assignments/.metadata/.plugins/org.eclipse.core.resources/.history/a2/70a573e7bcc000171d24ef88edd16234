@@ -7,7 +7,7 @@ import com.BankingSystem.BankingUI.MenuControl;
 public class BankingLauncher {
 	static UserList userList;
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		//master admin: root
 		//password : password
 		userList = UserFile.loadUserList();
