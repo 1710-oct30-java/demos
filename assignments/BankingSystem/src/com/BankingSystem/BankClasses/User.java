@@ -88,7 +88,7 @@ public class User implements Serializable {
 			hasher.update(word.getBytes());
 			word = new String(hasher.digest());
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return word;

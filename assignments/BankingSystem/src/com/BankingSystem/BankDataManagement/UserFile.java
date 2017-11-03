@@ -23,7 +23,6 @@ public class UserFile {
 				try {
 					userList = (UserList) in.readObject();
 				} catch (ClassNotFoundException | IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				in.close();
@@ -35,11 +34,9 @@ public class UserFile {
 					}
 				}
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
 			// /e1.printStackTrace();
 		}
 

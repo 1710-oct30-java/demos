@@ -71,7 +71,6 @@ public class UserLogin extends UIElement {
 			hasher.update(uPassword.getBytes());
 			uPassword = new String(hasher.digest());
 		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return userEntering.getPassword().equals(uPassword);

@@ -11,7 +11,6 @@ public class Q20 {
 		try {
 			reader = new Scanner(new File("Data.txt"));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (reader != null) {
