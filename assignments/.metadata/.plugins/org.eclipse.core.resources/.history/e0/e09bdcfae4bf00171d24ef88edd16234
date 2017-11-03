@@ -1,0 +1,55 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.ArrayList;
+
+import com.revature.BankingSystem.BankClasses.Account;
+import com.revature.BankingSystem.BankClasses.ClientUser;
+import com.revature.BankingSystem.BankDataManagement.UserList;
+
+public class UserManager extends UIElement {
+	/*
+	 * UI for admins managing users and users' accounts
+	 */
+	private UserList userList;
+	private AccountManager accMan;
+
+	public UserManager(UserList userList) {
+		super();
+		this.userList = userList;
+	}
+
+	public void UserManagment() {
+		
+boolean accManageFlag = true;
+		
+		do {
+			
+			System.out.println("\n1 - Manage a Client's account(s)" + "\n2 -Remove an User" + "\n3 - Create new Client User"
+					+ "\n4 - Create new Admin User" + "\n5 - User Overview"
+					+ "\n0 - Exit User Management\n");
+			int userMenu;
+			if (userList.getClientList().size() != 0) {
+				userMenu = getUIn().getInt(0, 5);
+			} else {
+				do {
+					System.out.println("No Clients cannot manage client accounts");
+					
+					userMenu = getUIn().getInt(0, 6);
+				} while ((userMenu != 0 && userMenu != 3));
+			}
+		}while();
+		
+	}
+
+	private ClientUser chooseClient() {
+
+		System.out.println("Choose User to manage: ");
+		for (int i = 0; i < userList.getClientList().size(); i++) {
+			System.out.println("" + (i + 1) + " - " + userList.getClientList().get(i));
+		}
+
+		int userMenu = getUIn().getInt(1, userList.getClientList().size()) - 1;
+
+		return userList.getClientList().get(userMenu);
+	}
+}

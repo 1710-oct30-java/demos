@@ -1,0 +1,26 @@
+package com.revature.streams;
+
+import java.util.ArrayList;
+
+public class fruityStreams {
+	public static void main(String[] args) {
+		ArrayList<Item> itemList = new ArrayList<>();
+		itemList.add(new Item("Banana", "Fruit", 10.00));
+		itemList.add(new Item("tv", "electronics", 100.00));
+		itemList.add(new Item("apple", "Fruit", 8.00));
+		itemList.add(new Item("tomato", "Fruit", 5.00));
+		itemList.add(new Item("Beef", "meat", 20.00));
+		itemList.add(new Item("kiwi", "Fruit", 12.00));
+		itemList.add(new Item("canned soup", "canned", 10.00));
+		itemList.add(new Item("chips", "snack", 9.00));
+		itemList.add(new Item("cookies", "snack", 10.00));
+		
+		Double totalFruitPrice = itemList.parallelStream().filter(item -> {
+			if ("Fruit".equals(item.type)) {
+				return true;
+			}
+			return false;
+		}).map(item -> item.price).reduce((acc, cur) -> acc + cur).get();
+		System.out.println(totalFruitPrice);
+	}
+}

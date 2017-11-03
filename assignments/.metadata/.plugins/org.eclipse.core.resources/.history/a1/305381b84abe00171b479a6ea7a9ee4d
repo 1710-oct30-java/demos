@@ -1,0 +1,10 @@
+package com.revature.Homework1.Q20;
+
+
+
+public class Q20 {
+
+	public static void main(String[] args) throws IOException {
+		List<String> lines = Files.readAllLines(Paths.get(Data.txt), encoding);
+
+}

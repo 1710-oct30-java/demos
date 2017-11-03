@@ -1,0 +1,40 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.revature.BankingSystem.BankClasses.*;
+
+
+public class UserLogin {
+	
+	private static ArrayList<User> userList;
+	
+	public static void login(ArrayList<User> uList) {
+		userList = uList;
+		boolean displayFlag = true;
+		Scanner userInput = new Scanner(System.in);
+		
+		System.out.print("Enter Username: ");
+		String uName = null;
+		do {
+			System.out.print("Enter Username: ");
+			uName = userInput.nextLine();
+			if(usernameValidation(uName)) {
+				displayFlag = false;
+			}else {
+				System.out.print("Invalid Username\n");
+			}
+		}while(displayFlag);
+		
+	}
+	
+	public static boolean usernameValidation(String uName) {
+		for(User ele : userList) {
+			if(ele.getUserName() == uName) {
+				return true;
+			}
+		}
+		return false;
+	}
+}

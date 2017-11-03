@@ -1,0 +1,10 @@
+package com.revature.Homework1.Q20;
+
+import java.util.List;
+
+public class Q20 {
+
+	public static void main(String[] args){
+		List<String> lines = Files.readAllLines(Paths.get(Data.txt), encoding);
+
+}

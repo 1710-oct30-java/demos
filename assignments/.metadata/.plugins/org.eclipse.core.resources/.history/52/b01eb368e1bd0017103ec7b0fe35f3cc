@@ -1,0 +1,24 @@
+package com.revature.Homework1.Q14;
+
+import java.util.Calendar;
+
+public class Q14 {
+	public static void main(String[] args) {
+		for(int i = 1; i <= 3; i++) {
+			switch(i) {
+				case 1:
+					System.out.println("sqrt 16 = " +Math.sqrt(16.0));
+					break;
+				case 2:
+					//Date today = new Date();
+					Calendar myCalender = Calendar.getInstance();
+					System.out.println("Today's date is "+ myCalender);
+					break;
+				case 3:
+					break;
+				default:
+					break;
+			}
+		}
+	}
+}

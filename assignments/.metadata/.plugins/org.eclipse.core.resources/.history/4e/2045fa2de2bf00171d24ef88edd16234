@@ -1,0 +1,8 @@
+package com.revature.BankingSystem.BankingUI;
+
+public class UserManager extends UIElement{
+	/*
+	 * UI for admins managing users' accounts
+	 */
+	
+}

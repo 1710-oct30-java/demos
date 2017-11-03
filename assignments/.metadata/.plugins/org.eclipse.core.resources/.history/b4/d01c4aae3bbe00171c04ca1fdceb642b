@@ -1,0 +1,5 @@
+package com.revature.Homework1.Q15;
+
+public interface operations<T> {
+	public T addition(T arg0, T arg1);
+}

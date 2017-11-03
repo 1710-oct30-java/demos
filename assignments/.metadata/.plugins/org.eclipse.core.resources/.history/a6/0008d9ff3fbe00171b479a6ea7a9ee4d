@@ -1,0 +1,13 @@
+package com.revature.Homework1.Q17;
+
+import java.util.Scanner;
+
+public class Q17 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		float = (float)(input.nextLine()+"f");
+		input.close();
+	}
+
+}

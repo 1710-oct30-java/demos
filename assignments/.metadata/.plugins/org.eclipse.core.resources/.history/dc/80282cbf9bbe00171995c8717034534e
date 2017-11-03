@@ -1,0 +1,10 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.Scanner;
+
+public class AccountManager {
+	private Scanner userInput;
+	public boolean AccounManagment() {
+		return true;
+	}
+}

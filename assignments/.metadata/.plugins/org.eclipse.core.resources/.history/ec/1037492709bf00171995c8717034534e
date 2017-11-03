@@ -1,0 +1,31 @@
+package com.revature.BankingSystem.BankingLauncher;
+
+import java.util.ArrayList;
+
+import com.revature.BankingSystem.BankClasses.*;
+import com.revature.BankingSystem.BankingUI.*;
+
+public class BankingLauncher {
+	static ArrayList<User> userList;
+
+	public static void main(String[] args) {
+		RegularUser UserA = new RegularUser( "john123", "John", "Doe", "password");
+		UserA.addAccount(new Account("checking", 100.00, UserA));
+		UserA.addAccount(new Account("checking", 100.00, UserA));
+		UserA.addAccount(new Account("checking", 100.00, UserA));
+		UserA.addAccount(new Account("checking", 100.00, UserA));
+		
+		RegularUser UserB = new RegularUser( "john1234", "John", "Doe", "password");
+		UserB.addAccount(new Account("checking", 100.00, UserB));
+		
+		userList = new ArrayList<>();
+		userList.add(UserA);
+		userList.add(UserB);
+		System.out.println(UserA);
+		//System.out.println(UserA.getAccounts().get(0));
+		UserLogin UL = new UserLogin();
+		UL.login(userList);
+		//AccountManager.AccounManagment(UserA);
+	}
+
+}

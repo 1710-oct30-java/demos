@@ -1,0 +1,8 @@
+package com.revature.streams;
+
+public class Item {
+	public String name;
+	public String type;
+	public double price;
+	
+}

@@ -1,0 +1,19 @@
+package com.revature.Homework1.Q13;
+
+public class Q13 {
+	public static void main(String[] args) {
+		
+		String prevString = "";
+		boolean right = true;
+		for(int i = 0; i<4; i++) {
+			
+			
+			//place number on left side or right
+			//initial 0 is on the 'right' of nothing
+			
+			if(i%2 != 0) {right = false;}
+			
+			
+		}
+	}
+}

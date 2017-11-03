@@ -1,0 +1,9 @@
+package com.revature.testable;
+
+import java.util.ArrayList;
+
+public class Testable {
+	public ArrayList<Integer> TestingMethod(ArrayList<Integer> ints){
+		ArrayList<Intger> newInts = new ArrayList<>();
+	}
+}

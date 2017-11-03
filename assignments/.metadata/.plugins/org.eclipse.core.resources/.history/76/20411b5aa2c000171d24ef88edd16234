@@ -1,0 +1,20 @@
+package com.revature.unit.tests;
+
+import java.util.ArrayList;
+
+import org.apache.log4j.Logger;
+import org.junit.Before;
+import org.junit.BeforeClass;
+
+public class TestClass {
+	public static Logger Log = Logger.getRootLogger();
+	public ArrayList<Integer> intList;
+	@BeforeClass
+	public static void beforeAllTests() {
+		Log.info("before the tests");
+	}
+	@Before
+	public void beforeEachTest() {
+		intList = new ArrayList<Integer>();
+	}
+}

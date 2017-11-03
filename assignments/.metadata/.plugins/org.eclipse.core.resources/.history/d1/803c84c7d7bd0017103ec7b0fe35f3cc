@@ -1,0 +1,10 @@
+package com.revature.Homework1.Q8;
+
+import java.util.ArrayList;
+
+public class Q8 {
+	public static void main(String[] args) {
+		ArrayList<String> palindromes = new ArrayList<String>();
+		ArrayList<String> otherStrings = new ArrayList<String>();
+	}
+}

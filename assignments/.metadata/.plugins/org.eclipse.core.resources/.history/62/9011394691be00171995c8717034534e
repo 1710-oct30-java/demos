@@ -1,0 +1,12 @@
+package com.revature.BankingSystem.BankingLauncher;
+
+import com.revature.BankingSystem.BankClasses.*;
+
+public class BankingLauncher {
+
+	public static void main(String[] args) {
+		RegularUser UserA = new RegularUser(1234, "john123", 
+				"John", "Doe","password");
+	}
+
+}

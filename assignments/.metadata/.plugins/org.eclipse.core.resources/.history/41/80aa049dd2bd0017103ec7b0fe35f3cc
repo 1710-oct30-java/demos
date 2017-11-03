@@ -1,0 +1,49 @@
+package com.revature.Homework1.Q7;
+
+import java.util.Comparator;
+
+public class Employee {
+	private String Name;
+	private String Department;
+	private int Age;
+	
+	
+	
+	public Employee(String name, String department, int age) {
+		Name = name;
+		Department = department;
+		Age = age;
+	}
+	public String getName() {
+		return Name;
+	}
+	public void setName(String name) {
+		Name = name;
+	}
+	public String getDepartment() {
+		return Department;
+	}
+	public void setDepartment(String department) {
+		Department = department;
+	}
+	public int getAge() {
+		return Age;
+	}
+	public void setAge(int age) {
+		Age = age;
+	}
+	class SortEmployeeByName implements Comparator<Employee>{
+		public int compare(Employee a, Employee b)
+	    {
+		    int result = a.getName().compareToIgnoreCase(b.getName());
+	        return(result/Math.abs(result));
+	    }
+	}
+	class SortEmployeeByDepartment implements Comparator<Employee>{
+		public int compare(Employee a, Employee b)
+	    {
+		    int result = a.getDepartment().compareToIgnoreCase(b.getDepartment());
+	        return(result/Math.abs(result));
+	    }
+	}
+}

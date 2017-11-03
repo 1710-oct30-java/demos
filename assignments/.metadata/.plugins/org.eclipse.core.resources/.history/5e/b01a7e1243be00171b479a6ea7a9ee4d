@@ -1,0 +1,23 @@
+package com.revature.Homework1.Q18;
+
+public class Child extends Parent{
+
+	@Override
+	public boolean uppercaseLettersExist(String arg) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean upperToLower(String arg) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void toIntAdd10(String arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

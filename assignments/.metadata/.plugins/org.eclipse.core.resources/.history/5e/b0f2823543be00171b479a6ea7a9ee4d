@@ -1,0 +1,30 @@
+package com.revature.Homework1.Q18;
+
+import java.nio.CharBuffer;
+
+public class Child extends Parent{
+	private CharBuffer capList;
+	
+	public Child() {
+		capList = CharBuffer.allocate(26)
+	}
+	
+	@Override
+	public boolean uppercaseLettersExist(String arg) {
+		if(arg.contains(s))
+		return false;
+	}
+
+	@Override
+	public boolean upperToLower(String arg) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void toIntAdd10(String arg) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

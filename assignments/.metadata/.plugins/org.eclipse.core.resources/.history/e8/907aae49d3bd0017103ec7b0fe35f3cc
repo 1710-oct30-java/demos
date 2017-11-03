@@ -1,0 +1,10 @@
+package com.revature.Homework1.Q7;
+
+
+public class Q7 {
+	public static void main(String[] args) {
+		String[] names = {"Bob","Steve","Alice","Bob"};
+		String[] departments = {"Sales","HR","Sales","IT"};
+		int[] ages = {30,32,40,33};
+	}
+}

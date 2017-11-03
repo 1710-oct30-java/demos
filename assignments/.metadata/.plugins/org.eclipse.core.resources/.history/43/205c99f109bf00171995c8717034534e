@@ -1,0 +1,30 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.Scanner;
+
+public class UserInput {
+	
+	private Scanner userInput;
+	
+	public UserInput() {
+		userInput = new Scanner(System.in);
+	}
+	
+	public String getString() {
+		return userInput.next();
+	}
+	public int getInt() {
+		return userInput.nextInt();
+	}
+	public int getInt(int a, int b) {
+		int in = userInput.nextInt();
+		while(in >= a && in <= b) {
+			
+		}
+		
+		return userInput.nextInt();
+	}
+	public double getDouble() {
+		return userInput.nextDouble();
+	}
+}

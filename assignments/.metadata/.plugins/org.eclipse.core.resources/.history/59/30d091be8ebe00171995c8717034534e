@@ -1,0 +1,32 @@
+package com.revature.BankingSystem.BankBeans;
+
+public class Account {
+	private int accId;
+	private String accType;
+	private double balence;
+	
+	public int getAccId() {
+		return accId;
+	}
+	public void setAccId(int accId) {
+		this.accId = accId;
+	}
+	public String getAccType() {
+		return accType;
+	}
+	public void setAccType(String accType) {
+		this.accType = accType;
+	}
+	public double getBalence() {
+		return balence;
+	}
+	public void setBalence(double balence) {
+		this.balence = balence;
+	}
+	
+	@Override
+	public String toString() {
+		return "Account [accId=" + accId + ", accType=" + accType + ", balence=" + balence + "]";
+	}
+	
+}

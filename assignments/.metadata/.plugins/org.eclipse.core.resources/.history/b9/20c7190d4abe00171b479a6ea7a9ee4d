@@ -1,0 +1,17 @@
+package com.revature.Homework1.Q20;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class Q20 {
+
+	public static void main(String[] args) throws IOException {
+		try {
+			FileInputStream reader = new FileInputStream("Data.txt");
+		 }finally {
+	         if (in != null) {
+	            in.close();
+	         }
+	}
+
+}

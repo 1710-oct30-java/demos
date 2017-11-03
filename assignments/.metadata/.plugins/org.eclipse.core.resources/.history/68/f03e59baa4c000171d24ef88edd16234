@@ -1,0 +1,28 @@
+package com.revature.testable;
+
+import java.util.ArrayList;
+
+public class Testable {
+	public ArrayList<Integer> TestingMethod(ArrayList<Integer> ints){
+		ArrayList<Integer> newInts = new ArrayList<Integer>();
+		for(int i : ints) {
+			newInts.add(i*2);
+		}
+		return newInts;
+	}
+	public ArrayList<Integer> Bubblesort(ArrayList<Integer> input) {
+		for(int i = 0; i < input.size(); i++) {
+			
+			for(int j = 0; j <input.size()-1-i; j++) {
+				//check neighbors
+				if(input.get(j) > input.get(j+1)) {
+					//swap
+					input.set(j+1,input.get(j) + input.get(j+1));
+					input.get(j) = input.get(j+1)-  input.get(j));
+					input.get(j+1) = input.get(j+1)-  input.get(j));
+				}
+			}
+		}
+		return input;
+	}
+}

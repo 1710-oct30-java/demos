@@ -1,0 +1,14 @@
+package com.revature.Homework1.Q15;
+
+public class pairs {
+	private int x;
+	private int y;
+	public pairs() {
+		x = 0;
+		y = 0;
+	}
+	pairs(int a,int b){
+		x = a;
+		y = b;
+	}
+}

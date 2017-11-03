@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;log4j.properties&apos; to &apos;Week1Day5/src/main/resources&apos;&#x0A;- Original project: &apos;Week1Day5&apos;&#x0A;- Destination element: &apos;Week1Day5/src/main/resources&apos;&#x0A;- Original element: &apos;log4j.properties&apos;&#x0A;- Update references to refactored element" description="Move file" destination="/src\/main\/resources" element1="src/test/resources/log4j.properties" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1509716248829" units="0" version="1.0"/>
+</session>

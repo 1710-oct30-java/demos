@@ -1,0 +1,58 @@
+package com.revature.BankingSystem.BankingUI;
+
+import com.revature.BankingSystem.BankClasses.ClientUser;
+import com.revature.BankingSystem.BankClasses.ManagerUser;
+import com.revature.BankingSystem.BankClasses.User;
+import com.revature.BankingSystem.BankDataManagement.UserList;
+
+public class MenuControl {
+
+	private User currentUser;
+	UserList userList;
+
+	private AccountManager accMan;
+	private UserLogin uLogin;
+	private MainMenu mm;
+
+	public MenuControl(UserList uList) {
+		uLogin = new UserLogin();
+
+		userList = uList;
+		currentUser = uLogin.login(userList);
+		if(currentUser.getClass() == ClientUser.class) {
+			accMan = new AccountManager((ClientUser) currentUser);
+		}else if(currentUser.getClass() == ManagerUser.class) {
+			
+		}
+	}
+
+	public void mainMenu() {
+
+		mm = new MainMenu();
+		int userInput = 0;
+		do {
+			userInput = mm.mainMenu(currentUser);
+			if (userInput != -1) {
+				switch (userInput) {
+				case 0:
+					
+					currentUser = uLogin.login(userList);
+					break;
+				case 1:
+					
+					if(currentUser.getClass() == ClientUser.class) {
+						accMan.AccounManagment();
+					}else if(currentUser.getClass() == ManagerUser.class) {
+						
+					}
+					
+					
+					break;
+				default:
+					break;
+				}
+			}
+		} while (userInput != -1);
+	}
+
+}

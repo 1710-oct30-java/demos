@@ -1,0 +1,7 @@
+package com.revature.BankingSystem.BankClasses;
+
+import java.util.ArrayList;
+
+public class ManagerUser extends User{
+	private ArrayList<ClientUser> cilents;
+}

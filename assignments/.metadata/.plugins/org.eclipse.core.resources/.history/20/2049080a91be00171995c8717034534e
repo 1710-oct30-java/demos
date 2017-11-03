@@ -1,0 +1,11 @@
+package com.revature.BankingSystem.BankingLauncher;
+
+import com.revature.BankingSystem.BankClasses.*;
+
+public class BankingLauncher {
+
+	public static void main(String[] args) {
+		User UserA = new User();
+	}
+
+}

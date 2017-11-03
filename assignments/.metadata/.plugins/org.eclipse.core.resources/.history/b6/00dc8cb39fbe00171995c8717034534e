@@ -1,0 +1,19 @@
+package com.revature.BankingSystem.BankingLauncher;
+
+import java.util.ArrayList;
+
+import com.revature.BankingSystem.BankClasses.*;
+import com.revature.BankingSystem.BankingUI.*;
+
+public class BankingLauncher {
+
+	public static void main(String[] args) {
+		RegularUser UserA = new RegularUser(1234, "john123", "John", "Doe", "password");
+		UserA.addAccount(new Account(0, "checking", 100.00, UserA));
+		ArrayList<User> userList = new ArrayList<>();
+		userList.add(UserA);
+		System.out.println(UserA);
+		//UserLogin.login(userList);
+	}
+
+}

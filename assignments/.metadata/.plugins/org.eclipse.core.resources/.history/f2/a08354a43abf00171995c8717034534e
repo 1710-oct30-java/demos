@@ -1,0 +1,18 @@
+package com.revature.BankingSystem.BankingLauncher;
+
+import com.revature.BankingSystem.BankClasses.ClientUser;
+import com.revature.BankingSystem.BankDataManagement.UserFile;
+import com.revature.BankingSystem.BankDataManagement.UserList;
+
+import com.revature.BankingSystem.BankingUI.MenuControl;
+
+public class BankingLauncher {
+	static UserList userList;
+
+	public static void main(String[] args) {
+		userList = UserFile.loadUserList();
+		System.out.println(userList);
+		MenuControl MC = new MenuControl();
+	}
+
+}

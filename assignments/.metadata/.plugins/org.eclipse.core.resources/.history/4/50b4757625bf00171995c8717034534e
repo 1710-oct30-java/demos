@@ -1,0 +1,22 @@
+package com.revature.BankingSystem.BankUserManagement;
+
+import java.util.ArrayList;
+
+import com.revature.BankingSystem.BankClasses.*;
+
+public class UserList {
+	private ArrayList<User> userList = new ArrayList<>();
+	
+	public UserList() {
+		userList = new ArrayList<>();
+	}
+	public UserList(ArrayList<User> userList) {
+		this.userList = userList;
+	}
+	public void addClientUser(String userName, String firstName, String lastName, String password) {
+		userList.add(new ClientUser( userName, firstName, lastName, password));
+	}
+	public void addClientUser(ClientUser newClient) {
+		userList.add(newClient);
+	}
+}

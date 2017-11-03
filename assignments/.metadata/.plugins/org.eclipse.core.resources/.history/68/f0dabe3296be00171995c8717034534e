@@ -1,0 +1,7 @@
+package com.revature.BankingSystem.BankingUI;
+
+public class UserLogin {
+	public void login() {
+		
+	}
+}

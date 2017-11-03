@@ -1,0 +1,24 @@
+package com.revature.Homework1.Q20;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class Q20 {
+
+	public static void main(String[] args) {
+		List<String> lines;
+		try {
+			lines = Files.readAllLines(Paths.get("Data.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (lines != null) {
+			System.out.println(lines);
+		}
+		
+	}
+
+}

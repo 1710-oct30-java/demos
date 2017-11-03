@@ -1,0 +1,15 @@
+package com.revature.Homework1.Q17;
+
+import java.util.Scanner;
+
+public class Q17 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter principal: ");
+		Float principal = new Float(input.nextLine()+"f");
+		System.out.println(principal);
+		input.close();
+	}
+
+}

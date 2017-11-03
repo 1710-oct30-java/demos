@@ -1,0 +1,17 @@
+package com.revature.Homework1.Q13;
+
+public class Q13 {
+	public static void main(String[] args) {
+		for(int i = 0; i<4; i++) {
+			switch(i%4):
+				case 0:
+					break;
+				case 1:
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+		}
+	}
+}

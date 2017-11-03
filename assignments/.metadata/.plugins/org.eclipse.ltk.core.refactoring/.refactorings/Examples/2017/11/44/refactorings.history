@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.revature.streams.Fruit&apos; to &apos;Item&apos;&#x0A;- Original project: &apos;Examples&apos;&#x0A;- Original element: &apos;com.revature.streams.Fruit&apos;&#x0A;- Renamed element: &apos;com.revature.streams.Item&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Fruit&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.revature.streams{Fruit.java[Fruit" matchStrategy="1" name="Item" qualified="false" references="true" similarDeclarations="false" stamp="1509560751738" textual="false" version="1.0"/>
+</session>

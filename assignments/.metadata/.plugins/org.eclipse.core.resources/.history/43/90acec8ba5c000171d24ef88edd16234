@@ -1,0 +1,45 @@
+package com.revature.unit.tests;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertSame;
+
+import java.util.ArrayList;
+
+import org.apache.log4j.Logger;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.revature.testable.Testable;
+
+public class TestClass {
+	public static Logger Log = Logger.getRootLogger();
+	public ArrayList<Integer> intList;
+	public Testable tc;
+	@BeforeClass
+	public static void beforeAllTests() {
+		Log.info("before the tests");
+	}
+	@Before
+	public void beforeEachTest() {
+		intList = new ArrayList<Integer>();
+		for(int i = 10; i > 0; i--) {
+			intList.add(i);
+		}
+		tc = new Testable();
+	}
+	@Test
+	public void intTest() {
+		ArrayList<Integer> newIntList = new ArrayList<Integer>();
+		for(int i = 1; i <= 10; i++) {
+			newIntList.add(i);
+		}
+		assertEquals(newIntList,tc.Bubblesort(intList));
+	}
+	
+	@Test
+	public void oriTest() {
+		assertNotSame(intList,tc.Bubblesort(intList));
+	}
+}

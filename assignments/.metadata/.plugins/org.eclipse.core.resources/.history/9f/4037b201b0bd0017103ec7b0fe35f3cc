@@ -1,0 +1,7 @@
+package com.revature.Homework1.Q7;
+
+public class Employee {
+	private String Name;
+	private String Department;
+	private int age;
+}

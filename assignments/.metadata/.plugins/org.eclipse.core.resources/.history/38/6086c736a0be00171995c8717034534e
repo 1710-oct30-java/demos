@@ -1,0 +1,83 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.revature.BankingSystem.BankClasses.*;
+
+public class AccountManager {
+
+	private static Scanner userInput;
+	private static RegularUser currUser;
+	
+
+	public static boolean AccounManagment(RegularUser currAcc) {
+		userInput = new Scanner(System.in);
+		currUser = currAcc;
+		boolean accManageFlag = true;
+
+		do {
+			System.out.print("1 - Deposit into account" + "\n2 - Withdraw from account" + "\n3 - Create new account"
+					+ "\n4 - Teriminate exsiting account" + "\n5 - Transfer Funds" + "\n0 - Exit account managemrent");
+			int userMenu = userInput.nextInt();
+
+			switch (userMenu) {
+			case 0:
+				accManageFlag = false;
+				break;
+			case 1:
+				deposit();
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			default:
+				break;
+			}
+
+		} while (accManageFlag);
+
+		userInput.close();
+		return true;
+	}
+
+	private static void deposit() {
+		Account acc = chooseAccount();
+		System.out.println("Amount to add: ");
+		double amount = userInput.nextDouble();
+		acc.setBalence(acc.getBalence()+amount);
+	}
+
+	private void withdraw() {
+
+	}
+
+	private void create() {
+
+	}
+
+	private void destroy() {
+
+	}
+	private void transfer() {
+
+	}
+	private Account chooseAccount() {
+		ArrayList<Account> userAcc = currUser.getAccounts();
+		
+		System.out.println("Choose account to manage: ");
+		for(int i = 0; i < userAcc.size(); i++) {
+			System.out.println("" + i + " - " +userAcc.get(i));
+		}
+		userInput = new Scanner(System.in);
+		int userMenu = userInput.nextInt();
+		userInput.close();
+		return userAcc.get(userMenu);
+	}
+	
+}

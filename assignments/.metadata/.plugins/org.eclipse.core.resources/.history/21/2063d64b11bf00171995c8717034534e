@@ -1,0 +1,72 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.ArrayList;
+
+import com.revature.BankingSystem.BankClasses.*;
+
+
+public class UserLogin extends UIElement {
+	
+	private ArrayList<User> userList;
+	private User userEntering;
+	
+	public UserLogin() {
+		super();
+	}
+	
+	public User login(ArrayList<User> uList) {
+		
+		userList = uList;
+		
+		boolean cancel;
+		do {
+			cancel = false;
+			boolean displayFlag = true;
+			String uName = null;
+			do {
+				System.out.print("Enter Username: ");
+				uName = getUIn().getString();
+				if(usernameValidation(uName)) {
+					displayFlag = false;
+				}else {
+					System.out.print("Invalid Username\n");
+				}
+			}while(displayFlag);
+			
+			displayFlag = true;
+			String uPassword = null;
+			do {
+				System.out.print("Enter 0 to cancel login\nEnter Password: ");
+				uPassword = getUIn().getString();
+				if(uPassword.equals("0")) {
+					displayFlag = false;
+					cancel = true;
+				}else if(passwordValidation(uPassword)) {
+					displayFlag = false;
+				}else {
+					System.out.print("Invalid Username/Password Combonation\n");
+				}
+			}while(displayFlag);
+		}while(cancel);
+		
+		return userEntering;
+		
+	}
+	
+	public void passwordEntry() {
+		
+	}
+	
+	public boolean usernameValidation(String uName) {
+		for(User ele : userList) {
+			if(ele.getUserName().equals(uName)) {
+				userEntering = ele;
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean passwordValidation(String uPassword) {
+		return userEntering.getPassword().equals(uPassword);
+	}
+}

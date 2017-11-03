@@ -1,0 +1,7 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.Scanner;
+
+public class UserInput {
+	private Scanner userInput;
+}

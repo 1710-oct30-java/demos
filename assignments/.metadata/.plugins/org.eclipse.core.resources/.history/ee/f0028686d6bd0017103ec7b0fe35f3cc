@@ -1,0 +1,35 @@
+package com.revature.Homework1.Q7;
+
+import java.util.ArrayList;
+
+public class Q7 {
+	public static void main(String[] args) {
+		String[] names = {"Bob","Steve","Alice","Bob"};
+		String[] departments = {"Sales","HR","Sales","IT"};
+		int[] ages = {30,32,40,33};
+		
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		
+		for(int i = 0; i < 4; i++) {
+			employees.add(new Employee(names[i], departments[i], ages[i]));
+		}
+		
+		System.out.println("Original List: \n");
+		for(int i = 0; i < employees.size();i++) {
+			System.out.println(employees.get(i).toString() + "\n");
+		}
+		
+		for(int i = 0; i < employees.size(); i++) {
+			for(int j = 0; j <employees.size()-1-i; j++) {
+				//check neighbors
+				if(employees.get(j) > employees.get(j+1)) {
+					//swap
+					employee temp = employees.get(j);
+					employees.at(j) = iemployees.get(j+1);
+					employees.get(j+1) = temp;
+				}
+			}
+		}
+	}
+	
+}

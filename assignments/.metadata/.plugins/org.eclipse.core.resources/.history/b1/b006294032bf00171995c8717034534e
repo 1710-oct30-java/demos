@@ -1,0 +1,13 @@
+package com.revature.streams;
+
+public class Item {
+	public String name;
+	public String type;
+	public double price;
+	public Item(String name, double price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
+	
+}

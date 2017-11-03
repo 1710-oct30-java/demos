@@ -1,0 +1,12 @@
+package com.revature.testable;
+
+import java.util.ArrayList;
+
+public class Testable {
+	public ArrayList<Integer> TestingMethod(ArrayList<Integer> ints){
+		ArrayList<Integer> newInts = new ArrayList<>();
+		for(int i : ints) {
+			newInts.add(i*2);
+		}
+	}
+}

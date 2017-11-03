@@ -1,0 +1,14 @@
+package com.revature.BankingSystem.BankingUI;
+
+import com.revature.BankingSystem.BankClasses.User;
+
+public class MenuControl {
+	
+	private  User currentUser;
+	
+	private AccountManager accMan;
+	private UserLogin uLogin;
+	
+	
+
+}

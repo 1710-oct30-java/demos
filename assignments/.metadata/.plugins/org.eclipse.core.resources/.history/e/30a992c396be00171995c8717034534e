@@ -1,0 +1,22 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.revature.BankingSystem.BankClasses.User;
+
+public class UserLogin {
+	
+	private ArrayList<User> userList;
+	
+	public void login(ArrayList<User> uList) {
+		userList = uList;
+		Scanner userInput = new Scanner(System.in);
+		System.out.print("Enter Username: ");
+	}
+	public boolean usernameValidation(String uName) {
+		for(User ele : userList) {
+			
+		}
+	}
+}

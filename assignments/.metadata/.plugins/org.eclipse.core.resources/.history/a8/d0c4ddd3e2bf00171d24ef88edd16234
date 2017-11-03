@@ -1,0 +1,19 @@
+package com.revature.BankingSystem.BankingUI;
+
+import com.revature.BankingSystem.BankDataManagement.UserList;
+
+public class UserManager extends UIElement {
+	/*
+	 * UI for admins managing users and users' accounts
+	 */
+	private UserList userList;
+
+	public UserManager(UserList userList) {
+		super();
+		this.userList = userList;
+	}
+	
+	public UserManagment() {
+		
+	}
+}

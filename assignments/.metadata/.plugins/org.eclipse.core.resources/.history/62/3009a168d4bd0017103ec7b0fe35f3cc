@@ -1,0 +1,17 @@
+package com.revature.Homework1.Q7;
+
+import java.util.ArrayList;
+
+public class Q7 {
+	public static void main(String[] args) {
+		String[] names = {"Bob","Steve","Alice","Bob"};
+		String[] departments = {"Sales","HR","Sales","IT"};
+		int[] ages = {30,32,40,33};
+		
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		
+		for(int i = 0; i < 4; i++) {
+			employees.add(New Employee(names[i], departments[i], ages[i]));
+		}
+	}
+}

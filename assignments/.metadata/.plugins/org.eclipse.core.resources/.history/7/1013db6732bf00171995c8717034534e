@@ -1,0 +1,15 @@
+package com.revature.streams;
+
+public class fruityStreams {
+	
+	ArrayList<Item> ItemList = new 
+	
+	Double totalFruitPrice = itemList.parallelStream().filter( car -> {
+        if("subaru".equals(car.getMake())) {
+            return true;
+        }
+        return false;
+    })
+    .map(car -> car.getPrice())
+    .reduce((acc, cur) -> acc+cur).get();
+}

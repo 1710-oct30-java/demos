@@ -1,0 +1,33 @@
+package com.revature.BankingSystem.BankingUI;
+
+import java.util.Scanner;
+
+public class MainMenu extends UIElement{
+	
+	public MainMenu() {
+		super();
+	}
+	
+	public void mainMenu() {
+		boolean mmFlag = true;
+		Scanner userInput = new Scanner(System.in);
+		
+		
+		do {
+			
+			System.out.println("\n1 - Manage Accounts" + "\n0 - Log Out\n");
+			int mmInput = userInput.nextInt();
+			
+			switch(mmInput) {
+			case 0:
+				break;
+			case 1:
+				break;
+			default:
+				break;
+			}
+		}while(mmFlag);
+		
+		userInput.close();
+	}
+}

@@ -1,0 +1,19 @@
+package com.revature.Homework1.Q14;
+
+public class Q14 {
+	public static void main(String[] args) {
+		for(int i = 1; i <= 3; i++) {
+			switch(i) {
+				case 1:
+					Math.sqrt(16.0);
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				default:
+					break;
+			}
+		}
+	}
+}

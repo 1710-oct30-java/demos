@@ -1,0 +1,17 @@
+package com.revature.streams;
+
+import java.util.ArrayList;
+
+public class fruityStreams {
+	public static void main(String[] args) {
+		ArrayList<Item> itemList = new ArrayList<>();
+		itemList.add(new Item("Banana", "Fruit", 10.00));
+
+		Double totalFruitPrice = itemList.parallelStream().filter(item -> {
+			if ("Fruit".equals(item.type)) {
+				return true;
+			}
+			return false;
+		}).map(item -> item.price).reduce((acc, cur) -> acc + cur).get();
+	}
+}

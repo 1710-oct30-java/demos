@@ -1,0 +1,12 @@
+package com.revature.BankingSystem.BankingUI;
+
+public class MainMenu {
+	public void mainMenu() {
+		boolean mmFlag = true;
+		do {
+		
+		System.out.println("\n1 - Manage Accounts" + "\n0 - Log Out\n");
+		
+		}while(mmFlag);
+	}
+}

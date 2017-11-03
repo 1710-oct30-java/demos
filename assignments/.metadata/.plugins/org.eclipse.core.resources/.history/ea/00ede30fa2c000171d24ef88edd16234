@@ -1,0 +1,7 @@
+package com.revature.unit.tests;
+
+import org.apache.log4j.Logger;
+
+public class TestClass {
+	public static Logger Log = Logger.getRootLogger();
+}

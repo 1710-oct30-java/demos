@@ -1,0 +1,6 @@
+package com.revature.Homework1.Q18;
+
+public abstract class Parent {
+	public abstract boolean uppercaseLettersExist();
+	public abstract boolean uppercaseLettersExist();
+}

@@ -1,0 +1,11 @@
+package com.revature.launcher;
+
+import org.apache.log4j.Logger;
+
+public class launcher {
+	private static Logger Log = Logger.getRootLogger();
+	public static void main(String[] args) {
+		
+		
+	}
+}

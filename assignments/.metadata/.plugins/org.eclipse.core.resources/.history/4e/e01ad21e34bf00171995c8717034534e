@@ -1,0 +1,5 @@
+package com.revature.BankingSystem.BankDataManagement;
+
+public class UserSaving {
+	
+}

@@ -1,0 +1,32 @@
+package com.revature.BankingSystem.BankClasses;
+
+import java.util.ArrayList;
+
+public class RegularUser extends User{
+	private ArrayList<Account> Accounts;
+	
+	public RegularUser() {
+		super();
+		Accounts = new ArrayList<Account>();
+	}
+		
+	public RegularUser(int userId, String userName, 
+			String firstName, String lastName,String password ) {
+		super(userId,userName,firstName,lastName,password);
+		Accounts = new ArrayList<Account>();
+	}
+	public void addAccount(Account newAcc) {
+		Accounts.add(newAcc);
+	}
+	public void removeAccount(int i) {
+		Accounts.remove(i);
+	}
+	public Account getAccount(int i) {
+		return Accounts.get(i);
+	}
+
+	@Override
+	public String toString() {
+		return "RegularUser [Accounts=" + Accounts + "]";
+	}
+}
