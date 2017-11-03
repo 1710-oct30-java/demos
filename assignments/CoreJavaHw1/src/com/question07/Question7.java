@@ -6,27 +6,24 @@ public class Question7
 {
 	public static void main(String[] args)
 	{
-		Employee john = new Employee("John", "Sales", 27);
-		Employee mark = new Employee("Mark", "Sales", 25);
-		Employee carlos = new Employee("John", "Admin", 39);
+		Employee mark = new Employee("Mark", "Acquisitions", 25);
 		Employee chris = new Employee("Chris", "IT", 25);
 		
-		EmployeeComparator ec = new EmployeeComparator();
+		NameComparator nc = new NameComparator();
+		DepComparator dc = new DepComparator();
+		AgeComparator ac = new AgeComparator();
 		
-		Employee[] staff = new Employee[] { john, mark, carlos, chris };
+		int nameDiff = nc.compare(mark, chris);
+		int DepDiff = dc.compare(mark, chris);
+		int ageDiff = ac.compare(mark, chris);
 		
-		// Compare each Employee to each Employee, including itself
-		for (int i = 0; i < staff.length; i++)
-		{
-			for (int j = 0; j < staff.length; j++)
-			{
-				int diff = ec.compare(staff[i], staff[j]);
-				
-				// print comparison
-				System.out.println(staff[i].getDep() + " " + staff[i].getName() + " vs. "
-						+ staff[j].getDep() + " " + staff[j].getName() + ": " + diff);
-			}
-			System.out.println();
-		}
+		System.out.println("Difference in names between " + mark.getName() + " and " + chris.getName()
+				+ " is " + nameDiff);
+		
+		System.out.println("Difference in departments between " + mark.getName() + " and "
+				+ chris.getName() + " is " + DepDiff);
+		
+		System.out.println("Difference in ages between " + mark.getName() + " and " + chris.getName()
+				+ " is " + ageDiff);
 	}
 }
