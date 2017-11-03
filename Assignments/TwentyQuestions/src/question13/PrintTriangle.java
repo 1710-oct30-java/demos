@@ -1,5 +1,7 @@
 package question13;
 
+import question09.PrimePrinter;
+
 /**
  * Question 13: Display the triangle on the console as follows using any type of loop.
  * Do NOT use a simple group of print statements to accomplish this.
@@ -38,7 +40,10 @@ public class PrintTriangle {
 	 * @return 0 or 1 for the xy location
 	 */
 	public static int zeroOrOne(int x, int y) {
-		//Now with more FUN
+		//alternative - Not very Fun
+		//return PrimePrinter.isPrime(y) ^ x % 2 == 0 ? 0 : 1;
+		
+		//Now with more Fun
 		return x % 2 == 0 ? y % 3 == 0 || (y % 2 == 0 && y % 4 != 0) ? 1 : 0 : Math.abs((y % 3 == 0 || (y % 2 == 0 && y % 4 != 0) ? 1 : 0)-1);
 		
 	}
