@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class Question8 {
 	// Write a program that stores the following strings in an ArrayList and saves
-	// all
-	// the palindromes in another ArrayList.
+	// all the palindromes in another ArrayList.
 
 	// "karan", "madam", "tom", "civic", "radar", "sexes", "jimmy", "kayak", "john",
 	// "refer", "billy", "did"
