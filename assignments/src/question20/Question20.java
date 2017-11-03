@@ -1,7 +1,6 @@
 package question20;
 
-public class Question20
-{
+public class Question20 {
 	// Create a notepad file called Data.txt and enter the
 	// following:
 	//

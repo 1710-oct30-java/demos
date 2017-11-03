@@ -2,8 +2,7 @@ package question14;
 
 import java.time.LocalDateTime;
 
-public class Question14
-{
+public class Question14 {
 	// Write a program that demonstrates the switch case.
 	// Implement the following functionalities in the cases:
 	// Case 1: Find the square root of a number using the Math
@@ -12,11 +11,9 @@ public class Question14
 	// Case 3: Split the following string and store it in a
 	// string array.
 	// "I am learning Core Java"
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		int choice = 3;
-		switch(choice)
-		{
+		switch (choice) {
 		case 1:
 			int num = 9;
 			System.out.println("The square root of " + num + " is " + Math.sqrt(num) + ".");
@@ -27,8 +24,7 @@ public class Question14
 		case 3:
 			String str = "I am learning Core Java";
 			String[] ary = str.split("\\s+");
-			for(String s : ary)
-			{
+			for (String s : ary) {
 				System.out.println(s);
 			}
 			break;

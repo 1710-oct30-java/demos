@@ -1,7 +1,6 @@
 package question18;
 
-public class Question18
-{
+public class Question18 {
 	// Write a program having a concrete subclass that inherits
 	// three abstract methods from a superclass. Provide the
 	// following three implementations in the subclass
@@ -14,8 +13,7 @@ public class Question18
 	// result to the console.
 	// Create an appropriate class having a main method to test
 	// the above setup.
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
