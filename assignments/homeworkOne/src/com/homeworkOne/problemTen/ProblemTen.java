@@ -2,6 +2,7 @@ package com.homeworkOne.problemTen;
 
 public class ProblemTen 
 {
+	//Find the minimum of two numbers using ternary operators
 	public static void main(String[] args) 
 	{
 		ternary(10,20);
@@ -12,6 +13,7 @@ public class ProblemTen
 		ternary(822,15478);
 	}
 	
+	//Method to check numbers
 	public static void ternary(int num1, int num2)
 	{
 		System.out.println(num1<num2?(num1+ " is less than " + num2):(num1+ " is greater than " + num2));

@@ -1,10 +1,14 @@
 package com.homeworkOne.problemThirteen;
 
 public class ProblemThirteen {
+	
 //Print a triangle using numbers
 	public static void main(String[] args) {
+		//Init variables
 		String printNumber = "0";
 		int counter = 0;
+		
+		//Loop to create triangle
 		for(int i = 0;i<4;i++)
 		{
 			System.out.println(printNumber);

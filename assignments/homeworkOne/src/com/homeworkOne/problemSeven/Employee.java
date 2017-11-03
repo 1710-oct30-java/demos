@@ -6,6 +6,7 @@ public class Employee{ //Parent Class
 	private String name;
 	private String department;
 	private int age;
+	
 	public Employee() {
 		super();
 		// TODO Auto-generated constructor stub

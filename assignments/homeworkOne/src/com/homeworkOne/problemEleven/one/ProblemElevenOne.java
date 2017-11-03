@@ -1,5 +1,5 @@
 package com.homeworkOne.problemEleven.one;
-
+//Second package for problem eleven
 public class ProblemElevenOne {
 	private int var1;
 	private int var2;

@@ -6,13 +6,16 @@ import java.util.List;
 public class ProblemNine {
 	
 	public static void main(String[] args) {
+		//Init variables
 		List<Integer> primes = new ArrayList<>();
 		
+		//Call method to check prime numbers
 		for(int i = 0; i<100; i++)
 		{
-			if(PrimeChecker(i))
+			if(i==2||PrimeChecker(i))
 				primes.add(i);
 		}
+		//Print result
 		System.out.println("Primes from 1-100:");
 		for(Integer each: primes)
 		{
@@ -21,7 +24,7 @@ public class ProblemNine {
 		
 	}
 	
-	static boolean PrimeChecker(int number)
+	static boolean PrimeChecker(int number)//Method to check prime numbers
 	{
 		if(number%2 == 0)
 			return false;

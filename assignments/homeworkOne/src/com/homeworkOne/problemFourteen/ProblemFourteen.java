@@ -10,14 +10,17 @@ public class ProblemFourteen {
 	Case 3: Split string and store into a string array "I am learning Java Code*/
 	
 	public static void main(String[] args) {
+		//Init variables
 		int number = 49;
 		Date date = new Date();
 		System.out.println("Enter a number: ");
+		//User input
 		Scanner userInput = new Scanner(System.in); 
 		String phrase = "I am learning Java Code";
 		int input = userInput.nextInt();
 		// Reading from User Input
 		
+		//Determine which operationg to perform based on user input
 		switch(input) {
 		case 1:
 			System.out.println(Math.sqrt(number));
