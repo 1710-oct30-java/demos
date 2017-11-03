@@ -54,14 +54,8 @@ public class Employee implements Comparator<Employee>
 	{
 		this.department = department;
 	}
-
-	@Override
-	public String toString()
-	{
-		return name + ", " + age + ", " + department;
-	}
-
-	// Sort first by name, then by age, then by department
+	
+	// Sort first by name, then by age, then by department at the same time
 	@Override
 	public int compare(Employee e1, Employee e2)
 	{
@@ -105,6 +99,12 @@ public class Employee implements Comparator<Employee>
 		}
 		
 		return 0;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return name + ", " + age + ", " + department;
 	}
 
 }
