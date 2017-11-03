@@ -6,6 +6,8 @@ import java.util.Random;
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
 
+import org.javamoney.moneta.Money;
+
 public class AccountsManager {
 	private User user;
 
@@ -20,6 +22,8 @@ public class AccountsManager {
 	public void displayAccountsSummary() {
 		List<Account> accounts = user.getAccounts();
 		
+
+		
 		if(accounts == null || accounts.size() == 0) {
 			System.out.println("/----------------------------------------------------------------------\\");
 			System.out.println("|                                                                      |");
@@ -28,6 +32,10 @@ public class AccountsManager {
 			System.out.println("\\----------------------------------------------------------------------/");
 			return;
 		}
+
+		//TODO assign a primary currency to user account settings and use that
+		//Alternative, find a better way to summarize accounts
+		CurrencyUnit primaryCurrency = Money.from(accounts.get(0).getBalance()).getCurrency();
 		
 	    MonetaryAmount checkingTotalMoney = accounts.parallelStream()
 			.filter(a -> a.getAccountType() == Accounts.CHECKING)
@@ -36,6 +44,7 @@ public class AccountsManager {
 			.get();
 	
 		MonetaryAmount totalAvailableMoney = accounts.parallelStream()
+			.filter(a -> Money.from(a.getBalance()).getCurrency() == primaryCurrency)
 			.map(a -> a.getBalance())
 			.reduce((acc, o) -> acc.add(o))
 			.get();
@@ -45,8 +54,8 @@ public class AccountsManager {
 		
 		System.out.println("/----------------------------------------------------------------------\\");
 		System.out.println("|                      Accounts Summary                                |");
-		System.out.printf ("|  Checking Total Available:                          %16s |%n", checkingString);
-		System.out.printf ("|  Total Available Across accounts:                   %16s |%n", totalString);
+		System.out.printf ("|  Checking Total Available:                    %22s |%n", checkingString);
+		System.out.printf ("|  Total Available Across accounts:             %22s |%n", totalString);
 		System.out.println("|                                                                      |");
 		System.out.println("\\----------------------------------------------------------------------/");
 

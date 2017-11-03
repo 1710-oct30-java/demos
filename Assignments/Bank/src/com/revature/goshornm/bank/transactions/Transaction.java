@@ -1,5 +1,7 @@
 package com.revature.goshornm.bank.transactions;
 
+import java.util.Date;
+
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
 
@@ -12,6 +14,7 @@ import javax.money.MonetaryAmount;
  *
  */
 public abstract class Transaction {
+	private Date date;
 	private int paymentFrom;
 	private int paymentTo;
 	private int transactionOrigin;
@@ -41,6 +44,9 @@ public abstract class Transaction {
 	}
 	public MonetaryAmount getAmount() {
 		return amount;
+	}
+	public Date getDate() {
+		return date;
 	}
 	private MonetaryAmount amount;
 	

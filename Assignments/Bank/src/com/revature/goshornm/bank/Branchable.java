@@ -28,24 +28,40 @@ public interface Branchable {
 			}
 			try {
 				int value = Integer.valueOf(input);
+				if(value > max) {
+					System.out.println("Selection out of range.");
+				}
 				return value;
 			} catch(NumberFormatException e) {
 				System.out.println(inputError);
 				continue;
 			}
 		}
+	}
+	
+	default int getInput(int max, String str) {
+		String inputError = "Please input an integer corresponding to your desired option or ? to redisplay options.";
 		
-//		while(!scanner.hasNextInt()) {
-//			
-//			String str = scanner.nextLine();
-//
-//			//Display options if the user input a ?
-//			if(str.contains("?")) displayOptions();
-//			
-//			System.out.println(inputError);
-//		}
-//		int userInput = scanner.nextInt();
-//		return userInput;
+		Scanner scanner = Util.scanner;
+
+		while(true) {
+			String input = scanner.nextLine().trim();			
+			if(input.contains("?")) {
+				System.out.println(str);
+				continue;
+			}
+			try {
+				int value = Integer.valueOf(input);
+				if(value > max || value <= 0) {
+					System.out.println("Selection out of range.");
+					continue;
+				}
+				return value;
+			} catch(NumberFormatException e) {
+				System.out.println(inputError);
+				continue;
+			}
+		}
 	}
 	
 	/**

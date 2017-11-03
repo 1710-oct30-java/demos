@@ -23,6 +23,9 @@ public enum Accounts implements Branchable{
 		String prompt = "Please select an account type for your new acccount."
 				+ "\n If this is your first account, we recommend starting with a basic checking account.";
 		String listFormat = "\t%2d %s%n";
+		
+		System.out.println(prompt);
+		
 		Accounts[] accountTypes = Accounts.values();
 		
 		for(int i = 0; i < accountTypes.length; i++) {

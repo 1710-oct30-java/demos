@@ -25,12 +25,16 @@ public interface Util {
 			.getAmountFormat(AmountFormatQueryBuilder.of(Locale.US)
 			.set(CurrencyStyle.SYMBOL).build());
 	
-	public static String promptForString(String prompt) {		
+	public static String promptForString(String prompt, String string2) {		
 		System.out.println(prompt);
-		
+		System.out.print(string2 + " ");
 		String string = scanner.nextLine().trim();
-
+		
 		return string;
+	}
+	
+	public static String promptForString(String prompt) {
+		return promptForString(prompt, "");
 	}
 	
 	public static byte[] promptForPasswordAsHash() throws NoSuchAlgorithmException {
@@ -84,6 +88,31 @@ public interface Util {
 	public static String getCurrencyString(MonetaryAmount amount) {
 		if(format.getAmountFormatContext() == null) System.out.println("It's nulllllllll");
 		return format.format(amount);
+	}
+	
+	public static Account getAccountFromUserByID() {
+		Long accID = null;
+		while(accID == null) {
+			String input = promptForString("", "");
+			try {				
+				accID = Long.valueOf(input);
+				if(accID == 0) return null; // User cancelled
+			} catch(NumberFormatException e) {
+				System.out.println("Malformed account number. Please check input or enter 0 to cancel.");
+				accID = null;
+				continue;
+			}
+			
+			if(!Account.exists(accID)) {
+				System.out.println("Unable to access account with account number " + accID );
+				System.out.println("Please check account number and try again or enter 0 to cancel.");
+				accID = null;
+				continue;
+			}
+		}
+		
+		return Account.load(accID);
+		
 	}
 	
 }

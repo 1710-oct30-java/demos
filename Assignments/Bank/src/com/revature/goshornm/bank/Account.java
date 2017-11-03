@@ -6,9 +6,16 @@ import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
 import javax.money.MonetaryCurrencies;
 
+import org.apache.log4j.Logger;
 import org.javamoney.moneta.Money;
 
+import com.revature.goshornm.bank.transactions.Credit;
+import com.revature.goshornm.bank.transactions.Withdrawal;
+
 public class Account implements Serializable {
+
+	private static final long serialVersionUID = -7785899516756658229L;
+	private static Logger log = Logger.getRootLogger();
 	private static final CurrencyUnit DEFAULT_USD = MonetaryCurrencies.getCurrency("USD");
 	private static transient final String FILE_PREFIX = "Accounts\\";
 	private static transient final String FILE_SUFFIX = ".txt";
@@ -39,8 +46,10 @@ public class Account implements Serializable {
 	}
 	
 	public String toString() {
-		String format = "%-20s - Account Number: %s %15s %8.2f";
-		double money = balance.getNumber().doubleValueExact();
+		String format = "%-20s - Account Number: %s %15s %22s";
+		
+		String money = Util.getCurrencyString(balance);
+		//double money = balance.getNumber().doubleValueExact();
 		
 		return String.format(format, accountName, accountID, "["+accountType+"]", money);
 	}
@@ -71,22 +80,31 @@ public class Account implements Serializable {
 	}
 
 
-	private MonetaryAmount withdraw(MonetaryAmount withdrawalAmount) {
-		//TODO
-		return withdrawalAmount;
+	public void withdraw(Withdrawal withdrawal) {
+		balance = balance.subtract(withdrawal.getMonetaryAmount());
+		serialize();
+	}
+	
+	public boolean canWithdrawAmount(MonetaryAmount amount) {
 		
+		//Amount is positive check
+		if(amount.isLessThanOrEqualTo(Money.of(0, amount.getCurrency()))) {
+			System.out.println("Unable withdraw an amount of zero or less.\n");
+			return false;
+		}
 		
+		//Has sufficient balance check
+		if(balance.isLessThan(amount)) {
+			System.out.println("You have insufficient funds for this withdrawal.");
+			log.info("Insufficient funds. Transaction cancelled.");
+			log.trace("Requested: " + Util.getCurrencyString(amount) + ", balance was: " + Util.getCurrencyString(getBalance()));
+			return false;
+		}
+		
+		//Checks passed
+		return true;
 	}
-	
-	
-	private boolean canWithdrawAmount(MonetaryAmount amount) {
-		return balance.isGreaterThanOrEqualTo(amount);
-	}
-	
-	private MonetaryAmount withdrawAmount(MonetaryAmount amount) {
-		balance.subtract(amount);
-		return amount;
-	}
+
 //	
 //	private MonetaryAmount quickWithdrawal() {
 //		//MonetaryAmount quickWithdrawalAmount = MonetaryAmounts.getDefaultAmountFactory()
@@ -127,6 +145,41 @@ public class Account implements Serializable {
 		String address = FILE_PREFIX + accID + FILE_SUFFIX;
 		Serializer<Account> serializer = new Serializer<>();
 		return serializer.objectExists(address);
+	}
+
+	public void credit(Credit credit) {
+		log.trace("Crediting account - initial balance: " + this.getBalance().getNumber() +
+				", amount to credit: " + credit.getMonetaryAmount().getNumber());
+		balance = balance.add(credit.getMonetaryAmount());
+		log.trace("Subsequent balance: " + balance.getNumber());
+		serialize();
+	}
+	
+	/**
+	 * Prints a receipt for a withdrawal
+	 * @param withdrawal - Withdrawal object
+	 */
+	public void printReceipt(Withdrawal withdrawal) {
+		
+		System.out.println("/----------------------------------------------------------------------\\");
+		System.out.println("|  Receipt of Withdrawal for amount:                                   |");
+		System.out.printf ("|         %-25s                                    |%n", Util.getCurrencyString(withdrawal.getMonetaryAmount()));
+		System.out.println("|                                                                      |");
+		System.out.printf ("|   %20s         Account: %20s |%n", withdrawal.getDate(), accountID );
+		System.out.println("\\----------------------------------------------------------------------/");
+	}
+	
+	/**
+	 * Prints a receipt for a deposit
+	 * @param credit - credit object
+	 */
+	public void printReceipt(Credit credit) {
+		System.out.println("/----------------------------------------------------------------------\\");
+		System.out.println("|  Receipt of Credit in amount of  :                                   |");
+		System.out.printf ("|         %-25s                                    |%n", Util.getCurrencyString(credit.getMonetaryAmount()));
+		System.out.println("|                                                                      |");
+		System.out.printf ("|   %20s         Account: %20s |%n", credit.getDate(), accountID );
+		System.out.println("\\----------------------------------------------------------------------/");
 	}
 	
 }

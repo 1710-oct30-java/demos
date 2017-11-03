@@ -4,3 +4,105 @@
 2017-11-02 14:16:36 TRACE CurrencyOptions:44 - User Selected currency: AED
 2017-11-02 14:58:40 TRACE CurrencyOptions:53 - User Selected currency: USD
 2017-11-02 15:00:16 TRACE CurrencyOptions:53 - User Selected currency: USD
+2017-11-03 11:19:51 TRACE CashCredit:38 - Requesting cash credit of 5000
+2017-11-03 11:19:51 TRACE CashCredit:41 - Credit created.
+2017-11-03 11:19:51 TRACE Account:137 - Crediting account - initial balance: 0, amount to credit: 5000
+2017-11-03 11:19:51 TRACE Account:140 - Subsequent balance: 0
+2017-11-03 11:20:27 TRACE CashCredit:38 - Requesting cash credit of 5000
+2017-11-03 11:20:27 TRACE CashCredit:41 - Credit created.
+2017-11-03 11:20:28 TRACE Account:137 - Crediting account - initial balance: 0, amount to credit: 5000
+2017-11-03 11:20:28 TRACE Account:140 - Subsequent balance: 5000
+2017-11-03 11:23:45 TRACE CashCredit:39 - Requesting cash credit of 5000.25
+2017-11-03 11:23:45 TRACE CashCredit:42 - Credit created.
+2017-11-03 11:23:45 TRACE Account:137 - Crediting account - initial balance: 0, amount to credit: 5000.25
+2017-11-03 11:23:45 TRACE Account:140 - Subsequent balance: 5000.25
+2017-11-03 11:24:20 TRACE CashCredit:39 - Requesting cash credit of 500
+2017-11-03 11:24:20 TRACE CashCredit:42 - Credit created.
+2017-11-03 11:24:20 TRACE Account:137 - Crediting account - initial balance: 0, amount to credit: 500
+2017-11-03 11:24:20 TRACE Account:140 - Subsequent balance: 500
+2017-11-03 11:25:15 TRACE CashCredit:39 - Requesting cash credit of 5000000000000
+2017-11-03 11:25:15 TRACE CashCredit:42 - Credit created.
+2017-11-03 11:25:15 TRACE Account:137 - Crediting account - initial balance: 500, amount to credit: 5000000000000
+2017-11-03 11:25:15 TRACE Account:140 - Subsequent balance: 5000000000500
+2017-11-03 11:25:56 TRACE CurrencyOptions:53 - User Selected currency: KRW
+2017-11-03 11:26:21 TRACE CashCredit:39 - Requesting cash credit of 50000000
+2017-11-03 11:26:21 TRACE CashCredit:42 - Credit created.
+2017-11-03 11:26:21 TRACE Account:137 - Crediting account - initial balance: 0, amount to credit: 50000000
+2017-11-03 11:26:21 TRACE Account:140 - Subsequent balance: 50000000
+2017-11-03 12:54:11 TRACE CashCredit:39 - Requesting cash credit of 5000
+2017-11-03 12:54:11 TRACE CashCredit:42 - Credit created.
+2017-11-03 12:54:11 TRACE Account:138 - Crediting account - initial balance: 5000000000500, amount to credit: 5000
+2017-11-03 12:54:11 TRACE Account:141 - Subsequent balance: 5000000005500
+2017-11-03 14:08:57 TRACE CashCredit:39 - Requesting cash credit of 123456789
+2017-11-03 14:08:57 TRACE CashCredit:42 - Credit created.
+2017-11-03 14:08:57 TRACE Account:138 - Crediting account - initial balance: 50000000, amount to credit: 123456789
+2017-11-03 14:08:57 TRACE Account:141 - Subsequent balance: 173456789
+2017-11-03 15:01:49 TRACE CashCredit:39 - Requesting cash credit of 0
+2017-11-03 15:01:49 TRACE CashCredit:42 - Credit created.
+2017-11-03 15:01:49 TRACE Account:138 - Crediting account - initial balance: 5000000005500, amount to credit: 0
+2017-11-03 15:01:49 TRACE Account:141 - Subsequent balance: 5000000005500
+2017-11-03 15:34:04 TRACE CashCredit:39 - Requesting cash credit of 500
+2017-11-03 15:34:04 TRACE CashCredit:42 - Credit created.
+2017-11-03 15:34:04 TRACE Account:138 - Crediting account - initial balance: 0, amount to credit: 500
+2017-11-03 15:34:04 TRACE Account:141 - Subsequent balance: 500
+2017-11-03 15:35:35 TRACE CashCredit:39 - Requesting cash credit of 500
+2017-11-03 15:35:35 TRACE CashCredit:42 - Credit created.
+2017-11-03 15:35:35 TRACE Account:138 - Crediting account - initial balance: 500, amount to credit: 500
+2017-11-03 15:35:35 TRACE Account:141 - Subsequent balance: 1000
+2017-11-03 15:36:01 TRACE CashCredit:39 - Requesting cash credit of 5000
+2017-11-03 15:36:01 TRACE CashCredit:42 - Credit created.
+2017-11-03 15:36:01 TRACE Account:138 - Crediting account - initial balance: 1000, amount to credit: 5000
+2017-11-03 15:36:01 TRACE Account:141 - Subsequent balance: 6000
+2017-11-03 15:36:12 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 200
+2017-11-03 15:36:12 TRACE CashWithdrawal:51 - Withdrawal created.
+2017-11-03 15:41:46 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 500
+2017-11-03 15:41:46 INFO  CashWithdrawal:41 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:41:46 TRACE CashWithdrawal:42 - Requested: $500.00, balance was: $0.00
+2017-11-03 15:43:12 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 500
+2017-11-03 15:43:12 INFO  CashWithdrawal:41 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:43:12 TRACE CashWithdrawal:42 - Requested: $500.00, balance was: $0.00
+2017-11-03 15:43:23 TRACE CashWithdrawal:37 - Requesting cash withdrawal of -500000
+2017-11-03 15:43:23 TRACE CashWithdrawal:51 - Withdrawal created.
+2017-11-03 15:46:09 TRACE CashWithdrawal:37 - Requesting cash withdrawal of -4
+2017-11-03 15:46:09 INFO  CashWithdrawal:41 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:46:09 TRACE CashWithdrawal:42 - Requested: ($-4.00), balance was: $500,000.00
+2017-11-03 15:52:38 TRACE CashWithdrawal:37 - Requesting cash withdrawal of -500
+2017-11-03 15:53:13 TRACE CashCredit:39 - Requesting cash credit of -500
+2017-11-03 15:53:13 TRACE CashCredit:43 - Credits must be of a positive amount.
+2017-11-03 15:54:08 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 0
+2017-11-03 15:54:46 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 0
+2017-11-03 15:54:50 TRACE CashCredit:39 - Requesting cash credit of 0
+2017-11-03 15:54:50 TRACE CashCredit:43 - Credits must be of a positive amount.
+2017-11-03 15:54:54 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 0
+2017-11-03 15:54:58 TRACE CashCredit:39 - Requesting cash credit of 500000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:54:58 TRACE CashCredit:49 - Credit created.
+2017-11-03 15:54:58 TRACE Account:151 - Crediting account - initial balance: 500000, amount to credit: 500000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:54:58 TRACE Account:154 - Subsequent balance: 500000000000000000000000000000000000000000000000000000000000000000000500000
+2017-11-03 15:55:49 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 5000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:55:49 TRACE CashWithdrawal:48 - Withdrawal created.
+2017-11-03 15:56:03 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:56:03 INFO  Account:99 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:56:03 TRACE Account:100 - Requested: $500,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000.00, balance was: $499,995,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,500,000.00
+2017-11-03 15:56:11 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 50000000000000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:56:11 INFO  Account:99 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:56:11 TRACE Account:100 - Requested: $50,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000.00, balance was: $499,995,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,500,000.00
+2017-11-03 15:56:18 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 50000000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:56:18 INFO  Account:99 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:56:18 TRACE Account:100 - Requested: $50,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000.00, balance was: $499,995,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,500,000.00
+2017-11-03 15:56:24 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 5000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:56:24 TRACE CashWithdrawal:48 - Withdrawal created.
+2017-11-03 15:56:49 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 0
+2017-11-03 15:57:01 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 5000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:57:01 TRACE CashWithdrawal:48 - Withdrawal created.
+2017-11-03 15:57:10 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 50000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:57:10 TRACE CashWithdrawal:48 - Withdrawal created.
+2017-11-03 15:57:16 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 500000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:57:16 TRACE CashWithdrawal:48 - Withdrawal created.
+2017-11-03 15:57:28 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 500000000000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:57:28 INFO  Account:99 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:57:28 TRACE Account:100 - Requested: $500,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000.00, balance was: $494,440,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,500,000.00
+2017-11-03 15:57:31 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 2
+2017-11-03 15:57:31 TRACE CashWithdrawal:48 - Withdrawal created.
+2017-11-03 15:57:38 TRACE CashWithdrawal:37 - Requesting cash withdrawal of 500000000000000000000000000000000000000000000000000000000000000000000000000000000
+2017-11-03 15:57:38 INFO  Account:99 - Insufficient funds. Transaction cancelled.
+2017-11-03 15:57:38 TRACE Account:100 - Requested: $500,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000.00, balance was: $494,440,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,499,998.00

@@ -12,7 +12,7 @@ import org.junit.Test;
  * @author Mitch Goshorn
  *
  */
-public class ArithemticUnitTest {
+public class ArithmeticUnitTest {
 	
 	@Test
 	public void AdditionTest() throws Exception {
