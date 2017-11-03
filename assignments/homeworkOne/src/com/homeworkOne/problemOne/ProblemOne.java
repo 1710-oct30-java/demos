@@ -5,7 +5,7 @@ public class ProblemOne {
 	public static void main(String[] args)
 	{
 	//Init variables
-	int bubbleSort[] = {1,0,5,6,3,2,3,7,9,8,4};
+	int bubbleSort[] = {1,0,5,6,3,2,7,9,8,4};
 	int temp;
 	
 	//double loop to perform bubble sort
@@ -24,7 +24,7 @@ public class ProblemOne {
 		//print results
 		for(int i=0 ; i<bubbleSort.length;i++)
 		{
-			System.out.println(bubbleSort[i]);
+			System.out.print(bubbleSort[i]+ " ");
 		}
 	
 	}
