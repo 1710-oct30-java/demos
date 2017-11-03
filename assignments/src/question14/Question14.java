@@ -27,8 +27,11 @@ public class Question14
 		case 3:
 			String str = "I am learning Core Java";
 			String[] ary = str.split("\\s+");
-			System.out.println(ary.toString());
-			break; 
+			for(String s : ary)
+			{
+				System.out.println(s);
+			}
+			break;
 		}
 	}
 }
