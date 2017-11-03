@@ -15,7 +15,7 @@ public class Question6
 		float f = (float) i / 2;
 		// Cast float to int
 		i = (int) f;
-		// Check if value needed to be rounded
+		// Check if value was rounded
 		return (i == f);
 	}
 }

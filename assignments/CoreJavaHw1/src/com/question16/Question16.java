@@ -9,7 +9,7 @@ public class Question16
 {
 	public static void main(String[] args)
 	{
-		// Just prints the Strng length
+		// Just prints the String length
 		System.out.println("The string \"" + args[0] + "\" has " + args[0].length() + " characters.");
 	}
 }

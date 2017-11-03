@@ -30,7 +30,7 @@ public class Question8
 		
 		List<String> palList = new ArrayList<>();
 		
-		// if it's a palindrome, add it to the new ArrayList
+		// If it's a palindrome, add it to the new ArrayList
 		for (String s : wordList)
 		{
 			if (isPal(s))
@@ -44,7 +44,7 @@ public class Question8
 	{
 		// Reusing my string reversing method from question 3
 		String backwards = Question3.revString(s);
-		// palindromes will read the same backwards and forwards
+		// Palindromes will read the same backwards and forwards
 		return s.equals(backwards);
 	}
 	

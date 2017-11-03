@@ -6,19 +6,20 @@ public class Question4
 {
 	public static void main(String[] args)
 	{
-		System.out.println(factorial(10));
+		System.out.println(factorial(3));
 	}
 	
-	static int factorial(int n)
+	// recursive factorial method
+	static long factorial(int n)
 	{
-		if (n < 1) // prohibit 0 and negative values
+		if (n == 1) // base case
+			return n;
+		else if (n > 1) // general case
+			return n * factorial(n - 1);
+		else // prohibit 0 and negative values
 		{
-			System.err.println(n + " is an invalid input. Please try again.");
+			System.err.println(n + " is an invalid input.");
 			return 0;
 		}
-		else if (n == 1) // base case
-			return n;
-		else // general case
-			return n * factorial(n - 1);
 	}
 }

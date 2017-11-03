@@ -1,6 +1,6 @@
 package com.question15;
 
-public class Calculator implements CalculatorI
+public class Calculator implements Calculable
 {
 	
 	@Override

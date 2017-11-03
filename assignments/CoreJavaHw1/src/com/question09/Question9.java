@@ -8,13 +8,6 @@ public class Question9
 {
 	public static void main(String[] args)
 	{
-		// Test
-		// for (int i = 1; i < 50; i++)
-		// {
-		// if (isPrime(i))
-		// System.out.println(i + " is a prime number.");
-		// }
-		
 		ArrayList<Integer> ints = new ArrayList<Integer>();
 		
 		for (int i = 0; i < 100; i++)

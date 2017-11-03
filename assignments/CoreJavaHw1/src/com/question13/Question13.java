@@ -18,10 +18,7 @@ public class Question13
 		for (int i = 0; i < 4; i++)
 		{
 			// Every third loop adds a 0
-			if (i % 3 == 0)
-				toAdd = "0 ";
-			else
-				toAdd = "1 ";
+			toAdd = i % 3 == 0 ? "0 " : "1 ";
 			
 			// Switches every loop between beginning and end of sb
 			if (i % 2 == 0)

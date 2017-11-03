@@ -16,7 +16,7 @@ public class Question3
 		
 		// Parse the string in reverse order
 		for (int i = str.length() - 1; i >= 0; i--)
-			newStr += str.charAt(i); // Append char by char to the new string
+			newStr += str.charAt(i); // Append each char to the new string
 			
 		return newStr;
 	}

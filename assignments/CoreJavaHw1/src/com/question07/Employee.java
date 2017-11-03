@@ -16,12 +16,12 @@ public class Employee
 		this.name = name;
 	}
 	
-	public String getDepartment()
+	public String getDep()
 	{
 		return department;
 	}
 	
-	public void setDepartment(String department)
+	public void setDep(String department)
 	{
 		this.department = department;
 	}

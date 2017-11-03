@@ -11,6 +11,7 @@ public class StringCalculator extends AbstractStringCalculator
 	@Override
 	public boolean hasCaps(String str)
 	{
+		// Regex for capital letters
 		return str.matches("^(?=.*[A-Z]).+$");
 	}
 	

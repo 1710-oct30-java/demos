@@ -13,7 +13,6 @@ public class Question18
 		System.out.println(sc.hasCaps(s2));
 		
 		System.out.println(sc.allCaps(s2));
-		
 		System.out.println(sc.addTen(s3));
 	}
 }

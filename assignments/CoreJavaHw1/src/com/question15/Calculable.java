@@ -1,6 +1,6 @@
 package com.question15;
 
-public interface CalculatorI
+public interface Calculable
 {
 	double add(double a, double b);
 	

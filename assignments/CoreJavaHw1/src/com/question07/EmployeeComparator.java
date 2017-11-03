@@ -13,18 +13,19 @@ public class EmployeeComparator implements Comparator
 		
 		// Compare names
 		int difference = e1.getName().compareTo(e2.getName());
-		if (difference != 0)
+		if (difference == 0)
 		{
 			// Compare departments
-			difference = e1.getDepartment().compareTo(e2.getDepartment());
+			difference = e1.getDep().compareTo(e2.getDep());
 			
-			if (difference != 0)
+			if (difference == 0)
 			{
 				// Compare ages
 				difference = e1.getAge() - e2.getAge();
 			}
 		}
-		return difference;
+		// return difference;
+		return Integer.signum(difference);
 	}
 	
 }

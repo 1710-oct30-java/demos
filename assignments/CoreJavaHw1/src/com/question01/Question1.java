@@ -2,7 +2,6 @@ package com.question01;
 
 import java.util.Arrays;
 
-// INCOMPLETE: See To-Do below
 // Q1. Perform a bubble sort on the following integer array: 1,0,5,6,3,2,3,7,9,8,4
 
 public class Question1
@@ -17,14 +16,15 @@ public class Question1
 	{
 		boolean swapOccured = true;
 		
-		// TODO change this to a while that detects when the array is sorted
+		// Stop trying to sort when array is sorted
 		while (swapOccured)
 		{
 			swapOccured = false;
 			
 			for (int j = 0; j < arr.length - 1; j++)
 			{
-				if (arr[j + 1] < arr[j]) // Check if pair needs to switch places
+				// Check if pair needs to switch places
+				if (arr[j + 1] < arr[j])
 				{
 					// Swap
 					int temp = arr[j];
