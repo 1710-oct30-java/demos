@@ -16,6 +16,16 @@ public class Question18 {
 	// Create an appropriate class having a main method to test
 	// the above setup.
 	public static void main(String[] args) {
-		
+		 SubClass sc = new SubClass();
+		 
+		 String str = "Hello";
+		 String number = "10";
+		 
+		 System.out.println("Does the string " + str + " have upper case characters? " + sc.checkForUpper(str));
+		 
+		 System.out.println(sc.toUpper(str));
+		 
+		 System.out.print("The number " + number + " plus ten equals ");
+		 sc.addTen(number);
 	}
 }

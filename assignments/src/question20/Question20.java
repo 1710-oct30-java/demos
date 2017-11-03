@@ -16,8 +16,6 @@ public class Question20 {
 	// Age: 35 years
 	// State: Arizona State
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
 	}
-
 }
