@@ -1,9 +1,8 @@
 package com.bank.launcher;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
+import com.bank.auth.Login;
 import com.bank.auth.PopData;
 
 public class BankLauncher
@@ -11,25 +10,31 @@ public class BankLauncher
 	public static void main(String[] args)
 	{
 		PopData data = new PopData();
+		Login login = new Login();
+		String username,password;
+		int choice = 0;
 		
-		Map<String, String> temp = new HashMap<>();
+		System.out.println("LOGIN PAGE (username 0 to exit)");
 		
-		
-		System.out.println("LOGIN PAGE");
+		do
+		{
 		Scanner input = new Scanner(System.in);
 		System.out.print("Username (case insensitive): ");
-		String username = input.nextLine().toLowerCase();
+		username = input.nextLine().toLowerCase();
+		if (username.equals("quit"))
+		{
+			data.logOut();
+			System.out.println("GoodBye!");
+			System.exit(0);
+		}
 		System.out.print("Password: ");
-		String password = input.nextLine();
+		password = input.nextLine();
 		
-		if(data.valUser(username, password))
-		{
-			System.out.println("LOGGED IN");
-		}
-		else
-		{
-			System.out.println("INVALID");
-		}
+		}while(!login.valUser(username, password,data.getUserpass()));
+		
+		
+		System.out.println("ACCOUNT PAGE");
+		
 		//temp.put("randy", "1303");
 		data.setUserpass("randy","1303");
 		
