@@ -16,6 +16,8 @@ public class Question3 {
 			startIndex++;
 			endIndex--;
 		}
+		
+		
 		return new String(cArray);
 	}
 	
