@@ -8,7 +8,7 @@ public class Question17 {
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("What is the principal?");
-		int principal = scan.nextInt();
+		double principal = scan.nextDouble();
 		
 		System.out.println("What is the rate of interest?");
 		double rate = scan.nextDouble();
