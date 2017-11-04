@@ -25,9 +25,18 @@ public interface Util {
 			.getAmountFormat(AmountFormatQueryBuilder.of(Locale.US)
 			.set(CurrencyStyle.SYMBOL).build());
 	
-	public static String promptForString(String prompt, String string2) {		
+	/**
+	 * Prompts user to enter a String. This method should only be used
+	 * when expected data is String data and does not need to be converted 
+	 * to another type.
+	 * 
+	 * @param prompt - Prompt 1, followed by line break
+	 * @param inlinePrompt - Prompt 2, inline with user input
+	 * @return user input String
+	 */
+	public static String promptForString(String prompt, String inlinePrompt) {		
 		System.out.println(prompt);
-		System.out.print(string2 + " ");
+		System.out.print(inlinePrompt + " ");
 		String string = scanner.nextLine().trim();
 		
 		return string;
@@ -37,9 +46,24 @@ public interface Util {
 		return promptForString(prompt, "");
 	}
 	
+	/**
+	 * Prompts for a password using a default prompt.
+	 * Defers to {@link #promptForPasswordAsHash(String)}
+	 * @return byte hash of password
+	 * @throws NoSuchAlgorithmException - thrown if SHA-256 algorithm not found
+	 */
 	public static byte[] promptForPasswordAsHash() throws NoSuchAlgorithmException {
-		String prompt = "Please enter your password: ";
-		System.out.println(prompt);
+		return promptForPasswordAsHash("Please enter your password: ");
+	}
+	
+	/**
+	 * Prompts for a password using a specified prompt.
+	 * @return byte hash of password
+	 * @throws NoSuchAlgorithmException - thrown if SHA-256 algorithm not found
+	 */
+	public static byte[] promptForPasswordAsHash(String str) throws NoSuchAlgorithmException {
+
+		System.out.println(str);
 		
 		String input = scanner.nextLine().trim();
 		System.out.println();
@@ -51,6 +75,10 @@ public interface Util {
 		return hash;
 	}
 	
+	/**
+	 * Simple prompt for yes or no response from the user.
+	 * @return true if user responds yes, false otherwise
+	 */
 	public static boolean promptYesOrNot() {
 		String inputError = "Please input either 1 or 2";
 		
@@ -85,11 +113,21 @@ public interface Util {
 		}
 	}
 	
+	/**
+	 * Converts a MonetaryAmount to a US localized string representation
+	 * @param amount - MonetaryAmount to convert to a string
+	 * @return string representation of MonetaryAmount
+	 */
 	public static String getCurrencyString(MonetaryAmount amount) {
-		if(format.getAmountFormatContext() == null) System.out.println("It's nulllllllll");
+		if(format.getAmountFormatContext() == null) log.debug("Amount format context was null on attempt to convert ot string.");
 		return format.format(amount);
 	}
 	
+	/**
+	 * Load an account and return account object by looking it up using the accountID
+	 * as provided by a user.
+	 * @return Account object or null if account is not found
+	 */
 	public static Account getAccountFromUserByID() {
 		Long accID = null;
 		while(accID == null) {
@@ -110,9 +148,7 @@ public interface Util {
 				continue;
 			}
 		}
-		
-		return Account.load(accID);
-		
+		return Account.load(accID);	
 	}
 	
 }

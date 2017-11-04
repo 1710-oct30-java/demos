@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.javamoney.moneta.Money;
 
 import com.revature.goshornm.bank.transactions.Credit;
+import com.revature.goshornm.bank.transactions.Transfer;
 import com.revature.goshornm.bank.transactions.Withdrawal;
 
 public class Account implements Serializable {
@@ -23,6 +24,7 @@ public class Account implements Serializable {
 	private Accounts accountType;
 	private String accountName;
 	private MonetaryAmount balance;
+	private boolean closed;
 	
 	/**
 	 * Create new object specifying an initial balance.
@@ -46,7 +48,7 @@ public class Account implements Serializable {
 	}
 	
 	public String toString() {
-		String format = "%-20s - Account Number: %s %15s %22s";
+		String format = "%-19s - Account Number: %19s %16s %22s";
 		
 		String money = Util.getCurrencyString(balance);
 		//double money = balance.getNumber().doubleValueExact();
@@ -85,17 +87,40 @@ public class Account implements Serializable {
 		serialize();
 	}
 	
+	public void withdraw(Transfer transfer) {
+		balance = balance.subtract(transfer.getAmount());
+		serialize();
+	}
+	
+	public void credit(Credit credit) {
+		log.trace("Crediting account - initial balance: " + this.getBalance().getNumber() +
+				", amount to credit: " + credit.getMonetaryAmount().getNumber());
+		balance = balance.add(credit.getMonetaryAmount());
+		log.trace("Subsequent balance: " + balance.getNumber());
+		serialize();
+	}
+	
+	public void credit(Transfer transfer) {
+		balance = balance.add(transfer.getAmount());
+		serialize();
+	}
+	
 	public boolean canWithdrawAmount(MonetaryAmount amount) {
+		
+		if(closed) {
+			log.error("User attempted to withdraw from a closed account.");
+			return false;
+		}
 		
 		//Amount is positive check
 		if(amount.isLessThanOrEqualTo(Money.of(0, amount.getCurrency()))) {
-			System.out.println("Unable withdraw an amount of zero or less.\n");
+			System.out.println("Unable to withdraw an amount of zero or less.\n");
 			return false;
 		}
 		
 		//Has sufficient balance check
 		if(balance.isLessThan(amount)) {
-			System.out.println("You have insufficient funds for this withdrawal.");
+			System.out.println("You have insufficient funds for this action.");
 			log.info("Insufficient funds. Transaction cancelled.");
 			log.trace("Requested: " + Util.getCurrencyString(amount) + ", balance was: " + Util.getCurrencyString(getBalance()));
 			return false;
@@ -146,14 +171,6 @@ public class Account implements Serializable {
 		Serializer<Account> serializer = new Serializer<>();
 		return serializer.objectExists(address);
 	}
-
-	public void credit(Credit credit) {
-		log.trace("Crediting account - initial balance: " + this.getBalance().getNumber() +
-				", amount to credit: " + credit.getMonetaryAmount().getNumber());
-		balance = balance.add(credit.getMonetaryAmount());
-		log.trace("Subsequent balance: " + balance.getNumber());
-		serialize();
-	}
 	
 	/**
 	 * Prints a receipt for a withdrawal
@@ -180,6 +197,23 @@ public class Account implements Serializable {
 		System.out.println("|                                                                      |");
 		System.out.printf ("|   %20s         Account: %20s |%n", credit.getDate(), accountID );
 		System.out.println("\\----------------------------------------------------------------------/");
+	}
+	
+	public void printReceipt(Transfer transfer) {
+		System.out.println("/----------------------------------------------------------------------\\");
+		System.out.printf ("|   Receipt of Transfer                   %25s |%n", transfer.getDate());
+		System.out.println("|----------------------------------------------------------------------|");
+		System.out.println("|          FROM:                                                       |");
+		System.out.printf ("|         Account: %20s                                |%n", transfer.getSource());
+		System.out.println("|           TO:                                                        |");
+		System.out.printf ("|         Account: %20s                                |%n", transfer.getTarget());
+		System.out.println("|                                                                      |");
+		System.out.printf ("|          Amount of transfer: %20s                    |%n", Util.getCurrencyString(transfer.getAmount()));
+		System.out.println("\\----------------------------------------------------------------------/");
+	}
+		
+	public void closeAccount() {
+		this.closed = true;
 	}
 	
 }

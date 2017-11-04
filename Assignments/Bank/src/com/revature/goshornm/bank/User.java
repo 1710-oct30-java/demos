@@ -239,5 +239,40 @@ public class User implements Serializable {
 		return true;
 	}
 	
+	public boolean passwordsMatch(byte[] pass1, byte[] pass2) {
+		if(pass1.length != pass2.length) return false;
+		for(int i = 0; i < pass1.length; i++) {
+			if(pass1[i] != pass2[i]) return false;
+		}
+		return true;
+	}
+	
+	public void updatePassword() throws NoSuchAlgorithmException {
+		byte[] currentPassEnteredHash;
+		currentPassEnteredHash = Util.promptForPasswordAsHash();
+		
+		if(!authenticate(currentPassEnteredHash)) {
+			System.out.println("Incorrect password.");
+			return;
+		}
+		
+		byte[] pass1 = Util.promptForPasswordAsHash("\nEnter new password:");
+		byte[] pass2 = Util.promptForPasswordAsHash("\nReenter password.");
+		
+		if(passwordsMatch(pass1, pass2)) {
+			hash = pass1;
+			System.out.println("Your password has been updated.");
+			serialize();
+		} else {
+			System.out.println("Passwords did not match.");
+		}
+		
+	}
+	
+	public void removeAccountFromUserAccount(Account account) {
+		getAccounts().remove(account);
+		accountIDs.remove(account.getAccountID());
+		serialize();
+	}
 
 }

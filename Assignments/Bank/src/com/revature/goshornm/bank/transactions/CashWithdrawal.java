@@ -22,6 +22,14 @@ public class CashWithdrawal extends Withdrawal {
 		monetaryAmount = amount;
 	}
 	
+	
+	/**
+	 * Creates a withdrawal without a predetermined amount.
+	 * After determining amount, defers to {@link #createWithdrawal(User, Account, MonetaryAmount)};
+	 * @param user - User making the withdrawal
+	 * @param targetAccount - Account to withdraw from
+	 * @return - withdrawal object
+	 */
 	public static Withdrawal createWithdrawal(User user, Account targetAccount) {		
 		MonetaryAmount amount = null;
 		do{
@@ -33,16 +41,17 @@ public class CashWithdrawal extends Withdrawal {
 			} catch(NumberFormatException exception) {
 				System.out.println("Input amount did not match any known format.");
 			}
-		
-			log.trace("Requesting cash withdrawal of " + amount.getNumber());
-			
-			if(!targetAccount.canWithdrawAmount(amount)) {
-				return null;
-			}
-			
 		} while(amount == null);
 		
+		return createWithdrawal(user, targetAccount, amount);		
+	}
+
+	public static Withdrawal createWithdrawal(User user, Account targetAccount, MonetaryAmount amount) {
+		log.trace("Requesting cash withdrawal of " + amount.getNumber());
 		
+		if(!targetAccount.canWithdrawAmount(amount)) {
+			return null;
+		}
 		
 		Withdrawal newWithdrawal = new CashWithdrawal(targetAccount.getAccountID(), amount);
 		log.trace("Withdrawal created.");

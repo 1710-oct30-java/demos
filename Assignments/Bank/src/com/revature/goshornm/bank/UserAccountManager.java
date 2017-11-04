@@ -3,9 +3,12 @@ package com.revature.goshornm.bank;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.money.MonetaryAmount;
+
 import com.revature.goshornm.bank.transactions.CashCredit;
 import com.revature.goshornm.bank.transactions.CashWithdrawal;
 import com.revature.goshornm.bank.transactions.Credit;
+import com.revature.goshornm.bank.transactions.Transfer;
 import com.revature.goshornm.bank.transactions.Withdrawal;
 
 public class UserAccountManager implements Branchable{
@@ -31,19 +34,24 @@ public class UserAccountManager implements Branchable{
 			
 			switch(selection) {
 			case 0: logout = true; break;
-			case 1: //TODO userAccountOptions();
-			case 2: makeWithdrawal(); break;	
-			case 3: makeDeposit(); break;
-			case 4: makeTransfer();
-			case 5: displayAccounts(); break;
-			case 6: accountsManager.createNewAccount(user); break;
+			case 1: makeWithdrawal(); break;	
+			case 2: makeDeposit(); break;
+			case 3: makeTransfer(); break;
+			case 4: displayAccounts(); break;
+			case 5: accountsManager.createNewAccount(user); break;
+			case 6: advanced(); break;
 			}			
 		}
 	}
 	
+	private void advanced() {
+		AdvancedManager advanced = new AdvancedManager(user);
+		advanced.entry();
+	}
+
 	private void makeTransfer() {
 		//select from account
-		String noAccounts = "You need to create an account before you can make a deposit.";
+		String noAccounts = "You need to create an account before you can transfer funds.";
 		
 		//If the user has no accounts associated with their profile, show message and return from deposit screen
 		if(user.getAccounts().size() == 0) {
@@ -72,37 +80,89 @@ public class UserAccountManager implements Branchable{
 		}
 		
 		
+		//Get account to send to, either internal or external
 		do {
-			
-			if(toAccount.equals(fromAccount)) {
+			if(toAccount != null && toAccount.equals(fromAccount)) {
 				System.out.println("Account unable to transfer to itself.");
 			}
 			
 			if(internal) {
 				toAccount = selectTargetAccount(fromAccount);
 			} else {
+				System.out.print("\nPlease enter the account number to transfer to: ");
 				toAccount = Util.getAccountFromUserByID();
 			}
-		} while(toAccount != null && (toAccount.equals(fromAccount)));
+		} while(toAccount == null || (toAccount.equals(fromAccount)));
 		
 		
+		//TODO connect to IMF to transfer between currencies
+		//Ensure accounts use the same currencies
+		if(!fromAccount.getBalance().getCurrency().equals(toAccount.getBalance().getCurrency())) {
+			System.out.println("Transfers between currencies are not currently supported.");
+			return;
+		}
 		
+		Transfer transfer = Transfer.createTransfer(user, fromAccount, toAccount);
+		if(transfer == null) return;
 		
-			//Is other user account?
-				//if so provide account selection options
-			//if not 
+		fromAccount.withdraw(transfer);
+		toAccount.credit(transfer);
+		
+		fromAccount.printReceipt(transfer);
+		 
 	}
+	
+	protected Transfer makeTransfer(Account fromAccount, MonetaryAmount amount) {
+		Account toAccount = null;
+		boolean internal = false;
+		
+		if(user.getAccounts().size() > 1) {
+			System.out.println("Are you transfering to one of your own accounts?");
+			internal = Util.promptYesOrNot();
+		}	
+		
+		//Get account to send to, either internal or external
+		do {
+			if(toAccount != null && toAccount.equals(fromAccount)) {
+				System.out.println("Account unable to transfer to itself.");
+			}
+			
+			if(internal) {
+				toAccount = selectTargetAccount(fromAccount);
+			} else {
+				System.out.print("\nPlease enter the account number to transfer to: ");
+				toAccount = Util.getAccountFromUserByID();
+			}
+		} while(toAccount == null || (toAccount.equals(fromAccount)));
+		
+		
+		//TODO connect to IMF to transfer between currencies
+		//Ensure accounts use the same currencies
+		if(!fromAccount.getBalance().getCurrency().equals(toAccount.getBalance().getCurrency())) {
+			System.out.println("Transfers between currencies are not currently supported.");
+			return null;
+		}
+		
+		Transfer transfer = Transfer.createTransfer(user, fromAccount, toAccount, amount);
+		if(transfer == null) return null;
+		
+		fromAccount.withdraw(transfer);
+		toAccount.credit(transfer);
+		
+		fromAccount.printReceipt(transfer);
+		 
+		return transfer;
+	}
+
 
 
 	/**
 	 * Method withdraws an amount of money.
 	 */
 	private void makeWithdrawal() {
-		String noAccounts = "You need to create an account before you can make a deposit.";
+		String noAccounts = "You need to create an account before you can make a withdrawal.";
 		
 		//If the user has no accounts associated with their profile, show message and return from deposit screen
-		//TODO present user with option to create account
-		
 		if(user.getAccounts().size() == 0) {
 			System.out.println(noAccounts);
 			System.out.println();
@@ -135,12 +195,12 @@ public class UserAccountManager implements Branchable{
 		
 		String explain = "Account options :";
 		String[] options = {
-				"\t1. Modify User Details ",
-				"\t2. Withdraw",
-				"\t3. Deposit",
-				"\t4. Transfer",
+				"\t1. Withdraw",
+				"\t2. Deposit",
+				"\t3. Transfer",
 				"\t4. View Accounts",
 				"\t5. Create New Account",
+				"\t6. Advanced Options",
 				"\t0. Log out"
 		};
 		
@@ -149,7 +209,7 @@ public class UserAccountManager implements Branchable{
 			System.out.println(option);
 		}
 		
-		return options.length-1;
+		return options.length;
 	}
 	
 
@@ -162,6 +222,7 @@ public class UserAccountManager implements Branchable{
 		
 		if(user.getAccounts() == null || user.getAccounts().size() == 0) {
 			System.out.println(noAccountsMessage);
+			System.out.println("\\-------------------------------------------------------------------------------------------------------/");
 			return;
 		}
 		
@@ -176,7 +237,7 @@ public class UserAccountManager implements Branchable{
 		System.out.println();
 	}
 	
-	private void displayAccounts(Account... unavailableAccounts) {
+	void displayAccounts(Account... unavailableAccounts) {
 		
 		//Setup unavailable set
 		Set<Account> unavailable = new HashSet<>();
@@ -232,6 +293,8 @@ public class UserAccountManager implements Branchable{
 		Account targetAccount;
 		
 		//If the user has multiple accounts, allow them to select the target account, otherwise use their only account
+		
+		
 		if(user.getAccounts().size() > 1) {
 			targetAccount = selectTargetAccount();
 		} else {
@@ -247,7 +310,7 @@ public class UserAccountManager implements Branchable{
 		targetAccount.printReceipt(credit);
 	}
 	
-	private Account selectTargetAccount() {
+	protected Account selectTargetAccount() {
 		displayAccounts();
 		System.out.println("Please select a target account: \n");
 		StringBuilder strB = getAccountsStringBuilder();
@@ -264,6 +327,16 @@ public class UserAccountManager implements Branchable{
 		return user.getAccounts().get(selection-1);
 	}
 
+	protected Account getAccountForAction() {
+		if(user.getAccounts().size() > 1) {
+			//Multiple accounts, so prompt user for which account to close
+			return selectTargetAccount();
+		} else {
+			//Only 1 account, so select that account
+			return user.getAccounts().get(0);
+		}
+		
+	}
 
 
 }
