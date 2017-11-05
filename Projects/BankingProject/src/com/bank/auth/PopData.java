@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.bank.accounts.Account;
 import com.bank.accounts.User;
 
 public class PopData implements Serializable
@@ -32,6 +33,10 @@ public class PopData implements Serializable
 		User temp = new User();
 		temp.setName("ADMIN");
 		temp.setPassword("1234");
+		idUsed.add(0001);
+		idUsed.add(0002);
+		temp.addAccList(0001, new Account(0001, "admin", 15000.00));
+		temp.addAccList(0002, new Account(0002, "admin", 10000.00));
 		userU.put("admin", temp);
 		logOut();
 	}
@@ -109,9 +114,14 @@ public class PopData implements Serializable
 		return idUsed;
 	}
 
-	public void setIdUsed(List<Integer> idUsed)
+	public void addIdUsed(int id)
 	{
-		this.idUsed = idUsed;
+		idUsed.add(id);
+	}
+	
+	public void removeIdUsed(int id)
+	{
+		idUsed.remove(new Integer(id));
 	}
 
 

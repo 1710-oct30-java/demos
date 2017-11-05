@@ -1,15 +1,16 @@
 package com.bank.accounts;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class User implements Serializable
 {
 	private String name;
 	private String password;
 	
-	List<Integer> accID = new ArrayList<>();
+	Map<Integer, Account> accList = new HashMap<>();
 	
 	
 	public String getName()
@@ -28,14 +29,16 @@ public class User implements Serializable
 	{
 		this.password = password;
 	}
-	public List<Integer> getAccID()
+	public Map<Integer, Account> getAccList()
 	{
-		return accID;
+		return accList;
 	}
-	public void setAccID(List<Integer> accID)
+	public void addAccList(int id, Account acc)
 	{
-		this.accID = accID;
+		accList.put(id, acc);
 	}
+
+	
 	
 	
 }
