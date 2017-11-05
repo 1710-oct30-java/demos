@@ -1,6 +1,7 @@
 package com.bank.auth;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -11,13 +12,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.bank.accounts.Account;
+import com.bank.accounts.User;
 
 public class PopData implements Serializable
 {
 	private List<Object> master = new ArrayList<>();
-	private Map<String, String> userPass = new HashMap<>();
-	private Map<String, List<Account>> usersBanks = new HashMap<>();
+	private Map<String, User> userU = new HashMap<>();
 	private List<Integer> idUsed = new ArrayList<>();
 
 	public PopData()
@@ -25,6 +25,20 @@ public class PopData implements Serializable
 		super();
 
 		// De-serialize the Object to obtain data
+	}
+
+	public void makeAdmin()
+	{
+		User temp = new User();
+		temp.setName("ADMIN");
+		temp.setPassword("1234");
+		userU.put("admin", temp);
+		logOut();
+	}
+	
+	
+	public void getData()
+	{
 		try
 		{
 			FileInputStream fis = new FileInputStream("UsersCred");
@@ -32,29 +46,33 @@ public class PopData implements Serializable
 			master = (List<Object>) ois.readObject();
 			ois.close();
 			fis.close();
-
-			// get users and usersBanks object from file
-			userPass = (Map<String, String>) master.get(0);
-			usersBanks = (Map<String, List<Account>>) master.get(1);
-			idUsed = (List<Integer>) master.get(2);
-
-		} catch (IOException ioe)
+		}
+		catch (FileNotFoundException fnfe)
+		{
+			makeAdmin();
+		}
+		catch (IOException ioe)
 		{
 			ioe.printStackTrace();
 			return;
-		} catch (ClassNotFoundException c)
+		} 
+		catch (ClassNotFoundException c)
 		{
 			System.out.println("Class not found");
 			c.printStackTrace();
 			return;
 		}
+		finally
+		{		
+			// get users and usersBanks object from file
+			userU = (Map<String, User>) master.get(0);
+			idUsed = (List<Integer>) master.get(1);
+		}
 	}
-
 	public void logOut()
 	{
 		master = new ArrayList<>();
-		master.add(userPass);
-		master.add(usersBanks);
+		master.add(userU);
 		master.add(idUsed);
 
 		try
@@ -71,15 +89,26 @@ public class PopData implements Serializable
 	}
 
 
-
-	public Map<String, String> getUserpass()
+	public Map<String, User> getUserU()
 	{
-		return userPass;
+		return userU;
 	}
 
-	public void setUserpass(String username, String password)
+	public void addUserU(String username, User userObj)
 	{
-		userPass.put(username, password);
+		userU.put(username, userObj);
 	}
+
+	public List<Integer> getIdUsed()
+	{
+		return idUsed;
+	}
+
+	public void setIdUsed(List<Integer> idUsed)
+	{
+		this.idUsed = idUsed;
+	}
+
+
 
 }
