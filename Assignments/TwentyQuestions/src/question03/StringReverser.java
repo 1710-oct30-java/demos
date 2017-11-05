@@ -21,13 +21,6 @@ public class StringReverser {
 			str = swap(str, i, str.length() - (i+1));
 		}*/
 		
-		char mychar = 'f';
-		int charRep = mychar;
-		String myString = String.valueOf(mychar);
-		String stringFromInt = String.valueOf((char)charRep);
-		
-		System.out.println(myString);
-		System.out.println(stringFromInt);
 		//CHALLENGE: USE stream ~ .reduce()
 		//EXTRA CHALLENGE: Make it 'better'
 		
