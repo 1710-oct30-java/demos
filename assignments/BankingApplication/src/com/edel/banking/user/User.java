@@ -1,10 +1,20 @@
 package com.edel.banking.user;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class User
+import com.edel.banking.serialization.Deserialize;
+import com.edel.banking.serialization.Serialize;
+
+public class User implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4781425242330142843L;
+	
 	private String firstName;
 	private String lastName;
 	private String name;
@@ -15,6 +25,12 @@ public class User
 	
 	public static List<User> userList = new ArrayList<User>();
 
+	public User()
+	{
+		
+	}
+	
+	// Minimum requirements to create user profile
 	public User(String firstName, String lastName, String email, String password)
 	{
 		this.firstName = firstName;
@@ -23,7 +39,7 @@ public class User
 		this.email = email;
 		this.password = password;
 	}
-
+	
 	public String getFirstName()
 	{
 		return firstName;

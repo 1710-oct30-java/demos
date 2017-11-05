@@ -1,41 +1,60 @@
 package com.edel.banking.account;
 
-import java.util.Random;
-
+import com.edel.banking.serialization.Serialize;
 import com.edel.banking.user.User;
 
 public class CheckingAccount extends Account
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1964804567757075963L;
 	
-	public CheckingAccount(User user)
+	private static int ID = 1000;
+
+	public CheckingAccount()
 	{
-		super.setOwner(user);
-		super.setID(idGenerator());
+		super();
 	}
 
-	@Override
+	// Create new checking account with user information and initial balance
+	public CheckingAccount(User user, double balance)
+	{
+		super(ID, user, balance);
+		super.setType(type());
+		ID++;
+	}
+
 	public String type()
 	{
-		return "Checking";
+		return AccountType.CHECKING;
 	}
-	
-	// Generate ID from range 10000-19999
-	// ID that start with the number 1 are a CheckingACcount type
-	@Override
-	public int idGenerator()
-	{
-		Random rand = new Random();
 
-		//19999 is the maximum and the 10000 is our minimum
-		int  n = rand.nextInt(19999) + 10000;
-		
-		return n;
-	}
-	
 	@Override
 	public String toString()
 	{
-		return super.toString() + "\nType: " + type() + "\n";
+		String result = "ID: " + super.getID() + super.toString() + "\nType: " + type() + "\n";
+		return result;
 	}
-	
+
+	@Override
+	public void withdraw(int amount)
+	{
+		// Check that amount is greater than zero
+		if (super.isAmountCorrect(amount))
+		{
+			// Check if amount is more than current balance
+			if (amount > super.getBalance())
+			{
+				System.out.println("Not enough balance!\nCurrent Balance: $" + super.getBalance());
+			}
+
+			// Else withdraw amount
+			else
+			{
+				super.setBalance(super.getBalance() - amount);
+				Serialize.serializeAccounts();
+			}
+		}
+	}
 }

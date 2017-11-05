@@ -20,7 +20,7 @@ DONE 11 - Write a program that would access two float-variables from a class tha
 	 the solution.
 DONE 12 - Write a program to store numbers from 1 to 100 in an array. Print out all the even
 	 numbers from the array. Use the enhanced FOR loop for printing out the numbers.
-13 - Display the triangle on the console as follows using any type of loop. Do NOT use
+DONE 13 - Display the triangle on the console as follows using any type of loop. Do NOT use
 	 a simple group of print statements to accomplish this.
 	 0
 	 1 0
@@ -54,7 +54,7 @@ DONE 18 - Write a program having a concrete subclass that inherits three abstrac
 DONE 19 - Create an ArrayList and insert integers 1 through 10. Display the ArrayList. Add all
 	 the even numbers up and display the result. Add all the odd numbers up and display the
 	 result. Remove the prime numbers from the ArrayList and print out the remaining ArrayList.
-20 - Create a notepad file called Data.txt and enter the following:
+DONE 20 - Create a notepad file called Data.txt and enter the following:
 
 	Mickey:Mouse:35:Arizona
 	Hulk:Hogan:50:Virginia

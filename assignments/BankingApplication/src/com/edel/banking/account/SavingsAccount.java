@@ -1,38 +1,66 @@
 package com.edel.banking.account;
 
-import java.util.Random;
-
+import com.edel.banking.serialization.Serialize;
 import com.edel.banking.user.User;
 
 public class SavingsAccount extends Account
 {
-	public SavingsAccount(User user)
-	{
-		super.setOwner(user);
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4707208291558953304L;
 	
-	@Override
+	private static int ID = 2000;
+
+	public SavingsAccount()
+	{
+		super();
+	}
+
+	// Create new savings account with user information and initial balance
+	public SavingsAccount(User user, double balance)
+	{
+		super(ID, user, balance);
+		super.setType(type());
+		ID++;
+	}
+
 	public String type()
 	{
-		return "Savings";
+		return AccountType.SAVINGS;
 	}
-	
-	// Generate ID from range 20000-29999
-	// ID that start with the number 2 are a SavingsACcount type
-	@Override
-	public int idGenerator()
-	{
-		Random rand = new Random();
 
-		//29999 is the maximum and the 20000 is our minimum
-		int  n = rand.nextInt(29999) + 20000;
-		
-		return n;
-	}
-	
 	@Override
 	public String toString()
 	{
-		return super.toString() + "\nType: " + type() + "\n";
+		String result = "ID: " + super.getID() + super.toString() + "\nType: " + type() + "\n";
+		return result;
+	}
+
+	@Override
+	public void withdraw(int amount)
+	{
+		// Check that amount is greater than zero
+		if (super.isAmountCorrect(amount))
+		{
+			// Check if amount is more than current balance
+			if (amount > super.getBalance())
+			{
+				System.out.println("Not enough balance!\nCurrent Balance: $" + super.getBalance());
+			}
+			
+			// Check that user does not withdraw more than $500 a month
+			else if(amount > 500)
+			{
+				System.out.println("You cannot withdraw more than $500 in a month!");
+			}
+			
+			// Else withdraw amount
+			else
+			{
+				super.setBalance(super.getBalance() - amount);
+				Serialize.serializeAccounts();
+			}
+		}
 	}
 }
