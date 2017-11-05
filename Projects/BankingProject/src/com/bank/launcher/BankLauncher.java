@@ -20,14 +20,15 @@ public class BankLauncher
 		boolean flag = true;
 		boolean valUser = false;
 		int choice;
+		
 		//Populate important variables
 		data.getData();
 		
+//=======================FIRST PAGE========================================
 		do
 		{
 			try
-			{
-				
+			{	
 				System.out.println("1. Register an account");
 				System.out.println("2. Login");
 				System.out.println("0. Quit");
@@ -36,21 +37,26 @@ public class BankLauncher
 				switch(choice)
 				{
 					case 1:
-					{
-						tempList = manage.firstPage();
-						User newU = new User();
-						valUser = true;
-						System.out.print("NAME:\t");
-						String temp = input.nextLine();
-						newU.setName(temp);
-						newU.setPassword(tempList.get(1));
-						data.addUserU(tempList.get(0), newU);
-						flag = false;
-					}break;
+						tempList = manage.firstPage(1);
+						if (data.getUserMap().containsKey(tempList.get(0)))
+						{
+							System.err.println("Username taken");
+							break;
+						}
+						else
+						{
+							User newU = new User();
+							valUser = true;
+							newU.setName(tempList.get(2));
+							newU.setPassword(tempList.get(1));
+							data.addUserU(tempList.get(0), newU);
+							flag = false;
+							break;
+						}
 						
 					case 2:
-						tempList = manage.firstPage();
-						if (manage.valUser(data.getUserU()))
+						tempList = manage.firstPage(2);
+						if (manage.valUser(data.getUserMap()))
 						{
 							valUser = true;
 						}
@@ -60,22 +66,30 @@ public class BankLauncher
 					case 0:
 						flag = false;
 						break;
+						
+					default:
+						System.err.println("Invalid Input, please try again");
+						break;
 				}
 			}
 			catch (InputMismatchException ime)
 			{
-				System.out.println("Invalid Input, please try again");
+				System.err.println("Invalid Input, please try again");
 				input.next();
 			}
-			
 		}while(flag);
 		
 		
 		
-		//temp = manage.firstPage();
 		
-//		if (manage.valUser(data.getUserU()))
-//			System.out.println("welcome");
+//==========================SECOND PAGE===========================================		
+		if (valUser)
+		{
+			User curUser = data.getUser(tempList.get(0));
+			System.out.println("WELCOME, " + curUser.getName());
+			
+			
+		}
 		
 		
 		

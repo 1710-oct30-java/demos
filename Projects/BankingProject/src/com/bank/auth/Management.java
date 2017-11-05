@@ -1,5 +1,6 @@
 package com.bank.auth;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,41 +12,35 @@ public class Management
 {
 	private String username;
 	private String password;
+	private String name;
 	private Scanner input = new Scanner(System.in);
 	private List<String> uInput;
 	
+	
+	
 //	Page to enter username password and return
 //	regardless of login or registration
-	public List<String> firstPage()
+	public List<String> firstPage(int choice)
 	{
 		uInput = new ArrayList<>();
+		Console console = System.console();
 		
 		System.out.println("   • Username is case insensitive");
 		System.out.print("USERNAME:\t");
 		username = input.nextLine().toLowerCase();
 		System.out.print("PASSWORD:\t");
 		password = input.nextLine();
-		
 		uInput.add(username);
 		uInput.add(password);
+		if(choice == 1)
+		{
+			System.out.print("FULL NAME:\t");
+			name = input.nextLine();
+			uInput.add(name);
+		}
 		return uInput;
 	}
-	
 
-//	public List<String> regPage()
-//	{
-//		uInput = new ArrayList<>();
-//		System.out.println("REGISTRATION PAGE");
-//		System.out.print("Username to use: ");
-//		input.nextLine().toLowerCase();
-//		System.out.print("Password: ");
-//		input.nextLine();
-//		
-//		uInput.add(username);
-//		uInput.add(password);
-//		return uInput;
-//		
-//	}
 	
 	public void controlPage(User user)
 	{
@@ -61,7 +56,8 @@ public class Management
 				return true;
 			else
 				return false;
-		} else
+		} 
+		else
 			return false;
 	}
 }

@@ -89,7 +89,12 @@ public class PopData implements Serializable
 	}
 
 
-	public Map<String, User> getUserU()
+	public User getUser(String username)
+	{
+		return userU.get(username);
+	}
+	
+	public Map<String, User> getUserMap()
 	{
 		return userU;
 	}
