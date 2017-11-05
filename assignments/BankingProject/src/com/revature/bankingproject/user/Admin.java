@@ -5,12 +5,14 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import com.revature.bankingproject.account.AccountView;
+import com.revature.bankingproject.tools.EncryptionHandler;
+import com.revature.bankingproject.tools.UserTools;
 
 public class Admin {
 	private User self;
 
 	public Admin(List<User> users) {
-		this.self = new User(0, "Admin", "123", "");
+		this.self = new User(0, "Admin", EncryptionHandler.Encrypt("123"), " ");
 		self.setFlagged();
 		users.add(self);
 		
@@ -18,7 +20,7 @@ public class Admin {
 
 	public static void viewAllAccounts(List<User> users, Scanner scan) {
 		for (User user : users) {
-			if(LoginHandler.isAdmin(user)) continue;
+			if(UserTools.isAdmin(user)) continue;
 			System.out.println("Viewing " + user.getEmail() + "'s Accounts");
 			AccountView.viewAccounts(user.getAccounts(), true);
 		}
@@ -78,6 +80,11 @@ public class Admin {
 		return 1;
 	}
 	public static int removeUser(List<User> users, Scanner scan) {
+		if(users.size() == 1)
+		{
+			System.out.println("There are no users");
+			return 0;
+		}
 		while (true) {
 			users.stream().map(i -> i.getEmail()).forEach(System.out::println);
 			System.out.println("Which user would you like to remove:");

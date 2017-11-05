@@ -20,7 +20,7 @@ public class AccountCreateOrDestroy implements AccountCreateOrDestroyInterface {
 			System.out.println("Would you like too add (a) or remove (r) an account");
 			System.out.println("Enter nothing to return to previous page");
 			input = InputValidator.getAddOrRemove(scan.nextLine());
-			if(input.equals("back"))
+			if(input != null && input.equals("back"))
 			{
 				log.info("User returning to previous page");
 				return;

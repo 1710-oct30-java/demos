@@ -2604,3 +2604,581 @@
 2017-11-04 22:39:26 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
 2017-11-04 22:39:26 DEBUG LoginHandler:115 - Admin  0 123
 2017-11-04 22:39:26 DEBUG LoginHandler:115 - a a 1 a
+2017-11-05 11:40:51 INFO  Launcher:30 - Loading
+2017-11-05 11:40:51 DEBUG Launcher:38 - Increasing maximumAccountID to: 0
+2017-11-05 11:40:51 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:40:59 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:40:59 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:40:59 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:40:59 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 11:40:59 DEBUG LoginHandler:60 - Landing page Returning currentUser
+2017-11-05 11:40:59 DEBUG LoginHandler:115 - a a 1 a
+2017-11-05 11:40:59 DEBUG Launcher:62 - user is not ADMIN
+2017-11-05 11:41:02 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:41:02 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 11:41:02 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 11:41:02 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 11:41:03 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 11:41:03 DEBUG InputValidator:92 - User input is 1
+2017-11-05 11:45:34 INFO  Launcher:30 - Loading
+2017-11-05 11:45:34 DEBUG Launcher:38 - Increasing maximumAccountID to: 0
+2017-11-05 11:45:34 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:45:37 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:45:37 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:45:37 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:45:37 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 11:45:41 DEBUG LoginHandler:60 - Landing page Returning currentUser
+2017-11-05 11:45:41 DEBUG LoginHandler:115 - Admin  0 123
+2017-11-05 11:45:41 DEBUG Launcher:58 - user is ADMIN
+2017-11-05 11:45:43 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:45:43 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 11:45:43 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 11:45:46 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:45:46 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 11:45:46 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 11:45:46 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:45:47 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:45:47 DEBUG InputValidator:36 - User input is: 9
+2017-11-05 11:45:47 DEBUG InputValidator:46 - 9 deemed acceptable input for Login Page Input
+2017-11-05 11:45:47 INFO  Launcher:53 - User has quit
+2017-11-05 11:49:20 INFO  Launcher:30 - Loading
+2017-11-05 11:49:20 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:49:22 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:49:22 DEBUG InputValidator:36 - User input is: 2
+2017-11-05 11:49:22 DEBUG InputValidator:46 - 2 deemed acceptable input for Login Page Input
+2017-11-05 11:49:22 INFO  LoginHandler:90 - User is attempting to create a new User
+2017-11-05 11:49:23 DEBUG LoginHandler:101 - User name: a User email: aUser password a
+2017-11-05 11:49:23 INFO  LoginHandler:18 - Attempting to create new user
+2017-11-05 11:49:23 TRACE LoginHandler:19 - Create name: a password: a email: a
+2017-11-05 11:49:23 INFO  LoginHandler:90 - User is attempting to create a new User
+2017-11-05 11:49:29 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:49:29 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:49:29 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:49:29 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 11:49:29 DEBUG LoginHandler:60 - Landing page Returning currentUser
+2017-11-05 11:49:29 DEBUG LoginHandler:115 - a a 1 a
+2017-11-05 11:49:29 DEBUG Launcher:62 - user is not ADMIN
+2017-11-05 11:49:31 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:49:31 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 11:49:31 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 11:49:40 INFO  Launcher:30 - Loading
+2017-11-05 11:49:40 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:49:42 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:49:42 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:49:42 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:49:42 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 11:49:43 DEBUG LoginHandler:60 - Landing page Returning currentUser
+2017-11-05 11:49:43 DEBUG LoginHandler:115 - a a 1 a
+2017-11-05 11:49:43 DEBUG Launcher:62 - user is not ADMIN
+2017-11-05 11:50:04 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:04 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 11:50:04 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 11:50:04 INFO  AccountDepositOrWithdraw:17 - User in deposit or withdraw
+2017-11-05 11:50:07 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:50:07 DEBUG InputValidator:72 - User input : 1 Flag to check for Y/y : false
+2017-11-05 11:50:07 DEBUG InputValidator:84 - 1 deemed a valid input for Account ID
+2017-11-05 11:50:07 DEBUG AccountDepositOrWithdraw:26 - Account given is: 1
+2017-11-05 11:50:08 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:08 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 11:50:08 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 11:50:09 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:09 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 11:50:09 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 11:50:09 INFO  AccountDepositOrWithdraw:17 - User in deposit or withdraw
+2017-11-05 11:50:11 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:50:11 DEBUG InputValidator:72 - User input : 0 Flag to check for Y/y : false
+2017-11-05 11:50:11 DEBUG InputValidator:84 - 0 deemed a valid input for Account ID
+2017-11-05 11:50:11 DEBUG AccountDepositOrWithdraw:26 - Account given is: 0
+2017-11-05 11:50:11 INFO  AccountDepositOrWithdraw:29 - Account found
+2017-11-05 11:50:13 DEBUG AccountDepositOrWithdraw:45 - user input is -10
+2017-11-05 11:50:13 DEBUG AccountDepositOrWithdraw:46 - input.charAt(0): -
+2017-11-05 11:50:13 DEBUG AccountDepositOrWithdraw:48 - input.substring(1) is : 10
+2017-11-05 11:50:13 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:50:13 DEBUG InputValidator:55 - User input is: 10
+2017-11-05 11:50:13 DEBUG InputValidator:58 - 10 deemed an acceptable input for Dollar Amount
+2017-11-05 11:50:13 DEBUG AccountTools:26 - Current amount in account: 123.0
+2017-11-05 11:50:13 DEBUG AccountTools:36 - Decreasing amount in account
+2017-11-05 11:50:13 DEBUG AccountTools:50 - Amount in account: 113.0
+2017-11-05 11:50:13 DEBUG AccountDepositOrWithdraw:59 - 113.0
+2017-11-05 11:50:14 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:14 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 11:50:14 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 11:50:17 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:17 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 11:50:17 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 11:50:17 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 11:50:18 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 11:50:18 DEBUG InputValidator:92 - User input is r
+2017-11-05 11:50:18 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 11:50:18 INFO  AccountCreateOrDestroy:75 - Removing Account
+2017-11-05 11:50:20 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:50:20 DEBUG InputValidator:72 - User input : 0 Flag to check for Y/y : false
+2017-11-05 11:50:20 DEBUG InputValidator:84 - 0 deemed a valid input for Account ID
+2017-11-05 11:50:20 DEBUG AccountCreateOrDestroy:78 - Account ID is: 0
+2017-11-05 11:50:20 INFO  AccountCreateOrDestroy:86 - user account has money, unable to delete
+2017-11-05 11:50:20 INFO  AccountCreateOrDestroy:104 - User in clearAccount
+2017-11-05 11:50:21 INFO  AccountCreateOrDestroy:124 - User attempting to transfer from account
+2017-11-05 11:50:21 INFO  AccountCreateOrDestroy:95 - User did not delete account
+2017-11-05 11:50:27 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:27 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 11:50:27 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 11:50:27 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 11:50:29 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 11:50:29 DEBUG InputValidator:92 - User input is a
+2017-11-05 11:50:29 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 11:50:29 INFO  AccountCreateOrDestroy:43 - In addAccount
+2017-11-05 11:50:29 INFO  AccountCreateOrDestroy:59 - Getting Account Type
+2017-11-05 11:50:31 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:50:31 DEBUG InputValidator:55 - User input is: 1
+2017-11-05 11:50:31 DEBUG InputValidator:58 - 1 deemed an acceptable input for Dollar Amount
+2017-11-05 11:50:31 DEBUG AccountCreateOrDestroy:51 - Creating Savings Accounts account for: a with amount: 1
+2017-11-05 11:50:34 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:34 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 11:50:34 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 11:50:34 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 11:50:35 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 11:50:35 DEBUG InputValidator:92 - User input is r
+2017-11-05 11:50:35 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 11:50:35 INFO  AccountCreateOrDestroy:75 - Removing Account
+2017-11-05 11:50:37 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:50:37 DEBUG InputValidator:72 - User input : 0 Flag to check for Y/y : false
+2017-11-05 11:50:37 DEBUG InputValidator:84 - 0 deemed a valid input for Account ID
+2017-11-05 11:50:37 DEBUG AccountCreateOrDestroy:78 - Account ID is: 0
+2017-11-05 11:50:37 INFO  AccountCreateOrDestroy:86 - user account has money, unable to delete
+2017-11-05 11:50:37 INFO  AccountCreateOrDestroy:104 - User in clearAccount
+2017-11-05 11:50:38 INFO  AccountCreateOrDestroy:124 - User attempting to transfer from account
+2017-11-05 11:50:38 INFO  AccountCreateOrDestroy:146 - User in transferFromAccount
+2017-11-05 11:50:39 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:50:39 DEBUG InputValidator:72 - User input : 1 Flag to check for Y/y : false
+2017-11-05 11:50:39 DEBUG InputValidator:84 - 1 deemed a valid input for Account ID
+2017-11-05 11:50:39 DEBUG AccountCreateOrDestroy:160 - Returning user's account
+2017-11-05 11:50:39 DEBUG AccountTools:26 - Current amount in account: 1.0
+2017-11-05 11:50:39 DEBUG AccountTools:32 - Increasing amount in account
+2017-11-05 11:50:39 DEBUG AccountTools:50 - Amount in account: 114.0
+2017-11-05 11:50:39 DEBUG AccountTools:26 - Current amount in account: 113.0
+2017-11-05 11:50:39 DEBUG AccountTools:36 - Decreasing amount in account
+2017-11-05 11:50:39 DEBUG AccountTools:50 - Amount in account: 0.0
+2017-11-05 11:50:39 INFO  AccountCreateOrDestroy:91 - Removing user account
+2017-11-05 11:50:41 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:41 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 11:50:41 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 11:50:45 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 11:50:45 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 11:50:45 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 11:50:45 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:50:46 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:50:46 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:50:46 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:50:46 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 11:51:30 INFO  Launcher:30 - Loading
+2017-11-05 11:51:30 DEBUG Launcher:38 - Increasing maximumAccountID to: 1
+2017-11-05 11:51:30 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:51:36 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:51:36 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:51:36 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:51:36 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 11:52:16 INFO  AccountTests:16 - Beginning Account Tests
+2017-11-05 11:52:16 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:52:16 DEBUG InputValidator:72 - User input : as Flag to check for Y/y : false
+2017-11-05 11:52:16 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:52:16 DEBUG InputValidator:72 - User input : 013738a Flag to check for Y/y : false
+2017-11-05 11:52:16 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:52:16 DEBUG InputValidator:72 - User input : 112341234187397a182394 Flag to check for Y/y : false
+2017-11-05 11:52:16 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:52:16 DEBUG InputValidator:72 - User input : 10 Flag to check for Y/y : false
+2017-11-05 11:52:16 DEBUG InputValidator:84 - 10 deemed a valid input for Account ID
+2017-11-05 11:52:16 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 11:52:16 DEBUG InputValidator:72 - User input : 10123 Flag to check for Y/y : false
+2017-11-05 11:52:16 DEBUG InputValidator:84 - 10123 deemed a valid input for Account ID
+2017-11-05 11:52:16 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:52:16 DEBUG InputValidator:55 - User input is: 10a
+2017-11-05 11:52:16 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:52:16 DEBUG InputValidator:55 - User input is: 10
+2017-11-05 11:52:16 DEBUG InputValidator:58 - 10 deemed an acceptable input for Dollar Amount
+2017-11-05 11:52:16 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:52:16 DEBUG InputValidator:55 - User input is: 10.01
+2017-11-05 11:52:16 DEBUG InputValidator:58 - 10.01 deemed an acceptable input for Dollar Amount
+2017-11-05 11:52:16 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:52:16 DEBUG InputValidator:55 - User input is: 1
+2017-11-05 11:52:16 DEBUG InputValidator:58 - 1 deemed an acceptable input for Dollar Amount
+2017-11-05 11:52:16 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:52:16 DEBUG InputValidator:55 - User input is: aasdlfjvoixqwoerjlasdkf12039asdkfljzvio10.20
+2017-11-05 11:52:16 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 11:52:16 DEBUG InputValidator:55 - User input is: 11000020200128318239127293829292.23
+2017-11-05 11:52:16 DEBUG InputValidator:58 - 11000020200128318239127293829292.23 deemed an acceptable input for Dollar Amount
+2017-11-05 11:52:23 INFO  Launcher:30 - Loading
+2017-11-05 11:52:23 DEBUG Launcher:38 - Increasing maximumAccountID to: 1
+2017-11-05 11:52:23 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:52:26 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:52:26 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:52:26 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:52:26 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 11:58:09 INFO  Launcher:30 - Loading
+2017-11-05 11:58:09 DEBUG Launcher:38 - Increasing maximumAccountID to: 1
+2017-11-05 11:58:09 INFO  LoginHandler:32 - On landing page
+2017-11-05 11:58:12 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 11:58:12 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 11:58:12 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 11:58:12 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 12:01:15 INFO  Launcher:30 - Loading
+2017-11-05 12:01:15 DEBUG Launcher:38 - Increasing maximumAccountID to: 1
+2017-11-05 12:01:15 INFO  LoginHandler:32 - On landing page
+2017-11-05 12:01:19 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:01:19 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:01:19 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:01:19 INFO  LoginHandler:65 - User is attempting to log in
+2017-11-05 12:05:42 DEBUG LoginHandler:60 - Landing page Returning currentUser
+2017-11-05 12:05:42 DEBUG LoginHandler:115 - a a 1 a
+2017-11-05 12:05:42 DEBUG Launcher:62 - user is not ADMIN
+2017-11-05 12:05:44 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:05:44 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:05:44 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:05:44 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 12:05:45 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:05:45 DEBUG InputValidator:92 - User input is 1
+2017-11-05 12:05:49 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:05:49 DEBUG InputValidator:92 - User input is r
+2017-11-05 12:05:49 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 12:05:49 INFO  AccountCreateOrDestroy:75 - Removing Account
+2017-11-05 12:05:50 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 12:05:50 DEBUG InputValidator:72 - User input : 1 Flag to check for Y/y : false
+2017-11-05 12:05:50 DEBUG InputValidator:84 - 1 deemed a valid input for Account ID
+2017-11-05 12:05:50 DEBUG AccountCreateOrDestroy:78 - Account ID is: 1
+2017-11-05 12:05:50 INFO  AccountCreateOrDestroy:86 - user account has money, unable to delete
+2017-11-05 12:05:50 INFO  AccountCreateOrDestroy:104 - User in clearAccount
+2017-11-05 12:05:53 INFO  AccountCreateOrDestroy:117 - User attempting to withdraw from account
+2017-11-05 12:05:53 DEBUG AccountTools:26 - Current amount in account: 114.0
+2017-11-05 12:05:53 DEBUG AccountTools:36 - Decreasing amount in account
+2017-11-05 12:05:53 DEBUG AccountTools:50 - Amount in account: 0.0
+2017-11-05 12:05:53 INFO  AccountCreateOrDestroy:91 - Removing user account
+2017-11-05 12:05:55 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:05:55 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:05:55 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:05:55 INFO  LoginHandler:32 - On landing page
+2017-11-05 12:14:49 INFO  Launcher:31 - Loading
+2017-11-05 12:14:49 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:14:55 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:14:55 DEBUG InputValidator:36 - User input is: 2
+2017-11-05 12:14:55 DEBUG InputValidator:46 - 2 deemed acceptable input for Login Page Input
+2017-11-05 12:14:55 INFO  LoginHandler:90 - User is attempting to create a new User
+2017-11-05 12:14:56 DEBUG LoginHandler:101 - User name: b User email: bUser password b
+2017-11-05 12:14:57 INFO  LoginHandler:19 - Attempting to create new user
+2017-11-05 12:14:57 TRACE LoginHandler:20 - Create name: b password: Qfw]Ù„ email: b
+2017-11-05 12:14:57 INFO  LoginHandler:24 - Adding new user
+2017-11-05 12:15:05 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:15:05 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:15:05 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:15:05 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:15:44 INFO  Launcher:31 - Loading
+2017-11-05 12:15:44 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:15:49 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:15:49 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:15:49 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:15:49 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:17:13 INFO  Launcher:31 - Loading
+2017-11-05 12:17:13 WARN  Launcher:46 - Unable to load from file.  Resetting users List
+2017-11-05 12:17:14 INFO  Launcher:49 - Only user is Admin
+2017-11-05 12:17:14 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:17:17 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:17:17 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:17:17 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:17:17 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:17:19 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:17:19 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:17:19 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:17:21 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:17:21 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:17:21 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:17:21 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:17:23 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:17:23 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:17:23 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:17:26 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:17:26 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:17:26 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:18:16 INFO  Launcher:31 - Loading
+2017-11-05 12:18:16 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:18:19 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:18:19 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:18:19 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:18:19 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:18:22 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:18:22 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:18:22 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:18:24 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:18:24 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:18:24 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:18:24 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:18:25 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:18:25 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:18:25 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:18:26 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:18:26 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:18:26 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:19:03 INFO  Launcher:31 - Loading
+2017-11-05 12:19:03 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:19:05 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:19:05 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:19:05 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:19:05 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:19:07 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:19:07 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:19:07 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:19:10 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:10 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:19:10 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:19:11 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:11 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:19:11 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:19:12 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:12 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:19:12 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:19:12 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:19:16 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:16 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:19:16 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:19:16 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:19:17 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:19:17 DEBUG InputValidator:36 - User input is: 2
+2017-11-05 12:19:17 DEBUG InputValidator:46 - 2 deemed acceptable input for Login Page Input
+2017-11-05 12:19:17 INFO  LoginHandler:90 - User is attempting to create a new User
+2017-11-05 12:19:19 DEBUG LoginHandler:101 - User name: a User email: aUser password a
+2017-11-05 12:19:19 INFO  LoginHandler:19 - Attempting to create new user
+2017-11-05 12:19:19 TRACE LoginHandler:20 - Create name: a password: 3û?„¿ù¾0 email: a
+2017-11-05 12:19:19 INFO  LoginHandler:24 - Adding new user
+2017-11-05 12:19:21 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:19:21 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:19:21 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:19:21 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:19:22 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:19:22 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:19:22 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:19:25 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:25 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:19:25 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:19:26 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:19:39 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:19:39 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:19:39 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:19:39 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:19:41 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:19:41 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:19:41 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:19:43 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:43 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:19:43 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:19:46 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:46 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:19:46 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:19:46 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:19:51 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:19:51 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:19:51 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:19:51 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:19:52 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:19:52 DEBUG UserTools:11 - a a 1 3û?„¿ù¾0
+2017-11-05 12:19:52 DEBUG Launcher:63 - user is not ADMIN
+2017-11-05 12:19:57 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:57 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:19:57 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:19:59 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:19:59 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:19:59 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:19:59 INFO  AccountDepositOrWithdraw:17 - User in deposit or withdraw
+2017-11-05 12:20:02 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 12:20:02 DEBUG InputValidator:72 - User input : 1 Flag to check for Y/y : false
+2017-11-05 12:20:02 DEBUG InputValidator:84 - 1 deemed a valid input for Account ID
+2017-11-05 12:20:02 DEBUG AccountDepositOrWithdraw:26 - Account given is: 1
+2017-11-05 12:20:04 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:04 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:20:04 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:20:04 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 12:20:06 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:06 DEBUG InputValidator:92 - User input is 1
+2017-11-05 12:20:08 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:08 DEBUG InputValidator:92 - User input is 2
+2017-11-05 12:20:08 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:08 DEBUG InputValidator:92 - User input is 3
+2017-11-05 12:20:09 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:09 DEBUG InputValidator:92 - User input is 4
+2017-11-05 12:20:09 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:09 DEBUG InputValidator:92 - User input is 1
+2017-11-05 12:20:09 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:09 DEBUG InputValidator:92 - User input is 2
+2017-11-05 12:20:09 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:09 DEBUG InputValidator:92 - User input is 3
+2017-11-05 12:20:10 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:10 DEBUG InputValidator:92 - User input is a
+2017-11-05 12:20:10 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 12:20:10 INFO  AccountCreateOrDestroy:43 - In addAccount
+2017-11-05 12:20:10 INFO  AccountCreateOrDestroy:59 - Getting Account Type
+2017-11-05 12:20:13 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 12:20:13 DEBUG InputValidator:55 - User input is: 123123a
+2017-11-05 12:20:15 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 12:20:15 DEBUG InputValidator:55 - User input is: 1238df234123a
+2017-11-05 12:20:17 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 12:20:17 DEBUG InputValidator:55 - User input is: 123.12
+2017-11-05 12:20:17 DEBUG InputValidator:58 - 123.12 deemed an acceptable input for Dollar Amount
+2017-11-05 12:20:17 DEBUG AccountCreateOrDestroy:51 - Creating Savings Accounts account for: a with amount: 123.12
+2017-11-05 12:20:18 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:18 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:20:18 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:20:27 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:27 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:20:27 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:20:27 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 12:20:28 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:20:28 DEBUG InputValidator:92 - User input is r
+2017-11-05 12:20:28 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 12:20:28 INFO  AccountCreateOrDestroy:75 - Removing Account
+2017-11-05 12:20:30 INFO  InputValidator:71 - Validating Account Id input
+2017-11-05 12:20:30 DEBUG InputValidator:72 - User input : 1 Flag to check for Y/y : false
+2017-11-05 12:20:30 DEBUG InputValidator:84 - 1 deemed a valid input for Account ID
+2017-11-05 12:20:30 DEBUG AccountCreateOrDestroy:78 - Account ID is: 1
+2017-11-05 12:20:30 INFO  AccountCreateOrDestroy:86 - user account has money, unable to delete
+2017-11-05 12:20:30 INFO  AccountCreateOrDestroy:104 - User in clearAccount
+2017-11-05 12:20:31 INFO  AccountCreateOrDestroy:124 - User attempting to transfer from account
+2017-11-05 12:20:31 INFO  AccountCreateOrDestroy:95 - User did not delete account
+2017-11-05 12:20:40 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:40 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:20:40 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:20:40 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:20:42 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:20:42 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:20:42 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:20:42 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:20:45 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:20:45 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:20:45 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:20:46 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:46 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:20:46 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:20:46 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:20:46 DEBUG UserTools:11 - a a 1 3û?„¿ù¾0
+2017-11-05 12:20:49 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:49 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:20:49 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:20:50 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:50 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:20:50 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:20:53 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:53 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:20:53 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:20:53 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:20:55 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:20:55 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:20:55 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:20:55 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:20:58 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:20:58 DEBUG InputValidator:36 - User input is: 9
+2017-11-05 12:20:58 DEBUG InputValidator:46 - 9 deemed acceptable input for Login Page Input
+2017-11-05 12:20:58 INFO  Launcher:54 - User has quit
+2017-11-05 12:21:02 INFO  Launcher:31 - Loading
+2017-11-05 12:21:02 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:21:05 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:21:05 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:21:05 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:21:05 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:21:10 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:21:10 DEBUG InputValidator:36 - User input is: 2
+2017-11-05 12:21:10 DEBUG InputValidator:46 - 2 deemed acceptable input for Login Page Input
+2017-11-05 12:21:10 INFO  LoginHandler:90 - User is attempting to create a new User
+2017-11-05 12:21:11 DEBUG LoginHandler:101 - User name: a User email: aUser password a
+2017-11-05 12:21:12 INFO  LoginHandler:19 - Attempting to create new user
+2017-11-05 12:21:12 TRACE LoginHandler:20 - Create name: a password: 3û?„¿ù¾0 email: a
+2017-11-05 12:21:12 INFO  LoginHandler:24 - Adding new user
+2017-11-05 12:21:14 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:21:14 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:21:14 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:21:14 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:21:15 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:21:15 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:21:15 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:21:16 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:21:16 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:21:16 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:21:18 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:21:18 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:21:18 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:21:18 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:21:19 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:21:19 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:21:19 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:21:19 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:21:19 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:21:19 DEBUG UserTools:11 - a a 1 3û?„¿ù¾0
+2017-11-05 12:21:19 DEBUG Launcher:63 - user is not ADMIN
+2017-11-05 12:21:23 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:21:23 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:21:23 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:21:23 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 12:21:25 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:21:25 DEBUG InputValidator:92 - User input is a
+2017-11-05 12:21:25 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 12:21:25 INFO  AccountCreateOrDestroy:43 - In addAccount
+2017-11-05 12:21:25 INFO  AccountCreateOrDestroy:59 - Getting Account Type
+2017-11-05 12:21:29 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 12:21:29 DEBUG InputValidator:55 - User input is: 12312312312
+2017-11-05 12:21:29 DEBUG InputValidator:58 - 12312312312 deemed an acceptable input for Dollar Amount
+2017-11-05 12:21:29 DEBUG AccountCreateOrDestroy:51 - Creating Savings Accounts account for: a with amount: 12312312312
+2017-11-05 12:21:33 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:21:33 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:21:33 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:21:33 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:21:34 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:21:34 DEBUG InputValidator:36 - User input is: 9
+2017-11-05 12:21:34 DEBUG InputValidator:46 - 9 deemed acceptable input for Login Page Input
+2017-11-05 12:21:34 INFO  Launcher:54 - User has quit
+2017-11-05 12:21:36 INFO  Launcher:31 - Loading
+2017-11-05 12:21:36 DEBUG Launcher:39 - Increasing maximumAccountID to: 1
+2017-11-05 12:21:36 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:21:40 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:21:40 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:21:40 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:21:40 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:21:43 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:21:43 DEBUG UserTools:11 - a a 1 3û?„¿ù¾0
+2017-11-05 12:21:43 DEBUG Launcher:63 - user is not ADMIN
+2017-11-05 12:22:13 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:22:13 DEBUG InputValidator:17 - User input is: 3
+2017-11-05 12:22:13 DEBUG InputValidator:27 - 3 deemed acceptable input for Main Page Input
+2017-11-05 12:22:13 INFO  AccountCreateOrDestroy:16 - User has entered create or destory
+2017-11-05 12:22:14 INFO  InputValidator:91 - Validating a, r, or nothing
+2017-11-05 12:22:14 DEBUG InputValidator:92 - User input is a
+2017-11-05 12:22:14 DEBUG InputValidator:97 - User input for getAddorRemove deemed valid
+2017-11-05 12:22:14 INFO  AccountCreateOrDestroy:43 - In addAccount
+2017-11-05 12:22:14 INFO  AccountCreateOrDestroy:59 - Getting Account Type
+2017-11-05 12:22:17 INFO  InputValidator:54 - Validating Dollar Amount
+2017-11-05 12:22:17 DEBUG InputValidator:55 - User input is: 1
+2017-11-05 12:22:17 DEBUG InputValidator:58 - 1 deemed an acceptable input for Dollar Amount
+2017-11-05 12:22:17 DEBUG AccountCreateOrDestroy:51 - Creating Checkings Account account for: a with amount: 1
+2017-11-05 12:22:18 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:22:18 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:22:18 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:22:26 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:22:26 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:22:26 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:22:26 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:22:27 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:22:27 DEBUG InputValidator:36 - User input is: 1
+2017-11-05 12:22:27 DEBUG InputValidator:46 - 1 deemed acceptable input for Login Page Input
+2017-11-05 12:22:27 INFO  LoginHandler:66 - User is attempting to log in
+2017-11-05 12:22:30 DEBUG LoginHandler:61 - Landing page Returning currentUser
+2017-11-05 12:22:30 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:22:30 DEBUG Launcher:59 - user is ADMIN
+2017-11-05 12:22:31 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:22:31 DEBUG InputValidator:17 - User input is: 1
+2017-11-05 12:22:31 DEBUG InputValidator:27 - 1 deemed acceptable input for Main Page Input
+2017-11-05 12:22:31 DEBUG UserTools:11 - Admin   0 ñ›Q¦0!
+2017-11-05 12:22:31 DEBUG UserTools:11 - a a 1 3û?„¿ù¾0
+2017-11-05 12:22:33 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:22:33 DEBUG InputValidator:17 - User input is: 2
+2017-11-05 12:22:33 DEBUG InputValidator:27 - 2 deemed acceptable input for Main Page Input
+2017-11-05 12:22:35 INFO  InputValidator:16 - Validating Main Page Input
+2017-11-05 12:22:35 DEBUG InputValidator:17 - User input is: 4
+2017-11-05 12:22:35 DEBUG InputValidator:27 - 4 deemed acceptable input for Main Page Input
+2017-11-05 12:22:35 INFO  LoginHandler:33 - On landing page
+2017-11-05 12:22:36 INFO  InputValidator:35 - Validating Login Page Input
+2017-11-05 12:22:36 DEBUG InputValidator:36 - User input is: 9
+2017-11-05 12:22:36 DEBUG InputValidator:46 - 9 deemed acceptable input for Login Page Input
+2017-11-05 12:22:36 INFO  Launcher:54 - User has quit

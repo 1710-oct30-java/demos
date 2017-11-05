@@ -13,6 +13,7 @@ import com.revature.bankingproject.account.AccountDepositOrWithdraw;
 import com.revature.bankingproject.account.AccountView;
 import com.revature.bankingproject.files.FileHandler;
 import com.revature.bankingproject.inputvalidator.InputValidator;
+import com.revature.bankingproject.tools.UserTools;
 import com.revature.bankingproject.user.Admin;
 import com.revature.bankingproject.user.LoginHandler;
 import com.revature.bankingproject.user.User;
@@ -30,7 +31,7 @@ public class Launcher {
 		log.info("Loading");
 		try {
 			users = FileHandler.loadSerializedFile();
-			int maximumAccountID = 0;
+			int maximumAccountID = 1;
 			for (User user : users) {
 				for (Account acc : user.getAccounts()) {
 					if (acc.getId() >= maximumAccountID) {
@@ -54,7 +55,7 @@ public class Launcher {
 				System.out.println("Have a wonderful day!");
 				FileHandler.saveSerializedFile(users);
 				return;
-			} else if (LoginHandler.isAdmin(currentUser)) {
+			} else if (UserTools.isAdmin(currentUser)) {
 				log.debug("user is ADMIN");
 				launcher.adminMainPage();
 

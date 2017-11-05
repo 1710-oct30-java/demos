@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import com.revature.bankingproject.files.FileHandler;
 import com.revature.bankingproject.inputvalidator.InputValidator;
+import com.revature.bankingproject.tools.EncryptionHandler;
 
 public class LoginHandler implements LoginInterface {
 	private static Logger log = Logger.getRootLogger();
@@ -64,22 +65,21 @@ public class LoginHandler implements LoginInterface {
 	private User userLoginPage(List<User> users) {
 		log.info("User is attempting to log in");
 		Optional<User> checkUserLogin = null;
-		String userNameOrEmail;
+		String userEmail;
 		String password;
 
 		do {
 			System.out.println("If you would like to return to the previous page leave any field blank");
-			System.out.println("Please Enter Your UserName or Email:");
-			userNameOrEmail = scan.nextLine();
+			System.out.println("Please Enter Your Email:");
+			userEmail = scan.nextLine();
 			System.out.println("Please Enter Your Password");
 			password = scan.nextLine();
-			if (userNameOrEmail.length() == 0 || password.length() == 0) {
+			if (userEmail.length() == 0 || password.length() == 0) {
 				return null;
 			}
-			final String UserEmail = userNameOrEmail;
+			final String UserEmail = userEmail;
 			final String pass = password;
-			checkUserLogin = users.stream().filter(i -> i.getName().equals(UserEmail)
-					|| (i.getEmail().equals(UserEmail)) && (i.getPassword().equals(pass))).findFirst();
+			checkUserLogin = users.stream().filter(i -> i.getEmail().equals(UserEmail) && (i.getPassword().equals(EncryptionHandler.Encrypt(pass)))).findFirst();
 			if(!checkUserLogin.isPresent())
 				System.out.println("I'm sorry there are no user accounts with that verification");
 		} while (!checkUserLogin.isPresent());
@@ -101,7 +101,7 @@ public class LoginHandler implements LoginInterface {
 		log.debug("User name: " + name + " User email: " + email + "User password " + password);
 		User newUser = null;
 		try {
-			newUser = create(name, password, email, users);
+			newUser = create(name, EncryptionHandler.Encrypt(password), email, users);
 		} catch (DuplicateUserException e) {
 			System.out.println("I'm sorry someone has alread opened an account with those credentials");
 			userCreatePage(users);
@@ -109,11 +109,6 @@ public class LoginHandler implements LoginInterface {
 		FileHandler.saveSerializedFile(users);
 		return newUser;
 
-	}
-	//Checks if user is admin
-	public static boolean isAdmin(User user) {
-		log.debug(user.getName() + " " + user.getEmail() + " " + user.getId() + " " + user.getPassword());
-		return (user.getName().equals("Admin") && user.getEmail().equals("") && user.getId() == 0 && user.getPassword().equals("123"));
 	}
 
 	@Override

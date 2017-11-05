@@ -24,7 +24,7 @@ public class LoginHandler implements LoginInterface {
 			throw new DuplicateUserException();
 		}
 		log.info("Adding new user");
-		User newUser = new User(User.userIdCount++, name, password, email);
+		User newUser = new User(User.userIdCount++, name, EncryptionHandler.Encrypt(password), email);
 		users.add(newUser);
 		return newUser;
 	}
