@@ -70,6 +70,7 @@ public abstract class UserAccount extends Application
 					
 					// Log out
 					case "5":
+						OpenAccount.openAccountMenu = false;
 						userAccountMenu = false;	// Current menu
 						userAccountMenuSelection = "";
 						System.out.println("\nGoodbye, " + Login.getUser().getFirstName() + "!");
@@ -159,7 +160,6 @@ public abstract class UserAccount extends Application
 	{
 		Scanner scanner;
 		int ID = 0;
-		int amount = 0;
 		
 		System.out.print("Account #: ");
 		scanner = new Scanner(System.in);
@@ -177,7 +177,7 @@ public abstract class UserAccount extends Application
 		}
 	}
 
-	// Case 3 - Close All Accounts
+	// Case 4 - Close All Accounts
 	private static void closeAllAccounts()
 	{
 		Scanner scanner;

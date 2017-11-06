@@ -15,8 +15,8 @@ public class Serialize implements Serializable
 	 */
 	private static final long serialVersionUID = 5901379296160307420L;
 	
-	private static File usersFile = new File("src/user_login.txt");
-	private static File accountsFile = new File("src/user_accounts.txt");
+	public static File usersFile = new File("src/user_login.txt");
+	public static File accountsFile = new File("src/user_accounts.txt");
 
 	public static void serializeUsers()
 	{

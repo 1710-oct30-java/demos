@@ -4,26 +4,28 @@ import java.util.Scanner;
 
 import com.edel.banking.bank.Bank;
 import com.edel.banking.serialization.Deserialize;
+import com.edel.banking.serialization.Serialize;
 
 public class Application
 {
 	protected static Bank bank = new Bank();
 	protected static boolean mainMenu = true;
 	
-	// Constructor starts the application
-	public Application()
-	{
-		// Deserialize accounts and users to read data
-		Deserialize.deserializeAccounts();
-		Deserialize.deserializeUsers();
-		
-		// Start application
-		start();
-	}
-	
 	// Start application
 	public static void start()
 	{
+		// Create accounts file if it doesn't exist
+		if(!Serialize.accountsFile.exists())
+		{
+			Serialize.serializeAccounts();
+		}
+		
+		// Create users file if it doesn't exist
+		if(!Serialize.usersFile.exists())
+		{
+			Serialize.serializeUsers();
+		}
+		
 		// Deserialize accounts and users to read data upon application start
 		Deserialize.deserializeAccounts();
 		Deserialize.deserializeUsers();

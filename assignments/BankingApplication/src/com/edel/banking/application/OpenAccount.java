@@ -11,11 +11,13 @@ import com.edel.banking.user.User;
 
 public abstract class OpenAccount extends Application
 {
+	protected static boolean openAccountMenu = true;
+	
 	// Main Menu - Case 1 - Open a new account
 	protected static void openAccount()
 	{
 		Scanner scanner;
-		boolean openAccountMenu = true;
+		
 		String newAccountSelection;
 		
 		while(openAccountMenu)
@@ -119,6 +121,8 @@ public abstract class OpenAccount extends Application
 				scanner = new Scanner(System.in);
 				String password = scanner.nextLine();
 				
+				
+				
 				System.out.print("Balance (Minimum of $25): $ ");
 				scanner = new Scanner(System.in);
 				double balance = scanner.nextDouble();
@@ -158,6 +162,11 @@ public abstract class OpenAccount extends Application
 			// e.printStackTrace();
 		}
 	}
+	
+	
+	// Check that password matches if user already exists
+	
+	
 	
 	// Open new savings account
 	public static void newSavingsAccount()

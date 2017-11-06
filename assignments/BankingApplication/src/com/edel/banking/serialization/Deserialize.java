@@ -19,8 +19,7 @@ public class Deserialize implements Serializable
 	 */
 	private static final long serialVersionUID = 7116928604659928152L;
 	
-	private static File usersFile = new File("src/user_login.txt");
-	private static File accountsFile = new File("src/user_accounts.txt");
+	
 
 	// Deserialize and returns list of users
 	public static List<User> deserializeUsers()
@@ -29,7 +28,7 @@ public class Deserialize implements Serializable
 		{
 			List<User> tmp_users = null;
 			
-			FileInputStream fileIn = new FileInputStream(usersFile);
+			FileInputStream fileIn = new FileInputStream(Serialize.usersFile);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 
 			tmp_users = (List<User>) in.readObject();
@@ -60,7 +59,7 @@ public class Deserialize implements Serializable
 		{
 			List<Account> tmp_accounts = null;
 			
-			FileInputStream fileIn = new FileInputStream(accountsFile);
+			FileInputStream fileIn = new FileInputStream(Serialize.accountsFile);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 
 			tmp_accounts = (List<Account>) in.readObject();
