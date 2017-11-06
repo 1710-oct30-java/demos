@@ -1,5 +1,7 @@
 package assignments.week01.project.bretty.console.view;
 
+import assignments.week01.project.io.Screen;
+
 /**
  * The view that is used for a custom leaf functionality implementation.
  * It provides useful features like managed UI wrapper, e.g. {@code prompt()}
@@ -30,6 +32,8 @@ public abstract class ActionView extends AbstractView {
 
     @Override
     public void display() {
+    	super.display();	// added to clear screen for each view
+    	
         this.println();
         this.println(this.runningTitle);
         this.executeCustomAction();

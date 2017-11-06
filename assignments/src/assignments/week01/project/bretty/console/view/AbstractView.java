@@ -5,6 +5,8 @@ import java.math.BigInteger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import assignments.week01.project.io.Screen;
+
 /**
  * The parent class of all View classes, which defines infrastructure attributes (e.g. {@code parentView} and methods (e.g. {@code prompt()}
  */
@@ -68,7 +70,10 @@ public abstract class AbstractView {
     /**
      * display this view in the console
      */
-    public abstract void display();
+    public void display()
+    {
+    	Screen.getInstance().clear(); // added to clear screen for each view
+    }
 
     /**
      * Override this method to execute your own logic when the view is going back to the parent view

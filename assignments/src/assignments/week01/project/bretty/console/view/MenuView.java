@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 
+import assignments.week01.project.io.Screen;
+
 /**
  * The View that displays a list of options with index numbers, and asks the user to select one to proceed. It provides validation of user input.
  */
@@ -55,7 +57,8 @@ public class MenuView extends AbstractView {
 
     @Override
     public void display() {
-
+    	super.display();		// added to clear screen for each view
+    	
         this.println();
 
         // print running title (e.g. "Create Item")

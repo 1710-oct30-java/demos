@@ -30,7 +30,9 @@ public class PropertiesFile
 		InputStream reader = null;
 
 		try {
-			reader = new FileInputStream( filePath );
+			reader = PropertiesFile.class.getResourceAsStream( String.format("/%s", filePath) );
+			
+//			reader = new FileInputStream( filePath );
 			config.load(reader);
 			
 		} catch(IOException e) {

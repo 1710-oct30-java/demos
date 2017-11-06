@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import assignments.week01.project.bretty.console.view.AbstractView;
 import assignments.week01.project.db.PersistentConnection;
+import assignments.week01.project.io.Screen;
 import assignments.week01.project.migration.*;
 import assignments.week01.project.view.IntroductionView;
 
@@ -27,9 +28,12 @@ public class BankAppLauncher {
 			initializeAppData();
 		}
 		
+		
 		AbstractView intro = new IntroductionView();
 		intro.display();
 	}
+	
+	
 	
 	/**
 	 * returns true if the user table exists in the

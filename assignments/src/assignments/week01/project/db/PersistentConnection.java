@@ -36,7 +36,7 @@ public class PersistentConnection
 	{
 		super();
 		
-		this.connection = DbConnection.connect("app.db.properties");
+		this.connection = DbConnection.connect("cb.db.properties");
 	}
 	
 	/**
