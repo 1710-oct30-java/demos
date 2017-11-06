@@ -5,6 +5,13 @@ import static java.lang.System.out;
 import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 
+import javax.money.CurrencyUnit;
+import javax.money.MonetaryAmount;
+import javax.money.convert.CurrencyConversion;
+import javax.money.convert.ExchangeRateProvider;
+import javax.money.convert.MonetaryConversions;
+
+import org.apache.log4j.Logger;
 import org.javamoney.moneta.Money;
 
 import com.revature.goshornm.bank.transactions.CashWithdrawal;
@@ -12,6 +19,9 @@ import com.revature.goshornm.bank.transactions.Transfer;
 import com.revature.goshornm.bank.transactions.Withdrawal;
 
 public class AdvancedManager extends UserAccountManager implements Branchable {	
+	private static Logger log = Logger.getRootLogger();
+	
+	
 	public AdvancedManager(User user) {
 		super(user);
 	}
@@ -107,6 +117,34 @@ public class AdvancedManager extends UserAccountManager implements Branchable {
 		user.removeAccountFromUserAccount(accountToClose);
 		System.out.println("Account has been successfully closed.");
 		
+	}
+	
+	/**
+	 * Designed to convert a MonetaryAmount to a different CurrencyUnit by fetching IMF
+	 * currency conversion rates and converting the given MonetaryAmount into a new 
+	 * MonetaryAmount of the CurrencyUnit parameter's currency.
+	 * <br><br>
+	 * Method is not currently utilized as the current Moneta implementation for currency conversion appears unstable.
+	 * {@see <a href="https://github.com/JavaMoney/jsr354-ri/issues/161">https://github.com/JavaMoney/jsr354-ri/issues/161</a>}
+	 * 
+	 * @param amount - MonetaryAmount object to be converted
+	 * @param to - target CurrencyUnit
+	 * @return MonetaryAmount of the parameterized MonetaryAmount with the target CurrencyUnit exchanged at IMF rate 
+	 */
+	public MonetaryAmount getExchangeRates(MonetaryAmount amount, CurrencyUnit to) {
+		
+		//get IMF provider
+		ExchangeRateProvider imf = MonetaryConversions.getExchangeRateProvider("IMF");
+		
+		//Get conversion for the requested currency type
+		CurrencyConversion conversion = imf.getCurrencyConversion(to);
+		
+		log.trace(conversion);
+		//Exchange currency to a new monetary amount using the conversion object
+		MonetaryAmount exchanged = amount.with(conversion);
+		
+		//Return object
+		return exchanged;
 	}
 
 }

@@ -10,34 +10,22 @@ import java.util.stream.IntStream;
  *
  */
 public class StringReverser {
-	
+
 	/**
 	 * Takes in a String in opposite order
 	 * @param str - input string
 	 * @return reverse of input string
 	 */
-	public static String reverse(String str) {
-		/*for(int i = 0; i < str.length() / 2; i++) {
-			str = swap(str, i, str.length() - (i+1));
-		}*/
-		
+	public static String reverse(String str) {		
 		//CHALLENGE: USE stream ~ .reduce()
-		//EXTRA CHALLENGE: Make it 'better'
+		//EXTRA CHALLENGE: Make it 'better'		
 		
 		return IntStream.range(0, str.length())
 				.map(i -> (0) - i + (str.length()) - 1)
 				.map(i -> str.charAt(i))
 				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 		        .toString();
-		
-		
-		
-		/* using .reduce */
-//		return str.chars()
-//				.map(i -> String.valueOf((char)i))
-//				.reduce((acc, i) -> {
-//						return acc = i + acc;
-//				}).toString();
+	
 	}
 	
 	/**

@@ -143,3 +143,19 @@
 2017-11-04 13:59:09 TRACE CashCredit:49 - Credit created.
 2017-11-04 13:59:09 TRACE Account:96 - Crediting account - initial balance: 0, amount to credit: 300
 2017-11-04 13:59:09 TRACE Account:99 - Subsequent balance: 300
+2017-11-06 13:25:16 TRACE CurrencyOptions:46 - User Selected currency: KRW
+2017-11-06 13:26:24 TRACE CurrencyOptions:46 - User Selected currency: KRW
+2017-11-06 13:26:24 TRACE AdvancedManager:130 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.convert.internal.IMFRateProvider@709ba3fb, context=ConversionContext (
+  provider[String]=IMF
+  javax.money.convert.RateType[javax.money.convert.RateType]=DEFERRED
+), termCurrency=KRW]
+2017-11-06 13:30:47 TRACE CurrencyOptions:46 - User Selected currency: KRW
+2017-11-06 13:30:47 TRACE AdvancedManager:130 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.convert.internal.IMFRateProvider@709ba3fb, context=ConversionContext (
+  provider[String]=IMF
+  javax.money.convert.RateType[javax.money.convert.RateType]=DEFERRED
+), termCurrency=KRW]
+2017-11-06 13:31:10 TRACE CurrencyOptions:46 - User Selected currency: KRW
+2017-11-06 13:31:15 TRACE AdvancedManager:130 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.convert.internal.IMFRateProvider@709ba3fb, context=ConversionContext (
+  provider[String]=IMF
+  javax.money.convert.RateType[javax.money.convert.RateType]=DEFERRED
+), termCurrency=KRW]

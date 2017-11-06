@@ -10,6 +10,7 @@ import java.util.Scanner;
  */
 public interface Branchable {
 	
+	
 	/**
 	 * Gets an integer input from the user between the range of 1 and max
 	 * @param max - maximum option value 
