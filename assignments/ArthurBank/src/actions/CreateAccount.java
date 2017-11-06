@@ -34,7 +34,9 @@ public class CreateAccount {
 
 			Login.accountData.add(account);
 			for (int i = 0; i < Login.accountData.size(); i++) {
-				System.out.println(Login.accountData.get(i));
+				if (Login.accountData.get(i).getUserID().equals(Login.user.getUserID())) {
+					System.out.println(Login.accountData.get(i));
+				}
 			}
 			UpdateAccount.update();
 
