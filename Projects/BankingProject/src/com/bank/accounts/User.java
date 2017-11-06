@@ -2,17 +2,15 @@ package com.bank.accounts;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class User implements Serializable
 {
 	private String name;
 	private String password;
-	
+
 	Map<Integer, Account> accList = new HashMap<>();
-	
-	
+
 	public String getName()
 	{
 		return name;
@@ -38,7 +36,4 @@ public class User implements Serializable
 		accList.put(id, acc);
 	}
 
-	
-	
-	
 }

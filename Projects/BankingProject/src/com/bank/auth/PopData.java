@@ -28,6 +28,7 @@ public class PopData implements Serializable
 		// De-serialize the Object to obtain data
 	}
 
+	// Create admin account if no accounts exists
 	public void makeAdmin()
 	{
 		User temp = new User();
@@ -40,8 +41,8 @@ public class PopData implements Serializable
 		userU.put("admin", temp);
 		logOut();
 	}
-	
-	
+
+	// De-serialize object and get data
 	public void getData()
 	{
 		try
@@ -51,29 +52,27 @@ public class PopData implements Serializable
 			master = (List<Object>) ois.readObject();
 			ois.close();
 			fis.close();
-		}
-		catch (FileNotFoundException fnfe)
+		} catch (FileNotFoundException fnfe)
 		{
 			makeAdmin();
-		}
-		catch (IOException ioe)
+		} catch (IOException ioe)
 		{
 			ioe.printStackTrace();
 			return;
-		} 
-		catch (ClassNotFoundException c)
+		} catch (ClassNotFoundException c)
 		{
 			System.out.println("Class not found");
 			c.printStackTrace();
 			return;
-		}
-		finally
-		{		
+		} finally
+		{
 			// get users and usersBanks object from file
 			userU = (Map<String, User>) master.get(0);
 			idUsed = (List<Integer>) master.get(1);
 		}
 	}
+
+	// Serialize object into a file
 	public void logOut()
 	{
 		master = new ArrayList<>();
@@ -93,12 +92,11 @@ public class PopData implements Serializable
 		}
 	}
 
-
 	public User getUser(String username)
 	{
 		return userU.get(username);
 	}
-	
+
 	public Map<String, User> getUserMap()
 	{
 		return userU;
@@ -118,12 +116,10 @@ public class PopData implements Serializable
 	{
 		idUsed.add(id);
 	}
-	
+
 	public void removeIdUsed(int id)
 	{
 		idUsed.remove(new Integer(id));
 	}
-
-
 
 }

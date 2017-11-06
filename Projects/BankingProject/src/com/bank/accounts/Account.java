@@ -7,7 +7,7 @@ public class Account implements Serializable
 	private int accID;
 	private String owner;
 	private double balance = 0;;
-	
+
 	public Account(int id, String accOwner)
 	{
 		accID = id;
@@ -19,8 +19,7 @@ public class Account implements Serializable
 		owner = accOwner;
 		balance = accBalance;
 	}
-	
-	
+
 	public int getAccID()
 	{
 		return accID;
@@ -45,7 +44,5 @@ public class Account implements Serializable
 	{
 		this.balance = balance;
 	}
-	
-	
-	
+
 }
