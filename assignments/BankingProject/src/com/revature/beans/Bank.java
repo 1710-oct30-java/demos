@@ -18,43 +18,63 @@ public class Bank implements Serializable {
 	private User currUser;
 	private static String oper;
 	private Scanner sc;
+	private boolean isRunning = false;
 	
 	public Bank(List<User> listOfUsers) {
+		
 		listUsers = listOfUsers;
 
-		System.out.println("Welcome to the Kyle's Bank!");
-		System.out.println("Are you a new member? (y/n)");
-
-		sc = new Scanner(System.in);
-		String member = sc.nextLine();
-		if(member.equals("y")) {
-			System.out.println("Please enter your name: ");
-			String name = sc.nextLine();
-			System.out.println("Please enter a four-digit pin: ");
-			int newPin = sc.nextInt();
-			User newUser = new User(name, newPin);
-			listUsers.add(newUser);
-			System.out.println("successfully added to our system");
-			System.out.println("you may be asked to put your pin in again");
-		}
-
-		System.out.println("Please input your PIN number: ");
-		int pin = sc.nextInt();
-
-		System.out.println("Banking Application \n");
-		for(int i = 0; i< listUsers.size(); i++) {
-			User temp = listUsers.get(i);
-			if(temp.getPin() == pin) {
-				this.currUser = temp;
-			}
-		}
-
-		System.out.println("Welcome " + currUser.getName());
 		do {
-			oper = sc.nextLine();
-		} while(!executeOperation(oper));
-		
-		
+			System.out.println("Welcome to the Kyle's Bank!");
+			System.out.println("Are you a new member? (y/n)");
+
+			sc = new Scanner(System.in);
+			String member = sc.nextLine();
+			if(member.equals("y")) {
+				System.out.println("Please enter your name: ");
+				String name = sc.nextLine();
+				System.out.println("Please enter a four-digit pin: ");
+				int newPin = sc.nextInt();
+				boolean isNew = false;
+				while(!isNew) {
+					for(int i = 0; i < listUsers.size(); i++) {
+						User tempNew = listUsers.get(i);
+						if(tempNew.getPin() == newPin) {
+							System.out.println("Please enter a new PIN. That one has been taken.");
+							newPin = sc.nextInt();
+							isNew = false;
+						}
+						isNew = true;
+					}
+				}
+				User newUser = new User(name, newPin);
+				listUsers.add(newUser);
+				System.out.println("successfully added to our system");
+				System.out.println("you may be asked to put your pin in again");
+			}
+			else if(member.equals("exit")) {
+				isRunning = false;
+				break;
+			}
+
+			System.out.println("Please input your PIN number: ");
+			int pin = sc.nextInt();
+
+			System.out.println("Banking Application \n");
+			for(int i = 0; i< listUsers.size(); i++) {
+				User temp = listUsers.get(i);
+				if(temp.getPin() == pin) {
+					this.currUser = temp;
+				}
+			}
+
+			System.out.println("Welcome " + currUser.getName());
+			do {
+				oper = sc.nextLine();
+			} while(!executeOperation(oper));
+
+		} while(!isRunning);
+
 	}
 
 	// method used to execute the operations for the user
