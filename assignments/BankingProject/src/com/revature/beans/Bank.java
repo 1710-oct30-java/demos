@@ -30,53 +30,60 @@ public class Bank implements Serializable {
 
 			sc = new Scanner(System.in);
 			String member = sc.nextLine();
+			
 			if(member.equals("y")) {
 				System.out.println("Please enter your name: ");
 				String name = sc.nextLine();
 				System.out.println("Please enter a four-digit pin: ");
 				int newPin = sc.nextInt();
+				
 				boolean isNew = false;
 				while(!isNew) {
 					for(int i = 0; i < listUsers.size(); i++) {
 						User tempNew = listUsers.get(i);
+						
 						if(tempNew.getPin() == newPin) {
 							System.out.println("Please enter a new PIN. That one has been taken.");
 							newPin = sc.nextInt();
 							isNew = false;
 						}
+						
 						isNew = true;
 					}
 				}
+				
 				User newUser = new User(name, newPin);
 				listUsers.add(newUser);
 				System.out.println("successfully added to our system");
 				System.out.println("you may be asked to put your pin in again");
 			}
+			
 			else if(member.equals("exit")) {
 				isRunning = false;
 				break;
 			}
-
+			
 			System.out.println("Please input your PIN number: ");
 			int pin = sc.nextInt();
 
 			System.out.println("Banking Application \n");
 			for(int i = 0; i< listUsers.size(); i++) {
 				User temp = listUsers.get(i);
+				
 				if(temp.getPin() == pin) {
 					this.currUser = temp;
 				}
 			}
-
+			
 			System.out.println("Welcome " + currUser.getName());
+			
 			do {
 				oper = sc.nextLine();
 			} while(!executeOperation(oper));
 
 		} while(!isRunning);
-
 	}
-
+	
 	// method used to execute the operations for the user
 	public boolean executeOperation(String oper) {
 		sc = new Scanner(System.in);
@@ -92,6 +99,7 @@ public class Bank implements Serializable {
 			case "2":
 				System.out.println("Which account would you like to close?");
 				List<Account> tempClose = currUser.getListAccounts();
+				
 				for(int i = 0; i < tempClose.size(); i++) {
 					String name = tempClose.get(i).getType();
 					System.out.println(name + "account");
@@ -99,6 +107,7 @@ public class Bank implements Serializable {
 				
 				String accClose = sc.nextLine();
 				Account tempCloseAcc = new Account(accClose);
+				
 				int indexAccClose = 0;
 				for(int i =0; i <currUser.getListAccounts().size(); i++) {
 					if(currUser.getListAccounts().get(i).equals(tempCloseAcc)) {
@@ -122,6 +131,7 @@ public class Bank implements Serializable {
 				
 				String accDeposit = sc.nextLine();
 				Account tempAccDeposit = new Account(accDeposit);
+				
 				int indexAccDeposit = 0;
 				for(int i =0; i <currUser.getListAccounts().size(); i++) {
 					if(currUser.getListAccounts().get(i).equals(tempAccDeposit)) {
@@ -146,12 +156,14 @@ public class Bank implements Serializable {
 				
 				String accWithdraw = sc.nextLine();
 				Account tempWithdrawAcc = new Account(accWithdraw);
+				
 				int indexAccWithdrawl = 0;
 				for(int i =0; i <currUser.getListAccounts().size(); i++) {
 					if(currUser.getListAccounts().get(i).equals(tempWithdrawAcc)) {
 						indexAccWithdrawl = i;
 					}
 				}
+				
 				System.out.println("Withdrawl amount: ");
 				int amtWithdraw = sc.nextInt();
 				currUser.withdrawFunds(currUser.getListAccounts().get(indexAccWithdrawl), amtWithdraw);
@@ -176,6 +188,7 @@ public class Bank implements Serializable {
 						indexViewAcc = i;
 					}
 				}
+				
 				System.out.println("Your balance is: " + currUser.getListAccounts().get(indexViewAcc).getBalance());
 				break;
 				
@@ -224,5 +237,21 @@ public class Bank implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Scanner getSc() {
+		return sc;
+	}
+
+	public void setSc(Scanner sc) {
+		this.sc = sc;
+	}
+
+	public boolean isRunning() {
+		return isRunning;
+	}
+
+	public void setRunning(boolean isRunning) {
+		this.isRunning = isRunning;
 	}
 }
