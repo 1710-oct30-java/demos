@@ -2,25 +2,22 @@ package unitTests;
 
 import java.math.BigDecimal;
 
-import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
 
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
 
-import com.revature.goshornm.bank.AdvancedManager;
-import com.revature.goshornm.bank.CurrencyOptions;
-import com.revature.goshornm.bank.User;
+import com.revature.goshornm.bank.user.AdvancedManager;
+import com.revature.goshornm.bank.user.User;
 
 public class ExchangeRateTest {
 
 	@Test
-	public void testExchange() throws Exception {
+	public void testExchangeString() throws Exception {
 		MonetaryAmount amount = Money.of(new BigDecimal(1000), "USD");
 		AdvancedManager manager = new AdvancedManager(new User("TestUser", "TestUser", null));
 		
-		CurrencyUnit to = new CurrencyOptions().promptForChangeCurrencyFromDefault();
-		
+		String to = "KRW";
 		System.out.println(to);
 		
 		try {
@@ -29,7 +26,7 @@ public class ExchangeRateTest {
 			
 		}
 		
-		MonetaryAmount exchanged = manager.getExchangeRates(amount, to);
+		MonetaryAmount exchanged = manager.currencyConversion(amount, "KRW");
 		
 		
 		

@@ -7,9 +7,9 @@ import javax.money.MonetaryAmount;
 import org.apache.log4j.Logger;
 import org.javamoney.moneta.Money;
 
-import com.revature.goshornm.bank.Account;
-import com.revature.goshornm.bank.User;
 import com.revature.goshornm.bank.Util;
+import com.revature.goshornm.bank.account.Account;
+import com.revature.goshornm.bank.user.User;
 
 public class CashCredit extends Credit {
 

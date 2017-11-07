@@ -3,6 +3,9 @@ package com.revature.goshornm.bank;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
+import com.revature.goshornm.bank.user.User;
+import com.revature.goshornm.bank.user.UserAccountManager;
+
 public class LoginManager {
 	
 	public void entry() {

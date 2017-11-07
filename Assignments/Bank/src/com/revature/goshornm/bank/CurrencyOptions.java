@@ -3,11 +3,11 @@ package com.revature.goshornm.bank;
 import java.util.stream.Collectors;
 
 import javax.money.CurrencyUnit;
-import javax.money.MonetaryCurrencies;
+import javax.money.Monetary;
 import javax.money.UnknownCurrencyException;
 
 public class CurrencyOptions implements Branchable {
-	private static final CurrencyUnit DEFAULT_USD = MonetaryCurrencies.getCurrency("USD");
+	private static final CurrencyUnit DEFAULT_USD = Monetary.getCurrency("USD");//MonetaryCurrencies.getCurrency("USD");
 	
 	public CurrencyUnit promptForChangeCurrencyFromDefault() {
 		String noMatch = "Input did not match any currency. Please input selection again.";
@@ -32,6 +32,23 @@ public class CurrencyOptions implements Branchable {
 		}
 	}
 	
+	public String promptForCurrency() {
+		String noMatch = "Input did not match any currency. Please input selection again.";
+		
+		String[] currencies = listCurrencies();
+		
+		while(true) {
+			String response = Util.promptForString("Please enter the desired currency code.").toUpperCase();
+			
+			CurrencyUnit currency = getCurrencyTypeAsIndex(response, currencies);
+			if(currency != null) return currency.getCurrencyCode();
+			currency = getCurrencyTypeAsString(response);
+			if(currency != null) return currency.getCurrencyCode();
+
+			System.out.println(noMatch);
+		}
+	}
+	
 	public CurrencyUnit getCurrencyTypeAsIndex(String input, String[] currencyTypes) {
 		Integer value;
 		//Catch input not formatted as integer
@@ -43,15 +60,15 @@ public class CurrencyOptions implements Branchable {
 		
 		//Catch Integer input out of range
 		if(value > currencyTypes.length+1 || value < 1) return null;
-		Util.log.trace("User Selected currency: " + MonetaryCurrencies.getCurrency(currencyTypes[value-1]));
+		Util.log.trace("User Selected currency: " + Monetary.getCurrency(currencyTypes[value-1]));
 		//offset as we output as index+1
-		return MonetaryCurrencies.getCurrency(currencyTypes[value-1]);
+		return Monetary.getCurrency(currencyTypes[value-1]);
 	}
 	
 	public CurrencyUnit getCurrencyTypeAsString(String input) {
 		try {
-			Util.log.trace("User Selected currency: " + MonetaryCurrencies.getCurrency(input));
-			return MonetaryCurrencies.getCurrency(input);
+			Util.log.trace("User Selected currency: " + Monetary.getCurrency(input));
+			return Monetary.getCurrency(input);
 		} catch(UnknownCurrencyException exception) {
 			return null;
 		}
@@ -64,7 +81,7 @@ public class CurrencyOptions implements Branchable {
 	}
 	
 	public static String[] listCurrencies() {
-		String[] currencyTypes = MonetaryCurrencies.getCurrencies("")
+		String[] currencyTypes = Monetary.getCurrencies("")
 				.stream()
 				.map(u -> u.getCurrencyCode())
 				.sorted()

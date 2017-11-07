@@ -15,6 +15,8 @@ import javax.money.format.MonetaryFormats;
 import org.apache.log4j.Logger;
 import org.javamoney.moneta.format.CurrencyStyle;
 
+import com.revature.goshornm.bank.account.Account;
+
 public interface Util {
 	
 	public static Scanner scanner = new Scanner(System.in);
@@ -119,7 +121,7 @@ public interface Util {
 	 * @return string representation of MonetaryAmount
 	 */
 	public static String getCurrencyString(MonetaryAmount amount) {
-		if(format.getAmountFormatContext() == null) log.debug("Amount format context was null on attempt to convert ot string.");
+		if(format.getContext() == null) log.debug("Amount format context was null on attempt to convert ot string.");
 		return format.format(amount);
 	}
 	

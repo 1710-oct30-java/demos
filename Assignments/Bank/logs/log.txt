@@ -159,3 +159,65 @@
   provider[String]=IMF
   javax.money.convert.RateType[javax.money.convert.RateType]=DEFERRED
 ), termCurrency=KRW]
+2017-11-06 14:12:01 TRACE CashCredit:39 - Requesting cash credit of 12345
+2017-11-06 14:12:01 TRACE CashCredit:49 - Credit created.
+2017-11-06 14:12:01 TRACE Account:95 - Crediting account - initial balance: 0, amount to credit: 12345
+2017-11-06 14:12:01 TRACE Account:98 - Subsequent balance: 12345
+2017-11-06 14:12:11 TRACE CashWithdrawal:50 - Requesting cash withdrawal of 321
+2017-11-06 14:12:11 TRACE CashWithdrawal:57 - Withdrawal created.
+2017-11-06 14:13:10 TRACE AdvancedManager:142 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.IMFRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=International Monetary Fond, days=1, provider=IMF})}, context=ConversionContext (
+{provider=IMF, javax.money.convert.RateType=DEFERRED}), termCurrency=USD]
+2017-11-06 14:13:25 TRACE CurrencyOptions:53 - User Selected currency: KRW
+2017-11-06 14:13:31 TRACE AdvancedManager:142 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.IMFRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=International Monetary Fond, days=1, provider=IMF})}, context=ConversionContext (
+{provider=IMF, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:14:16 TRACE AdvancedManager:142 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.IMFRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=International Monetary Fond, days=1, provider=IMF})}, context=ConversionContext (
+{provider=IMF, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:14:35 TRACE AdvancedManager:142 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.IMFRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=International Monetary Fond, days=1, provider=IMF})}, context=ConversionContext (
+{provider=IMF, javax.money.convert.RateType=DEFERRED}), termCurrency=USD]
+2017-11-06 14:17:21 TRACE AdvancedManager:142 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.ECBCurrentRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=European Central Bank, days=1, provider=ECB})}, context=ConversionContext (
+{provider=ECB, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:17:26 TRACE AdvancedManager:170 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.ECBCurrentRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=European Central Bank, days=1, provider=ECB})}, context=ConversionContext (
+{provider=ECB, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:18:27 TRACE AdvancedManager:143 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.ECBCurrentRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=European Central Bank, days=1, provider=ECB})}, context=ConversionContext (
+{provider=ECB, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:18:32 TRACE AdvancedManager:171 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.ECBCurrentRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=European Central Bank, days=1, provider=ECB})}, context=ConversionContext (
+{provider=ECB, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:18:46 TRACE AdvancedManager:143 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.ECBCurrentRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=European Central Bank, days=1, provider=ECB})}, context=ConversionContext (
+{provider=ECB, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:18:51 TRACE AdvancedManager:171 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.ECBCurrentRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=European Central Bank, days=1, provider=ECB})}, context=ConversionContext (
+{provider=ECB, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:56:17 TRACE AdvancedManager:201 - CurrencyConversion [MonetaryAmount -> MonetaryAmount; provider=org.javamoney.moneta.internal.convert.IMFRateProvider{ context: ProviderContext (
+{rateTypes=[DEFERRED], providerDescription=International Monetary Fond, days=1, provider=IMF})}, context=ConversionContext (
+{provider=IMF, javax.money.convert.RateType=DEFERRED}), termCurrency=KRW]
+2017-11-06 14:57:37 TRACE CashCredit:39 - Requesting cash credit of 5000
+2017-11-06 14:57:37 TRACE CashCredit:49 - Credit created.
+2017-11-06 14:57:37 TRACE Account:94 - Crediting account - initial balance: 0, amount to credit: 5000
+2017-11-06 14:57:37 TRACE Account:97 - Subsequent balance: 5000
+2017-11-06 14:57:45 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 14:58:49 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:00:09 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:22:26 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:26:35 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:31:53 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:32:24 TRACE CurrencyOptions:70 - User Selected currency: EUR
+2017-11-06 15:33:23 TRACE CurrencyOptions:70 - User Selected currency: USD
+2017-11-06 15:33:55 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:50:21 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:51:04 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 15:52:48 TRACE CurrencyOptions:70 - User Selected currency: KRW
+2017-11-06 19:55:05 TRACE CashCredit:39 - Requesting cash credit of 50000
+2017-11-06 19:55:05 TRACE CashCredit:49 - Credit created.
+2017-11-06 19:55:05 TRACE Account:97 - Crediting account - initial balance: 0, amount to credit: 50000
+2017-11-06 19:55:05 TRACE Account:100 - Subsequent balance: 50000
+2017-11-06 19:55:12 TRACE CashWithdrawal:50 - Requesting cash withdrawal of 500
+2017-11-06 19:55:12 TRACE CashWithdrawal:57 - Withdrawal created.

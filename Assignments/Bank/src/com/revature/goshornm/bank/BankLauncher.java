@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.javamoney.moneta.spi.MonetaryConfig;
 
+import com.revature.goshornm.bank.user.User;
+
 public class BankLauncher implements Branchable {
 	
 	public static void main(String[] args) {

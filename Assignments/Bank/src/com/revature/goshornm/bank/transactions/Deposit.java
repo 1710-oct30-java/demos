@@ -3,7 +3,7 @@ package com.revature.goshornm.bank.transactions;
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryAmount;
 
-import com.revature.goshornm.bank.User;
+import com.revature.goshornm.bank.user.User;
 
 public class Deposit extends Transaction {
 
