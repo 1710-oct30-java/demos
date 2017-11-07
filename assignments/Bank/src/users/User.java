@@ -1,11 +1,14 @@
 package users;
 
-public /* abstract */ class User
+import java.io.Serializable;
+
+public abstract class User implements Serializable
 {
-	private String	username;
-	private String	password;
-	private String	firstName;
-	private String	lastName;
+	private static final long	serialVersionUID	= -4715819115132657732L;
+	private String				username;
+	private String				password;
+	private String				firstName;
+	private String				lastName;
 	
 	public String getUsername()
 	{
@@ -54,6 +57,15 @@ public /* abstract */ class User
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+	
+	public User()
+	{
+		super();
+		this.username = "";
+		this.password = "";
+		this.firstName = "";
+		this.lastName = "";
 	}
 	
 	@Override
