@@ -101,7 +101,7 @@ public class BankingController {
 		}
 	}
 	
-	public void deposit(User account, double amount) {
+	public void deposit(User account, double amount) {//Implementing Deposit method
 		Integer response;
 		System.out.println("Enter Account # For Deposit");
 		response = Integer.parseInt(input.nextLine());
@@ -117,7 +117,7 @@ public class BankingController {
 		
 	}
 	
-	public void withdraw(User account, double amount) {
+	public void withdraw(User account, double amount) {//Implementing Withdrawal method
 		Integer response;
 		System.out.println("Enter Account # For Withdrawal");
 		response = Integer.parseInt(input.nextLine());
@@ -133,9 +133,9 @@ public class BankingController {
 		
 	}
 
-	public void logout(User user) throws IOException {
+	public void logout(User user) throws IOException {//Implementing Logout method
 		
-		//Writes to file and then closes
+		//Serializes new data and writes to file and then closes
 		File f = new File("accountDetails.txt");
 		FileOutputStream fos = new FileOutputStream(f);
 		ObjectOutputStream oos= new ObjectOutputStream(fos);

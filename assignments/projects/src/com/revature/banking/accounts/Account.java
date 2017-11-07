@@ -2,7 +2,7 @@ package com.revature.banking.accounts;
 
 import java.io.Serializable;
 
-public class Account implements Serializable{
+public class Account implements Serializable{//Allow us to serialize the objects of the class
 	
 	private double balance;
 	private int accID;

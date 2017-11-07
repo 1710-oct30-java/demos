@@ -39,7 +39,7 @@ public class User extends Account{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void newAccount() {
+	public void newAccount() {//Creates new account for the user
 		
 		Account account = new Account(0,accountID++);
 		userAccounts.add(account);
