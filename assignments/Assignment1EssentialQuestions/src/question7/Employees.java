@@ -1,6 +1,6 @@
 package question7;
 
-public class Employees implements Comparable {
+public class Employees implements Comparable<Employees> {
 
 	private String name;
 	private int age;
@@ -37,10 +37,5 @@ public class Employees implements Comparable {
 		this.department = department;
 	}
 
-	@Override
-	public int compareTo(Object o) {
-		
-		return 0;
-	}
 	
 }

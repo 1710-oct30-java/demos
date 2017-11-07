@@ -17,7 +17,7 @@ public class Q7 {
 		
 		List<Employees> list = new ArrayList<Employees>();
 		
-		
+		Collections.sort(list, new Comparator<String>);
 		
 
 	}

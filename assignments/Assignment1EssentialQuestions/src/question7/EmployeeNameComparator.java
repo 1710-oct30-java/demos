@@ -1,5 +1,14 @@
 package question7;
 
-public class EmployeeNameComparator {
+import java.util.Comparator;
+
+public class EmployeeNameComparator implements Comparator<Employees>{
+
+	@Override
+	public int compare(Employees o1, Employees o2) {
+		
+		
+		return 0;
+	}
 
 }
