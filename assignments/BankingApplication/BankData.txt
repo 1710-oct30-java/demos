@@ -1,0 +1,2 @@
+myUser:myPass:100.0
+John:pass1:205.0
