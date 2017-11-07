@@ -44,7 +44,7 @@ public class BankingUI {
 						break;
 					case "login":
 						if(mUser != null) {
-							System.out.println("Enter your user name");
+							System.out.println("Enter your username");
 							String username = mReader.readLine();
 							System.out.println("Enter your password");
 							String password = mReader.readLine();
@@ -90,7 +90,15 @@ public class BankingUI {
 						System.out.println("Here are your accounts");
 						for(Account userAccount : mUser.getAccounts()) {
 							System.out.println(userAccount);
+						break;
 						}
+					case "logout":
+						run();
+						break;
+					default:
+						System.out.println("Unknown input. Try again");
+						login();
+					
 						
 				}
 				
@@ -117,7 +125,7 @@ public class BankingUI {
 		run();
 	}
 	
-	public void createAccount() {  //method causes NullPointerException
+	public void createAccount() {  
 		mAccount = new Account(0);
 		try {
 			System.out.println("Enter the balance for the account");
@@ -132,8 +140,5 @@ public class BankingUI {
 			ioe.printStackTrace();
 		}
 		
-	}
-	
-	
-	
+	}	
 }
