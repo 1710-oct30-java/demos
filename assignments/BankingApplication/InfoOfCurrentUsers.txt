@@ -1,0 +1,22 @@
+Current Users
+name:Rosario Rojas 
+email:rojas73@gmail.com
+password:A#1
+username:rosariorojas
+
+name:Lidia Vidales 
+email:lili@yahoo.com
+password:LoveDany#1
+username:liliVida
+
+name:Robert Smith
+email:srobert@gmail.com
+password:GreenChair#1
+username:smithrobert
+
+name:Jacob Adams
+email:jadams@yahoo.com
+password:ButterfliesFly#1
+username:jacobadams
+
+
