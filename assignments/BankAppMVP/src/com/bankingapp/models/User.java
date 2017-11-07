@@ -20,6 +20,10 @@ public class User {
 		return mUsername;
 	}
 	
+	public String getPassword() {
+		return mPassword;
+	}
+	
 	public List<Account> getAccounts() {
 		return mAccounts;
 	}

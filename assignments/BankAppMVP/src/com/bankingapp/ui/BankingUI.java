@@ -44,7 +44,16 @@ public class BankingUI {
 						break;
 					case "login":
 						if(mUser != null) {
-							login();
+							System.out.println("Enter your user name");
+							String username = mReader.readLine();
+							System.out.println("Enter your password");
+							String password = mReader.readLine();
+							if(username.equals(mUser.getUsername()) && password.equals(mUser.getPassword())) {
+								login();
+							} else {
+								System.out.println("Try again");
+								run();
+							}
 						} else {
 							System.out.printf("Please create a user account to log in! %n%n%n");
 						}
