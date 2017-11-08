@@ -1,11 +1,12 @@
 package assignments.week01.project.bretty.console.view;
 
+import java.io.Console;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import assignments.week01.project.io.Screen;
+import assignments.week01.project.io.Screen;	// Screen utility class for clearing the screen 
 
 /**
  * The parent class of all View classes, which defines infrastructure attributes (e.g. {@code parentView} and methods (e.g. {@code prompt()}
@@ -232,7 +233,16 @@ public abstract class AbstractView {
                 } else if (expectedClass == Double.class) {
                     input = keyboard.nextDouble();
                 } else if (expectedClass == String.class) {
-                    input = keyboard.nextLine();
+                	/*
+                	 * masked the input if a password is being
+                	 * asked for
+                	 */
+                	if ( message.toLowerCase().matches("(.*)password(.*)") ) {
+                		input = this.getPassword(message);
+                		System.out.println("here");
+                	} else {
+                		input = keyboard.nextLine();
+                	}
                 } else if (expectedClass == Byte.class) {
                     input = keyboard.nextByte();
                 } else if (expectedClass == BigDecimal.class) {
@@ -247,7 +257,7 @@ public abstract class AbstractView {
                     input = keyboard.nextLong();
                 } else if (expectedClass == Short.class) {
                     input = keyboard.nextShort();
-                }
+                } 
 
                 output = expectedClass.cast(input);
                 isValid = validator == null || validator.isValid(output);
@@ -296,5 +306,23 @@ public abstract class AbstractView {
 
     public void setViewConfig(ViewConfig viewConfig) {
         this.viewConfig = viewConfig;
+    }
+    
+    /**
+     * get the console input as a password if possible
+     * 
+     * @param String message
+     * 
+     * @return String
+     */
+    private String getPassword(String message)
+    {
+    	Console console = System.console();
+    	
+		if ( console == null ) {
+			return keyboard.nextLine();
+		} else {
+			return String.valueOf(System.console().readPassword(message));
+		}
     }
 }

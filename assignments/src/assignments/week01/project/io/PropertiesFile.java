@@ -1,5 +1,6 @@
 package assignments.week01.project.io;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -40,5 +41,26 @@ public class PropertiesFile
 		}
 
 		return config;
+	}
+	
+	/**
+	 * return a File object to represent the file
+	 * located at filePath
+	 * 
+	 * @param String filePath
+	 * 
+	 * @return File
+	 */
+	private File getFile(String filePath)
+	{
+		File output = null;
+		
+		try {
+			output = new File(filePath);
+		} catch(NullPointerException e) {
+			log.error( e.getMessage() );
+		}
+		
+		return output;
 	}
 }
