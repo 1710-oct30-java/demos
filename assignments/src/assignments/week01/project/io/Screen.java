@@ -7,8 +7,6 @@ public class Screen
 {
 	private static Screen instance = new Screen();
 	
-	private int width;
-	private int height;
 	
 	/**
 	 * return singleton instance
@@ -22,9 +20,7 @@ public class Screen
 	
 	private Screen()
 	{
-		 Dimension dimensions = Toolkit.getDefaultToolkit().getScreenSize();
-		 this.width = dimensions.width;
-		 this.height = dimensions.height;
+		super();
 	}
 	
 	/**
@@ -34,7 +30,7 @@ public class Screen
 	 */
 	public int getWidth()
 	{
-		return this.width;
+		return this.getDimensions().width;
 	}
 	
 	/**
@@ -44,7 +40,7 @@ public class Screen
 	 */
 	public int getHeight()
 	{
-		return this.height;
+		return this.getDimensions().height;
 	}
 	
 	/**
@@ -57,6 +53,17 @@ public class Screen
 		for(int i = 0; i < this.getHeight(); i++ ) {
 			System.out.println("\r\n");
 		}
+	}
+	
+	/**
+	 * get the Dimension object to get the current size of
+	 * the console screen
+	 * 
+	 * @return Dimension
+	 */
+	private Dimension getDimensions()
+	{
+		return Toolkit.getDefaultToolkit().getScreenSize();
 	}
 
 }
