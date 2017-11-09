@@ -1,5 +1,0 @@
-package com.revature.BankingSystem.BankBeans;
-
-public abstract class User {
-
-}

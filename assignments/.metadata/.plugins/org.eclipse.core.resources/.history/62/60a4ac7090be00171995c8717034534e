@@ -1,9 +1,0 @@
-package com.revature.BankingSystem.BankingLauncher;
-
-public class BankingLauncher {
-
-	public static void main(String[] args) {
-		
-	}
-
-}

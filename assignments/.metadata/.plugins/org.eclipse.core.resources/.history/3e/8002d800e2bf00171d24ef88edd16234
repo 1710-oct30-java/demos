@@ -1,5 +1,0 @@
-package com.revature.BankingSystem.BankingUI;
-
-public class UserManager extends UIElement{
-
-}

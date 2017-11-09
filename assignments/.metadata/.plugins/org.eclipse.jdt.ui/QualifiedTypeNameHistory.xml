@@ -10,4 +10,9 @@
 <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="com.revature.beans.Flashcard"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.Types"/>
 </qualifiedTypeNameHistroy>

@@ -1,7 +1,0 @@
-package com.revature.BankingSystem.BankingUI;
-
-public class MainMenu {
-	public void mainMenu() {
-		System.out.println("\n1 - Manage Account" + "\n0 - Log Out\n");
-	}
-}

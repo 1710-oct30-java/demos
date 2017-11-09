@@ -1,5 +1,0 @@
-package com.revature.BankingSystem.BankClasses;
-
-public class ManagerUser extends User{
-	private ArrayList<CilentUser> cilentsl
-}
