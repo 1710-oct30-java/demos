@@ -145,13 +145,13 @@ END avg_invoiceline;
 -- 3.4 User Defined Table Valued Functions
 -- Task – Create a function that returns all employees who are born after 1968.
 CREATE OR REPLACE FUNCTION bornAfter1968
-RETURN NUMBER
+RETURN SYS_REFCURSOR
 AS
-temp_count NUMBER(5);
+resultSet SYS_REFCURSOR;
 BEGIN
-    SELECT COUNT(*) INTO temp_count 
-        FROM employee WHERE birthdate >= '01-JAN-1969';
-    RETURN temp_count;
+    OPEN resultSet FOR
+		SELECT * FROM employee WHERE birthdate >= '01-JAN-1969';
+    RETURN resultSet;
 END bornAfter1968;
 
 -- 4.0 Stored Procedures
@@ -262,6 +262,8 @@ CREATE OR REPLACE TRIGGER customer_after_delete
 
 -- 6.2 INSTEAD OF
 -- Task – Create an instead of trigger that restricts the deletion of any invoice that is priced over 50 dollars.
+CREATE OR REPLACE VIEW invoice_view AS SELECT * FROM invoice;
+
 CREATE OR REPLACE TRIGGER invoice_instead_of_del
     INSTEAD OF DELETE ON invoice_view
     BEGIN
