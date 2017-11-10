@@ -68,7 +68,7 @@
 
 --Task – Select all employees hired between 1st of June 2003 and 1st of March 2004
 
---NEEDS FIX
+
 --SELECT * FROM employee WHERE hiredate BETWEEN TO_DATE('01/06/2003', 'DD/MM/YYYY') AND TO_DATE('01/03/2004', 'DD/MM/YYYY');
 
 --2.7 DELETE
