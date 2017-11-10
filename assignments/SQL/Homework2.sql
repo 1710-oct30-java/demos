@@ -184,9 +184,10 @@ CREATE OR REPLACE PROCEDURE getManager
 (iemployeeid IN NUMBER, resultSet OUT sys_refcursor)
 AS
 BEGIN
-    OPEN resultSet FOR 
+    OPEN resultSet FOR
+	SELECT * FROM employee WHERE employeeid = (
         SELECT reportsto FROM employee
-            WHERE employeeid = iemployeeid;
+            WHERE employeeid = iemployeeid);
 END getManager;
 
 -- 4.3 Stored Procedure Output Parameters
