@@ -1,14 +1,14 @@
-package com.ers.dao;
+package com.ers.beans;
 
-public class ReimbursementTypeDAO {
+public class ReimbursementType {
 	private int r_type_id;
 	private String r_type;
 	
-	public ReimbursementTypeDAO() {
+	public ReimbursementType() {
 		super();
 	}
 
-	public ReimbursementTypeDAO(int r_type_id, String r_type) {
+	public ReimbursementType(int r_type_id, String r_type) {
 		this.r_type_id = r_type_id;
 		this.r_type = r_type;
 	}

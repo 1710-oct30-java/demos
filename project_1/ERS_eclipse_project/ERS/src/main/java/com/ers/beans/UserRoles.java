@@ -1,14 +1,14 @@
-package com.ers.dao;
+package com.ers.beans;
 
-public class UserRolesDAO {
+public class UserRoles {
 	private int role_id;
 	private String user_role;
 	
-	public UserRolesDAO() {
+	public UserRoles() {
 		super();
 	}
 
-	public UserRolesDAO(int role_id, String user_role) {
+	public UserRoles(int role_id, String user_role) {
 		this.role_id = role_id;
 		this.user_role = user_role;
 	}

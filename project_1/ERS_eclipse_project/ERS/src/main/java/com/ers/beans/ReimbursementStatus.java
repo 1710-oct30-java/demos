@@ -1,14 +1,14 @@
-package com.ers.dao;
+package com.ers.beans;
 
-public class ReimbursementStatusDAO {
+public class ReimbursementStatus {
 	private int status_id;
 	private String status;
 	
-	public ReimbursementStatusDAO() {
+	public ReimbursementStatus() {
 		super();
 	}
 	
-	public ReimbursementStatusDAO(int status_id, String status) {
+	public ReimbursementStatus(int status_id, String status) {
 		this.status_id = status_id;
 		this.status = status;
 	}

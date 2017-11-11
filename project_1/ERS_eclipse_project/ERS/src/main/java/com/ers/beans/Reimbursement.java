@@ -1,6 +1,6 @@
-package com.ers.dao;
+package com.ers.beans;
 
-public class ReimbursementDAO {
+public class Reimbursement {
 	private int r_id;
 	private double r_amount;
 	private String r_submitted;
@@ -12,11 +12,11 @@ public class ReimbursementDAO {
 	private int r_status_id;
 	private int r_type_id;
 		
-	public ReimbursementDAO() {
+	public Reimbursement() {
 		super();
 	}
 	
-	public ReimbursementDAO(int r_id, double r_amount, String r_submitted, String r_resolved, String r_description,
+	public Reimbursement(int r_id, double r_amount, String r_submitted, String r_resolved, String r_description,
 			String r_receipt, int r_author, int r_resolver, int r_status_id, int r_type_id) {
 		this.r_id = r_id;
 		this.r_amount = r_amount;

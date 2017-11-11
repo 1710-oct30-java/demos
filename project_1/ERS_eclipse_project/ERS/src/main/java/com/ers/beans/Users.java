@@ -1,6 +1,6 @@
-package com.ers.dao;
+package com.ers.beans;
 
-public class UsersDAO {
+public class Users {
 	private int user_id;
 	private String username;
 	private String password;
@@ -9,11 +9,11 @@ public class UsersDAO {
 	private String email;
 	private int role_id;
 
-	public UsersDAO() {
+	public Users() {
 		super();
 	}
 
-	public UsersDAO(int user_id, String username, String password, String firstName, String lastName, String email, int role_id) {
+	public Users(int user_id, String username, String password, String firstName, String lastName, String email, int role_id) {
 		this.user_id = user_id;
 		this.username = username;
 		this.password = password;

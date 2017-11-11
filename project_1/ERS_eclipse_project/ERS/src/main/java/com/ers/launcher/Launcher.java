@@ -1,19 +1,19 @@
 package com.ers.launcher;
 
-import com.ers.dao.ReimbursementDAO;
-import com.ers.dao.ReimbursementStatusDAO;
-import com.ers.dao.ReimbursementTypeDAO;
-import com.ers.dao.UserRolesDAO;
-import com.ers.dao.UsersDAO;
+import com.ers.beans.Reimbursement;
+import com.ers.beans.ReimbursementStatus;
+import com.ers.beans.ReimbursementType;
+import com.ers.beans.UserRoles;
+import com.ers.beans.Users;
 
 public class Launcher {
 	public static void main(String[] args) {
 		//UsersDAO user = new UsersDAO(1, "batman", "password", "Bruce", "Wayne", "batman@gmail.com", 2);
-		UsersDAO user = new UsersDAO();
-		UserRolesDAO ur = new UserRolesDAO();
-		ReimbursementTypeDAO type = new ReimbursementTypeDAO();
-		ReimbursementStatusDAO status = new ReimbursementStatusDAO();
-		ReimbursementDAO reimb = new ReimbursementDAO();
+		Users user = new Users();
+		UserRoles ur = new UserRoles();
+		ReimbursementType type = new ReimbursementType();
+		ReimbursementStatus status = new ReimbursementStatus();
+		Reimbursement reimb = new Reimbursement();
 		
 		System.out.println(reimb);
 	}
