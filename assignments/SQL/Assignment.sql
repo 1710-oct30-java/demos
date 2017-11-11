@@ -63,27 +63,188 @@ DELETE FROM customer
 -- In this section you will be using the Oracle system functions, as well as your own functions, to perform various actions against the database
 -- 3.1 System Defined Functions
 -- Task – Create a function that returns the current time.
+CREATE OR REPLACE FUNCTION get_time RETURN CHAR AS
+    BEGIN
+        RETURN to_char(SYSTIMESTAMP, 'HH:MM:SS');
+    END;
+    /
 -- Task – create a function that returns the length of a mediatype from the mediatype table
+CREATE OR REPLACE FUNCTION getTypeLength
+    (typeId IN NUMBER)
+    RETURN VARCHAR2
+    AS typeLength VARCHAR2(256);
+    BEGIN
+        SELECT LENGTH(name) INTO typeLength
+        FROM mediatype WHERE mediatypeid = typeId;
+        RETURN typeLength;
+    END;
+/
 -- 3.2 System Defined Aggregate Functions
 -- Task – Create a function that returns the average total of all invoices
+CREATE OR REPLACE FUNCTION getInvoiceAvg
+    RETURN NUMBER
+    AS avgTotal NUMBER(10,2);
+    BEGIN
+        SELECT AVG(total) INTO avgTotal
+            FROM invoice;
+        RETURN avgTotal;
+    END;
+/
 -- Task – Create a function that returns the most expensive track
+CREATE OR REPLACE FUNCTION getMaxPrice
+    RETURN NUMBER
+    AS maxPrice NUMBER(10,2);
+    BEGIN
+        SELECT Max(unitprice) INTO maxPrice
+        FROM track;
+        RETURN maxPrice;
+    END;
+/
 -- 3.3 User Defined Scalar Functions
 -- Task – Create a function that returns the average price of invoiceline items in the invoiceline table
+CREATE OR REPLACE FUNCTION getAvgPrice
+    RETURN NUMBER
+    AS avgPrice NUMBER(10,2);
+    BEGIN
+        SELECT AVG(unitprice)
+        INTO avgPrice FROM invoiceline;
+        RETURN avgPrice;
+    END;
+/
 -- 3.4 User Defined Table Valued Functions
 -- Task – Create a function that returns all employees who are born after 1968.
+CREATE OR REPLACE TYPE empObject IS OBJECT (firstname VARCHAR2(20), lastname VARCHAR2(20), birthdate DATE);
+/
+CREATE OR REPLACE TYPE empTable IS TABLE OF empObject;
+/
+CREATE OR REPLACE FUNCTION getYoungerEmployees
+    RETURN empTable
+        IS tbl empTable := empTable();
+        I INTEGER := 0;
+    BEGIN
+        FOR J IN (SELECT * FROM EMPLOYEE WHERE birthdate >= '01-JAN-69')
+        LOOP
+            tbl.EXTEND;
+            I := I+1;
+            tbl(I) := empObject(J.firstname, J.lastname, J.birthdate);
+        END LOOP;
+        RETURN tbl;
+    END;
+/
+SELECT * FROM TABLE (getYoungerEmployees);
+
 -- 4.0 Stored Procedures
  -- In this section you will be creating and executing stored procedures. You will be creating various types of stored procedures that take input and output parameters.
 -- 4.1 Basic Stored Procedure
--- Task – Create a stored procedure that selects the first and last names of all the employees.
+-- Task – Create a stored procedure that selects the first and last names of all the employees.CREATE OR REPLACE PROCEDURE getEmployeeNames (csr OUT sys_refcursor) AS
+CREATE OR REPLACE PROCEDURE getEmployeeNames (csr OUT sys_refcursor) AS
+BEGIN
+    OPEN csr FOR 'SELECT firstname, lastname FROM employee';
+END;
+/
+    VARIABLE rc refcursor;
+    EXEC getEmployeeNames(:rc);
+    print rc;
+/
+
 -- 4.2 Stored Procedure Input Parameters
 -- Task – Create a stored procedure that updates the personal information of an employee.
+CREATE OR REPLACE PROCEDURE updateEmployee
+    (empId IN INTEGER,
+    newTitle IN VARCHAR2,
+    newAddress IN VARCHAR2,
+    newCity IN VARCHAR2,
+    newState IN VARCHAR2,
+    newCountry IN VARCHAR2,
+    newPostal IN VARCHAR2) AS
+BEGIN
+    UPDATE employee SET
+        title = newTitle,
+        address = newAddress,
+        city = newCity,
+        state = newState,
+        country = newCountry,
+        postalcode = newPostal
+        WHERE employeeid = empId;
+END;
+/
+    exec updateEmployee(1, 'GM', '123 Main St', 'Riverton', 'CA', 'United States', '12345');
+/
 -- Task – Create a stored procedure that returns the managers of an employee.
 -- 4.3 Stored Procedure Output Parameters
+CREATE OR REPLACE PROCEDURE getBoss
+    (empLast IN VARCHAR2,
+    empFirst IN VARCHAR2,
+    bossLast OUT VARCHAR2,
+    bossFirst OUT VARCHAR2)
+AS BEGIN
+    SELECT lastname INTO bossLast from employee WHERE employeeid =
+		(SELECT reportsto FROM employee WHERE
+			lastname = empLast AND firstName = empFirst);
+    SELECT firstname INTO bossFirst from employee WHERE employeeid =
+		(SELECT reportsto FROM employee WHERE
+            lastname = empLast AND firstName = empFirst);
+END;
+/
+VARIABLE lName VARCHAR2(20);
+VARIABLE fName VARCHAR2(20);
+EXECUTE getBoss('King', 'Robert', :lName, :fName);
+PRINT lName;
+PRINT fName;
 -- Task – Create a stored procedure that returns the name and company of a customer.
+CREATE OR REPLACE PROCEDURE getCustomerInfo
+    (custID IN INTEGER,
+    custLast OUT VARCHAR2,
+    custFirst OUT VARCHAR2,
+    custComp OUT VARCHAR2)
+AS BEGIN
+    SELECT lastname INTO custLast from customer
+        WHERE customerID = custID;
+    SELECT firstname INTO custFirst from customer
+        WHERE customerID = custID;
+    SELECT company INTO custComp from customer
+        WHERE customerID = custID;
+END;
+/
+VARIABLE lName VARCHAR2(20);
+VARIABLE fName VARCHAR2(20);
+VARIABLE comp VARCHAR2(50);
+EXECUTE getCustomerInfo(1, :lName, :fName, :comp);
+PRINT lName;
+PRINT fName;
+PRINT comp;
 -- 5.0 Transactions
 -- In this section you will be working with transactions. Transactions are usually nested within a stored procedure. You will also be working with handling errors in your SQL.
 -- Task – Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
+CREATE OR REPLACE PROCEDURE deleteInvoice
+    (iID IN INTEGER)
+AS BEGIN
+    DELETE FROM invoiceline WHERE invoiceid = iID;
+    DELETE FROM invoice WHERE invoiceid = iID;
+	COMMIT;
+	EXCEPTION
+		WHEN OTHERS THEN
+		ROLLBACK;
+END;
+/
+EXECUTE deleteInvoice(217);
 -- Task – Create a transaction nested within a stored procedure that inserts a new record in the Customer table
+CREATE OR REPLACE PROCEDURE addCustomer
+    (cID IN INTEGER,
+    cFirst IN VARCHAR,
+    cLast IN VARCHAR,
+    cComp IN VARCHAR,
+    cEmail IN VARCHAR)
+AS BEGIN
+    INSERT INTO customer (customerid, firstname, lastname, company, email)
+    VALUES (cID, cFirst, cLast, cComp, cEmail);
+    COMMIT;
+    EXCEPTION
+		WHEN OTHERS THEN
+		ROLLBACK;
+END;
+/
+EXECUTE addCustomer(60, 'Chris', 'Worcester', 'Microsoft', 'chrisworc@gmail.com');
 -- 6.0 Triggers
 -- In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
 -- 6.1 AFTER/FOR
