@@ -396,14 +396,24 @@ CREATE VIEW vw_invoice
 AS
 SELECT * FROM invoice;
 
-
+-- attempt 1
 CREATE OR REPLACE TRIGGER trg_prevent_delete
     INSTEAD OF DELETE ON vw_invoice
     FOR EACH ROW
 BEGIN
     DELETE FROM invoice
-    WHERE invoiceid = (SELECT invoiceid FROM invoice WHERE total < 20);
+    WHERE :old.total < 50;
 END;
+/
+
+-- attempt 2
+CREATE OR REPLACE TRIGGER trg_prevent_delete_2
+  BEFORE DELETE ON invoice
+  FOR EACH ROW
+  WHEN(old.total < 50)
+begin
+  dbms_output.put_line( 'Record can not be deleted because total is $50+');
+end;
 /
 
 
