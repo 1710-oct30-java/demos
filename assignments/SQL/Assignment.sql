@@ -249,24 +249,71 @@ EXECUTE addCustomer(60, 'Chris', 'Worcester', 'Microsoft', 'chrisworc@gmail.com'
 -- In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
 -- 6.1 AFTER/FOR
 -- Task - Create an after insert trigger on the employee table fired after a new record is inserted into the table.
+CREATE OR REPLACE TRIGGER emp_insert_trig
+AFTER INSERT ON employee
+FOR EACH ROW
+BEGIN
+    COMMIT;
+END;
+/
 -- Task – Create an after update trigger on the album table that fires after a row is inserted in the table
+CREATE OR REPLACE TRIGGER album_insert_trig
+AFTER INSERT ON album
+FOR EACH ROW
+BEGIN
+    COMMIT;
+END;
+/
 -- Task – Create an after delete trigger on the customer table that fires after a row is deleted from the table.
+CREATE OR REPLACE TRIGGER customer_delete_trig
+AFTER DELETE ON customer
+FOR EACH ROW
+BEGIN
+    COMMIT;
+END;
+/
 
 -- 6.2 INSTEAD OF
 -- Task – Create an instead of trigger that restricts the deletion of any invoice that is priced over 50 dollars.
+CREATE VIEW invoice_view AS SELECT * FROM invoice;
+
+CREATE OR REPLACE TRIGGER instead_invoice_trig
+INSTEAD OF DELETE ON invoice_view
+FOR EACH ROW
+    BEGIN
+    IF(:old.total <= 50) THEN
+        DELETE FROM invoice WHERE invoiceid = :old.invoiceid;
+    ELSE
+        raise_application_error(-20001,'Records can not be deleted');
+    END IF;
+END;
+/
 -- 7.0 JOINS
 -- In this section you will be working with combing various tables through the use of joins. You will work with outer, inner, right, left, cross, and self joins.
 -- 7.1 INNER
 -- Task – Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+SELECT firstname, lastname, invoiceid FROM customer
+INNER JOIN invoice USING (customerid)
+ORDER BY invoiceid;
 -- 7.2 OUTER
 -- Task – Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
+SELECT customerid, firstname, lastname, invoiceid, total FROM customer
+FULL OUTER JOIN invoice USING (customerid)
+ORDER BY invoiceid;
 -- 7.3 RIGHT
 -- Task – Create a right join that joins album and artist specifying artist name and title.
+SELECT * FROM album
+RIGHT OUTER JOIN artist USING (artistid);
 -- 7.4 CROSS
 -- Task – Create a cross join that joins album and artist and sorts by artist name in ascending order.
+SELECT * FROM album
+CROSS JOIN artist ORDER BY artist.name;
 -- 7.5 SELF
 -- Task – Perform a self-join on the employee table, joining on the reportsto column.
+SELECT * FROM employee
+INNER JOIN employee USING (reportsto);
 -- 8.0 Indexes
 -- In this section you will be creating Indexes on various tables. Indexes can speed up performance of reading data.
 -- 8.1 Clustered Indexes
 -- Task – Create a clustered index on of table of your choice
+CREATE INDEX invoice_value ON invoice (total DESC, invoicedate DESC);
