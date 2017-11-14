@@ -1,0 +1,7 @@
+.text-red {
+  border: 5em ridge red;
+  color: red;
+}
+.border-blue {
+  border: 2px groove blue;
+}  

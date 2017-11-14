@@ -1,0 +1,82 @@
+2017-11-09 10:16:31 DEBUG FlashcardDAOJdbc:34 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:16:33 DEBUG FlashcardDAOJdbc:44 - failed to add flashcard
+2017-11-09 10:17:56 DEBUG FlashcardDAOJdbc:34 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:17:58 INFO  FlashcardDAOJdbc:40 - successfully added flashcard
+2017-11-09 10:18:42 DEBUG FlashcardDAOJdbc:34 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:18:44 INFO  FlashcardDAOJdbc:40 - successfully added flashcard
+2017-11-09 10:32:03 DEBUG FlashcardDAOJdbc:54 - attempting to save a new flashcard with a stored procedure
+2017-11-09 10:32:06 INFO  FlashcardDAOJdbc:61 - successfully added flashcard with id: 5
+2017-11-09 10:39:16 DEBUG FlashcardDAOJdbc:66 - attempting to save a new flashcard with a stored procedure
+2017-11-09 10:39:17 INFO  FlashcardDAOJdbc:73 - successfully added flashcard with id: 6
+2017-11-09 10:39:52 DEBUG FlashcardDAOJdbc:39 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:39:54 DEBUG FlashcardDAOJdbc:58 - failed to add flashcard
+2017-11-09 10:46:54 DEBUG FlashcardDAOJdbc:39 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:46:56 DEBUG FlashcardDAOJdbc:58 - failed to add flashcard
+2017-11-09 10:48:25 DEBUG FlashcardDAOJdbc:39 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:48:28 DEBUG FlashcardDAOJdbc:59 - failed to add flashcard
+2017-11-09 10:50:44 DEBUG FlashcardDAOJdbc:39 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:50:46 DEBUG FlashcardDAOJdbc:59 - failed to add flashcard
+2017-11-09 10:51:21 DEBUG FlashcardDAOJdbc:39 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:51:23 TRACE FlashcardDAOJdbc:50 - row inserted has id: 11
+and question: sdkafjsdklj
+2017-11-09 10:51:23 INFO  FlashcardDAOJdbc:52 - successfully added flashcard
+2017-11-09 10:57:25 DEBUG FlashcardDAOJdbc:39 - attempting to save a new flashcard with a prepared statement
+2017-11-09 10:57:27 TRACE FlashcardDAOJdbc:46 - 1 columns were inserted
+2017-11-09 10:57:27 TRACE FlashcardDAOJdbc:51 - row inserted has id: 12
+and question: sadfjsdklafklsdaj
+2017-11-09 10:57:27 INFO  FlashcardDAOJdbc:53 - successfully added flashcard
+2017-11-09 10:57:27 DEBUG FlashcardDAOJdbc:60 - failed to add flashcard
+2017-11-09 11:00:27 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:00:29 TRACE FlashcardDAOJdbc:47 - 1 columns were inserted
+2017-11-09 11:00:29 TRACE FlashcardDAOJdbc:52 - row inserted has id: 13
+and question: dasjflasdk
+2017-11-09 11:00:29 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:01:30 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:01:32 TRACE FlashcardDAOJdbc:47 - 1 columns were inserted
+2017-11-09 11:01:32 TRACE FlashcardDAOJdbc:52 - row inserted has id: 14
+and question: dsafjkdjsaklfj
+2017-11-09 11:01:32 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:01:58 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:01:59 TRACE FlashcardDAOJdbc:47 - 1 columns were inserted
+2017-11-09 11:01:59 TRACE FlashcardDAOJdbc:52 - row inserted has id: 15
+and question: dsaklfsdjaklfjasd
+2017-11-09 11:01:59 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:02:31 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:02:32 TRACE FlashcardDAOJdbc:47 - 1 columns were inserted
+2017-11-09 11:02:32 TRACE FlashcardDAOJdbc:52 - row inserted has id: 16
+and question: dsaflkdsjfklsda
+2017-11-09 11:02:32 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:05:26 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:05:28 TRACE FlashcardDAOJdbc:52 - row inserted has id: 17
+and question: adlsjfsdkla
+2017-11-09 11:05:28 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:05:52 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:05:54 TRACE FlashcardDAOJdbc:52 - row inserted has id: 18
+and question: skljfakl
+2017-11-09 11:05:54 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:05:54 DEBUG FlashcardDAOJdbc:62 - failed to add flashcard
+2017-11-09 11:06:25 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:06:27 TRACE FlashcardDAOJdbc:52 - row inserted has id: 19
+and question: dsfjsdaklfj
+2017-11-09 11:06:27 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:06:27 DEBUG FlashcardDAOJdbc:62 - failed to add flashcard
+2017-11-09 11:06:50 DEBUG FlashcardDAOJdbc:40 - attempting to save a new flashcard with a prepared statement
+2017-11-09 11:06:52 TRACE FlashcardDAOJdbc:52 - row inserted has id: 20
+and question: sdafjasdkl'
+2017-11-09 11:06:52 INFO  FlashcardDAOJdbc:54 - successfully added flashcard
+2017-11-09 11:06:52 DEBUG FlashcardDAOJdbc:62 - failed to add flashcard
+2017-11-09 11:24:43 DEBUG FlashcardDAOJdbc:89 - attempting to retreive all flashcards
+2017-11-09 11:26:36 DEBUG FlashcardDAOJdbc:89 - attempting to retreive all flashcards
+2017-11-09 11:27:28 DEBUG FlashcardDAOJdbc:89 - attempting to retreive all flashcards
+2017-11-09 11:27:30 WARN  FlashcardDAOJdbc:104 - failed to retreive all flashcards
+2017-11-09 11:27:43 DEBUG FlashcardDAOJdbc:89 - attempting to retreive all flashcards
+2017-11-09 11:28:03 DEBUG FlashcardDAOJdbc:89 - attempting to retreive all flashcards
+2017-11-09 11:36:18 DEBUG FlashcardDAOJdbc:119 - attempting to retreive flashcard with id: 1
+2017-11-09 11:36:27 DEBUG FlashcardDAOJdbc:119 - attempting to retreive flashcard with id: 10
+2017-11-09 12:02:42 DEBUG FlashcardDAOJdbc:96 - attempting to retreive all flashcards
+2017-11-09 12:03:09 DEBUG FlashcardDAOJdbc:96 - attempting to retreive all flashcards
+2017-11-09 12:03:20 DEBUG FlashcardDAOJdbc:119 - attempting to retreive flashcard with id: 5
+2017-11-09 12:03:34 DEBUG FlashcardDAOJdbc:47 - attempting to save a new flashcard with a prepared statement
+2017-11-09 12:03:34 TRACE FlashcardDAOJdbc:59 - row inserted has id: 21
+and question: jdaskl;fjdaskl;htopqwehrioj
+2017-11-09 12:03:34 INFO  FlashcardDAOJdbc:60 - successfully added flashcard
