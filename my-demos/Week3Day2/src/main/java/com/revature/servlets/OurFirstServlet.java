@@ -2,6 +2,8 @@ package com.revature.servlets;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +14,14 @@ public class OurFirstServlet extends DefaultServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		System.out.println("initializing");
+		ServletConfig conf = getServletConfig();
+		System.out.println(" config is unique to each servlet, someVar has the value of:");
+		System.out.println(conf.getInitParameter("someVar"));
+
+		ServletContext context = getServletContext();
+		System.out.println("context is shared between all servlets, regardless of the current session, shared has the value of:");
+		System.out.println(context.getInitParameter("shared"));
+
 		super.init();
 	}
 	
