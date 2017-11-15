@@ -29,7 +29,7 @@ CREATE THE TABLES FOR THE DATABASE
 create table ers_reimbursement
 (
   reimb_id number(10) primary key,
-  reimb_amount number(10) not null,
+  reimb_amount number(10,2) not null,
   reimb_submitted timestamp not null,
   reimb_resolved timestamp,
   reimb_description varchar2(250),
