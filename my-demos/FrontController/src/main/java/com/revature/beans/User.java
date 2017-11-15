@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class User {
 	private int userId;
 	private String username;
-
 	private String password;
 	private List<FlashCard> flashCards;
 

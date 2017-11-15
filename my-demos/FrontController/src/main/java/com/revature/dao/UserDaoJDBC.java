@@ -1,33 +1,50 @@
 package com.revature.dao;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.revature.beans.FlashCard;
 import com.revature.beans.User;
+import com.revature.util.ConnectionUtil;
 
 public class UserDaoJDBC implements UserDao {
 	private Logger log = Logger.getRootLogger();
-	private static List<User> allUsers;
-	{
-		allUsers = new ArrayList<User>();
-		allUsers.add(new User(1, "blake", "pass", new ArrayList<FlashCard>()));
-		List<FlashCard> chrisCards = new ArrayList<FlashCard>();
-		chrisCards.add(new FlashCard(1, "what is java", "An object oriented programming language"));
-		chrisCards.add(new FlashCard(2, "What is Restful", "Restful is a type of web services that uses JSON or XML and is stateless"));
-		allUsers.add(new User(2, "chris w.", "not telling me", chrisCards));
+	private ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
+	private FlashCardDao fcd = new FlashCardDaoJDBC();
+	
+	
+	private User extractUser(ResultSet rs) throws SQLException {
+		User u = new User();
+		u.setUserId(rs.getInt("user_id"));
+		u.setUsername(rs.getString("username"));
+		u.setPassword(rs.getString("password"));
+		return u;
 	}
+	
 
 	public List<User> findAll() {
-		return allUsers;
-	}
-
-	@Override
-	public void addFlashCardToBlake(FlashCard fc) {
-		log.debug("adding flashcard to blakes flashcards");
-		allUsers.get(0).getFlashCards().add(fc);
+		log.debug("attempting to retreive all users from the database");
+		List<User> users = new ArrayList<>();
+		try(Connection conn = cu.getConnection()) {
+			ResultSet rs = conn.prepareStatement("SELECT * FROM app_user").executeQuery();
+			
+			log.trace("extracting users from the result set");
+			while(rs.next()) {
+				User u = extractUser(rs);
+				u.setFlashCards(fcd.findByUserId(u.getUserId()));
+				users.add(u);
+			}
+			return users;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			log.warn("failed to retreive all users from the database");
+		}
+		return null;
 	}
 
 }

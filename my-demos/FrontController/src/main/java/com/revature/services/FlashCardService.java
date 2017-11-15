@@ -8,8 +8,7 @@ public class FlashCardService {
 	private UserDao ud = new UserDaoJDBC();
 
 	public void save(FlashCard fc) {
-		ud.addFlashCardToBlake(fc);
-		
+		// todo
 	}
 
 }

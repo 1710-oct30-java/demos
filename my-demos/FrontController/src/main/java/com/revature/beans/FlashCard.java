@@ -4,17 +4,19 @@ public class FlashCard {
 	private int flashCardId;
 	private String question;
 	private String answer;
+	private int userId;
 
 	public FlashCard() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public FlashCard(int flashCardId, String question, String answer) {
+	public FlashCard(int flashCardId, String question, String answer, int userId) {
 		super();
 		this.flashCardId = flashCardId;
 		this.question = question;
 		this.answer = answer;
+		this.userId = userId;
 	}
 
 	public int getFlashCardId() {
@@ -41,6 +43,14 @@ public class FlashCard {
 		this.answer = answer;
 	}
 
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -48,6 +58,7 @@ public class FlashCard {
 		result = prime * result + ((answer == null) ? 0 : answer.hashCode());
 		result = prime * result + flashCardId;
 		result = prime * result + ((question == null) ? 0 : question.hashCode());
+		result = prime * result + userId;
 		return result;
 	}
 
@@ -72,12 +83,15 @@ public class FlashCard {
 				return false;
 		} else if (!question.equals(other.question))
 			return false;
+		if (userId != other.userId)
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "FlashCard [flashCardId=" + flashCardId + ", question=" + question + ", answer=" + answer + "]";
+		return "FlashCard [flashCardId=" + flashCardId + ", question=" + question + ", answer=" + answer + ", userId="
+				+ userId + "]";
 	}
 
 }

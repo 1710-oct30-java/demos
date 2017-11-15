@@ -1,0 +1,8 @@
+2017-11-15 13:48:32 DEBUG UserDaoJDBC:32 - attempting to retreive all users from the database
+2017-11-15 13:48:34 TRACE UserDaoJDBC:37 - extracting users from the result set
+2017-11-15 13:48:57 DEBUG UserDaoJDBC:32 - attempting to retreive all users from the database
+2017-11-15 13:48:59 TRACE UserDaoJDBC:37 - extracting users from the result set
+2017-11-15 13:49:21 DEBUG UserDaoJDBC:32 - attempting to retreive all users from the database
+2017-11-15 13:49:23 TRACE UserDaoJDBC:37 - extracting users from the result set
+2017-11-15 13:50:11 DEBUG UserDaoJDBC:33 - attempting to retreive all users from the database
+2017-11-15 13:50:12 TRACE UserDaoJDBC:38 - extracting users from the result set
