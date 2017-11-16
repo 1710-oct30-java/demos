@@ -14,4 +14,15 @@
   </servlet-mapping>
 
   
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/static/error-pages/notfound.html</location>
+  </error-page>
+  
+  <error-page>
+  	<exception-type>com.revature.exceptions.UrlNotRecognizedException</exception-type>
+  	<location>/static/error-pages/notfound.html</location>
+  </error-page>
+  
+  
 </web-app>
