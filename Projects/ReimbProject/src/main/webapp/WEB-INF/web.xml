@@ -6,8 +6,15 @@
 	<display-name>ReimbProject</display-name>
 	
 	
+	<servlet>
+		<servlet-name>DispatchServlet</servlet-name>
+		<servlet-class>com.controller.front.DispatchServlet</servlet-class>
+	</servlet>
 	
-	
+	<servlet-mapping>
+		<servlet-name>DispatchServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>
