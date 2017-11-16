@@ -11,6 +11,6 @@ public class UserController
 	
 	public void delegateGet(HttpServletRequest request, HttpServletResponse response)
 	{
-		
+
 	}
 }
