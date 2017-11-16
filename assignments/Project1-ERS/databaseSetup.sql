@@ -1,5 +1,7 @@
-/* Database script for ers database */
-/* Created by: Kyle Settles */
+/***********************************************************************************************************
+                                        Database script for ers database 
+                                        Created by: Kyle Settles 
+************************************************************************************************************/
 
 /* Drop database if it exists */
 drop user ers cascade;
@@ -23,7 +25,7 @@ grant create view to ers;
 conn ers/p4ssw0rd
 
 /**************************************************************************************************************
-CREATE THE TABLES FOR THE DATABASE
+                                    CREATE THE TABLES FOR THE DATABASE
 **************************************************************************************************************/
 
 create table ers_reimbursement
@@ -66,7 +68,7 @@ create table ers_user_roles (
 );
 
 /********************************************************************************************
-SETUP FOREIGN KEYS
+                                    SETUP FOREIGN KEYS
 *********************************************************************************************/
 ALTER TABLE ers_reimbursement ADD CONSTRAINT ers_users_fk_auth
     FOREIGN KEY (reimb_author) REFERENCES ers_users (ers_users_id);
@@ -82,3 +84,41 @@ ALTER TABLE ers_reimbursement ADD CONSTRAINT ers_reimbursement_type_fk
     
 ALTER TABLE ers_users ADD CONSTRAINT user_roles_fk
     FOREIGN KEY (user_role_id) REFERENCES ers_user_roles (ers_user_role_id);
+    
+    
+/**********************************************************************************************
+                                        SEQUENCES
+***********************************************************************************************/
+
+CREATE SEQUENCE reimb_seq;
+CREATE SEQUENCE user_seq;
+
+/**********************************************************************************************
+                                        TRIGGERS
+***********************************************************************************************/
+
+/* update sequence on insert of new reimbursement */
+create or replace trigger reimb_id_trig
+before insert or update on ers_reimbursement
+for each row
+begin
+    if inserting then 
+        select reimb_seq.nextVal into :new.reimb_id from dual;
+    elsif updating then
+        select :old.reimb_id into :new.reimb_id from dual;
+    end if;
+end;
+/
+
+/* update sequence on insert of new user */
+create or replace trigger user_id_trig
+before insert or update on ers.users
+for each row
+begin
+    if inserting then 
+        select user_seq.nextVal into :new.ers_users_id from dual;
+    elsif updating then
+        select :old.ers_users_id into :new.ers_users_id from dual;
+    end if;
+end;
+/
