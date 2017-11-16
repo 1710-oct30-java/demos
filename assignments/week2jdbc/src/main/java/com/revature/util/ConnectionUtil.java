@@ -9,6 +9,14 @@ import java.util.Properties;
 
 public class ConnectionUtil{
 	private static ConnectionUtil conUtil = new ConnectionUtil();
+	static {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	private ConnectionUtil() {
 		super();
 	}

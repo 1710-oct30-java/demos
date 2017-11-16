@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item value="563" key="DIALOG_WIDTH"/>
+		<item value="true" key="BUILD_ALL"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="461" key="DIALOG_HEIGHT"/>
+		<item value="36" key="DIALOG_X_ORIGIN"/>
+		<item value="32" key="DIALOG_Y_ORIGIN"/>
+		<item value="true" key="BUILD_NOW"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ResourceNavigator">
+		<item value="Aggregate for window 1509393433859" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
+		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="/home/john/Documents/Revature/Project_1_ERS/Java_Code" key="OUTSIDE_LOCATION"/>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="0" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item value="false" key="FilterByLocation"/>
 		<item value="true" key="ShowStatusLine"/>
@@ -10,8 +34,8 @@
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 			<item value="500" key="DIALOG_HEIGHT"/>
-			<item value="359" key="DIALOG_X_ORIGIN"/>
-			<item value="53" key="DIALOG_Y_ORIGIN"/>
+			<item value="36" key="DIALOG_X_ORIGIN"/>
+			<item value="32" key="DIALOG_Y_ORIGIN"/>
 		</section>
 	</section>
 	<section name="SaveAsDialogSettings">
