@@ -17,16 +17,15 @@ import com.revature.services.UserService;
 public class DispatcherServlet extends DefaultServlet {
 	private UserController uc = new UserController();
 	private FlashCardController fc = new FlashCardController();
-<<<<<<< HEAD
 	
 	@Override
 	public void init() throws ServletException {
 		System.out.println("started");
 		super.init();
 	}
-=======
+
 	private UserService us = new UserService();
->>>>>>> 02bf5e37bca41166898cb63428874de714257d4a
+
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -45,14 +44,14 @@ public class DispatcherServlet extends DefaultServlet {
 
 		} else if (actualURL.startsWith("/user")) {
 			uc.delegateGet(request, response);
-<<<<<<< HEAD
+
 		}
 
 		if (actualURL.startsWith("/flashcard")) {
-=======
+
 
 		} else if (actualURL.startsWith("/flashcard")) {
->>>>>>> 02bf5e37bca41166898cb63428874de714257d4a
+
 			fc.delegateGet(request, response);
 
 		} else {
@@ -73,17 +72,15 @@ public class DispatcherServlet extends DefaultServlet {
 				System.out.println("login");
 				us.login();
 
-<<<<<<< HEAD
 		if (actualURL.startsWith("/flashcard")) {
 			fc.delegatePost(request, response);
-=======
+
 			} else {
 				throw new UrlNotRecognizedException();
 			}
 
 		} catch (InvalidCredentialException e) {
 			response.setStatus(e.getStatusCode());
->>>>>>> 02bf5e37bca41166898cb63428874de714257d4a
 		}
 
 	}
