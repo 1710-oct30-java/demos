@@ -8,34 +8,29 @@
 	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
 	crossorigin="anonymous">
 	
-<style>
-	.bordered {
-		border: solid 1px black;	
-	}
-</style>
+<link rel="stylesheet" href="./login.css">
 </head>
 <body>
-	<button class="btn btn-primary">My Button</button>
+<form>
 	<div class="container">
+		
 		<div class="row">
-			<div class="col-1 bordered">First column</div>
-			<div class="col-3 bordered">Second column</div>
-			<div class="col-3 bordered">third column</div>
-			<div class="col-5 bordered">Fourth column</div>
-		</div>
-		<div class="row">
-			<div class="col-3 bordered">First column</div>
-			<div class="col-1 bordered">Second column</div>
-			<div class="col-4 bordered">third column</div>
-			<div class="col-4 bordered">Fourth column</div>
+			<div class="col" align="center">
+				<div class="input-group" id="username">
+				  <span class="input-group-addon">Username:</span>
+				  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon">Password:</span>
+				  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+				</div>
+			</div>
 		</div>
 	</div>
-	
-	<div>
-		static
-	</div>
+</form>
 
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
 		crossorigin="anonymous"></script>
 	<script
