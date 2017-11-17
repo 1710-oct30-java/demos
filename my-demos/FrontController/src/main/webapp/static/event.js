@@ -37,3 +37,16 @@ document.getElementById('newElement5')
     console.log('clicked');
   });
 
+
+  document.getElementById('1').innerHTML = `
+    <div id="3">
+      !!!!!!!!!!!!!!!!!!!
+    </div>
+  `;
+
+  document.getElementById('3')
+    .addEventListener('click', () => {
+      console.log('3 clicked');
+    })
+
+
