@@ -1,4 +1,3 @@
-
 function Person(name, gender) {
   let notAClosure = 20;
   let closure = 5;
