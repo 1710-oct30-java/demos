@@ -33,11 +33,11 @@ public class ConnectionUtil {
 		Properties prop = new Properties();
 		try {
 			InputStream dbProps = ConnectionUtil.class.getClassLoader().getResourceAsStream("database.properties");
-<<<<<<< HEAD
+//<<<<<<< HEAD
             prop.load(dbProps);
-=======
+//=======
 			prop.load(dbProps);
->>>>>>> 02bf5e37bca41166898cb63428874de714257d4a
+//>>>>>>> 02bf5e37bca41166898cb63428874de714257d4a
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

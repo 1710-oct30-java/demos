@@ -71,6 +71,7 @@ public class DispatcherServlet extends DefaultServlet {
 			} else if ("/login".equals(actualURL)) {
 				System.out.println("login");
 				us.login();
+			}
 
 		if (actualURL.startsWith("/flashcard")) {
 			fc.delegatePost(request, response);
