@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+  crossorigin="anonymous">
+  
+<link rel="stylesheet" href="./event.css">
+	
+</head>
+<body>
+
+  <div id="1"></div>
+
+  <div class="container" onmouseout="containerClicked()">
+    <div class="row">
+      <div class="col-3">
+        hello
+      </div>
+      <div class="col-3 pointer" onclick="worldClicked()">
+        world
+      </div>
+      <div class="col-6">
+        !!!!!!
+      </div>
+    </div>
+  </div>
+  <div id="outer" onclick="outerClick()">
+    outer
+    <div class="inner" onclick="innerClick(event)">
+      inner
+    </div>
+  </div>
+  
+  <button class="btn btn-primary" onclick="removeOuter()">My Button</button>
+
+
+
+  <!--------------------- Scripts ---------------------------->
+  <script src="./event.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+		integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+		crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+div {
+  border: 1px solid black;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#outer {
+  margin: 2em;
+}
