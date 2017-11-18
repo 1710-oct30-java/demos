@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="ISO-8859-1">
+  <title>DOM</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"> </script>
+  <script src="js/packet-functions.js"></script>
+  <script src="js/packet.js"></script>
+</head>
+
+<body>
+  
+  <div>
+    <div>
+      <h3>Sum: <span id="sum"></span></h3>
+      <h5 id="currentTime"></h5>
+    </div>
+    <div>
+      <h1>United <span data-customAttr="USA">States</span> of America (<span>USA</span>)</h1>
+      <div><a>Click Here</a><a>Click Here</a><a>Click Here</a><a>Click Here</a><a>Click Here</a></div>
+      <a>Click Here</a>
+      <a>Click <span>Here1</span></a>
+      <a>Click Here</a>
+      <div>
+	  <select name="colors">
+	    <option value="green">Green</option>
+	    <option value="blue">Blue</option>
+	    <option value="red" selected="selected">Red</option>
+	    <option value="purple">Purple</option>
+	    <option value="yellow" selected="selected">Yellow</option>
+	  </select>
+      </div>
+    </div>
+    <p id="helloWorld">Hello, World!</p>
+    <div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+        </tr>
+        <tr>
+          <td class="empName">John</td>
+          <td>Sales</td>
+        </tr>
+        <tr>
+          <td class="empName">Amy</td>
+          <td>Finance</td>
+        </tr>
+        <tr>
+          <td class="empName">Austin</td>
+          <td>Sales</td>
+        </tr>
+        <tr>
+          <td class="empName">Katie</td>
+          <td>Marketing</td>
+        </tr>
+        <tr>
+          <td class="empName" data-customAttr="court">Courtney</td>
+          <td>Sales</td>
+        </tr>
+        <tr>
+          <td class="empName">Scout</td>
+          <td>Sales</td>
+        </tr>
+      </table>
+    </div>
+    <form id="firstForm">
+      <a>Click <span>Here2</span></a>
+	  <input type="text" data-customAttr="7"/><br/>
+	  <input type="text" data-customAttr="24"/><br/>
+	  <input type="radio" name="favoriteAnimal" value="dog"/>Dog<br/>
+	  <input type="radio" name="favoriteColor" value="blue"/>Blue<br/>
+	  <input id="num1" class="nums" type="text"/><br/>
+	  <input type="radio" name="favoriteAnimal" value="cat"/>Cat<br/>
+	  <input type="radio" name="favoriteColor" value="red"/>Red<br/>
+	  <input type="radio" name="favoriteAnimal" value="horse"/>Horse<br/>
+	  <input type="radio" name="favoriteAnimal" value="dolphin"/>Dolphin<br/>
+	  <a>Click <span>Here</span></a><br/>
+	  <input type="radio" name="favoriteAnimal" value="eagle"/>Eagle<br/>
+	  <input type="radio" name="favoriteColor" value="green"/>Green<br/>
+	  <input type="radio" name="favoriteColor" value="orange"/>Orange<br/>
+	  <select name="hobbies">
+	    <option value="photography">Photography</option>
+	    <option value="football" selected="selected">Football</option>
+	    <option value="kayaking" selected="selected">Kayaking</option>
+	    <option value="hiking">Hiking</option>
+	    <option value="programming" selected="selected">Programming</option>
+	  </select>
+	  <input id="num2" class="nums" type="text"/>
+	  <select name="skills">
+	    <option value="java">Java</option>
+	    <option value="net">.NET</option>
+	    <option value="dom" selected="selected">DOM</option>
+	    <option value="html">HTML</option>
+	    <option value="css">CSS</option>
+	    <option value="javascript" selected="selected">Javascript</option>
+	  </select>
+    </form>
+  </div>
+  <a>Click Here</a>
+  <a>Click <span data-customAttr="500">Here3</span></a>
+  <a>Click Here</a>
+	  
+  <script>
+
+  /*
+  * 1. USA
+  * Define function getUSA()
+  * Find the html element that contains "USA".
+  * Print that element's contents.
+  */ 
+  console.log("\n1. getUSA");
+
+  function getUSA() {
+    return $("h1:contains(USA)").html();
+  }
+
+  console.log( getUSA() );
+
+  /*
+  * 2. Sales
+  * Define function getPeopleInSales()
+  * Print the names of all the people in the sales department.
+  */
+  console.log("\n2. getPeopleInSales");
+
+  function getPeopleInSales() {
+
+    $("td:contains(Sales)")
+      .siblings()
+      .each( function() {
+        console.log( $(this).html() )
+      });
+
+  }
+
+  console.log("Sales Department Employees:");
+  getPeopleInSales();
+
+  /*
+  * 3. Click Here
+  * Define function getAnchorChildren()
+  * Find all anchor elements with a <span> child.
+  * Print the contents of <span>
+  */
+  console.log("\n3. getAnchorChildren");
+
+  function getAnchorChildren() {
+    
+    $("a > span").each( function() {
+        console.log( $(this).html() );
+    });
+
+  }
+  console.log("Contents of <s>pan elements nested in <a>nchor tags:")
+  getAnchorChildren();
+
+
+  /*
+  * 4. Hobbies
+  * Define function getHobbies()
+  * Find all checked options in the 'skills' select element.
+  * Print the value and the contents.
+  */
+  console.log("\n4. getHobbies");
+
+  function getHobbies() {
+
+    $("select[name=skills] option:selected").each( function() {
+      element = $(this);
+      console.log(`Selected Skill(s):\nvalue: ${ element.val() },\ncontents: ${ element.html() }`);
+    });
+
+  }
+
+  getHobbies();
+
+
+  /*
+  * 5. Custom Attribute
+  * Define function getCustomAttribute()
+  * Find all elements with "data-customAttr" attribute
+  * Print the value of the attribute.
+  * Print the element that has the attribute.
+  */
+  console.log("\n5. getCustomAttribute");
+
+  function getCustomAttribute() {
+    $("[data-customAttr]").each( function() {
+      let element = $(this);
+
+      console.log(`Tag Name: ${element.get(0).tagName}\nCustom Attribute Value: ${element.attr("data-customAttr")}`);
+    });
+  }
+  console.log("Elements with the [data-customAttr] attribute:");
+  getCustomAttribute();
+
+
+
+  /*
+  * 6. Sum Event
+  * NOTE: Write unobtrusive Javascript
+  * Regarding these elements:
+  *   <input id="num1" class="nums" type="text"/>
+  *   <input id="num2" class="nums" type="text"/>
+  *   <h3>Sum: <span id="sum"></span></h3>
+  *
+  * Define onchange event handler.
+  * Add <input> element values.
+  * Put the sum in the <span> element.
+  * If values cannot be added, put "Cannot add" in the <span> element
+  */
+  console.log("\n6. Sum Event");
+
+  function calculateSum() {
+   let sumElement = $("#sum");
+   let sum = 0;
+
+    $("input.nums").each( function() {
+      let current = Number( $(this).val() );
+      sum += current;
+    });
+
+    sumElement.html( sum );
+  }
+
+  $("input.nums").change( calculateSum );
+  calculateSum();
+
+
+
+  /*
+  * 7. Skills Event
+  * NOTE: Write unobtrusive Javascript
+  * When user selects a skill, create an alert with a message similar to:
+  * "Are you sure CSS is one of your skills?"
+  * NOTE: no alert should appear when user deselects a skill.
+  */
+  $("select[name=skills]").change( function() {
+    let selection = $("select[name=skills] option:selected").html();
+
+    alert( `Are you sure ${selection} is one of your skills?`);
+  });
+
+
+  /*
+  * 8. Favorite Color Event
+  * NOTE: Write unobtrusive Javascript
+  * NOTE: This is regarding the favoriteColor radio buttons.
+  * When a user selects a color, create an alert with a message similar to:
+  *   "So you like green more than blue now?"
+  * In this example, green is the new value and blue is the old value.
+  * Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
+  */
+
+  /*
+  * a simple session object for persisting
+  * data across events
+  */
+  function Session() {
+    let store = {};
+
+    this.put = function(key,object) {
+      store[key] = object;
+      return this;
+    };
+
+    this.get = function(key) {
+      return store[key];
+    };
+  }
+
+  /*
+  * utility class for performing operations
+  * on the favoriteColor radio buttons
+  */
+  ColorUtil = {
+    getSelectedInput: function() {
+      return $("input[name=favoriteColor]:checked");
+    },
+    getSelectedValue: function() {
+      return this.getSelectedInput().val();
+    },
+    getAllInputs: function() {
+      return $("input[name=favoriteColor]");
+    },
+  }
+  
+  /*
+  * instantiate session and add
+  * the initially selected color in its store
+  */
+  let session = new Session();
+  session.put("color", ColorUtil.getSelectedValue() );
+
+  /*
+  * attach an event listener to the onChange event of all
+  * favoriteColor radio buttons
+  */
+  ColorUtil.getAllInputs().change( function() {
+    let currVal = $(this).val();
+    let prevVal = session.get("color");
+
+    if ( currVal !== prevVal ) {
+      if ( prevVal !== undefined ) {
+        alert(`So you like ${currVal} more then ${prevVal} now`);
+      }
+      
+      session.put("color", currVal);
+    }
+  });
+
+
+
+  /*
+  * 9. Show/Hide Event
+  * NOTE: Write unobtrusive Javascript
+  * When user hovers over an employees name:
+  *  Hide the name if shown.
+  *  Show the name if hidden.
+  */
+  EmployeeUtil = {
+    toggleVisibility: function( element ) {
+      if ( $(element).html()  ) {
+        this.hide( element );
+      } else {
+        this.show( element );
+      }
+    },
+    show: function(element) {
+      this.unParkHtml( element );
+    },
+    hide: function(element) {
+      $(element).html("");
+    },
+    getElements: function() {
+      return $("td.empName");
+    },
+    parkHtml: function(element) {
+      $(element).attr("data-html", $(element).html() );
+    },
+    unParkHtml: function(element) {
+      $(element).html( $(element).attr("data-html") );
+    },
+    parkAllHtml: function() {
+      this.getElements().each( function() {
+        EmployeeUtil.parkHtml( $(this) );
+      });
+
+      return this;
+    },
+    attachEvents: function() {
+      this.getElements().mouseenter( function() {
+        EmployeeUtil.toggleVisibility( $(this) );
+      });
+
+      return this;
+    },
+  }
+
+  EmployeeUtil
+    .parkAllHtml()
+    .attachEvents();
+
+
+
+
+
+  /*
+  * 10. Current Time
+  * Regarding this element:
+  *  <h5 id="currentTime"></h5>
+  * Show the current time in this element in this format: 9:05:23 AM
+  * The time should be accurate to the second without having to reload the page.
+  */
+
+  let TimerUtil = {
+    interval: null,
+    element: null,
+
+    setElement: function( element ) {
+      this.element = element;
+      return this;
+    },
+    getElement: function() {
+      return $(this.element);
+    },
+    get12HourValues: function(value) {
+      let output = {
+          hour: Number(value),
+          meridian: "AM",
+      };
+
+      if ( value > 12 ) {
+        output.hour -= 12;
+        output.meridian = "PM";
+      }
+
+      return output;
+    },
+    getTwoDigitValue: function(value) {
+      let numValue = Number(value);
+
+      if ( numValue < 10 ) {
+        return `0${numValue}`;
+      } else {
+        return numValue;
+      }
+    },
+    getTime: function() {
+      let now = new Date();
+      let twelveHrValues = this.get12HourValues( now.getHours() );
+      let stringParts = [
+        twelveHrValues.hour,
+        this.getTwoDigitValue( now.getMinutes() ),
+        this.getTwoDigitValue( now.getSeconds() ),
+      ];
+
+      return ` ${stringParts.join(":")} ${twelveHrValues.meridian}`;
+    },
+    setDisplayTime: function(value) {
+      this.getElement().html( value );
+    },
+    update: function() {
+      let timeValue = this.getTime();
+      this.setDisplayTime( timeValue );
+    },
+    start: function() {
+      this.interval = setInterval( () => TimerUtil.update(), 1000);
+    },
+    stop: function() {
+      clearInterval( this.interval );
+    },
+  };
+
+  TimerUtil
+    // .setElement( document.getElementById("currentTime") )
+    .setElement( $("#currentTime") )
+    .start();
+
+
+
+  /*
+  * 11. Delay
+  * Regarding this element:
+  * <p id="helloWorld">Hello, World!</p>
+  * Three seconds after a user clicks on this element, change the text to a random color.
+  */
+
+  let HelloUtil = {
+    getRandomNumber: function(maxValue) {
+        return Math.floor( Math.random() * maxValue );
+    },
+    getRandomColor: function() {
+      let max = 255;
+      let red = this.getRandomNumber(max);
+      let green = this.getRandomNumber(max);
+      let blue = this.getRandomNumber(max);
+
+      return `rgb( ${[red, green, blue].join(", ")} )`;
+    },
+    getElement: function() {
+      return $("#helloWorld");
+    },
+    update: function() {
+        this.getElement().css("color", HelloUtil.getRandomColor() );
+        this.enableBold();
+    },
+    enableBold: function() {
+      this.getElement().css("font-weight", "bold");
+    },
+    disableBold: function() {
+      this.getElement().css("font-weight", "normal");
+    },
+    initialize: function() {
+        this.getElement().click( function() {
+            HelloUtil.disableBold();
+            setTimeout( () => HelloUtil.update(), 3000);
+            console.log("HelloUtil color change initiated");
+        });
+
+        this.getElement().hover( function() {
+          $(this).css("cursor", "pointer");
+        });
+
+        console.log("HelloUtil Initialized");
+    },
+  };
+
+  HelloUtil.initialize();
+
+
+  /*
+  * 12. Walk the DOM
+  * Define function walkTheDOM(node, func)
+  * This function should traverse every node in the DOM. Use recursion.
+  * On each node, call func(node).
+  */
+  console.log("\n12. Walk the DOM");
+  function walkTheDOM(node, func) {
+
+      func(node);
+
+      $(node).children().each( function() {
+        walkTheDOM( $(this), func);
+      });
+
+  }
+
+  walkTheDOM( $("body"), (node) => {
+    console.log( node );
+  });
+
+  </script>
+  
+</body>
+</html>
