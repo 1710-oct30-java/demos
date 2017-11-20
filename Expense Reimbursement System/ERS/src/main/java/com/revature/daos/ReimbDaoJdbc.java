@@ -115,7 +115,8 @@ public class ReimbDaoJdbc implements ReimbDao
 		log.debug("Trying to retreive reimbursement with id: " + id);
 		try (Connection con = conUtil.getConnection())
 		{
-			PreparedStatement ps = con.prepareStatement("SELECT * FROM flashcard WHERE flashcardid = ?");
+			PreparedStatement ps = con
+					.prepareStatement("SELECT * FROM ers_reimbursement WHERE reimb_id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			

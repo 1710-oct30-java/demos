@@ -46,5 +46,4 @@ public class ConnectionUtil
 		return DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"),
 				prop.getProperty("password"));
 	}
-	
 }

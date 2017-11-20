@@ -5,45 +5,47 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-import com.revature.beans.Reimbursement;
+import org.apache.log4j.Logger;
+
 import com.revature.beans.User;
+import com.revature.util.ConnectionUtil;
 
 public class UserDaoJdbc implements UserDao
 {
+	private Logger			log		= Logger.getRootLogger();
+	private ConnectionUtil	conUtil	= ConnectionUtil.getConnectionUtil();
+	
 	public User getReimbFromResultSet(ResultSet rs) throws SQLException
 	{
-		int id = rs.getInt("reimb_id");
-		float amount = rs.getFloat("reimb_amount");
-		Date submitted = rs.getDate("reimb_submitted");
-		Date resolved = rs.getDate("reimb_resolved");
-		String description = rs.getString("reimb_description");
-		Object recipt = null;
-		User author = (User) rs.getObject("reimb_author");
-		User resolver = (User) rs.getObject("reimb_resolver");
-		int statusId = rs.getInt("reimb_status_id");
-		int typeId = rs.getInt("reimb_type_id");
+		int id = rs.getInt("ers_users_id");
+		String username = rs.getString("ers_username");
+		String password = rs.getString("ers_password");
+		String firstName = rs.getString("user_first_name");
+		String lastName = rs.getString("user_last_name");
+		String email = rs.getString("user_email");
+		int roleId = rs.getInt("user_role_id");
 		
-		return new Reimbursement(id, amount, submitted, resolved, description, recipt, author, resolver,
-				statusId, typeId);
+		return new User(id, username, password, firstName, lastName, email, roleId);
 	}
 	
 	@Override
 	public int save(User u)
 	{
-		log.debug("Trying to save a reimbursement");
+		log.debug("Trying to save a user");
+		System.out.println("Trying to save a user");
 		
 		try (Connection con = conUtil.getConnection())
 		{
 			PreparedStatement ps = con.prepareStatement(
-					"INSERT INTO ers_reimbursement (reimb_amount, reimb_submitted, reimb_description, reimb_status_id, reimb_type_id) VALUES (?, ?, ?, ?, ?)");
-			ps.setFloat(1, r.getAmount());
-			ps.setDate(2, (java.sql.Date) r.getSubmitted());
-			ps.setString(3, r.getDescription());
-			ps.setInt(4, r.getStatusId());
-			ps.setInt(5, r.getTypeId());
+					"INSERT INTO ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id) VALUES (?, ?, ?, ?, ?, ?)");
+			ps.setString(1, u.getUsername());
+			ps.setString(2, u.getPassword());
+			ps.setString(3, u.getFirstName());
+			ps.setString(4, u.getLastName());
+			ps.setString(5, u.getEmail());
+			ps.setInt(6, u.getRoleId());
 			ps.executeQuery();
 			
 			// get columns actually saved in the database
@@ -51,16 +53,16 @@ public class UserDaoJdbc implements UserDao
 			
 			if (keys.next())
 			{
-				log.trace("Row inserted has id: " + keys.getInt(1) + "\nand description: "
-						+ keys.getString(3));
-				log.info("Successfully added reimbursement");
+				log.trace("Row inserted has id: " + keys.getInt(1) + "\nand username: "
+						+ keys.getString(2));
+				log.info("Successfully added user");
 				return keys.getInt(1);
 			}
 		}
 		catch (SQLException e)
 		{
 			e.printStackTrace();
-			log.debug("Failed to save reimbursement");
+			log.debug("Failed to save user");
 		}
 		
 		return 0;
@@ -69,47 +71,44 @@ public class UserDaoJdbc implements UserDao
 	@Override
 	public List<User> findAll()
 	{
-		List<Reimbursement> reimbs = new ArrayList<>();
-		log.debug("Trying to retreive all reimbursements");
+		List<User> users = new ArrayList<>();
+		log.debug("Trying to retreive all users");
 		
 		try (Connection con = conUtil.getConnection())
 		{
-			PreparedStatement ps = con.prepareStatement("SELECT * FROM ers_reimbursement");
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM ers_users");
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next())
 			{
-				int id = rs.getInt("reimb_id");
-				float amount = rs.getFloat("reimb_amount");
-				Date submitted = rs.getDate("reimb_submitted");
-				Date resolved = rs.getDate("reimb_resolved");
-				String description = rs.getString("reimb_description");
-				Object recipt = null;
-				User author = (User) rs.getObject("reimb_author");
-				User resolver = (User) rs.getObject("reimb_resolver");
-				int statusId = rs.getInt("reimb_status_id");
-				int typeId = rs.getInt("reimb_type_id");
+				int id = rs.getInt("ers_users_id");
+				String username = rs.getString("ers_username");
+				String password = rs.getString("ers_password");
+				String firstName = rs.getString("user_first_name");
+				String lastName = rs.getString("user_last_name");
+				String email = rs.getString("user_email");
+				int roleId = rs.getInt("user_role_id");
 				
-				reimbs.add(new Reimbursement(id, amount, submitted, resolved, description, recipt,
-						author, resolver, statusId, typeId));
+				users.add(new User(id, username, password, firstName, lastName, email, roleId));
 			}
 		}
 		catch (SQLException e)
 		{
 			e.printStackTrace();
-			log.warn("Failed to retreive all reimbursements");
+			log.warn("Failed to retreive all users");
 		}
 		
-		return reimbs;
+		return users;
 	}
 	
 	@Override
 	public User findById(int id)
 	{
-		log.debug("Trying to retreive reimbursement with id: " + id);
+		log.debug("Trying to retreive users with id: " + id);
 		try (Connection con = conUtil.getConnection())
 		{
-			PreparedStatement ps = con.prepareStatement("SELECT * FROM flashcard WHERE flashcardid = ?");
+			PreparedStatement ps = con
+					.prepareStatement("SELECT * FROM ers_users WHERE ers_users_id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			

@@ -1,0 +1,2 @@
+2017-11-17 11:41:19 DEBUG UserDaoJdbc:36 - Trying to save a user
+2017-11-17 11:41:19 DEBUG UserDaoJdbc:65 - Failed to save user
