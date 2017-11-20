@@ -184,7 +184,13 @@ Delete the third element in the array.
 Print length
 The lengths should be the same.
 */
-
+function deleteElement(someArr) {
+    console.log(someArr.length);
+    delete someArr[2];
+    console.log(someArr);
+    return someArr;
+    
+}
 /*
 11. Splice Element
 Define function spliceElement(someArr)
@@ -193,7 +199,11 @@ Splice the third element in the array.
 Print length
 The lengths should be one less than the original length.
 */
-
+function spliceElement(someArr) {
+    console.log(someArr.length);
+    return someArr.splice(2, 1);
+    console.log(someArr.length);
+}
 /*
 12. Defining an object using a constructor
 Define a function Person(name, age)
