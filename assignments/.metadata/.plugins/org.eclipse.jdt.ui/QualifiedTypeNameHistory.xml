@@ -24,7 +24,6 @@
 <fullyQualifiedTypeName name="java.com.revature.beans.Type"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
 <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectWriter"/>
-<fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="com.revature.dao.ReimbursementDAO"/>
 <fullyQualifiedTypeName name="com.revature.dao.ReimbursementDaoJdbc"/>
 <fullyQualifiedTypeName name="com.revature.dao.UserDaoJdbc"/>
@@ -33,8 +32,10 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 <fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.time.Clock"/>
+<fullyQualifiedTypeName name="java.sql.Time"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 <fullyQualifiedTypeName name="com.revature.beans.User"/>
 <fullyQualifiedTypeName name="com.revature.beans.Reimbursement"/>
-<fullyQualifiedTypeName name="java.time.Clock"/>
-<fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 </qualifiedTypeNameHistroy>

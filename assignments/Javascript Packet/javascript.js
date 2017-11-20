@@ -269,7 +269,15 @@ function getAnchorChildren(){
 // Define function getHobbies()
 // Find all checked options in the 'skills' select element.
 // Print the value and the contents.
-//TODO
+function getHobbies(){
+    let skills = document.getElementsByName('skills')[0];
+    for(let i = 0; i < skills.length; i++){
+        if(skills[i].getAttribute('selected')!=null){
+
+            console.log(skills[i].value +' : '+skills[i].getAttribute('selected'));
+        }
+    }
+}
 
 // 5. Custom Attribute
 // Define function getCustomAttribute()
@@ -292,7 +300,12 @@ function getCustomAttribute(){
 function sumEvent(){
     let num1 = Number(document.getElementById('num1').value);
     let num2 = Number(document.getElementById('num2').value);
+    let sum = num1 + num2;
+    if(isNaN(sum)){
+        document.getElementById('sum').innerText = 'Cannot add';
+    }else{
     document.getElementById('sum').innerText = num1 + num2;
+    }
 }
 // Define onchange event handler.
 // Add <input> element values.
@@ -304,7 +317,12 @@ function sumEvent(){
 // When user selects a skill, create an alert with a message similar to:
 // 	"Are you sure CSS is one of your skills?"
 // NOTE: no alert should appear when user deselects a skill.
-
+function cssSkill(){
+    let skill = document.getElementsByName('skills')[0];
+    if(skill.value == 'css'){
+        alert('Are you sure CSS is one of your skills?');
+    }
+}
 // 8. Favorite Color Event
 // NOTE: Write unobtrusive Javascript
 // NOTE: This is regarding the favoriteColor radio buttons.
@@ -312,26 +330,90 @@ function sumEvent(){
 // 	"So you like green more than blue now?"
 // In this example, green is the new value and blue is the old value.
 // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
-
+let oldColor = null;
+let newColor = null;
+function colorChange(){
+    let col = document.getElementsByName('favoriteColor');
+    for(let i = 0; i < col.length; i++){
+        if(col[i].checked === true){
+            oldColor = newColor;
+            newColor = col[i].value;
+        }
+    }
+    if(oldColor != null && newColor != null){
+        alert('So you like '+newColor+' more than '+oldColor+' now?');
+    }
+    if(newColor != null){
+        for(let i = 0; i < col.length; i++){
+            col[i].style.backgroundColor = newColor;
+        }
+    }
+}
 // 9. Show/Hide Event
 // NOTE: Write unobtrusive Javascript
 // When user hovers over an employees name:
 // 	Hide the name if shown.
 // 	Show the name if hidden.
-
+function hideShow(event){
+    if (event.style.color == "white") {
+        event.style.color = "black";
+    } else {
+        event.style.color = "white";
+    }
+}
 // 10. Current Time
 // Regarding this element:
 // 	<h5 id="currentTime"></h5>
 // Show the current time in this element in this format: 9:05:23 AM
 // The time should be accurate to the second without having to reload the page.
+setInterval(myClock, 500);
+function myClock(){
+    var d = new Date();
+    var t = d.toLocaleTimeString();
+    document.getElementById("currentTime").innerHTML = t;    
+}
 
 // 11. Delay
 // Regarding this element:
 // 	<p id="helloWorld">Hello, World!</p>
 // Three seconds after a user clicks on this element, change the text to a random color.
-
+function randomColor(){
+    
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    document.getElementById("helloWorld").style.color = color;
+}
+   
 // 12. Walk the DOM
 // Define function walkTheDOM(node, func)
 // This function should traverse every node in the DOM. Use recursion.
 // On each node, call func(node).
+function walkTheDOM(node, func){
+    let root = document.documentElement;
+    let firstChildern = root.childNodes;
+
+    function func(node){
+        let children = node.childNodes;
+        if(children != undefined){
+            for (let i = 0; i < children.length; i++) {
+                func(children[i]);
+                console.log('node: ' + children[i]);
+                //do somthing to child
+            }
+        }
+    }
+
+
+    for (let i = 0; i < firstChildern.length; i++) {
+        func(firstChildern[i]);
+        console.log('node: ' + firstChildern[i]);
+        //do somthing to child
+    }
+    //do something to root
+    console.log('node: ' + root);
+}
+
 
