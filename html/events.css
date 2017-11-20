@@ -1,0 +1,11 @@
+.bordered {
+    border: 1px solid black;
+}
+
+#outer {
+    border: 1px solid black;
+}
+
+#inner {
+    border: 1px solid black;
+}
