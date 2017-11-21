@@ -8,33 +8,38 @@
 	integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
 	crossorigin="anonymous">
 	
-<style>
-	.bordered {
-		border: solid 1px black;	
-	}
-</style>
 </head>
 <body>
-	<button class="btn btn-primary">My Button</button>
-	<div class="container">
-		<div class="row">
-			<div class="col-1 bordered">First column</div>
-			<div class="col-3 bordered">Second column</div>
-			<div class="col-3 bordered">third column</div>
-			<div class="col-5 bordered">Fourth column</div>
-		</div>
-		<div class="row">
-			<div class="col-3 bordered">First column</div>
-			<div class="col-1 bordered">Second column</div>
-			<div class="col-4 bordered">third column</div>
-			<div class="col-4 bordered">Fourth column</div>
-		</div>
-	</div>
-	
-	<div>
-		static
-	</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          question
+        </th>
+        <th>
+          answer
+        </th>
+      </tr>
+    </thead>
+    <tbody id="flashcard-table-body">
+      <tr>
+        <td>
+          what is JavaScript?
+        </td>
+        <td>
+          JavaScript is an object oriented programming language that follows many functional concepts and is primarily used in the browser
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
+
+    <input id="new-question" type="text" placeholder="new question">
+    <input id="new-answer" type="text" placeholder="new answer">
+    <button class="btn btn-primary" onclick="addFlashcard()">Add question</button>
+
+
+  <script src="./flashcards.js"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
 		integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
 		crossorigin="anonymous"></script>
