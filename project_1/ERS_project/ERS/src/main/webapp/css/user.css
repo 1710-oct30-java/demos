@@ -1,0 +1,45 @@
+input[type=text] {
+	width: 50%;
+	box-sizing: border-box;
+	border-color: rgba(0,0,0,0.3);
+	border-radius: 5px;
+	font-size: 1.05em; color: rgba(0,0,0,0.8);
+	background-color: rgba(255,255,255,0);
+	background-image: url('../images/icons/search.png');
+	background-size: 30px 30px;
+	background-position: 5px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+
+::-webkit-input-placeholder {
+   color:rgba(0,0,0,0.5);
+}
+
+#tb-reimbursements {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #ddd;
+	font-size: 1.05em;
+}
+
+#tb-reimbursements th {
+	background-color: #f1f1f1;
+}
+
+#tb-reimbursements th, #tb-reimbursements td {
+	text-align: left;
+	padding: 12px;
+}
+
+#tb-reimbursements tr {
+	border-bottom: 1px solid #ddd;
+}
+
+#tb-reimbursements tr.header, #tb-reimbursements tr:hover {
+	background-color: #ecf9ec;
+}
+
+#tb-reimbursements td a {
+	color: black;
+}

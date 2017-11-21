@@ -1,0 +1,210 @@
+.box {
+    border: none;
+    background: white;
+    padding: 10px;
+    width: 450px;
+    color: #333;
+    -webkit-box-shadow: 0px 7px 30px -4px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 7px 30px -4px rgba(0,0,0,0.4);
+    box-shadow: 0px 7px 30px -4px rgba(0,0,0,0.4);
+}
+
+
+.pic {
+    width: 150px;
+    border-radius: 50%;
+    margin-bottom: -50px;
+    -webkit-box-shadow: 0px 15px 60px -4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 15px 60px -4px rgba(0,0,0,0.5);
+    box-shadow: 0px 15px 60px -4px rgba(0,0,0,0.5);
+}
+
+.signin_heading {
+    width: 450px;
+    padding-top: 50px;
+    padding-bottom: 15px;
+    color: white;
+    background: #00ace6;
+}
+
+.input {
+    width: 80%;
+    padding: 12px 20px;
+    padding-left: 50px;
+    margin: 8px 0;
+    display: inline-block;
+    background: rgba(0,0,0,0.0);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    color: #333;
+}
+
+.email_icon {
+    background-image: url("../images/icons/user-login-icon.png");
+    background-size: 30px;
+    padding-right: 30px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.password_icon {
+    background-image: url("../images/icons/password-icon.png");
+    background-size: 30px;
+    padding-right: 30px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.input:hover {
+    outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 7px #9ecaed;
+}
+
+.input:focus {
+    outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 4px 10px #9ecaed;
+}
+
+.btn_signin {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    width: 80%;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: #008CBA;
+    color: white;
+    border: 2px solid #008CBA;
+}
+
+.button1:hover {
+    background-color: white;
+    color: #515151;
+    
+}
+
+div .signin_links a {
+    float: left;
+    text-decoration: none;
+    color: #808080;
+    font-size: 0.9em;
+}
+
+div .signin_links a:hover {
+    border-bottom: 2px solid #9ecaed;
+    /*font-weight: bold;*/
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 90%;
+    }
+
+    .signin_heading {
+        width: 90%;
+    }
+
+    .pic {
+        width: 125px;
+    }
+
+    .email_icon {
+        background-size: 22px;
+    }
+
+    .password_icon {
+        background-size: 22px;
+    }
+}
+/*
+.box
+{
+	border: none;
+	background: rgba(0,0,0,0.0.7);
+	box-shadow: 5px rgba(0,0,0,0.2);
+	padding: 10px;
+	width: 400px;
+}
+
+.icon{
+	width: 30px;
+}
+
+form table, tr, th{
+	width: 400px;
+}
+
+div .sign-in-link a {
+	float: left;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+div .sign-in-link a:hover {
+	border-bottom: 2px solid white;
+	font-weight: bold;
+}
+
+input[type=text], [type=password] {
+	width: 250px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	background: rgba(0,0,0,0.0);
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	font-size:18px;
+	color: #707070;
+}
+
+input[type=text]:focus, [type=password]:focus { 
+	outline: none;
+	border-color: #9ecaed;
+	box-shadow: 0 0 10px #9ecaed;
+}
+
+input[type=checkbox] {
+	display:inline-block;
+	width:21px;
+	height:21px;
+	cursor: pointer;
+}
+
+input[name="login"] {
+	width: 250px;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	background: rgba(0, 172, 230, 0.25);
+	border: none;
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[name="login"]:hover {
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+	background: rgba(0, 172, 230, 0.4);
+}
+
+.container {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+*/

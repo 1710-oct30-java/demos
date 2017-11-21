@@ -1,0 +1,39 @@
+Personnel (I)
+		+ List<User> getEmployees()
+	
+	
+Employee (C)
+	A typical employee can:
+	
+		can view their own - past requests, pending requests
+			+ List<Reimbursement> getReimbursementByUser(User user)
+			
+		submit new requests
+			+ void addRequest(Reimbursement reimb)
+			
+		cancel pending requests
+			+ cancelPendingRequest(Reimbursement reimb)
+			
+		filter requests by status, possibly dy date
+			+ List<Reimbursement> getReimbursementByStatusId(int id)
+		
+		login
+			+ loginService()
+			
+		logout
+			+ logoutService
+		
+		
+Manager (C) extends employee implements Personnel
+	has everything from typical employee and can:
+		add new user
+			+ addEmployee()
+			
+		approve (cannot approve their own requests. has to be done by another manager)
+			+ approveRequest(Reimbursement reimb)
+			
+		deny requests
+			+ denyRequest(Reimbursement reimb)
+			
+		view all requests
+			+ getAllRequests()

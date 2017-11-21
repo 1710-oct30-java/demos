@@ -1,6 +1,6 @@
 package com.ers.beans;
 
-public class Users {
+public class User {
 	private int user_id;
 	private String username;
 	private String password;
@@ -9,11 +9,11 @@ public class Users {
 	private String email;
 	private int role_id;
 
-	public Users() {
+	public User() {
 		super();
 	}
 
-	public Users(int user_id, String username, String password, String firstName, String lastName, String email, int role_id) {
+	public User(int user_id, String username, String password, String firstName, String lastName, String email, int role_id) {
 		this.user_id = user_id;
 		this.username = username;
 		this.password = password;
@@ -86,7 +86,7 @@ public class Users {
 				+ "\nFirst Name:\t" + firstName
 				+ "\nLast Name:\t" + lastName
 				+ "\nEmail:\t\t" + email
-				+ "\nRole ID:\t" + role_id;
+				+ "\nRole ID:\t" + role_id + "\n";
 	}
 
 }

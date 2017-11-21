@@ -1,0 +1,147 @@
+.left{
+	text-align: left;
+}
+
+.center{
+	text-align: center;
+}
+
+.right{
+	text-align: right;
+}
+
+.hidden{
+	display: none;
+}
+
+.menu-icon {
+	width: 2em;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button2 {
+    background-color: rgba(0,0,0,0); 
+    color: white; 
+    border: 3px solid white;
+	box-shadow: 8px 12px 16px 0 rgba(0,0,0,0.15);
+}
+
+.button2:hover {
+    background-color: #0099cc; /* Blue */
+    color: white;
+	border: 3px solid #0099cc;
+	box-shadow: 8px 12px 16px 2px rgba(0,0,0,0.20);
+}
+
+
+section {
+	width: 100%;
+}
+
+::-webkit-input-placeholder
+{
+	color:rgba(255,255,255,0.5);
+}
+
+::selection 
+{
+	/*background-color:rgba(159, 223, 159, 0.6);*/ /*light green*/
+	background-color:rgba(0, 184, 230, 0.6); /*light blue*/
+	color: white;
+}
+
+hr { 
+	height: 1px;
+	border: 0;
+	background: rgba(255,255,255,0.5);
+}
+
+/* unvisited link */
+a:link {
+	color: white;
+	text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+/* selected link */
+a:active {
+	color: white;
+	text-decoration: none;
+}
+
+.alert
+{
+	width: 100%;
+	margin: 15px 0px 10px 0px;
+	padding: 10px;
+	color: white;
+	border-radius: 5px;
+	font-size: 20px;
+}
+
+.blue {
+	background: #00a3cc;
+}
+
+.green {
+	background: #2ecc71;
+}
+
+.orange{
+	background: #ff9933;
+}
+
+.purple {
+	background: #a05abf;
+}
+.dark-red {
+	background: #c2160a;
+}
+
+.red {
+	background: #ff4d4d;
+}
+
+.gray {
+	background: #999999;
+}
+
+/* Add Zoom Animation */
+.animate {
+	-webkit-animation: animatezoom 0.6s;
+	animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+	from {-webkit-transform: scale(0)} 
+	to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+	from {transform: scale(0)} 
+	to {transform: scale(1)}
+}

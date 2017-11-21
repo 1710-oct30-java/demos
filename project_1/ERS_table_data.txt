@@ -1,0 +1,14 @@
+USER_ROLES
+1) Manager
+2) Employee
+
+REIMBURSEMENT_STATUS
+1) Pending
+2) Approved
+3) Denied
+
+REIMBURSEMENT_TYPE
+1) Lodging
+2) Travel
+3) Food
+4) Other

@@ -1,0 +1,18 @@
+		User Stories
+
+1) As a user I can log in
+2) As a user I can submit requests for reimbursement
+3) As a user I can view past tickets
+4) As a user I can view pending requests
+5) As a user I can cancel pending requests if submitted by mistake
+6) As a user I can filter requests by date and status
+7) As a user I can log out
+
+1) As a finance manager I can log in
+2) As a finance manager I can view all reimbursement requests
+3) As a finance manager I can view past history for all employees in the company
+4) As a finance manager I can approve reimbursement requests
+5) As a finance manager I can deny reimbursement requests
+6) As a finance manager I cannot approve my own reimbursement requests
+6) As a finance manager I can filter requests by date and status
+7) As a finance manager I can log out

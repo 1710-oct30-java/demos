@@ -215,7 +215,7 @@ CREATE OR REPLACE PROCEDURE updateEmployee(
     employee_fax IN employee.fax%TYPE)
 IS
 BEGIN
-    -- updates employee but doesn't change column value if input if empty
+    -- updates employee but doesn't change column value if input is empty
     UPDATE employee SET
     firstname = NVL(employee_firstName, (SELECT firstname FROM employee WHERE employeeid = employee_id)),
     lastname = NVL(employee_lastName, (SELECT lastname FROM employee WHERE employeeid = employee_id)),

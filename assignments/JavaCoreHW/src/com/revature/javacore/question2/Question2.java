@@ -1,5 +1,7 @@
 package com.revature.javacore.question2;
 
+import java.io.Console;
+
 /*
  * Write a program to display the first 25 Fibonacci number beginning at 0.
  * */
@@ -25,6 +27,7 @@ public class Question2
 
 		// Print first two numbers of sequence
 		result = previousValue + ", " + currentValue + ", ";
+		console.log(result);
 
 		// Loop and print all following numbers
 		for (int i = 2; i < n; i++)
