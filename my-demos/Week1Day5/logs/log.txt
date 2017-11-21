@@ -1,0 +1,36 @@
+2017-11-03 09:38:56 TRACE Launcher:8 - trace log
+2017-11-03 10:06:11 INFO  TestClass:22 - Initialization before all tests complete
+2017-11-03 10:06:22 INFO  TestClass:22 - Initialization before all tests complete
+2017-11-03 10:06:32 INFO  TestClass:22 - Initialization before all tests complete
+2017-11-03 10:22:54 INFO  TestClass:23 - Initialization before all tests complete
+2017-11-03 10:23:09 INFO  TestClass:23 - Initialization before all tests complete
+2017-11-03 10:24:43 INFO  TestClass:25 - Initialization before all tests complete
+2017-11-03 10:24:43 INFO  TestClass:30 - before each test
+2017-11-03 10:24:43 INFO  TestClass:53 - after each test
+2017-11-03 10:24:43 INFO  TestClass:30 - before each test
+2017-11-03 10:24:43 INFO  TestClass:53 - after each test
+2017-11-03 10:24:43 INFO  TestClass:59 - all tests are done
+2017-11-03 10:30:13 INFO  TestClass:25 - Initialization before all tests complete
+2017-11-03 10:30:13 INFO  TestClass:30 - before each test
+2017-11-03 10:30:13 INFO  TestClass:53 - after each test
+2017-11-03 10:30:13 INFO  TestClass:30 - before each test
+2017-11-03 10:30:13 INFO  TestClass:53 - after each test
+2017-11-03 10:30:13 INFO  TestClass:59 - all tests are done
+2017-11-03 10:35:20 INFO  TestClass:25 - Initialization before all tests complete
+2017-11-03 10:35:20 INFO  TestClass:30 - before each test
+2017-11-03 10:35:20 INFO  TestClass:53 - after each test
+2017-11-03 10:35:20 INFO  TestClass:30 - before each test
+2017-11-03 10:35:20 INFO  TestClass:53 - after each test
+2017-11-03 10:35:20 INFO  TestClass:59 - all tests are done
+2017-11-03 10:35:25 INFO  TestClass:25 - Initialization before all tests complete
+2017-11-03 10:35:25 INFO  TestClass:30 - before each test
+2017-11-03 10:35:25 INFO  TestClass:53 - after each test
+2017-11-03 10:35:25 INFO  TestClass:30 - before each test
+2017-11-03 10:35:25 INFO  TestClass:53 - after each test
+2017-11-03 10:35:25 INFO  TestClass:59 - all tests are done
+2017-11-03 14:42:46 INFO  TestClass:25 - Initialization before all tests complete
+2017-11-03 14:42:46 INFO  TestClass:30 - before each test
+2017-11-03 14:42:46 INFO  TestClass:53 - after each test
+2017-11-03 14:42:46 INFO  TestClass:30 - before each test
+2017-11-03 14:42:46 INFO  TestClass:53 - after each test
+2017-11-03 14:42:46 INFO  TestClass:59 - all tests are done

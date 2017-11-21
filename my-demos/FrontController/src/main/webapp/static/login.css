@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+.border-blue {
+	border: solid 2px red;
+}
+
+#username {
+	margin-top: 10%;
+	margin-bottom: 2em;
+}
