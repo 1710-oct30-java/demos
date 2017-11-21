@@ -39,3 +39,25 @@ let outer = function() {
     }
   }
 }
+
+
+function ThisPerson(name, gender) {
+  this.name = name;
+  this.gender = gender;
+
+  this.get = function() {
+    return this.name
+  }
+
+  this.getName = function () {
+    return function() {
+      return this.name;
+    }
+  }
+
+  this.getArrow = () => {
+    return () => {
+      return this.name;
+    }
+  }
+}
