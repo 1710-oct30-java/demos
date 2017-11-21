@@ -10,11 +10,13 @@ import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.log4j.Logger;
 
 import com.controller.LoginController;
+import com.controller.ReimbController;
 
 public class DispatchServlet extends DefaultServlet
 {
 	Logger log = Logger.getRootLogger();
 	private LoginController lc = new LoginController();
+	private ReimbController rc = new ReimbController();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
@@ -37,8 +39,10 @@ public class DispatchServlet extends DefaultServlet
 				request.getRequestDispatcher("/static/index.html").forward(request, response);
 				break;
 			case "/login":
-				request.getRequestDispatcher("/static/login.html").forward(request, response);
-				// lc.delegateGet(request, response);
+				lc.delegateGet(request, response);
+				break;
+			case "/reimb":
+				rc.delegateGet(request, response);
 				break;
 			default:
 				request.getRequestDispatcher("/static/index.html").forward(request, response);

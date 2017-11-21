@@ -8,6 +8,7 @@ import com.dao.UserDaoJDBC;
 public class LoginService
 {
 	Logger log = Logger.getRootLogger();
+
 	private UserDao ud = new UserDaoJDBC();
 
 	public boolean validate(String username, String password)
@@ -24,8 +25,10 @@ public class LoginService
 		}
 		catch (IndexOutOfBoundsException e)
 		{
-			e.printStackTrace();
+			log.debug("Cannot Find a User With Username: " + username);
+			// e.printStackTrace();
 			return false;
 		}
 	}
+
 }

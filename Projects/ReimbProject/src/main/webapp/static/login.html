@@ -22,7 +22,7 @@
 		<div class ="row">
 			<div class="col-3"></div>
 			<div class="col-6">
-				<form class="form-signin" method="post">
+				<form class="form-signin" method="post" onsubmit="event.preventDefault();login()">
 					<h2 class="form-signin-heading" align="center">Welcome</h2>
 					<label for="inputUsername" class="sr-only">Email address</label>
 					<input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
@@ -38,17 +38,24 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-3"></div>
+			<div class="col-3">
+					<div id ="error" class="container"></div>
+			</div>
 		</div>
 		<div id="dummy" class="container"></div>
-		<div id ="error" class="container"></div>
+		
 	</div>
 
+<!-- 
+	<form onsubmit= "event.preventDefault();login()">
+		<input type="text" id="username" placeholder="username">
+		<input type="password" id="password" placehoolder="password">
+		<input type="submit">
+	</form> -->
 
-
-<script src="./static/login.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+	<script src="./static/login.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
 </html>
