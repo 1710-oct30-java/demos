@@ -4,10 +4,10 @@
 ************************************************************************************************************/
 
 /* Drop database if it exists */
-drop user ers cascade;
+drop user ersfinal cascade;
 
 /* create databse */
-create user ers
+create user ersfinal
 identified by p4ssw0rd
 
 default tablespace users
@@ -15,14 +15,14 @@ temporary tablespace temp
 
 quota 10m on users;
 
-grant connect to ers;
-grant resource to ers;
-grant create session to ers;
-grant create table to ers;
-grant create view to ers;
+grant connect to ersfinal;
+grant resource to ersfinal;
+grant create session to ersfinal;
+grant create table to ersfinal;
+grant create view to ersfinal;
 
 /* connect to database */
-conn ers/p4ssw0rd
+conn ersfinal/p4ssw0rd
 
 /**************************************************************************************************************
                                     CREATE THE TABLES FOR THE DATABASE
@@ -112,7 +112,7 @@ end;
 
 /* update sequence on insert of new user */
 create or replace trigger user_id_trig
-before insert or update on ers.users
+before insert or update on ers_users
 for each row
 begin
     if inserting then 
@@ -122,3 +122,38 @@ begin
     end if;
 end;
 /
+
+
+/*********************************************************************************************
+                            INITIALIZE DATABASE VALUES
+**********************************************************************************************/
+
+/* reimbursement status codes */
+INSERT INTO ers_reimbursement_status (reimb_status_id, reimb_status)
+VALUES (1, 'Pending');
+INSERT INTO ers_reimbursement_status (reimb_status_id, reimb_status)
+VALUES (2, 'Approved');
+INSERT INTO ers_reimbursement_status (reimb_status_id, reimb_status)
+VALUES (3, 'Denied');
+
+/* reimbursement type codes */
+INSERT INTO ers_reimbursement_type (reimb_type_id, reimb_type)
+VALUES (1, 'Lodging');
+INSERT INTO ers_reimbursement_type (reimb_type_id, reimb_type)
+VALUES (2, 'Travel');
+INSERT INTO ers_reimbursement_type (reimb_type_id, reimb_type)
+VALUES (3, 'Food');
+INSERT INTO ers_reimbursement_type (reimb_type_id, reimb_type)
+VALUES (4, 'Other');
+
+/* ers user roles */
+INSERT INTO ers_user_roles (ers_user_role_id, user_role)
+VALUES (1, 'Employee');
+INSERT INTO ers_user_roles (ers_user_role_id, user_role)
+VALUES (2, 'Manager');
+
+/* insert primary user */
+INSERT INTO ers_users (ers_users_id, ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id)
+VALUES (1, 'kylesettles', 'pass', 'Kyle', 'Settles', 'kylesettles@email.com', 1);
+
+/* insert first reimbursement */

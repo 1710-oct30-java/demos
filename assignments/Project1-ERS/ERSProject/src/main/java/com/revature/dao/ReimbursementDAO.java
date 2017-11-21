@@ -1,13 +1,16 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import com.revature.beans.Reimbursement;
 
 public interface ReimbursementDAO {
+	
 	Reimbursement getReimbursementByID(int id);
 	
-	Reimbursement getReimbursementByType(int type);
+	List<Reimbursement> retrieveAllReimbursements();
 	
-	String getUserbyReimbursementID(int id);
+	int addReimbursement(Reimbursement rb);
 	
-	
+	void approveDeny(String choice);
 }
