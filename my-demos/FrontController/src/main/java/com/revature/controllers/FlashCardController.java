@@ -29,7 +29,10 @@ public class FlashCardController {
 		
 		if("".equals(actualURL)) {
 			try {
-				String json = request.getReader().lines().reduce( (acc, cur) -> acc+cur).get();
+				String json = request.getReader() // get the buffered reader
+								.lines() // stream it
+								.reduce( (acc, cur) -> acc+cur) // reduce it to a single value
+								.get(); // get that single value
 				log.trace("json received = " + json);
 				ObjectMapper om = new ObjectMapper();
 				FlashCard fc = om.readValue(json, FlashCard.class);
