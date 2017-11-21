@@ -20,17 +20,18 @@ public class UserDaoJDBC implements UserDao
 	public User extractUser(ResultSet rs) throws SQLException
 	{
 		User user = new User();
-		user.setUserId(rs.getInt("ers_users_id"));
-		user.setUsername(rs.getString("ers_username"));
-		user.setPassword(rs.getString("ers_password"));
-		user.setfName(rs.getString("user_first_name"));
-		user.setlName(rs.getString("user_last_name"));
-		user.setEmail(rs.getString("user_email"));
-		user.setRoleId(rs.getInt("user_role_id"));
+		user.setUserId(rs.getInt("users_id"));
+		user.setUsername(rs.getString("username"));
+		user.setPassword(rs.getString("password"));
+		user.setfName(rs.getString("first_name"));
+		user.setlName(rs.getString("last_name"));
+		user.setEmail(rs.getString("email"));
+		user.setRoleId(rs.getInt("role_id"));
 
 		return user;
 	}
 
+	@Override
 	public List<User> findAll()
 	{
 		List<User> users = new ArrayList<>();
@@ -48,12 +49,38 @@ public class UserDaoJDBC implements UserDao
 
 			return users;
 
-		} catch (SQLException e)
+		}
+		catch (SQLException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return null;
+	}
+
+	@Override
+	public List<String> getPassword(String username)
+	{
+		List<String> pass = new ArrayList<>();
+		try (Connection conn = connUtil.getConnection())
+		{
+			log.debug("Retrieving password for " + username);
+			PreparedStatement ps = conn.prepareStatement("SELECT password FROM users WHERE " + "username=?");
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next())
+			{
+				pass.add(rs.getString("password"));
+			}
+			return pass;
+		}
+		catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		pass.add(null);
+		return pass;
 	}
 }

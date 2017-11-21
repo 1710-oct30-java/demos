@@ -19,18 +19,30 @@ public class DispatchServlet extends DefaultServlet
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
+		// System.out.println(request.getContextPath());
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
 		System.out.println(actualURL);
 
+		log.debug("get request in DispatchService: " + request.getRequestURI());
 		if (actualURL.startsWith("/static"))
 		{
 			super.doGet(request, response);
 			return;
 		}
-
-		if ("/".equals(actualURL))
+		else
 		{
-			lc.delegateGet(request, response);
+			switch (actualURL)
+			{
+			case "/":
+				request.getRequestDispatcher("/static/index.html").forward(request, response);
+				break;
+			case "/login":
+				request.getRequestDispatcher("/static/login.html").forward(request, response);
+				// lc.delegateGet(request, response);
+				break;
+			default:
+				request.getRequestDispatcher("/static/index.html").forward(request, response);
+			}
 		}
 
 	}
@@ -38,12 +50,13 @@ public class DispatchServlet extends DefaultServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
-		log.debug("post request made with url" + request.getRequestURI());
+		log.debug("post request in DispatchService: " + request.getRequestURI());
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println(actualURL);
 
 		if ("/login".equals(actualURL))
+		{
 			lc.delegatePost(request, response);
+		}
 
 	}
 }

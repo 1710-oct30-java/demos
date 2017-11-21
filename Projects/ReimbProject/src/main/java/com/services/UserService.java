@@ -15,4 +15,6 @@ public class UserService
 		// have checks to see if the user requesting this is an admin
 		return ud.findAll();
 	}
+	
+
 }

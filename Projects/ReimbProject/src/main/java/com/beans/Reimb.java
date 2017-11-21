@@ -10,7 +10,7 @@ public class Reimb
 	private String receipt;
 	private int author;
 	private int resolver;
-	private int statusl;
+	private int statusId;
 	private int type;
 
 	public Reimb(int reimbId, double amount, String submitTime, String resolveTime, String description, String receipt,
@@ -25,7 +25,7 @@ public class Reimb
 		this.receipt = receipt;
 		this.author = author;
 		this.resolver = resolver;
-		this.statusl = statusl;
+		this.statusId = statusl;
 		this.type = type;
 	}
 
@@ -115,14 +115,14 @@ public class Reimb
 		this.resolver = resolver;
 	}
 
-	public int getStatusl()
+	public int getStatusId()
 	{
-		return statusl;
+		return statusId;
 	}
 
-	public void setStatusl(int statusl)
+	public void setStatusId(int statusId)
 	{
-		this.statusl = statusl;
+		this.statusId = statusId;
 	}
 
 	public int getType()
@@ -140,7 +140,7 @@ public class Reimb
 	{
 		return "Reimb [reimbId=" + reimbId + ", amount=" + amount + ", submitTime=" + submitTime + ", resolveTime="
 				+ resolveTime + ", description=" + description + ", receipt=" + receipt + ", author=" + author
-				+ ", resolver=" + resolver + ", statusl=" + statusl + ", type=" + type + "]";
+				+ ", resolver=" + resolver + ", statusl=" + statusId + ", type=" + type + "]";
 	}
 
 }

@@ -4,7 +4,12 @@ body {
 	background-color: #eee;
   }
 
-  
+  .loginButton
+  {
+      height: 40px;
+      width: 40px;
+  }
+
   .border-blue
   {
 	border: 1px solid black

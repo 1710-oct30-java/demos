@@ -16,6 +16,8 @@ document.getElementById('dummy').innerHTML +=
 <button id="dangerbutton" type="button" class="btn btn-danger">Danger</button>
 `
 
+// document.getElementById('error').innerText = 'Failed to login'; after failed validation
+
 document.getElementById('dangerbutton').addEventListener('click', ()=> {
     document.getElementById('dangerbutton').remove();
 })

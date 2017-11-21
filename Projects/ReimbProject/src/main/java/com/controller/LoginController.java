@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.beans.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.services.LoginService;
 import com.services.UserService;
 
 public class LoginController
 {
 	UserService us = new UserService();
+	LoginService ls = new LoginService();
 
 	public void delegateGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
@@ -23,25 +25,36 @@ public class LoginController
 		// String actualURL =
 		// request.getRequestURI().substring(request.getContextPath().length() +
 		// "/user".length());
-		request.getRequestDispatcher("/static/index.html").forward(request, response);
+		request.getRequestDispatcher("/static/login.html").forward(request, response);
 		// delegatePost(request,response);
 	}
 
-	public void delegatePost(HttpServletRequest request, HttpServletResponse response) throws IOException
+	public void delegatePost(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException
 	{
-//		String username = request.getParameter("username");
-//		String password = request.getParameter("password");
-
 		PrintWriter writer = response.getWriter();
-//		writer.println(username);
-//		writer.println(password);
-		List<User> allUsers = us.getAllUsers();
+		try
+		{
+			String username = request.getParameter("username").toLowerCase();
+			String password = request.getParameter("password");
 
-		ObjectMapper om = new ObjectMapper();
-		ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
-		String json = ow.writeValueAsString(allUsers);
+			if (ls.validate(username, password))
+			{
+				List<User> allUsers = us.getAllUsers();
+				ObjectMapper om = new ObjectMapper();
+				ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
+				String json = ow.writeValueAsString(allUsers);
 
-		writer.write(json);
-
+				writer.write(json);
+			}
+			else
+			{
+				response.sendRedirect("/ReimbProject/login");
+			}
+		}
+		catch (NullPointerException e)
+		{
+			response.sendRedirect("/ReimbProject/login");
+		}
 	}
 }
