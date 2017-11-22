@@ -1,0 +1,21 @@
+<div [class]="(counter%2 === 0)?'red':'blue'">
+    {{counter}}
+</div>
+
+<div>
+    class= {{(counter%2 === 0)?'red':'blue'}}
+</div>
+
+<div>
+    name: {{ person.name }}
+</div>
+
+<button class="btn btn-primary" (click)="increment()">Increment Count</button>
+
+<input type="text" placeholder="name" [(ngModel)]="person.name" name="person-name">
+
+<button (click)="getName()">show name</button>
+
+<button (click)="resetName()">reset name</button>
+
+ 

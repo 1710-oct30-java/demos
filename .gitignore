@@ -1,2 +1,50 @@
+<<<<<<< HEAD
 /.metadata/
 /.recommenders/
+=======
+*.class
+.classpath
+.project
+.idea/
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+*/.project
+*/servers/
+
+# Package Files #
+/AssociateEvaluationSystem/*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+.metadata
+*.metadata
+.settings
+*.settings
+*.idea/
+*.idea/workspace*
+.recommenders
+*logs/
+*.iml
+/bin/
+/Servers/
+/target/
+*/target/
+/RemoteSystemsTempFiles/
+/External Files/
+
+.idea
+*.idea
+AssociateEvaluationSystem/AssociateEvaluationSystem.iml
+
+AssociateEvaluationSystem/logs/*
+
+# OS X
+*.DS_Store
+
+# Nightwatch
+/automation-tests/nightwatch/node_modules/
+/automation-tests/nightwatch/reports/
+/automation-tests/nightwatch/selenium-debug.log
+>>>>>>> a5c728234a5b913a74fda2dfc25538afbc4d028d
