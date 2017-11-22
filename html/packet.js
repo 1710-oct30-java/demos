@@ -97,7 +97,9 @@ Define function substring(someStr, length, offset)
 Return the substring contained between offset and (offset + length) inclusively.
 If incorrect input is entered, use the alert function and describe why the input was incorrect.
 */
+function substring(someStr, length, offset) {
 
+}
 /*
 6. Even Number
 Define function: isEven(someNum)
@@ -167,6 +169,34 @@ function printShape(shape, height, character) {
     this.height = height;
     this.character = character;
 
+    switch (shape) {
+
+        case "Square":
+            for (let j = 0; j < height;j++) {
+                for (let i = 0; i < height; i++) {
+                    console.log("%");
+                }
+                console.log("\n");
+            }
+            break;
+
+        case "Triangle":
+            for (let k = 1; k <= height; k++) {
+                for (let m = 0; m < k; m++) {
+                    console.log("$");
+                }
+                console.log("\n");
+            }
+            break;
+
+        case "Diamond":
+            
+            break;
+
+
+        default:
+            console.log("different shape entered");
+    }
     
 }
 

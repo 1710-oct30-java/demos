@@ -10,7 +10,7 @@ import org.apache.catalina.servlets.DefaultServlet;
 
 public class DispatcherServlet extends DefaultServlet {
 	
-	private UserController uc = new UserController();
+	// private UserController uc = new UserController();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,7 +30,7 @@ public class DispatcherServlet extends DefaultServlet {
 		}
 		
 		if(actualURL.startsWith("/user")) {
-			uc.delegateGet(request, response);
+			// uc.delegateGet(request, response);
 		}
 	}
 }
