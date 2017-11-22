@@ -1,0 +1,14 @@
+<div class="card flashcard" *ngFor="let flashcard of flashcards">
+    <div class="card-header" (click)="toggle(flashcard)">
+        {{flashcard.question}}
+    </div>
+    <div class="card-body" *ngIf="flashcard.show">
+        <p class="card-text"> {{flashcard.answer}}</p>
+        <button class="btn" (click)="remove(flashcard)">remove</button>
+    </div>
+</div>
+
+<input type="text" name="new-question" placeholder="question" [(ngModel)]="newCard.question">
+<input type="text" name="new-answer" placeholder="answer" [(ngModel)]="newCard.answer">
+<button class="btn btn-primary" (click)="addNewCard()">ADD!</button>
+<button class="btn btn-primary" (click)="removeRandom()">remove</button>
