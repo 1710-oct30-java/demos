@@ -8,8 +8,14 @@ import { RouterModule } from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {NavComponent} from './nav/nav.component';
+import {FirstComponent} from './components/first/first.component';
+import {AnotherComponent} from './components/another/another.component';
+import {Binding} from './components/binding/binding.component';
+import {Flashcards} from './components/flashcards/flashcards.component';
+import { BeanComponent } from './components/beans/bean.component';
 
 import { appRoutes } from './routes';
+
 
 @NgModule({
   imports: [
@@ -22,6 +28,11 @@ import { appRoutes } from './routes';
   declarations: [
     AppComponent,
     NavComponent,
+    FirstComponent,
+    AnotherComponent,
+    Binding,
+    Flashcards,
+    BeanComponent,
    ],
   providers: [
 

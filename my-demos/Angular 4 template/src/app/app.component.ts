@@ -1,4 +1,5 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Bean } from './beans/Bean';
 
 @Component({
   selector: 'app-root',
@@ -6,18 +7,23 @@ import { Component,  OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
-  yup: string;
+  beans: Array<Bean> = [];
+
 
   constructor() {
   }
 
-  ngOnInit()  {
-    // called after the constructor and called  after the first ngOnChanges()
-    this.yup = 'yes';
+  ngOnInit() {
+    const bean1 = new Bean();
+    bean1.Name = 'string';
+    bean1.Color = 'green';
+
+    const bean2 = new Bean();
+    bean2.Name = 'pinto';
+    bean2.Color = 'tan';
+
+    this.beans.push(bean1);
+    this.beans.push(bean2);
   }
 
-  change() {
-    this.yup = 'no';
-  }
 }
