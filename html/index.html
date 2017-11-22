@@ -305,7 +305,9 @@
               Define function traverseObject(someObj)
               Print every property and it's value.
               */
+              function traverseObject(someObj) {
 
+              }
               /*
               10. Delete Element
               Define function deleteElement(someArr)
@@ -350,7 +352,9 @@
               The following line should set a Person object to the variable john:
                 var john = getPerson("John", 30);
               */
-              
+              function getPerson(name, age) {  
+                let person = {name: this.name, age: this.age}
+              }
               
               
               /*
@@ -372,7 +376,7 @@
               Print that element's contents.
               */ 
               function getUSA() {
-                let usa = document.
+                let value = document.getElementsByTagName("h1")[0];
               }
               /*
               2. Sales
@@ -381,6 +385,12 @@
               */ 
               function getPeopleInSales() {
                 
+                let people = document.querySelectorAll(".empName");
+                for (let i = 0; i < people.length;i++) {
+                    if (people[i].nextSibling.innerHTML === "Sales") {
+                        console.log(people[i].innerHTML);
+                    }
+                }
               }
               /*
               3. Click Here

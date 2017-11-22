@@ -271,27 +271,40 @@ Define function getUSA()
 Find the html element that contains "USA".
 Print that element's contents.
  */ 
-
+function getUSA() {
+    let value = document.getElementsByTagName("h1")[0];
+}
 /*
 2. Sales
 Define function getPeopleInSales()
 Print the names of all the people in the sales department.
  */ 
-
+function getPeopleInSales() {
+    let people = document.querySelectorAll(".empName");
+    for (let i = 0; i < people.length;i++) {
+        if (people[i].nextSibling.innerHTML === "Sales") {
+            console.log(people[i].innerHTML);
+        }
+    }
+}
 /*
 3. Click Here
 Define function getAnchorChildren()
 Find all anchor elements with a <span> child.
 Print the contents of <span>
 */
-
+function getAnchorChildren() {
+    let ac = document.getElementsByTagName("a");
+}
 /*
 4. Hobbies
 Define function getHobbies()
 Find all checked options in the 'skills' select element.
 Print the value and the contents.
 */ 
+function getHobbies() {
 
+}
 /*
 5. Custom Attribute
 Define function getCustomAttribute()
