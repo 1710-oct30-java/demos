@@ -56,9 +56,7 @@ public class ReimbursementDaoJDBC implements ReimbursementDAO{
 		try(Connection conn = conUtil.getConnection()){
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM ers_reimbursement");
 			ResultSet rs = ps.executeQuery();
-			
-			System.out.println("connected to database, retrieving data...");
-			
+						
 			while(rs.next()) {
 				int id = rs.getInt("reimb_id");
 				int amount = rs.getInt("reimb_amount");
@@ -111,7 +109,7 @@ public class ReimbursementDaoJDBC implements ReimbursementDAO{
 	public void approveDeny(String choice) {
 		
 		try(Connection conn = conUtil.getConnection()) {
-			
+		
 			
 		} 
 		catch (SQLException e) {

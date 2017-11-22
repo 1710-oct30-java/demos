@@ -11,4 +11,6 @@ public interface UserDAO {
 	List<User> retrieveAllUsers();
 	
 	int addUser(User u);
+
+	User findByUsernameAndPassword(String username, String password);
 }

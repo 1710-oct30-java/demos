@@ -277,31 +277,59 @@ var john2 = getPerson("john", 30);
 //Find the html element that contains "USA".
 //Print that element's contents.
 
-
-
+function getUSA() {
+    let text = 'USA';
+    let tags = document.body.getElementsByTagName('*');
+    
+    for(let i=0; i < tags.length; i++){
+        let select = tags[i].textContent.search(text);
+        if(select!= -1){
+            console.log(tags[i].textContent);
+        }
+    }
+}
 
 //2. Sales
 //Define function getPeopleInSales()
 //Print the names of all the people in the sales department.
 
-
-
+function getPeopleInSales() {
+    let people = document.getElementsByTagName("table")[0];
+    for(let i = 0; i < people.rows.length; i++){
+        let nodes = people.rows[i].cells;
+        if(nodes[1].textContent === 'Sales'){
+            console.log(nodes[0].textContent)
+        }
+    }
+}
 
 //3. Click Here
 //Define function getAnchorChildren()
 //Find all anchor elements with a <span> child.
 //Print the contents of <span>
 
-
-
+function getAnchorChildren() {
+    let elements = document.getElementsByTagName('a').childNodes;
+    
+    for(let i=0; i < elements.length; i++){
+        if(elements[i] === 'span'){
+            console.log(i);
+        }
+    }
+}
 
 //4. Hobbies
 //Define function getHobbies()
 //Find all checked options in the 'skills' select element.
 //Print the value and the contents.
 
-
-
+function getHobbies() {
+    
+    let skills = document.getElementsByName('skills')[0];
+    let selectSkill = skills.options[skills.selectedIndex].value;
+    let contentSkill = skills.options[skills.selectedIndex].textContent;
+    console.log(contentSkill + ': ' + selectSkill);
+}
 
 //5. Custom Attribute
 //Define function getCustomAttribute()
@@ -309,8 +337,12 @@ var john2 = getPerson("john", 30);
 //Print the value of the attribute.
 //Print the element that has the attribute.
 
-
-
+function getCustomAttribute(){
+    let elements = document.querySelectorAll('[data-customAttr]');
+    for(let i =0; i<elements.length; i++){
+        console.log(elements[i].dataset.customattr);
+    }
+}
 
 //6. Sum Event
 //NOTE: Write unobtrusive Javascript
@@ -318,17 +350,16 @@ var john2 = getPerson("john", 30);
 //	<input id="num1" class="nums" type="text"/>
 //	<input id="num2" class="nums" type="text"/>
 //	<h3>Sum: <span id="sum"></span></h3>
-
-
-
-
 //Define onchange event handler.
 //Add <input> element values.
 //Put the sum in the <span> element.
-//If values cannot be added, put "Cannot add" in the <span> element
 
-
-
+function calculateSum(){
+    let val1 = document.getElementById('num1').value;
+    let val2 = document.getElementById('num2').value;
+    let total = val1 + val2;
+    document.getElementById('sum').innerText = total;
+}
 
 //7. Skills Event
 //NOTE: Write unobtrusive Javascript
@@ -381,5 +412,7 @@ var john2 = getPerson("john", 30);
 //This function should traverse every node in the DOM. Use recursion.
 //On each node, call func(node).
 
-
+function walkTheDOM(node,func){
+    
+}
 

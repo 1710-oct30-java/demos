@@ -54,8 +54,6 @@ public class UserDaoJDBC implements UserDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM ers_users");
 			ResultSet rs = ps.executeQuery();
 			
-			System.out.println("connected to database, retrieving data...");
-			
 			while(rs.next()) {
 				int id = rs.getInt("ers_users_id");
 				String username = rs.getString("ers_username");
@@ -78,7 +76,7 @@ public class UserDaoJDBC implements UserDAO{
 	public int addUser(User u) {
 		
 		try(Connection conn = conUtil.getConnection()){
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO ers_users (ers_username,ers_password,user_first_name,user_last_name,user_email,user_role_id) VALUES (?,?,?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO ers_users (ers_username,ers_password,user_first_name,user_last_name,user_email,user_role_id) VALUES (?,?,?,?,?,?)",new String[] {"ers_users_id"});
 			
 			ps.setString(1, u.getUsername());
 			ps.setString(2, u.getPassword());
@@ -99,5 +97,36 @@ public class UserDaoJDBC implements UserDAO{
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	@Override
+	public User findByUsernameAndPassword(String username, String password) {
+
+		try(Connection conn = conUtil.getConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM ers_users WHERE ers_username = ? AND ers_password = ?");
+			ps.setString(1, username);
+			ps.setString(2, password);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				User u = new User();
+				u.setUsername(username);
+				u.setPassword(password);
+				u.setEmail(rs.getString("user_email"));
+				u.setFirstName(rs.getString("user_first_name"));
+				u.setLastName(rs.getString("user_last_name"));
+				u.setId(rs.getInt("ers_users_id"));
+				u.setRole(rs.getInt("user_role_id"));
+				
+				System.out.println(u);
+				return u;
+			}
+		} 
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
