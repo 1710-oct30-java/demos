@@ -1,0 +1,23 @@
+<p>
+    property binding is denoted by []
+    We specify one-way bindings to DOM properties using square brackets and template expressions.
+    
+    The template expressions in quotes on the right of the equals are 
+    used to set the DOM properties in square brackets on the left.
+</p>
+
+
+<div [ngStyle]="styleObject" (click)="changeStyles()">
+  Click me to toggle styles
+</div>
+
+<!-- 
+  It can also be used to provide input to child components
+  flash is a field on the property-binding component that we want to 
+  pass to the flashcard component
+ -->
+<app-flashcard [flashcard]="flash"></app-flashcard>
+
+
+ 
+

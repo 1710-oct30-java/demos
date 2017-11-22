@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+      <li ngbDropdown class="d-inline-block">
+        <a class="nav-link dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>Examples</a>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button class="dropdown-item" routerLink="/interpolation">Interpolation</button>
+          <button class="dropdown-item" routerLink="/event-bind">Event Binding</button>
+          <button class="dropdown-item" routerLink="/property-bind">Property Binding</button>
+          <button class="dropdown-item" routerLink="/pipes">Pipes</button>
+          <button class="dropdown-item" routerLink="/structural-directives">Structural Directives</button>
+          <button class="dropdown-item" routerLink="/two-way-binding">Two Way Binding</button>
+          <button class="dropdown-item" routerLink="/parent">Nested Routes</button>
+          <button class="dropdown-item" routerLink="/http-cached">Http Cached</button>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-md-0">
+      <input class="form-control" type="text" placeholder="Search">
+    </form>
+  </div>
+</nav>
