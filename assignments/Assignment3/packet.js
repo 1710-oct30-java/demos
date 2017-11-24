@@ -97,7 +97,7 @@ function idEven(num) {
 // Define function isPalindrome(someStr)
 // Return true if someStr is a palindrome, otherwise return false
 function isPalindrome(myString) {
-    var temp = myString.toLowerCase().split('').reverse().join('');
+    let temp = myString.toLowerCase().split('').reverse().join('');
 
     if (temp === myString) {
         return true;
@@ -228,7 +228,7 @@ function spliceElement(myArr) {
 // 12. Defining an object using a constructor
 // Define a function Person(name, age)
 // The following line should set a Person object to the variable john:
-// 	var john = new Person("John", 30);
+// 	let john = new Person("John", 30);
 function Person(name, age) {
     this.name = name;
     this.age = age;
@@ -237,7 +237,7 @@ function Person(name, age) {
 // 13. Defining an object using an object literal
 // Define function getPerson(name, age)
 // The following line should set a Person object to the variable john:
-// 	var john = getPerson("John", 30);
+// 	let john = getPerson("John", 30);
 function getPerson(name, age) {
     return new Person(name, age);
 }
@@ -260,9 +260,9 @@ function getPerson(name, age) {
 // Find the html element that contains "USA".
 // Print that element's contents.
 function getUSA() {
-    var divs = document.getElementsByTagName('div');
+    let divs = document.getElementsByTagName('div');
     let len = divs.length;
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         if (divs[i].innerHTML.indexOf("USA") != -1) {
             console.log(divs[i].innerHTML);
         }
@@ -273,9 +273,9 @@ function getUSA() {
 // Define function getPeopleInSales()
 // Print the names of all the people in the sales department.
 function getPeopleInSales() {
-    var table = document.getElementsByTagName('tr');
+    let table = document.getElementsByTagName('tr');
     let len = table.length;
-    for (var i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
         if (table[i].innerHTML.indexOf("Sales") != -1) {
             console.log(table[i].innerText.substring(0, table[i].innerText.length - 6));
         }
@@ -405,6 +405,20 @@ function colorChecked(button) {
 // 	Hide the name if shown.
 // 	Show the name if hidden.
 
+let table = document.getElementsByClassName('empName');
+for (let i = 0; i < table.length; i++) {
+    table[i].setAttribute('onmouseover', 'showhide(this)');
+}
+console.log(table[0]);
+
+function showhide(text) {
+    if (text.style.visibility === 'visible') {
+        text.style.visibility = 'hidden';
+    }
+    else {
+        text.style.visibility = 'visible';
+    }
+}
 // 10. Current Time
 // Regarding this element:
 // 	<h5 id="currentTime"></h5>
