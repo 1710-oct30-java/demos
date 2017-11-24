@@ -446,6 +446,12 @@ function checkTime(i) {
 // Regarding this element:
 // 	<p id="helloWorld">Hello, World!</p>
 // Three seconds after a user clicks on this element, change the text to a random color.
+document.getElementById('helloWorld').setAttribute('onclick','setTimeout(changeColor, 3000)');
+
+function changeColor()
+{
+    document.getElementById('helloWorld').setAttribute('style','color:red');
+}
 
 // 12. Walk the DOM
 // Define function walkTheDOM(node, func)
