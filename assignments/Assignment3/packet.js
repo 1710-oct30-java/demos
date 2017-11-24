@@ -424,6 +424,23 @@ function showhide(text) {
 // 	<h5 id="currentTime"></h5>
 // Show the current time in this element in this format: 9:05:23 AM
 // The time should be accurate to the second without having to reload the page.
+document.body.setAttribute('onload', 'startTime()');
+function startTime() {
+    let today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('currentTime').innerHTML =
+        h + ":" + m + ":" + s;
+    let t = setTimeout(startTime, 500);
+}
+
+function checkTime(i) {
+    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    return i;
+}
 
 // 11. Delay
 // Regarding this element:
