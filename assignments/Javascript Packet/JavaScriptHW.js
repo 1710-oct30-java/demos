@@ -181,7 +181,7 @@ function printShape(shape, height, character){
             break;
             
         case "Diamond":
-            
+            // Wasn't able to figure this one out
             break;
             
         default:
@@ -366,9 +366,12 @@ function calculateSum(){
 //When user selects a skill, create an alert with a message similar to:
 //	"Are you sure CSS is one of your skills?"
 //NOTE: no alert should appear when user deselects a skill.
+function alertUser(skill) {
+    alert("Are you sure " + skill.options[skill.selectedIndex].textContent + " is one of your skills?");
+}
 
-
-
+let skill = document.getElementsByName('skills')[0];
+let skillText = skill.addEventListener('select', alertUser(skill));
 
 //8. Favorite Color Event
 //NOTE: Write unobtrusive Javascript
@@ -387,8 +390,14 @@ function calculateSum(){
 //	Hide the name if shown.
 //	Show the name if hidden.
 
+let name = document.getElementsByClassName('empName');
 
-
+function display(name){
+    name.style.display = 'block';
+}
+for(let i = 0; i < name.length; i++){
+    name[i].addEventListener('mouseover', display(name[i]));
+}
 
 //10. Current Time
 //Regarding this element:
@@ -396,23 +405,42 @@ function calculateSum(){
 //Show the current time in this element in this format: 9:05:23 AM
 //The time should be accurate to the second without having to reload the page.
 
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
 
-
+function getTime() {
+    let today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('currentTime').innerHTML = h + ":" + m + ":" + s;
+}
 
 //11. Delay
 //Regarding this element:
 //	<p id="helloWorld">Hello, World!</p>
 //Three seconds after a user clicks on this element, change the text to a random color.
 
-
-
+let hello = document.getElementById('helloWorld');
+function changeColor() {
+    document.getElementById('helloWorld').style.color = 'blue';
+}
+hello.addEventListener('click', setTimeout(changeColor(), 3000));
 
 //12. Walk the DOM
 //Define function walkTheDOM(node, func)
 //This function should traverse every node in the DOM. Use recursion.
 //On each node, call func(node).
 
-function walkTheDOM(node,func){
-    
+function walkTheDOM(node, func) {
+   let children = node.childNodes;
+   for(let i = 0; i < children.length; i++)
+       walktheDOM(children[i], func);
+   func(node);
 }
-
