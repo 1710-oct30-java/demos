@@ -367,23 +367,13 @@ function mySum() {
 let anchor = document.getElementsByTagName('select');
 for (let i = 0; i < anchor.length; i++) {
     if (anchor[i].getAttribute('name') === 'skills') {
-        anchor[i].setAttribute('onchange','checkSelected(this)');
+        anchor[i].setAttribute('onchange', 'checkSelected(this)');
     }
 }
 
 function checkSelected(mySkills) {
-    console.log(mySkills.options[mySkills.selectedIndex].innerHTML);
-    // let anchor = document.getElementsByTagName('select');
-    // for (let i = 0; i < anchor.length; i++) {
-    //     if (anchor[i].getAttribute('name') === 'skills') {
-    //         for (let j = 0; j < anchor[i].children.length; j++) {
-    //             if (anchor[i].children[j].getAttribute('selected') != null) {
-    //                 console.log(anchor[i].children[j].innerText);
-    //                 console.log(anchor[i].children[j]);
-    //             }
-    //         }
-    //     }
-    // }
+    let a = mySkills.options[mySkills.selectedIndex].innerHTML;
+    alert(`Are you sure ${a} is one of your skills ?`);
 }
 
 // 8. Favorite Color Event
@@ -393,6 +383,21 @@ function checkSelected(mySkills) {
 // 	"So you like green more than blue now?"
 // In this example, green is the new value and blue is the old value.
 // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
+
+let color = document.getElementById('firstForm').favoriteColor;
+let prev = null;
+for (let i = 0; i < color.length; i++) {
+    color[i].setAttribute('onchange', 'colorChecked(this)');
+}
+
+function colorChecked(button) {
+    if (button.checked) {
+        let curr = button.value;
+        alert(`So you like ${curr} more than ${prev} now ?`);
+        prev = button.value;
+    }
+}
+
 
 // 9. Show/Hide Event
 // NOTE: Write unobtrusive Javascript
