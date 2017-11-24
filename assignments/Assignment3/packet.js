@@ -438,7 +438,7 @@ function startTime() {
 }
 
 function checkTime(i) {
-    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    if (i < 10) { i = "0" + i }; 
     return i;
 }
 
@@ -457,5 +457,14 @@ function changeColor()
 // Define function walkTheDOM(node, func)
 // This function should traverse every node in the DOM. Use recursion.
 // On each node, call func(node).
-
+function walkTheDOM(node, func) {
+    function walkTheDOM(node, func) {
+        func(node);
+        node = node.firstChild;
+        while (node) {
+            walkTheDOM(node, func);
+            node = node.nextSibling;
+        }
+    }
+}
 
