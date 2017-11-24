@@ -141,7 +141,7 @@ function question7() {
 
 
 
-/** NOT DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/**
  * 8. Favorite Color Event
  * NOTE: Write unobtrusive Javascript
  * NOTE: This is regarding the favoriteColor radio buttons.
