@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Portal Login</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link rel="stylesheet" href="./static/stylesheet.css">
+</head>
+<body>
+
+	<section id="login">
+		<div class="container">
+			<div class="Absolute-Center is-Responsive">
+				<div class="row align-items-start">
+						<div class="col-4">
+						</div>
+						<div class="col-4">
+								<div class="form-wrap">
+								<h1 class="text-center formTitles">Login</h1>
+									<form onsubmit="event.preventDefault(); login()">
+										<div class="form-group">
+											<label for="username">Username</label>
+											<input type="username" name="username" id="username" class="form-control" placeholder="Username">
+										</div>
+										<div class="form-group">
+											<label for="key">Password</label>
+											<input type="password" name="key" id="key" class="form-control" placeholder="Password">
+										</div>
+										<div class="checkbox">
+											<span class="character-checkbox" onclick="showPassword()"></span>
+											<span class="label">Show password</span>
+										</div>
+										<input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block btn-primary" value="Log in">
+									</form> 
+									<hr>
+								</div>
+						</div>
+						<div class = "col-4">
+						</div>
+				</div> <!-- /.row -->
+			</div>
+		</div> <!-- /.container -->
+	</section>
+	
+<script src = "./static/login.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script> -->
+</body>
+</html>
