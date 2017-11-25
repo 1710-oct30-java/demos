@@ -87,8 +87,8 @@ function getCustomAttribute() {
 // 6. Sum Event
 // NOTE: Write unobtrusive Javascript
 // Regarding these elements:
-// 	<input id="num1" class="nums" type="text"/>
-// 	<input id="num2" class="nums" type="text"/>
+// 	<input id="num1" class="nums" type="text" onchange="onChangeAdd(this)"/>
+// 	<input id="num2" class="nums" type="text" onchange="onChangeAdd(this)"/>
 // 	<h3>Sum: <span id="sum"></span></h3>
 
 
@@ -98,9 +98,9 @@ function getCustomAttribute() {
 // If values cannot be added, put "Cannot add" in the <span> element
 
 
-///////////<input type="text" onchange="onChangeAdd()">
-function onChangeAdd() {
-    
+///////////<input type="text" >
+function onChangeAdd(element) {
+    let sum = element.innerHTML 
 }
 
 // 7. Skills Event
@@ -108,6 +108,12 @@ function onChangeAdd() {
 // When user selects a skill, create an alert with a message similar to:
 // 	"Are you sure CSS is one of your skills?"
 // NOTE: no alert should appear when user deselects a skill.
+
+
+//onclick = "newSkillSelected(this)"
+function newSkillSelected(element){
+    alert('Are you sure ' + element.innerHTML + ' is one of your skills?')
+}       
 
 // 8. Favorite Color Event
 // NOTE: Write unobtrusive Javascript
@@ -117,24 +123,88 @@ function onChangeAdd() {
 // In this example, green is the new value and blue is the old value.
 // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
 
+let originalColor;
+
+function colorMouseup(element) {
+    originalColor = element.innerHTML;
+}
+
+function colorChanged(element) {
+    alert('So you like ' + element.innerHTML + ' more than ' + originalColor + " now?");
+    
+    buttons = getElementsByName("favoriteColor");
+
+    for (var i = 0; i < buttons.length; i++) {
+        var ele = buttons[i];
+        ele.background = element.innerHTML;
+    }
+}
+
+
 // 9. Show/Hide Event
 // NOTE: Write unobtrusive Javascript
 // When user hovers over an employees name:
 // 	Hide the name if shown.
 // 	Show the name if hidden.
 
+//onmouseover = "hide(this)"
+function hide(element) {
+    if(element.style.display=='none') { 
+        element.style.display='block'; 
+    } 
+    else element.style.display=='none';
+}
+
 // 10. Current Time
 // Regarding this element:
 // 	<h5 id="currentTime"></h5>
 // Show the current time in this element in this format: 9:05:23 AM
 // The time should be accurate to the second without having to reload the page.
+function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
+  
+  function startTime() {
+    let today = new Date();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
+
+    minutes = checkTime(minutes);
+    seconds = checkTime(seconds);
+    document.getElementById('currentTime').innerHTML = hours + ":" + minutes + ":" + seconds;
+    t = setTimeout(function() {
+      startTime()
+    }, 500);
+  }
+  startTime();
 
 // 11. Delay
 // Regarding this element:
 // 	<p id="helloWorld">Hello, World!</p>
 // Three seconds after a user clicks on this element, change the text to a random color.
 
+//onclick ="setTimeout(threeSeconds(this), 3000))"
+function threeSeconds(element) {
+    element.color = 'red';
+}
+
 // 12. Walk the DOM
 // Define function walkTheDOM(node, func)
 // This function should traverse every node in the DOM. Use recursion.
 // On each node, call func(node).
+function walkTheDOM(node, func) {
+    let nodes = document;
+    console.log(nodes);
+    
+    for (var i = 0; i < nodes.length; i++) {
+        var element = nodes[i];
+        
+
+    }
+    
+    func(node);
+}
