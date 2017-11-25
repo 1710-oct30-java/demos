@@ -10,6 +10,12 @@ import {AppComponent} from './app.component';
 import {NavComponent} from './nav/nav.component';
 import {FirstComponent} from './components/first/first.component';
 import {AnotherComponent} from './components/another/another.component';
+import {BindingComponent} from './components/binding/binding.component';
+import {FlashcardComponent} from './components/flashcards/flashcards.component';
+import {CandybarComponent} from './components/candybars/candybars.component';
+import {PokemonComponent} from './components/pokemon/pokemon.component';
+import {RequestComponent} from './components/request/request.component';
+import {BeanComponent} from './beans/Bean/bean/bean.component';
 
 import { appRoutes } from './routes';
 
@@ -26,6 +32,12 @@ import { appRoutes } from './routes';
     NavComponent,
     FirstComponent,
     AnotherComponent,
+    BindingComponent,
+    FlashcardComponent,
+    CandybarComponent,
+    PokemonComponent,
+    RequestComponent,
+    BeanComponent
    ],
   providers: [
 

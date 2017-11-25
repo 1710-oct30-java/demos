@@ -1,0 +1,9 @@
+<div class="candy candybar" *ngFor="let candybar of candybars">
+    <div class="candy-header" (click)="toggle(candybar)">
+        {{candybar.name}}
+    </div> 
+    <div class="candy-body" *ngIf="candybar.show">
+        <p class="card-text">{{candybar.answer}}</p>
+        <button class="btn" (click)="remove(candybar)">remove</button>
+    </div>
+</div>>

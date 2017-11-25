@@ -306,8 +306,10 @@
               Print every property and it's value.
               */
               function traverseObject(someObj) {
-
-              }
+                    for (prop in someObj) {
+                        console.log(someObj.prop);
+                    } 
+                }
               /*
               10. Delete Element
               Define function deleteElement(someArr)
@@ -398,14 +400,22 @@
               Find all anchor elements with a <span> child.
               Print the contents of <span>
               */
-
+              function getAnchorChildren() {
+                    let ac = document.getElementsByTagName("a").childNodes;
+                    for (let i  = 0; i < ac.length;i++) {
+                        console.log(ac[i].innerHTML);
+                    }
+              }
               /*
               4. Hobbies
               Define function getHobbies()
               Find all checked options in the 'skills' select element.
               Print the value and the contents.
               */ 
-
+              function getHobbies() {
+                let checked = document.querySelectorAll('selected');
+                console.log(checked);
+              }
               /*
               5. Custom Attribute
               Define function getCustomAttribute()
@@ -413,7 +423,11 @@
               Print the value of the attribute.
               Print the element that has the attribute.
               */
-
+              function getCustomAttribute() {
+                    let data_customAttr = document.querySelectorAll('data-customAttr');
+                    console.log(data_customAttr.value);
+                    console.log(data_customAttr);
+              }
               /*
               6. Sum Event
               NOTE: Write unobtrusive Javascript
@@ -427,6 +441,13 @@
               Put the sum in the <span> element.
               If values cannot be added, put "Cannot add" in the <span> element
               */
+              function add() {
+                let num1 = document.getElementById('num1').value;
+                let num2 = document.getElementById('num2').value;
+                let sum = num1 + num2;
+
+                document.getElementById('sum').innerHTML = sum;
+             }
 
               /*
               7. Skills Event
@@ -435,6 +456,10 @@
                 "Are you sure CSS is one of your skills?"
               NOTE: no alert should appear when user deselects a skill.
               */
+              function show() {
+                let selected = document.querySelector('[name=skills]').value;
+                alert("Are you sure " + selected + " is one of your skills");
+              }
 
               /*
               8. Favorite Color Event
@@ -445,6 +470,28 @@
               In this example, green is the new value and blue is the old value.
               Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
               */
+              let colorVal = document.querySelectorAll('[name=favoriteColor]').value;
+                let prevColorVal = document.querySelectorAll('[name=favoriteColor]').previousElementSibling.value;
+                switch (colorVal) {
+                    case "Blue":
+                        alert("So you like Blue more than " + prevColorVal + " now?");
+                        break;
+
+                    case "Red":
+                        alert("So you like Red more than " + prevColorVal + " now?");
+                        break;
+
+                    case "Green":
+                        alert("So you like Green more than " + prevColorVal + " now?");
+                        break;
+
+                    case "Orange":
+                        alert("So you like Orange more than " + prevColorVal + " now?");
+                        break;
+
+                    default:
+                        break;
+                }
 
               /*
               9. Show/Hide Event
@@ -453,7 +500,26 @@
                 Hide the name if shown.
                 Show the name if hidden.
               */
+              let employees = document.getElementsByClassName('empName');
+                for (let i = 0; i < employees.length;i++) {
 
+                    if(document.addEventListener) {
+                        employees[i].addEventListener('mouseover', changeState);
+                    }
+                    else if(document.attachEvent) {
+                        employees[i].attachEvent('mouseover', changeState);   
+                    }
+                }
+
+                function changeState() {
+                    if(employees[i].style.opacity == "1.0") {
+                        employees[i].style.opacity == "0.0";
+                    }
+
+                    else if (employees[i].style.opacity == "0.0") {
+                        employees[i].style.opacity == "1.0";
+                    }
+                }
               /*
               10. Current Time
               Regarding this element:
@@ -461,6 +527,9 @@
               Show the current time in this element in this format: 9:05:23 AM
               The time should be accurate to the second without having to reload the page.
               */
+              let theDate = new Date();
+                document.getElementById('currentTime').innerHTML = theDate;
+                console.log(theDate);
 
               /*
               11. Delay
@@ -468,6 +537,19 @@
                 <p id="helloWorld">Hello, World!</p>
               Three seconds after a user clicks on this element, change the text to a random color.
               */
+              let text = document.getElementById('helloWorld');
+                text.addEventListener('click', changeColor);
+
+                function changeColor() {
+                    let red = Math.floor(Math.random() * 255);
+                    let blue = Math.floor(Math.random() * 255);
+                    let green = Math.floor(Math.random() * 255);
+                    
+                }
+
+                function delay() {
+                    window.setTimeout(changeColor, 3000);
+}
 
               /*
               12. Walk the DOM
@@ -475,6 +557,14 @@
               This function should traverse every node in the DOM. Use recursion.
               On each node, call func(node).
               */
+              let walkDom = function walkTheDOM(node, func) {
+                func(node);
+                node = node.firstChild;
+                while (node) {
+                    walkTheDOM(node, func);
+                    node = node.nextSibling;
+                }
+            }
   </script>
   
 </body>
