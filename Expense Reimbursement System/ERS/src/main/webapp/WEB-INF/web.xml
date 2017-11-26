@@ -3,24 +3,13 @@
   <display-name>ERS</display-name>
 
   <servlet>
-    <servlet-name>ErsServlet</servlet-name>
-    <servlet-class>com.revature.servlets.ErsServlet</servlet-class>
+    <servlet-name>Dispatcher</servlet-name>
+    <servlet-class>com.revature.servlets.DispatcherServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>ErsServlet</servlet-name>
-    <url-pattern>/reim</url-pattern>
+    <servlet-name>Dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-
-  <!-- <servlet>
-    <description></description>
-    <display-name>TestServlet</display-name>
-    <servlet-name>TestServlet</servlet-name>
-    <servlet-class>com.revature.servlets.TestServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TestServlet</servlet-name>
-    <url-pattern>/TestServlet</url-pattern>
-  </servlet-mapping> -->
 </web-app>

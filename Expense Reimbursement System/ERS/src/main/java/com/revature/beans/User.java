@@ -1,6 +1,8 @@
 package com.revature.beans;
 
-public class User
+import java.io.Serializable;
+
+public class User implements Serializable
 {
 	private int		id;
 	private String	username;
@@ -150,12 +152,11 @@ public class User
 	@Override
 	public String toString()
 	{
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", email=" + email + ", roleId=" + roleId + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", roleId=" + roleId + "]";
 	}
 	
-	public User(int id, String username, String password, String firstName, String lastName,
-			String email, int roleId)
+	public User(int id, String username, String password, String firstName, String lastName, String email, int roleId)
 	{
 		super();
 		this.id = id;

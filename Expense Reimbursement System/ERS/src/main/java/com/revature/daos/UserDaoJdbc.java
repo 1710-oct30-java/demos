@@ -17,19 +17,6 @@ public class UserDaoJdbc implements UserDao
 	private Logger			log		= Logger.getRootLogger();
 	private ConnectionUtil	conUtil	= ConnectionUtil.getConnectionUtil();
 	
-	public User getReimbFromResultSet(ResultSet rs) throws SQLException
-	{
-		int id = rs.getInt("ers_users_id");
-		String username = rs.getString("ers_username");
-		String password = rs.getString("ers_password");
-		String firstName = rs.getString("user_first_name");
-		String lastName = rs.getString("user_last_name");
-		String email = rs.getString("user_email");
-		int roleId = rs.getInt("user_role_id");
-		
-		return new User(id, username, password, firstName, lastName, email, roleId);
-	}
-	
 	@Override
 	public int save(User u)
 	{
@@ -53,8 +40,7 @@ public class UserDaoJdbc implements UserDao
 			
 			if (keys.next())
 			{
-				log.trace("Row inserted has id: " + keys.getInt(1) + "\nand username: "
-						+ keys.getString(2));
+				log.trace("Row inserted has id: " + keys.getInt(1) + "\nand username: " + keys.getString(2));
 				log.info("Successfully added user");
 				return keys.getInt(1);
 			}
@@ -81,15 +67,8 @@ public class UserDaoJdbc implements UserDao
 			
 			while (rs.next())
 			{
-				int id = rs.getInt("ers_users_id");
-				String username = rs.getString("ers_username");
-				String password = rs.getString("ers_password");
-				String firstName = rs.getString("user_first_name");
-				String lastName = rs.getString("user_last_name");
-				String email = rs.getString("user_email");
-				int roleId = rs.getInt("user_role_id");
-				
-				users.add(new User(id, username, password, firstName, lastName, email, roleId));
+				User u = extractUser(rs);
+				users.add(u);
 			}
 		}
 		catch (SQLException e)
@@ -101,20 +80,32 @@ public class UserDaoJdbc implements UserDao
 		return users;
 	}
 	
+	private User extractUser(ResultSet rs) throws SQLException
+	{
+		User u = new User();
+		u.setId(rs.getInt("ers_users_id"));
+		u.setUsername(rs.getString("ers_username"));
+		u.setPassword(rs.getString("ers_password"));
+		u.setFirstName(rs.getString("user_first_name"));
+		u.setLastName(rs.getString("user_last_name"));
+		u.setEmail(rs.getString("user_email"));
+		u.setRoleId(rs.getInt("user_role_id"));
+		return u;
+	}
+	
 	@Override
 	public User findById(int id)
 	{
 		log.debug("Trying to retreive users with id: " + id);
 		try (Connection con = conUtil.getConnection())
 		{
-			PreparedStatement ps = con
-					.prepareStatement("SELECT * FROM ers_users WHERE ers_users_id = ?");
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM ers_users WHERE ers_users_id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			
 			if (rs.next())
 			{
-				return getReimbFromResultSet(rs);
+				return extractUser(rs);
 			}
 			
 		}
@@ -122,6 +113,34 @@ public class UserDaoJdbc implements UserDao
 		{
 			e.printStackTrace();
 			log.warn("Failed to retreive reimbursement");
+		}
+		return null;
+	}
+	
+	@Override
+	public User findByCredentials(String username, String password)
+	{
+		try (Connection con = conUtil.getConnection())
+		{
+			PreparedStatement ps = con
+					.prepareStatement("SELECT * FROM ers_users WHERE ers_username = ? AND ers_password = ?");
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.next())
+			{
+				User u = new User();
+				u.setUsername(username);
+				u.setPassword(password);
+				u.setId(rs.getInt("ers_users_id"));
+				return u;
+			}
+		}
+		catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return null;
 	}

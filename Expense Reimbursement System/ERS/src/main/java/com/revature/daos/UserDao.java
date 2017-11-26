@@ -10,14 +10,15 @@ public interface UserDao
 	 * Uses a Prepared Statement to create a user
 	 * 
 	 * @param u
-	 * @return
+	 *            the user
+	 * @return the user id in the database
 	 */
 	int save(User u);
 	
 	/**
 	 * Finds all users in the database
 	 * 
-	 * @return
+	 * @return list of all users
 	 */
 	List<User> findAll();
 	
@@ -27,4 +28,11 @@ public interface UserDao
 	 * @return
 	 */
 	User findById(int id);
+	
+	/**
+	 * Finds a single user by their username and password
+	 * 
+	 * @return the user
+	 */
+	User findByCredentials(String username, String password);
 }

@@ -137,11 +137,21 @@ ALTER TABLE ers_reimbursement ADD CONSTRAINT ers_reimbursement_type_fk
 
 -- ers_users
 ALTER TABLE ers_users ADD CONSTRAINT ers_users_fk
-    FOREIGN KEY (user_role_id) REFERENCES ers_users (ers_users_id);
+    FOREIGN KEY (user_role_id) REFERENCES ers_user_roles (ers_user_role_id);
 
 /*********************
     INSERT SOME RECORDS
 ***************************/
+INSERT INTO ers_users VALUES (1, 'braxtonmoreno', 'I3R1njz$', 'Braxton', 'Moreno', 'bmoreno347@gmail.com', 1);
+INSERT INTO ers_users VALUES (1, 'shannonjennings', 'Bvcn4@O1', 'Shannon', 'Jennings', 'sjennings616@yahoo.com', 1);
+INSERT INTO ers_users VALUES (1, 'jaylee', 'Xgx03h%W', 'Jay', 'Lee', 'jlee920@gmail.com', 2);
+INSERT INTO ers_users VALUES (1, 'ciarafletcher', 'HX#m8e4b', 'Ciara', 'Fletcher', 'cfletcher832.doe@aol.com', 2);
+
+INSERT INTO ers_reimbursement VALUES (1, 24.95, TIMESTAMP '2017-10-13 07:15:31', TIMESTAMP '2017-10-19 13:42:45', 'Misc. office supplies', EMPTY_BLOB(), 29, 33, 2, 4);
+INSERT INTO ers_reimbursement (reimb_amount, reimb_submitted, reimb_description, reimb_receipt, reimb_author, reimb_status_id, reimb_type_id)
+    VALUES (207.00, TIMESTAMP '2017-10-27 11:24:53', 'airfare to the convention', EMPTY_BLOB(), 30, 1, 2);
+INSERT INTO ers_reimbursement VALUES (1, 52.76, TIMESTAMP '2017-11-08 13:04:21', TIMESTAMP '2017-11-09 09:57:01', 'lunch with Mr. Reynolds', EMPTY_BLOB(), 29, 34, 2, 3);
+INSERT INTO ers_reimbursement VALUES (1, 843.34, TIMESTAMP '2017-11-21 21:42:00', TIMESTAMP '2017-11-24 16:00:15', 'Penthouse at the Hilltop Estate', EMPTY_BLOB(), 30, 34, 3, 1);
 
 INSERT INTO ers_reimbursement_status VALUES (1, 'Pending');
 INSERT INTO ers_reimbursement_status VALUES (2, 'Approved');

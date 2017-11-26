@@ -1,8 +1,9 @@
 package com.revature.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Reimbursement
+public class Reimbursement implements Serializable
 {
 	private int		id;
 	private float	amount;
@@ -10,8 +11,8 @@ public class Reimbursement
 	private Date	resolved;
 	private String	description;
 	private Object	recipt;
-	private User	author;
-	private User	resolver;
+	private int		author;
+	private int		resolver;
 	private int		statusId;
 	private int		typeId;
 	
@@ -75,22 +76,22 @@ public class Reimbursement
 		this.recipt = recipt;
 	}
 	
-	public User getAuthor()
+	public int getAuthor()
 	{
 		return author;
 	}
 	
-	public void setAuthor(User author)
+	public void setAuthor(int author)
 	{
 		this.author = author;
 	}
 	
-	public User getResolver()
+	public int getResolver()
 	{
 		return resolver;
 	}
 	
-	public void setResolver(User resolver)
+	public void setResolver(int resolver)
 	{
 		this.resolver = resolver;
 	}
@@ -116,17 +117,41 @@ public class Reimbursement
 	}
 	
 	@Override
+	public String toString()
+	{
+		return "Reimbursement [id=" + id + ", amount=" + amount + ", submitted=" + submitted + ", resolved=" + resolved
+				+ ", decription=" + description + ", recipt=" + recipt + ", author=" + author + ", resolver=" + resolver
+				+ ", statusId=" + statusId + ", typeId=" + typeId + "]";
+	}
+	
+	public Reimbursement(int id, float amount, Date submitted, Date resolved, String decription, Object recipt,
+			int author, int resolver, int statusId, int typeId)
+	{
+		super();
+		this.id = id;
+		this.amount = amount;
+		this.submitted = submitted;
+		this.resolved = resolved;
+		this.description = decription;
+		this.recipt = recipt;
+		this.author = author;
+		this.resolver = resolver;
+		this.statusId = statusId;
+		this.typeId = typeId;
+	}
+	
+	@Override
 	public int hashCode()
 	{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + Float.floatToIntBits(amount);
-		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + author;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((recipt == null) ? 0 : recipt.hashCode());
 		result = prime * result + ((resolved == null) ? 0 : resolved.hashCode());
-		result = prime * result + ((resolver == null) ? 0 : resolver.hashCode());
+		result = prime * result + resolver;
 		result = prime * result + statusId;
 		result = prime * result + ((submitted == null) ? 0 : submitted.hashCode());
 		result = prime * result + typeId;
@@ -145,12 +170,7 @@ public class Reimbursement
 		Reimbursement other = (Reimbursement) obj;
 		if (Float.floatToIntBits(amount) != Float.floatToIntBits(other.amount))
 			return false;
-		if (author == null)
-		{
-			if (other.author != null)
-				return false;
-		}
-		else if (!author.equals(other.author))
+		if (author != other.author)
 			return false;
 		if (description == null)
 		{
@@ -175,12 +195,7 @@ public class Reimbursement
 		}
 		else if (!resolved.equals(other.resolved))
 			return false;
-		if (resolver == null)
-		{
-			if (other.resolver != null)
-				return false;
-		}
-		else if (!resolver.equals(other.resolver))
+		if (resolver != other.resolver)
 			return false;
 		if (statusId != other.statusId)
 			return false;
@@ -194,31 +209,6 @@ public class Reimbursement
 		if (typeId != other.typeId)
 			return false;
 		return true;
-	}
-	
-	@Override
-	public String toString()
-	{
-		return "Reimbursement [id=" + id + ", amount=" + amount + ", submitted=" + submitted
-				+ ", resolved=" + resolved + ", decription=" + description + ", recipt=" + recipt
-				+ ", author=" + author + ", resolver=" + resolver + ", statusId=" + statusId
-				+ ", typeId=" + typeId + "]";
-	}
-	
-	public Reimbursement(int id, float amount, Date submitted, Date resolved, String decription,
-			Object recipt, User author, User resolver, int statusId, int typeId)
-	{
-		super();
-		this.id = id;
-		this.amount = amount;
-		this.submitted = submitted;
-		this.resolved = resolved;
-		this.description = decription;
-		this.recipt = recipt;
-		this.author = author;
-		this.resolver = resolver;
-		this.statusId = statusId;
-		this.typeId = typeId;
 	}
 	
 	public Reimbursement()
