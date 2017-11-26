@@ -1,0 +1,9 @@
+<div class="card flashcard">
+  <div class="card-header">
+    {{ flashcard.question }}
+  </div>
+  <div class="card-body">
+    <p class="card-text" *ngIf="display"> {{ flashcard.answer }}</p>
+    <a class="card-link pointer" (click)="toggleAnswer()">{{((display) ? 'Hide' : 'Show')}} Answer</a>
+  </div>
+</div>
