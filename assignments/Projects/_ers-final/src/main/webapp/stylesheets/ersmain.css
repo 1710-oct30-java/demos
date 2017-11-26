@@ -1,0 +1,90 @@
+@charset "ISO-8859-1";
+
+.sideMenu
+{
+	background-color: rgb(244, 112, 35);
+	color: white;
+	font-weight: bold;
+}
+
+.whiteText
+{
+	color:white;
+	font-weight: bold;
+}
+
+.ers-float-right {
+	float: right;
+	text-align: right;
+}
+
+.ers-float-left {
+	float: left;
+}
+
+.ers-float-bottom {
+	float: bottom;
+}
+
+.ers-float-top {
+	float: top;
+}
+
+.ers-raise-arrow::after {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 0.255em;
+	vertical-align: 0.255em;
+	content: "";
+	border-top: 0;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0.3em solid;
+	border-left: 0.3em solid transparent;
+}
+
+
+.ers-drop-arrow::after {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 0.255em;
+	vertical-align: 0.255em;
+	content: "";
+	border-top: 0.3em solid;
+	border-right: 0.3em solid transparent;
+	border-bottom: 0;
+	border-left: 0.3em solid transparent;
+  }
+
+.ers-padding-bottom-20 {
+	padding-bottom: 20px;
+}
+
+.ers-margin-top-2 {
+	margin-top: 2px;
+}
+
+.ers-hidden {
+	display: none;
+}
+
+.ers-position {
+	position: absolute;
+}
+
+.ers-padding-left-8 {
+	padding-left: 8px;
+}
+
+.ers-type-width {
+	width: 10%;
+}
+
+.ers-amount {
+	margin-right: 8px;
+}
+
+.ers-inline-block {
+	display: inline-block;
+}

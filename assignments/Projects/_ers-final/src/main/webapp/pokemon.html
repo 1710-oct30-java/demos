@@ -1,0 +1,43 @@
+<!doctype html>
+
+<head>
+</head>
+
+<body>
+	
+	
+	<div id="pokemon"></div>
+	<input type="number" id="pokeid" placeholder="enter pokemon id">
+	<button onclick="findPokemon()">Find</button>
+	
+	<script>
+	function findPokemon()
+	{
+		let xhttp = new XMLHttpRequest();
+
+		xhttp.onreadystatechange = () => {
+			
+			console.log('state changed ' + xhttp.readyState);
+			
+			if(xhttp.readyState === 4 && xhttp.status === 200)
+			{
+				console.log('we have the response ready');
+				console.log(`response text: ${xhttp.responseText}`);
+				let result = JSON.parse(xhttp.responseText);
+				
+				document.getElementById('pokemon').innerText = result.name;
+			}
+			else if(xhttp.readyState === 4)
+			{
+				console.log('failed to load requested pokemon');
+			}
+		}
+		
+		let number = document.getElementById('pokeid').value;
+		xhttp.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + number + '/');
+		xhttp.send();
+	}
+	</script>
+	
+</body>
+
