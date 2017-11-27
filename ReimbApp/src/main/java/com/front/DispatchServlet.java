@@ -36,9 +36,11 @@ public class DispatchServlet extends DefaultServlet
 			{
 				case "/":
 					// forward, the clients url will not change
+					request.getSession().setAttribute("user", null);
 					request.getRequestDispatcher("/static/index.html").forward(request, response);
 					break;
 				case "/login":
+					request.getSession().setAttribute("user", null);
 					lc.delegateGet(response, request);
 					break;
 				case "/reimb":

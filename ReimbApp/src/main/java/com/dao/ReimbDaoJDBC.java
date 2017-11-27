@@ -39,7 +39,7 @@ public class ReimbDaoJDBC implements ReimbDao
 	public List<Reimb> findAll()
 	{
 		List<Reimb> allReimb = new ArrayList<>();
-
+		int i = 0;
 		try (Connection conn = connUtil.getConnection())
 		{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM Reimb");
@@ -47,6 +47,13 @@ public class ReimbDaoJDBC implements ReimbDao
 			while (rs.next())
 			{
 				allReimb.add(extractReimb(rs));
+			}
+			ps = conn.prepareStatement("select to_char(submitted,'MON-DD-YYYY HH24:MI') \"Date\" from Reimb");
+			rs = ps.executeQuery();
+			while (rs.next())
+			{
+				allReimb.get(i).setSubmitTime(rs.getString("Date"));
+				i++;
 			}
 			return allReimb;
 		}
@@ -61,17 +68,27 @@ public class ReimbDaoJDBC implements ReimbDao
 	}
 
 	@Override
-	public Object getReimb(User cred)
+	public List<Reimb> getReimb(User cred)
 	{
+		List<Reimb> collected = new ArrayList<>();
+		int i = 0;
 		try (Connection conn = connUtil.getConnection())
 		{
-			List<Reimb> collected = new ArrayList<>();
+
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM Reimb WHERE author=?");
 			ps.setInt(1, cred.getUserId());
 			ResultSet rs = ps.executeQuery();
 			while (rs.next())
 			{
-				collected.add(extractReimb(rs));
+				Reimb temp = extractReimb(rs);
+				collected.add(temp);
+			}
+			ps = conn.prepareStatement("select to_char(submitted,'MON-DD-YYYY HH24:MI') \"Date\" from Reimb");
+			rs = ps.executeQuery();
+			while (rs.next())
+			{
+				collected.get(i).setSubmitTime(rs.getString("Date"));
+				i++;
 			}
 			return collected;
 		}
@@ -79,7 +96,7 @@ public class ReimbDaoJDBC implements ReimbDao
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
+			return collected;
 		}
 
 	}

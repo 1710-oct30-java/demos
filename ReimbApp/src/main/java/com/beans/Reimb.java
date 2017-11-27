@@ -9,9 +9,13 @@ public class Reimb
 	private String description;
 	private String receipt;
 	private int author;
-	private int resolver;
+	private int resolver = 0;
 	private int statusId;
 	private int type;
+	private String authorName;
+	private String resolvername;
+	private String statusName;
+	private String typeName;
 
 	public Reimb(int reimbId, double amount, String submitTime, String resolveTime, String description, String receipt,
 			int author, int resolver, int statusl, int type)
@@ -133,6 +137,46 @@ public class Reimb
 	public void setType(int type)
 	{
 		this.type = type;
+	}
+
+	public String getAuthorName()
+	{
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName)
+	{
+		this.authorName = authorName;
+	}
+
+	public String getResolverName()
+	{
+		return resolvername;
+	}
+
+	public void setResolverName(String resolvername)
+	{
+		this.resolvername = resolvername;
+	}
+
+	public String getStatusName()
+	{
+		return statusName;
+	}
+
+	public void setStatusName(String statusName)
+	{
+		this.statusName = statusName;
+	}
+
+	public String getTypeName()
+	{
+		return typeName;
+	}
+
+	public void setTypeName(String typeName)
+	{
+		this.typeName = typeName;
 	}
 
 	@Override

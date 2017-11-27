@@ -12,19 +12,21 @@ function createXMLHttpRequest() {
 }
 
 function insert_row() {
-	document.getElementById('rowEntry').innerHTML =
+	document.getElementById('rowEntry').innerHTML = '';
+	for (let i = 0; i < myJson.length; i++) {
+	document.getElementById('rowEntry').innerHTML +=
 		`<tr>
-	 <th scope="row">${myJson[0].reimbId}</th>
-	 <td>${myJson[0].amount}</td>
-     <td>${myJson[0].submitTime}</td>
-     <td>${myJson[0].resolveTime}</td>
-	 <td>${myJson[0].description}</td>
-	 <td>${myJson[0].receipt}</td>
-	 <td>${myJson[0].author}</td>
-	 <td>${myJson[0].resolver}</td>
-	 <td>${myJson[0].statusId}</td>
-	 <td>${myJson[0].type}</td>
- </tr>`
+	 <th scope="row">${myJson[i].reimbId}</th>
+	 <td>$${myJson[i].amount}</td>
+     <td>${myJson[i].submitTime}</td>
+     <td>${myJson[i].resolveTime}</td>
+	 <td>${myJson[i].description}</td>
+	 <td>${myJson[i].receipt}</td>
+	 <td>${myJson[i].authorName}</td>
+	 <td>${myJson[i].resolverName}</td>
+	 <td>${myJson[i].statusName}</td>
+	 <td>${myJson[i].typeName}</td>
+ </tr>`}
 }
 
 function handleStateChange() {

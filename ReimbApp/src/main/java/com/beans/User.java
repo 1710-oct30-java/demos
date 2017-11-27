@@ -9,6 +9,7 @@ public class User
 	private String lName;
 	private String email;
 	private int roleId;
+	private String roleName;
 
 	public User(int userId, String username, String password, String fName, String lName, String email, int roleId)
 	{
@@ -96,6 +97,16 @@ public class User
 	public void setRoleId(int roleId)
 	{
 		this.roleId = roleId;
+	}
+
+	public String getRoleName()
+	{
+		return roleName;
+	}
+
+	public void setRoleName(String roleName)
+	{
+		this.roleName = roleName;
 	}
 
 	@Override

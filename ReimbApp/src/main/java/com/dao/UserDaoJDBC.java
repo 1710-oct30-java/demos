@@ -83,4 +83,35 @@ public class UserDaoJDBC implements UserDao
 
 		return u;
 	}
+
+	@Override
+	public String getName(int id)
+	{
+		if (id == 0)
+		{
+			return "";
+		}
+		else
+		{
+			try (Connection conn = connUtil.getConnection())
+			{
+
+				PreparedStatement ps = conn.prepareStatement("SELECT last_name FROM users WHERE users_id=?");
+				ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next())
+				{
+					return rs.getString("last_name");
+				}
+				return null;
+			}
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+		}
+
+	}
 }

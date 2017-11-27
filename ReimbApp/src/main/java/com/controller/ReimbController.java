@@ -21,19 +21,25 @@ public class ReimbController
 			throws IOException, ServletException
 	{
 		log.debug("get in reimbctrl");
-		request.getRequestDispatcher("/static/reimb.html").forward(request, response);
+		if (request.getSession().getAttribute("user") == null)
+		{
+			response.sendRedirect("/Reimbursement/login");
+		}
+		else
+		{
+			request.getRequestDispatcher("/static/reimb.html").forward(request, response);
+		}
 
 	}
 
 	public void delegatePost(HttpServletResponse response, HttpServletRequest request)
 			throws IOException, ServletException
 	{
-		// TODO Auto-generated method stub
 		log.debug("post in reimbctrl");
 		User u = (User) request.getSession().getAttribute("user");
-		System.out.println(u);
 		String json = rs.getUserReimb(u);
 		PrintWriter out = response.getWriter();
+		System.out.println(json);
 		out.print(json);
 		out.close();
 	}

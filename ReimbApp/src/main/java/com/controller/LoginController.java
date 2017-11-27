@@ -22,6 +22,7 @@ public class LoginController
 			throws IOException, ServletException
 	{
 		log.debug("get in loginctrl");
+
 		request.getRequestDispatcher("/static/login.html").forward(request, response);
 
 	}

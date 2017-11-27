@@ -9,5 +9,5 @@ public interface ReimbDao
 {
 	public List<Reimb> findAll();
 
-	public Object getReimb(User cred);
+	public List<Reimb> getReimb(User cred);
 }
