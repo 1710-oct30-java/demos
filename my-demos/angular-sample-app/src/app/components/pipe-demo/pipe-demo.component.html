@@ -1,0 +1,32 @@
+<div>
+  {{ str | uppercase }}
+</div>
+
+<div>
+  {{ str }}
+</div>
+
+<div>
+  date: {{ today | date:'EEEE, MMMM d, y, h:mm:ss a zzzz' }}
+</div>
+
+
+<p>Today is {{today | date}}</p>
+
+   <!--output 'Monday, June 15, 2015'-->
+   <p>Or if you prefer, {{today | date:'fullDate'}}</p>
+
+   <!--output '9:43 AM'-->
+   <p>The time is {{today | date:'shortTime'}}</p>
+
+   <!--output 'Monday, June 15, 2015 at 9:03:01 AM GMT+01:00' -->
+   <p>The full date/time is {{today | date:'full'}}</p>
+
+   <!--output 'Lundi 15 Juin 2015 à 09:03:01 GMT+01:00'-->
+   <p>The full date/time in french is: {{today | date:'full':'':'fr'}}</p>
+
+   <!--output '2015-06-15 05:03 PM GMT+9'-->
+   <p>The custom date is {{today | date:'yyyy-MM-dd HH:mm a z':'+0900'}}</p>
+
+   <!--output '2015-06-15 09:03 AM GMT+9'-->
+   <p>The custom date with fixed timezone is {{fixedTimezone | date:'yyyy-MM-dd HH:mm a z':'+0900'}}</p>

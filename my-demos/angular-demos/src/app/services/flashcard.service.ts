@@ -11,7 +11,7 @@ export class FlashcardService {
 
   public flashcards;
   private prom;
-
+  
   constructor(@Inject(Http) public http: Http) {
     this.fetch();
   }
