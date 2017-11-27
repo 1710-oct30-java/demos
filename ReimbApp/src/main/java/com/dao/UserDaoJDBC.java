@@ -60,27 +60,27 @@ public class UserDaoJDBC implements UserDao
 	}
 
 	@Override
-	public List<String> getPassword(String username)
+	public User getUser(String username)
 	{
-		List<String> pass = new ArrayList<>();
+		User u = null;
 		try (Connection conn = connUtil.getConnection())
 		{
 			log.debug("Retrieving password for " + username);
-			PreparedStatement ps = conn.prepareStatement("SELECT password FROM users WHERE " + "username=?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE username=?");
 			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next())
 			{
-				pass.add(rs.getString("password"));
+				u = extractUser(rs);
 			}
-			return pass;
+			return u;
 		}
 		catch (SQLException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		pass.add(null);
-		return pass;
+
+		return u;
 	}
 }

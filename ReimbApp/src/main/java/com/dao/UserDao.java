@@ -14,10 +14,11 @@ public interface UserDao
 	List<User> findAll();
 
 	/**
-	 * get password for a user
+	 * get user object for a username
 	 * 
 	 * @param username
 	 * @return
 	 */
-	List<String> getPassword(String username);
+
+	User getUser(String username);
 }

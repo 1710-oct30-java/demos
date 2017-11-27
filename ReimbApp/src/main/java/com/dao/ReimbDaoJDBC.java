@@ -10,6 +10,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.beans.Reimb;
+import com.beans.User;
 import com.util.ConnectionUtil;
 
 public class ReimbDaoJDBC implements ReimbDao
@@ -56,6 +57,30 @@ public class ReimbDaoJDBC implements ReimbDao
 		}
 
 		return null;
+
+	}
+
+	@Override
+	public Object getReimb(User cred)
+	{
+		try (Connection conn = connUtil.getConnection())
+		{
+			List<Reimb> collected = new ArrayList<>();
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM Reimb WHERE author=?");
+			ps.setInt(1, cred.getUserId());
+			ResultSet rs = ps.executeQuery();
+			while (rs.next())
+			{
+				collected.add(extractReimb(rs));
+			}
+			return collected;
+		}
+		catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 
 	}
 }
