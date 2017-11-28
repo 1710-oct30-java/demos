@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.revature.beans.User;
+import com.revature.exceptions.InvalidCredentialException;
 import com.revature.services.UserService;
 
 public class UserController
@@ -29,7 +32,7 @@ public class UserController
 			try
 			{
 				// get all of the users from the service
-				List<User> allUsers = us.getAllUsers();
+				List<User> allUsers = us.getAll();
 				
 				// convert arraylist to json
 				ObjectMapper om = new ObjectMapper();
@@ -45,7 +48,46 @@ public class UserController
 			}
 			catch (IOException e)
 			{
-				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void delegatePost(HttpServletRequest request, HttpServletResponse response) throws InvalidCredentialException
+	{
+		log.debug("get request delegated to user controller");
+		String actualURL = request.getRequestURI().substring(request.getContextPath().length() + "/login".length());
+		
+		if (actualURL.equals(""))
+		{
+			try
+			{
+				String json = request.getReader() // get the buffered reader
+						.lines() // stream it
+						.reduce((acc, cur) -> acc + cur) // reduce it to a single value
+						.get(); // get that single value
+				log.trace("json received = " + json);
+				ObjectMapper om = new ObjectMapper();
+				User u = om.readValue(json, User.class);
+				log.trace("object created from json = " + u);
+				
+				u = us.login(u);
+				
+				if (u != null)
+					log.debug(u + " has logged in.");
+				else
+					throw new InvalidCredentialException(401);
+			}
+			catch (JsonParseException e)
+			{
+				e.printStackTrace();
+			}
+			catch (JsonMappingException e)
+			{
+				e.printStackTrace();
+			}
+			catch (IOException e)
+			{
 				e.printStackTrace();
 			}
 		}

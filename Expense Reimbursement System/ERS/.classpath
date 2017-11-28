@@ -48,5 +48,6 @@
 			<attribute name="maven.scope" value="compile"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/twosu/.m2/ojdbc7.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

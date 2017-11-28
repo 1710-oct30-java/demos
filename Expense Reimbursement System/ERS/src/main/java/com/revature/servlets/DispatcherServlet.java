@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.servlets.DefaultServlet;
+import org.apache.log4j.Logger;
 
 import com.revature.exceptions.InvalidCredentialException;
 import com.revature.exceptions.UrlNotRecognizedException;
@@ -17,19 +18,21 @@ public class DispatcherServlet extends DefaultServlet
 	private UserController	uc	= new UserController();
 	private ReimbController	rc	= new ReimbController();
 	private UserService		us	= new UserService();
+	private Logger			log	= Logger.getRootLogger();
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println(actualURL);
+		// System.out.println(actualURL);
+		log.debug("actualURL: " + actualURL);
 		
 		if (actualURL.startsWith("/static"))
 		{
 			super.doGet(request, response);
 			return;
 		}
-		else if ("/home".equals(actualURL))
+		else if (actualURL.equals("/home"))
 		{
 			// forward, the clients url will not change
 			request.getRequestDispatcher("/static/index.html").forward(request, response);
@@ -53,28 +56,28 @@ public class DispatcherServlet extends DefaultServlet
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
-		try
+		System.out.println("post request made with url" + request.getRequestURI());
+		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
+		
+		if (actualURL.startsWith("/reimb"))
 		{
-			System.out.println("post request made with url" + request.getRequestURI());
-			String actualURL = request.getRequestURI().substring(request.getContextPath().length());
-			
-			if (actualURL.startsWith("/reimb"))
+			rc.delegatePost(request, response);
+		}
+		else if ("/login".equals(actualURL))
+		{
+			System.out.println("login");
+			try
 			{
-				rc.delegatePost(request, response);
+				uc.delegatePost(request, response);
 			}
-			else if ("/login".equals(actualURL))
+			catch (InvalidCredentialException e)
 			{
-				System.out.println("login");
-				us.login(); // TODO
-			}
-			else
-			{
-				throw new UrlNotRecognizedException();
+				e.printStackTrace();
 			}
 		}
-		catch (InvalidCredentialException e)
+		else
 		{
-			response.setStatus(e.getStatusCode());
+			throw new UrlNotRecognizedException();
 		}
 	}
 }

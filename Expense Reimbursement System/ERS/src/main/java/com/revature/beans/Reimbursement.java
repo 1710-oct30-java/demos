@@ -10,7 +10,7 @@ public class Reimbursement implements Serializable
 	private Date	submitted;
 	private Date	resolved;
 	private String	description;
-	private Object	recipt;
+	private Object	receipt;
 	private int		author;
 	private int		resolver;
 	private int		statusId;
@@ -66,14 +66,14 @@ public class Reimbursement implements Serializable
 		this.description = description;
 	}
 	
-	public Object getRecipt()
+	public Object getReceipt()
 	{
-		return recipt;
+		return receipt;
 	}
 	
-	public void setRecipt(Object recipt)
+	public void setReceipt(Object receipt)
 	{
-		this.recipt = recipt;
+		this.receipt = receipt;
 	}
 	
 	public int getAuthor()
@@ -120,11 +120,11 @@ public class Reimbursement implements Serializable
 	public String toString()
 	{
 		return "Reimbursement [id=" + id + ", amount=" + amount + ", submitted=" + submitted + ", resolved=" + resolved
-				+ ", decription=" + description + ", recipt=" + recipt + ", author=" + author + ", resolver=" + resolver
-				+ ", statusId=" + statusId + ", typeId=" + typeId + "]";
+				+ ", decription=" + description + ", receipt=" + receipt + ", author=" + author + ", resolver="
+				+ resolver + ", statusId=" + statusId + ", typeId=" + typeId + "]";
 	}
 	
-	public Reimbursement(int id, float amount, Date submitted, Date resolved, String decription, Object recipt,
+	public Reimbursement(int id, float amount, Date submitted, Date resolved, String decription, Object receipt,
 			int author, int resolver, int statusId, int typeId)
 	{
 		super();
@@ -133,7 +133,7 @@ public class Reimbursement implements Serializable
 		this.submitted = submitted;
 		this.resolved = resolved;
 		this.description = decription;
-		this.recipt = recipt;
+		this.receipt = receipt;
 		this.author = author;
 		this.resolver = resolver;
 		this.statusId = statusId;
@@ -149,7 +149,7 @@ public class Reimbursement implements Serializable
 		result = prime * result + author;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((recipt == null) ? 0 : recipt.hashCode());
+		result = prime * result + ((receipt == null) ? 0 : receipt.hashCode());
 		result = prime * result + ((resolved == null) ? 0 : resolved.hashCode());
 		result = prime * result + resolver;
 		result = prime * result + statusId;
@@ -181,12 +181,12 @@ public class Reimbursement implements Serializable
 			return false;
 		if (id != other.id)
 			return false;
-		if (recipt == null)
+		if (receipt == null)
 		{
-			if (other.recipt != null)
+			if (other.receipt != null)
 				return false;
 		}
-		else if (!recipt.equals(other.recipt))
+		else if (!receipt.equals(other.receipt))
 			return false;
 		if (resolved == null)
 		{

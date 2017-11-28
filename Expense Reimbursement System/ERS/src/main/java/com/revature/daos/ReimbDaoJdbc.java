@@ -89,8 +89,8 @@ public class ReimbDaoJdbc implements ReimbDao
 		}
 		catch (SQLException e)
 		{
-			e.printStackTrace();
 			log.warn("Failed to retreive all reimbursements");
+			e.printStackTrace();
 		}
 		
 		return reimbs;
@@ -104,7 +104,7 @@ public class ReimbDaoJdbc implements ReimbDao
 		r.setSubmitted(rs.getDate("reimb_submitted"));
 		r.setResolved(rs.getDate("reimb_resolved"));
 		r.setDescription(rs.getString("reimb_description"));
-		r.setRecipt(null);
+		r.setReceipt(null);
 		r.setAuthor(rs.getInt("reimb_author"));
 		r.setResolver(rs.getInt("reimb_resolver"));
 		r.setStatusId(rs.getInt("reimb_status_id"));

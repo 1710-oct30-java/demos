@@ -1,8 +1,8 @@
 package com.revature.util;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -13,6 +13,18 @@ import java.util.Properties;
  */
 public class ConnectionUtil
 {
+	static
+	{
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+	}
 	
 	private static ConnectionUtil conUtil = new ConnectionUtil();
 	
@@ -29,17 +41,18 @@ public class ConnectionUtil
 	public Connection getConnection() throws SQLException
 	{
 		Properties prop = new Properties();
+		
 		try
 		{
-			prop.load(new FileReader("src/main/resources/database.properties"));
+			InputStream dbProps = ConnectionUtil.class.getClassLoader().getResourceAsStream("database.properties");
+			prop.load(dbProps);
 		}
 		catch (FileNotFoundException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		catch (IOException e) {
-			// TODO Auto-generated catch block
+		catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 		return DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"),

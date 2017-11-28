@@ -10,7 +10,7 @@ public class UserService
 {
 	private UserDao ud = new UserDaoJdbc();
 	
-	public List<User> getAllUsers()
+	public List<User> getAll()
 	{
 		// have checks to see if the user requesting this is an admin
 		return ud.findAll();
@@ -19,5 +19,10 @@ public class UserService
 	public User login(User u)
 	{
 		return ud.findByCredentials(u.getUsername(), u.getPassword());
+	}
+	
+	public void save(User u)
+	{
+		ud.save(u);
 	}
 }
