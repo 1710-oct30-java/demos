@@ -3,7 +3,6 @@ function login(){
     let password = document.getElementById('key').value;
 
     let xhttp = new XMLHttpRequest();
-
     xhttp.onload = (resp) => {
         if(xhttp.status === 200) {
             // resp contains the response body

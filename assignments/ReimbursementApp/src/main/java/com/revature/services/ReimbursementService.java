@@ -1,5 +1,8 @@
 package com.revature.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.revature.beans.Reimbursement;
@@ -14,5 +17,11 @@ public class ReimbursementService {
 	public void addReimbursement(Reimbursement reimb) {
 		log.debug("Attempting to send reimbursement to DAO");
 		rd.newReimbursement(reimb);
+	}
+	public List<Reimbursement> getReimbursements(int userId) {
+		List<Reimbursement> rl = new ArrayList<>();
+		rl = rd.findReimbursement(userId);
+		return rl;
+		
 	}
 }

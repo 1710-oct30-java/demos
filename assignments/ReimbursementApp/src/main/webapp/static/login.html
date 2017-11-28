@@ -12,24 +12,20 @@
 	<section id="login">
 		<div class="container">
 			<div class="Absolute-Center is-Responsive">
-				<div class="row align-items-start">
+				<div class="row align-items-start shadow">
 						<div class="col-4">
 						</div>
 						<div class="col-4">
 								<div class="form-wrap">
 								<h1 class="text-center formTitles">Login</h1>
-									<form onsubmit="event.preventDefault(); login()">
+									<form onsubmit="event.preventDefault(); login()" autocomplete="off">
 										<div class="form-group">
 											<label for="username">Username</label>
-											<input type="username" name="username" id="username" class="form-control" placeholder="Username">
+											<input type="username" name="username" id="username" class="form-control" placeholder="Username" autocomplete="false">
 										</div>
 										<div class="form-group">
 											<label for="key">Password</label>
-											<input type="password" name="key" id="key" class="form-control" placeholder="Password">
-										</div>
-										<div class="checkbox">
-											<span class="character-checkbox" onclick="showPassword()"></span>
-											<span class="label">Show password</span>
+											<input type="password" name="key" id="key" class="form-control" placeholder="Password" autocomplete="false">
 										</div>
 										<input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block btn-primary" value="Log in">
 									</form> 

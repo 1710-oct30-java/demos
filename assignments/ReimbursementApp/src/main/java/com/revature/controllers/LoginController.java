@@ -23,7 +23,7 @@ public class LoginController {
 
 	public void delegateGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		log.debug("get request in Login controller");
+		log.debug("Get request in Login controller");
 		request.getRequestDispatcher("/static/login.html").forward(request, response);
 
 	}
@@ -60,7 +60,7 @@ public class LoginController {
 				response.setStatus(401);
 			} else {
 				response.setStatus(200);
-				request.getSession().setAttribute("user", actualUser);
+				request.getSession().setAttribute("userId", actualUser.getUserId());
 			}
 
 		} catch (JsonParseException e) {

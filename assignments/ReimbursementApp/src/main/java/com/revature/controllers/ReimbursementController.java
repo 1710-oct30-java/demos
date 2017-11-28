@@ -2,7 +2,9 @@ package com.revature.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,34 +25,46 @@ public class ReimbursementController {
 
 	private Logger log = Logger.getRootLogger();
 	private ReimbursementService rs = new ReimbursementService();
-
 	public void delegateGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		log.debug("Get request in Reimbursement controller");
-		request.getRequestDispatcher("/static/home.html").forward(request, response);
+		request.getRequestDispatcher("/static/reimbursements.html").forward(request, response);
+		List<Reimbursement> rl = new ArrayList<>();
+		int userId = (int) request.getSession(false).getAttribute("userId");
+		rl = rs.getReimbursements(userId);
+		log.trace(rl);
+//		PrintWriter writer = response.getWriter();
+//		ObjectMapper om = new ObjectMapper();
+//		ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
+//		String printJson = ow.writeValueAsString(rl);
+//		writer.write(printJson);
+		
 	}
 
 	public void delegatePost(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("Post request delegated to Reimbursement controller");
-		String actualURL = request.getRequestURI().substring(request.getContextPath().length() + "/home".length());
+		//String actualURL = request.getRequestURI().substring(request.getContextPath().length() + "/home".length());
 
-		if ("".equals(actualURL)) {
 			try {
-
+				String json = request.getReader() // Get the buffered reader for reading request body
+						.lines() // Stream it
+						.reduce((acc, curr) -> acc + curr) // Convert lines to one String
+						.get(); // Get that single string value
+				ObjectMapper om = new ObjectMapper();
+				Reimbursement newReimbursement = om.readValue(json, Reimbursement.class);
+				
+				newReimbursement.setAuthorId((int) request.getSession(false).getAttribute("userId"));
+				log.trace("Author: " + newReimbursement.getAuthorId());
+				log.trace("Type received: " + newReimbursement.getTypeId());
+				log.trace("Amount: $ " + newReimbursement.getAmount());
+				log.trace("Description: ) "+ newReimbursement.getDescip());
+				log.trace("Time: " + newReimbursement.getSubmitted());
 				PrintWriter writer = response.getWriter();
 				Reimbursement reimb = new Reimbursement();
-				reimb.setReimbId(1);
-				reimb.setAmount(200);
-				reimb.setSubmitted(new Date());
-				reimb.setDescip("Enthuware");
-				reimb.setAuthorId(1);
-				reimb.setStatusId(0);
-				reimb.setTypeId(4);
-				rs.addReimbursement(reimb);
-				ObjectMapper om = new ObjectMapper();
-				ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
-				String json = ow.writeValueAsString(reimb);
-				writer.write(json);
+				rs.addReimbursement(newReimbursement);
+				//ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
+				//String printJson = ow.writeValueAsString(reimb);
+				//writer.write(printJson);
 
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
@@ -62,7 +76,6 @@ public class ReimbursementController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
 	}
 
 }
