@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.beans.Reimb;
 import com.beans.User;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.services.ReimbService;
 
 public class ReimbController
@@ -36,12 +39,46 @@ public class ReimbController
 			throws IOException, ServletException
 	{
 		log.debug("post in reimbctrl");
+
+		StringBuilder jb = new StringBuilder();
+		String line = null;
+		BufferedReader reader = request.getReader();
+		while ((line = reader.readLine()) != null)
+		{
+			jb.append(line);
+		}
+		reader.close();
+
+		if (jb.length() == 0)
+		{
+			returnReimbJson(request, response);
+		}
+		else
+		{
+			User u = (User) request.getSession().getAttribute("user");
+			newReimb(u, jb);
+			returnReimbJson(request, response);
+		}
+	}
+
+	private void newReimb(User u, StringBuilder jb) throws IOException
+	{
+		ObjectMapper om = new ObjectMapper();
+		Reimb r = om.readValue(jb.toString(), Reimb.class);
+		r.setAuthor(u.getUserId());
+		rs.newReimb(r);
+
+	}
+
+	private void returnReimbJson(HttpServletRequest request, HttpServletResponse response) throws IOException
+	{
 		User u = (User) request.getSession().getAttribute("user");
 		String json = rs.getUserReimb(u);
 		PrintWriter out = response.getWriter();
-		System.out.println(json);
+		// System.out.println(json);
 		out.print(json);
 		out.close();
+
 	}
 
 }

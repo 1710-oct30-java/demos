@@ -4,55 +4,99 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="./static/bootstrap/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	 crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+	 crossorigin="anonymous"></script>
+
+
 	<link rel="stylesheet" href="./static/reimb.css">
+	<script src="./static/reimb.js"></script>
 
 </head>
 
 <body>
-	<div class="container">
-		<table id="reimbTable" class="table table-striped">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Amount</th>
-					<th scope="col">Submitted</th>
-					<th scope="col">Resolved</th>
-					<th scope="col">Description</th>
-					<th scope="col">Receipt</th>
-					<th scope="col">Author</th>
-					<th scope="col">Resolver</th>
-					<th scope="col">Status</th>
-					<th scope="col">Type</th>
-				</tr>
-			</thead>
-			<tbody id="rowEntry">
-			</tbody>
-		</table>
-	</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				1 of 3
-			</div>
-			<div class="col-6">
-				2 of 3 (wider)
-			</div>
-			<div class="col">
-				3 of 3
-			</div>
-		</div>
-	</div>
+	<!-- Reimbursement Table-->
+	<div class="row">
+		<div class="col-1"></div>
+		<div class="col-11">
+			<div style="overflow-x:auto;">
+				<table id="reimbTable" class="table table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Amount</th>
+							<th scope="col">Submitted</th>
+							<th scope="col">Resolved</th>
+							<th scope="col">Description</th>
+							<th scope="col">Receipt</th>
+							<th scope="col">Author</th>
+							<th scope="col">Resolver</th>
+							<th scope="col">Status</th>
+							<th scope="col">Type</th>
+						</tr>
+					</thead>
+					<tbody id="rowEntry">
+					</tbody>
+				</table>
+			</div> <!-- div table -->
+		</div> <!-- div col -->
+	</div> <!-- div grid -->
 
-	<script src="./static/reimb.js"></script>
-	<script src="./static/bootstrap/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	 crossorigin="anonymous"></script>
-	<script src="./static/bootstrap/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-	 crossorigin="anonymous"></script>
-	<script src="./static/bootstrap/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-	 crossorigin="anonymous"></script>
+	<!-- Modal For New Request -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<form id="newReimb" method="post" onsubmit="event.preventDefault()">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">New Reimbursement Request</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-4">
+								<input type="number" name="amount" id="inputAmount" min="0" step="0.01" class="form-control" placeholder="Amount" required autofocus>
+							</div>
+							<!-- <div class="col-1"></div> -->
+							<div class="col-8">
+								<label for="sel1">Type of Expense:</label>
+								<select id="typeSelect">
+									<option value="1">LODGING</option>
+									<option value="2">TRAVEL</option>
+									<option value="3">FOOD</option>
+									<option value="4">OTHER</option>
+								</select>
+							</div>
+						</div>
+						<textarea class="form-control" id="inputDescription" rows="4" placeholder="Description of the Request"></textarea>
+						<input type="text" name="receipt" id="inputReceipt" class="form-control" placeholder="Receipt" required autofocus>
+
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="clearForm()">Cancel</button>
+						<button type="submit" name="newRecord" value="newRecord" class="btn btn-primary" onclick="createReimb(this)" >Submit</button>
+
+					</div>
+
+				</form> <!-- newReimb-->
+			</div> <!-- modelContent-->
+		</div> <!-- modelDialog-->
+	</div> <!-- modelFade-->
+
+	<!--New Request Button-->
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		New Request
+	</button>
+
 
 </body>
 

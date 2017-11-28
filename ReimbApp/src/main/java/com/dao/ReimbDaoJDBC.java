@@ -75,7 +75,7 @@ public class ReimbDaoJDBC implements ReimbDao
 		try (Connection conn = connUtil.getConnection())
 		{
 
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM Reimb WHERE author=?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM Reimb WHERE author=? order by id");
 			ps.setInt(1, cred.getUserId());
 			ResultSet rs = ps.executeQuery();
 			while (rs.next())
@@ -87,7 +87,7 @@ public class ReimbDaoJDBC implements ReimbDao
 			rs = ps.executeQuery();
 			while (rs.next())
 			{
-				collected.get(i).setSubmitTime(rs.getString("Date"));
+				collected.get(i).setSubmitTimePretty(rs.getString("Date"));
 				i++;
 			}
 			return collected;
@@ -98,6 +98,34 @@ public class ReimbDaoJDBC implements ReimbDao
 			e.printStackTrace();
 			return collected;
 		}
+		catch (IndexOutOfBoundsException e)
+		{
+			log.debug("No Reimb found");
+			return collected;
+		}
 
+	}
+
+	@Override
+	public void insertNewReimb(Reimb reimb)
+	{
+		try (Connection conn = connUtil.getConnection())
+		{
+			String statement = "INSERT INTO reimb(amount,submitted,description,receipt,author,status_id,type_id) "
+					+ "values (?, CURRENT_TIMESTAMP,?,?,?,1,?)";
+			PreparedStatement ps = conn.prepareStatement(statement);
+			ps.setDouble(1, reimb.getAmount());
+			ps.setString(2, reimb.getDescription());
+			ps.setString(3, reimb.getReceipt());
+			ps.setInt(4, reimb.getAuthor());
+			ps.setInt(5, reimb.getType());
+			ps.executeUpdate();
+		}
+		catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
 	}
 }

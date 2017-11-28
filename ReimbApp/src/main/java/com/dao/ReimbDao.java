@@ -10,4 +10,6 @@ public interface ReimbDao
 	public List<Reimb> findAll();
 
 	public List<Reimb> getReimb(User cred);
+
+	public void insertNewReimb(Reimb reimb);
 }

@@ -1,6 +1,7 @@
 let xmlHttp;
 let myJson;
-window.onload = startRequest();
+
+window.onload = startRequest('./reimb', null);
 
 
 function createXMLHttpRequest() {
@@ -14,19 +15,20 @@ function createXMLHttpRequest() {
 function insert_row() {
 	document.getElementById('rowEntry').innerHTML = '';
 	for (let i = 0; i < myJson.length; i++) {
-	document.getElementById('rowEntry').innerHTML +=
-		`<tr>
-	 <th scope="row">${myJson[i].reimbId}</th>
-	 <td>$${myJson[i].amount}</td>
-     <td>${myJson[i].submitTime}</td>
-     <td>${myJson[i].resolveTime}</td>
-	 <td>${myJson[i].description}</td>
-	 <td>${myJson[i].receipt}</td>
-	 <td>${myJson[i].authorName}</td>
-	 <td>${myJson[i].resolverName}</td>
-	 <td>${myJson[i].statusName}</td>
-	 <td>${myJson[i].typeName}</td>
- </tr>`}
+		document.getElementById('rowEntry').innerHTML +=
+			`<tr>
+				<th scope="row">${myJson[i].reimbId}</th>
+				<td>$${myJson[i].amount}</td>
+				<td>${myJson[i].submitTimePretty}</td>
+				<td>${myJson[i].resolveTime}</td>
+				<td>${myJson[i].description}</td>
+				<td>${myJson[i].receipt}</td>
+				<td>${myJson[i].authorName}</td>
+				<td>${myJson[i].resolverName}</td>
+				<td>${myJson[i].statusName}</td>
+				<td>${myJson[i].typeName}</td>
+		 	</tr>`
+	}
 }
 
 function handleStateChange() {
@@ -35,16 +37,44 @@ function handleStateChange() {
 			myJson = JSON.parse(xmlHttp.responseText);
 			insert_row();
 		}
+		else if (xmlHttp.status == 500) {
+			document.getElementById('rowEntry').innerHTML =
+				`<tr>
+					<th scope="row"></th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>`
+		}
 	}
 }
 
-function startRequest() {
+function startRequest(url, file) {
 	createXMLHttpRequest();
 	xmlHttp.onreadystatechange = handleStateChange;
-	xmlHttp.open("post", "./reimb", true);
-	xmlHttp.setRequestHeader('Content-Type',
-		'application/x-www-form-urlencoded'); // add here 
-	xmlHttp.send(null);
+	xmlHttp.open("post", url);
+	xmlHttp.send(file);
+}
+
+function createReimb(form) {
+	console.log(form.value);
+	let reimbRec = {
+		"amount": document.getElementById('inputAmount').value,
+		"description": document.getElementById('inputDescription').value,
+		"receipt": document.getElementById('inputReceipt').value,
+		"type": parseInt(document.getElementById('typeSelect').value)
+	}
+	startRequest('./reimb', JSON.stringify(reimbRec));
+}
+
+function clearForm() {
+	document.getElementById('newReimb').reset();
 }
 
 

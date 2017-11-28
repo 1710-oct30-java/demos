@@ -13,12 +13,13 @@ public class Reimb
 	private int statusId;
 	private int type;
 	private String authorName;
-	private String resolvername;
+	private String resolverName;
 	private String statusName;
 	private String typeName;
+	private String submitTimePretty;
 
 	public Reimb(int reimbId, double amount, String submitTime, String resolveTime, String description, String receipt,
-			int author, int resolver, int statusl, int type)
+			int author, int resolver, int statusId, int type)
 	{
 		super();
 		this.reimbId = reimbId;
@@ -29,7 +30,7 @@ public class Reimb
 		this.receipt = receipt;
 		this.author = author;
 		this.resolver = resolver;
-		this.statusId = statusl;
+		this.statusId = statusId;
 		this.type = type;
 	}
 
@@ -151,12 +152,12 @@ public class Reimb
 
 	public String getResolverName()
 	{
-		return resolvername;
+		return resolverName;
 	}
 
 	public void setResolverName(String resolvername)
 	{
-		this.resolvername = resolvername;
+		this.resolverName = resolvername;
 	}
 
 	public String getStatusName()
@@ -179,12 +180,22 @@ public class Reimb
 		this.typeName = typeName;
 	}
 
+	public String getSubmitTimePretty()
+	{
+		return submitTimePretty;
+	}
+
+	public void setSubmitTimePretty(String submitTimePretty)
+	{
+		this.submitTimePretty = submitTimePretty;
+	}
+
 	@Override
 	public String toString()
 	{
 		return "Reimb [reimbId=" + reimbId + ", amount=" + amount + ", submitTime=" + submitTime + ", resolveTime="
 				+ resolveTime + ", description=" + description + ", receipt=" + receipt + ", author=" + author
-				+ ", resolver=" + resolver + ", statusl=" + statusId + ", type=" + type + "]";
+				+ ", resolver=" + resolver + ", statusId=" + statusId + ", type=" + type + "]";
 	}
 
 }

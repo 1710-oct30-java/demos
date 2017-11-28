@@ -47,6 +47,11 @@ public class ReimbService
 		return json;
 	}
 
+	public void newReimb(Reimb reimb)
+	{
+		rd.insertNewReimb(reimb);
+	}
+
 	public List<Reimb> popType(List<Reimb> temp)
 	{
 		for (Reimb single : temp)

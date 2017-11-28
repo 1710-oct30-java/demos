@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="./static/bootstrap/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	 crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+	 crossorigin="anonymous"></script>
+
 	<link rel="stylesheet" href="./static/login.css">
+
+	<script src="./static/login.js"></script>
 </head>
 
 
 
 <body>
-<!--
+	<!--
 <form name="loginForm" method="post" action="login">
     Username: <input type="text" name="username"/> <br/>
     Password: <input type="password" name="password"/> <br/>
@@ -19,7 +30,7 @@
 
 
 	<div class="container">
-		<div class ="row">
+		<div class="row">
 			<div class="col-3"></div>
 			<div class="col-6">
 				<form class="form-signin" method="post" onsubmit="event.preventDefault();login()">
@@ -34,28 +45,28 @@
 						</label>
 					</div>
 					<div id="loginButton" align="center">
-						<div class="same-line"><button class="btn btn-sm btn-primary btn-block" type="submit" value="Login">Sign in</button></div>
+						<div class="same-line">
+							<button class="btn btn-sm btn-primary btn-block" type="submit" name="Login" value="Login">Sign in</button>
+						</div>
 					</div>
 				</form>
 			</div>
 			<div class="col-3">
-					<div id ="error" class="container"></div>
+				<div id="error" class="container"></div>
 			</div>
 		</div>
 		<div id="dummy" class="container"></div>
-		
+
 	</div>
 
-<!-- 
+	<!-- 
 	<form onsubmit= "event.preventDefault();login()">
 		<input type="text" id="username" placeholder="username">
 		<input type="password" id="password" placehoolder="password">
 		<input type="submit">
 	</form> -->
 
-	<script src="./static/login.js"></script>
-    <script src="./static/bootstrap/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="./static/bootstrap/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="./static/bootstrap/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 </body>
+
 </html>
