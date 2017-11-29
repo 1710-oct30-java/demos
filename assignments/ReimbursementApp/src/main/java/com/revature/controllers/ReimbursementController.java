@@ -16,11 +16,11 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.google.gson.Gson;
 import com.revature.beans.Reimbursement;
 import com.revature.beans.User;
 import com.revature.services.ReimbursementService;
 import com.revature.services.UserService;
-
 public class ReimbursementController {
 
 	private Logger log = Logger.getRootLogger();
@@ -29,16 +29,23 @@ public class ReimbursementController {
 			throws ServletException, IOException {
 		log.debug("Get request in Reimbursement controller");
 		request.getRequestDispatcher("/static/reimbursements.html").forward(request, response);
+		//List to store retrieved reimbursements
 		List<Reimbursement> rl = new ArrayList<>();
+		//Gets current logged in User's ID
 		int userId = (int) request.getSession(false).getAttribute("userId");
 		rl = rs.getReimbursements(userId);
 		log.trace(rl);
-//		PrintWriter writer = response.getWriter();
-//		ObjectMapper om = new ObjectMapper();
-//		ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
-//		String printJson = ow.writeValueAsString(rl);
-//		writer.write(printJson);
 		
+		//Convert reimbursements to JSON
+	    String json = new Gson().toJson(rl);
+	    log.trace(json);
+	    response.setContentType("application/json");
+	    response.setCharacterEncoding("UTF-8");
+	    response.getWriter().write(json);
+	    
+	    //Exception thrown here
+	    response.getWriter().close();
+	    
 	}
 
 	public void delegatePost(HttpServletRequest request, HttpServletResponse response) {
@@ -52,20 +59,14 @@ public class ReimbursementController {
 						.get(); // Get that single string value
 				ObjectMapper om = new ObjectMapper();
 				Reimbursement newReimbursement = om.readValue(json, Reimbursement.class);
-				
 				newReimbursement.setAuthorId((int) request.getSession(false).getAttribute("userId"));
 				log.trace("Author: " + newReimbursement.getAuthorId());
 				log.trace("Type received: " + newReimbursement.getTypeId());
 				log.trace("Amount: $ " + newReimbursement.getAmount());
 				log.trace("Description: ) "+ newReimbursement.getDescip());
 				log.trace("Time: " + newReimbursement.getSubmitted());
-				PrintWriter writer = response.getWriter();
-				Reimbursement reimb = new Reimbursement();
 				rs.addReimbursement(newReimbursement);
-				//ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
-				//String printJson = ow.writeValueAsString(reimb);
-				//writer.write(printJson);
-
+				
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

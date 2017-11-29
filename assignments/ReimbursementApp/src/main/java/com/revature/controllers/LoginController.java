@@ -40,12 +40,6 @@ public class LoginController {
 
 	private void login(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			/*
-			 * log.debug("Request to login received"); PrintWriter writer =
-			 * response.getWriter(); ObjectMapper om = new ObjectMapper(); ObjectWriter ow =
-			 * om.writer().withDefaultPrettyPrinter(); String json =
-			 * ow.writeValueAsString(user); writer.write(json);
-			 */
 
 			String json = request.getReader() // Get the buffered reader for reading request body
 					.lines() // Stream it
@@ -62,7 +56,7 @@ public class LoginController {
 				response.setStatus(200);
 				request.getSession().setAttribute("userId", actualUser.getUserId());
 			}
-
+			
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

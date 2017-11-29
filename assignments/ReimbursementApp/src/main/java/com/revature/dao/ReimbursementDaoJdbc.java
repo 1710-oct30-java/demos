@@ -21,10 +21,10 @@ public class ReimbursementDaoJdbc implements ReimbursementDao {
 		r.setReimbId(rs.getInt("reimb_id"));
 		r.setAmount(rs.getFloat("amount"));
 		r.setSubmitted(rs.getDate("submitted"));
-		r.setResolved(rs.getDate("resolved"));
+		//r.setResolved(rs.getDate("resolved"));
 		r.setDescip(rs.getString("description"));
 		r.setAuthorId(rs.getInt("author"));
-		r.setStatusId(rs.getInt("status_id"));
+		//r.setStatusId(rs.getInt("status_id"));
 		r.setTypeId(rs.getInt("type_id"));
 		return r;
 	}
