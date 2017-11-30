@@ -3,12 +3,12 @@
   <display-name>FrontController</display-name>
   
   <servlet>
-  	<servlet-name>DispatcherServlet</servlet-name>
-  	<servlet-class>com.revature.front.controller.DispatcherServlet</servlet-class>
+  	<servlet-name>FrontController</servlet-name>
+  	<servlet-class>com.revature.controller.FrontController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>DispatcherServlet</servlet-name>
+  	<servlet-name>FrontController</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
   

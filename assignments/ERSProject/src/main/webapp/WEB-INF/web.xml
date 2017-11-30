@@ -4,7 +4,7 @@
   
   <servlet>
   	<servlet-name>DispatcherServlet</servlet-name>
-  	<servlet-class>com.revature.front.controller.DispatcherServlet</servlet-class>
+  	<servlet-class>com.revature.controllers.DispatcherServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
