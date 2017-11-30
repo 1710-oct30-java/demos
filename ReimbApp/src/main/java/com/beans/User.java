@@ -10,6 +10,7 @@ public class User
 	private String email;
 	private int roleId;
 	private String roleName;
+	private byte[] salt;
 
 	public User(int userId, String username, String password, String fName, String lName, String email, int roleId)
 	{
@@ -107,6 +108,16 @@ public class User
 	public void setRoleName(String roleName)
 	{
 		this.roleName = roleName;
+	}
+
+	public byte[] getSalt()
+	{
+		return salt;
+	}
+
+	public void setSalt(byte[] salt)
+	{
+		this.salt = salt;
 	}
 
 	@Override

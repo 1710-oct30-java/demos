@@ -83,36 +83,36 @@ table, th, td
 
 /* The about link: 20px from the top with a green background */
 #request {
-    top: 20px;
+    top: 0px;
     background-color: #4CAF50;
 }
 
 #mine {
-    top: 80px;
+    top: 60px;
     background-color: rgb(128, 0, 28)/* Light Black */
 }
 
 #all {
-    top: 140px;
+    top: 120px;
     background-color: #2196F3; /* Blue */
 }
 
 #pending {
-    top: 200px;
+    top: 180px;
     background-color: #f44336; /* Red */
 }
 
 #denied {
-    top: 260px;
+    top: 240px;
     background-color: #555/* Light Black */
 }
 
 #approved {
-    top: 320px;
+    top: 300px;
     background-color: #ff00f2/* Light Black */
 }
 #logout {
-    top: 380px;
+    top: 360px;
     background-color: #0029b1/* Light Black */
 }
 

@@ -10,18 +10,20 @@ public class Password
 	// public static void main(String[] args) throws NoSuchAlgorithmException,
 	// NoSuchProviderException
 	// {
-	// String passwordToHash = "password";
+	// String passwordToHash = "Thiencao92";
 	// byte[] salt = getSalt();
-	//
+	// byte[] test = salt;
+	// System.out.println(test);
 	// String securePassword = getSecurePassword(passwordToHash, salt);
-	// System.out.println(securePassword); //Prints 83ee5baeea20b6c21635e4ea67847f66
+	// System.out.println(securePassword); // Prints
+	// 83ee5baeea20b6c21635e4ea67847f66
 	//
 	// String regeneratedPassowrdToVerify = getSecurePassword(passwordToHash, salt);
-	// System.out.println(regeneratedPassowrdToVerify); //Prints
-	// 83ee5baeea20b6c21635e4ea67847f66
+	// System.out.println(regeneratedPassowrdToVerify); //
+	// Prints83ee5baeea20b6c21635e4ea67847f66
 	// }
 
-	private static String getSecurePassword(String passwordToHash, byte[] salt)
+	public String getSecurePassword(String passwordToHash, byte[] salt)
 	{
 		String generatedPassword = null;
 		try
@@ -50,7 +52,7 @@ public class Password
 	}
 
 	// Add salt
-	private static byte[] getSalt() throws NoSuchAlgorithmException, NoSuchProviderException
+	public byte[] getSalt() throws NoSuchAlgorithmException, NoSuchProviderException
 	{
 		// Always use a SecureRandom generator
 		SecureRandom sr = SecureRandom.getInstance("SHA1PRNG", "SUN");
@@ -59,6 +61,8 @@ public class Password
 		// Get a random salt
 		sr.nextBytes(salt);
 		// return salt
+		System.out.println(salt);
 		return salt;
+
 	}
 }

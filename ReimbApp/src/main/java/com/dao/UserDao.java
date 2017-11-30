@@ -23,4 +23,6 @@ public interface UserDao
 	User getUser(String username);
 
 	String getName(int id);
+
+	void insertUser(User u);
 }

@@ -5,10 +5,12 @@ import org.apache.log4j.Logger;
 import com.beans.User;
 import com.dao.UserDao;
 import com.dao.UserDaoJDBC;
+import com.util.Password;
 
 public class LoginService
 {
 	Logger log = Logger.getRootLogger();
+	Password hashing = new Password();
 
 	private UserDao ud = new UserDaoJDBC();
 
@@ -17,18 +19,25 @@ public class LoginService
 		try
 		{
 			User u = ud.getUser(cred.getUsername());
+
 			if (u == null)
 			{
 				return null;
 			}
-			else if (u.getPassword().equals(cred.getPassword()))
-			{
-				return u;
-			}
 			else
 			{
-				return null;
+				String credPassword = cred.getPassword();
+				credPassword = hashing.getSecurePassword(credPassword, u.getSalt());
+				if (u.getPassword().equals(credPassword))
+				{
+					return u;
+				}
+				else
+				{
+					return null;
+				}
 			}
+
 		}
 		catch (IndexOutOfBoundsException e)
 		{

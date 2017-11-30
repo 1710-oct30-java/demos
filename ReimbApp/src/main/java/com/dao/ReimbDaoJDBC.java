@@ -170,6 +170,7 @@ public class ReimbDaoJDBC implements ReimbDao
 				ps = conn.prepareStatement(
 						"SELECT TO_CHAR(submitted,'MON-DD-YYYY HH24:MI') \"Date\" FROM Reimb WHERE id=?");
 				ps.setInt(1, temp.getReimbId());
+
 				ResultSet rs1 = ps.executeQuery();
 
 				rs1.next();

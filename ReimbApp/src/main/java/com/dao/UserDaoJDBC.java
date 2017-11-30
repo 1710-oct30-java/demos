@@ -27,6 +27,7 @@ public class UserDaoJDBC implements UserDao
 		user.setlName(rs.getString("last_name"));
 		user.setEmail(rs.getString("email"));
 		user.setRoleId(rs.getInt("role_id"));
+		user.setSalt(rs.getBytes("salt"));
 
 		return user;
 	}
@@ -110,6 +111,34 @@ public class UserDaoJDBC implements UserDao
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return null;
+			}
+		}
+
+	}
+
+	@Override
+	public void insertUser(User u)
+	{
+		{
+			try (Connection conn = connUtil.getConnection())
+			{
+				String statement = "INSERT INTO users(username,password,first_name,last_name,email,role_id,salt) "
+						+ "VALUES (?,?,?,?,?,?,?)";
+				PreparedStatement ps = conn.prepareStatement(statement);
+				ps.setString(1, u.getUsername());
+				ps.setString(2, u.getPassword());
+				ps.setString(3, u.getfName());
+				ps.setString(4, u.getlName());
+				ps.setString(5, u.getEmail());
+				ps.setInt(6, u.getRoleId());
+				ps.setBytes(7, u.getSalt());
+				ps.executeQuery();
+			}
+			catch (SQLException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
 			}
 		}
 
