@@ -1,5 +1,12 @@
 package com.revature.util;
 
+/*
+ * Class: ConnectionUtil
+ * Author: Kyle Settles
+ * Description: Class used for making a connection to the database, grabs info from the database.properties
+ * 		Used in the DAOJbdc classes to make the connection
+ */
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -27,6 +34,7 @@ public class ConnectionUtil {
 		return conUtil;
 	}
 	
+	// gets the connection from the database.properties file
 	public Connection getConnection() throws SQLException{
 		Properties prop = new Properties();
 		try {

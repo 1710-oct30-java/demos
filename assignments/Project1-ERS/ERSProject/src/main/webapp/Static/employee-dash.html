@@ -1,66 +1,117 @@
+<!DOCTYPE html>
 <html>
 
-    <head>
-        <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-    crossorigin="anonymous">
-        
-        <link rel="stylesheet" href="./CSS/dash.css">
-        <title>ERS Dash</title>
-    </head>
-    
-    <body>
-        <div class="title-dash-container">
-            <h1 class="title">Expense Reimbursement System</h1>
-            <div class="nav nav-container">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Submit Reimbursement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
-                </ul>
+<head>
+    <title>ERS Dash</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/dash.css">
+</head>
+
+<body onload="displayByUser()">
+    <div class="title-dash-container">
+        <h1 class="title">Expense Reimbursement System</h1>
+        <div class="nav nav-container">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="logout()" href="#">Logout</a>
+                </li>
+            </ul>
+            <div id="searchbar">
+                <input id="search" type="text" placeholder="Search" onkeyup="searchTable()">
             </div>
         </div>
-        <div class="table-container">
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First Name</th>
-                  <th scope="col">Last Name</th>
-                  <th scope="col">Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>        
-        </div>       
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    </body>
+    </div>
+
+    <div class="table-container">
+        <div id="instructions">
+            <h3>Welcome to the Reimbursement Portal</h3>
+            <p>Here you will be able to add and view all reimbursements submitted to the system.</p>
+            <p>Finance Managers will view and approve or deny your reimbursements as they see fit.</p>
+        </div>
+
+        <div class="buttonDiv">
+            <h3>Employee Actions:</h3>
+            <button type="button" class="btn btn-primary buttons" data-toggle="modal" data-target="#submitReimbursement">Submit Reimbursement</button>
+        </div>
+
+        <div>
+            <table class="table" border="1">
+                <thead class='thead-dark'>
+                    <tr>
+                        <th>ID</th>
+                        <th>Amount</th>
+                        <th>Time Submitted</th>
+                        <th>Time Resolved</th>
+                        <th>Description</th>
+                        <th>Author</th>
+                        <th>Resolver</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="submitReimbursement" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Submit Reimbursement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <div>
+                                <label for="inputFirstName" class="col-sm-2 col-form-label">Amount:</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="amount" placeholder="How much?">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div>
+                                <label for="inputLastName" class="col-sm-2 col-form-label">Description:</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="description" placeholder="Describe Reimbursement">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div>
+                                <label for="inputState">Reimbursement Type:</label>
+                            </div>
+                            <select id="type" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>Food</option>
+                                <option>Lodging</option>
+                                <option>Travel</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="submitReimbursement()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="JS/reimbursement.js"></script>
+</body>
+
 </html>

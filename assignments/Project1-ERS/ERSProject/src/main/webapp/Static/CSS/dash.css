@@ -1,17 +1,68 @@
 .nav-container {
     padding-left: 20px;
 }
+
 .table-container {
-    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
 }
+
 .thead-dark {
     background-color: black;
     color: white;
 }
-.nav-link, nav-item{
-    background-color: black;
-    color: white;
-}
+
 .nav {
     background-color: black;
+    width: 100%;
+}
+
+#instructions {
+    padding-top: 25px;
+}
+
+.labels {
+    padding: 15px;
+}
+
+#search {
+    float: right;
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
+#searchbar {
+    float: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+
+.approved {
+    background-color: #adebad;
+}
+
+.denied {
+    background-color: #ff9999;
+}
+
+.buttonDiv {
+    padding: 10px;
+}
+
+.login-container {
+    padding-left: 30%;
+    padding-right: 30%;
+    padding-bottom: 15%;
+}
+
+.title {
+    text-align: center;
+    padding-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 5%;
 }

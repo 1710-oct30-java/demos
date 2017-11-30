@@ -1,5 +1,11 @@
 package com.revature.beans;
 
+/*
+ * Class: User
+ * Author: Kyle Settles
+ * Description: Bean used to represent the User object in the system, for registering and logging into the system
+ */
+
 public class User {
 
 	private int id;

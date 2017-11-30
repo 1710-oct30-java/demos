@@ -1,5 +1,11 @@
 package com.revature.beans;
 
+/*
+ * Class: Reimbursement
+ * Author: Kyle Settles
+ * Description: Bean used to represent the Reimbursement Object for use in the system
+ */
+
 import java.sql.Timestamp;
 
 public class Reimbursement {
@@ -176,5 +182,4 @@ public class Reimbursement {
 				+ ", description=" + description + ", authorId=" + authorId + ", resolverId=" + resolverId + ", status="
 				+ status + ", type=" + type + "]";
 	}
-	
 }
