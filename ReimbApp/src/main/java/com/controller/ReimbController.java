@@ -24,13 +24,18 @@ public class ReimbController
 			throws IOException, ServletException
 	{
 		log.debug("get in reimbctrl");
-		if (request.getSession().getAttribute("user") == null)
+		User u = (User) request.getSession().getAttribute("user");
+		if (u == null)
 		{
 			response.sendRedirect("/Reimbursement/login");
 		}
-		else
+		else if (u.getRoleId() == 1)
 		{
 			request.getRequestDispatcher("/static/reimb.html").forward(request, response);
+		}
+		else if (u.getRoleId() == 2)
+		{
+			request.getRequestDispatcher("/static/reimbM.html").forward(request, response);
 		}
 
 	}
@@ -66,7 +71,7 @@ public class ReimbController
 		ObjectMapper om = new ObjectMapper();
 		Reimb r = om.readValue(jb.toString(), Reimb.class);
 		r.setAuthor(u.getUserId());
-		rs.newReimb(r);
+		rs.newReimb(r, u.getUserId());
 
 	}
 

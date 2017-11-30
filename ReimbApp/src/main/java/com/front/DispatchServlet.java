@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 
 import com.controller.LoginController;
 import com.controller.ReimbController;
+import com.controller.ReimbMController;
 import com.services.ReimbService;
 
 public class DispatchServlet extends DefaultServlet
@@ -19,6 +20,7 @@ public class DispatchServlet extends DefaultServlet
 	ReimbService rs = new ReimbService();
 	LoginController lc = new LoginController();
 	ReimbController rc = new ReimbController();
+	ReimbMController rmc = new ReimbMController();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
@@ -45,6 +47,10 @@ public class DispatchServlet extends DefaultServlet
 					break;
 				case "/reimb":
 					rc.delegateGet(response, request);
+					break;
+				case "/reimbM":
+					rmc.delegateGet(response, request);
+					break;
 			}
 		}
 	}
@@ -61,6 +67,9 @@ public class DispatchServlet extends DefaultServlet
 				break;
 			case "/reimb":
 				rc.delegatePost(response, request);
+				break;
+			case "/reimbM":
+				rmc.delegatePost(response, request);
 				break;
 		}
 		// TODO Auto-generated method stub

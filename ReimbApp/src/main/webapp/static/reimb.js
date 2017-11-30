@@ -62,8 +62,9 @@ function startRequest(url, file) {
 	xmlHttp.send(file);
 }
 
-function createReimb(form) {
-	console.log(form.value);
+function createReimb(event) {
+	event.disabled = true;
+	event.childNodes[0].nodeValue = 'Submitted';
 	let reimbRec = {
 		"amount": document.getElementById('inputAmount').value,
 		"description": document.getElementById('inputDescription').value,
@@ -73,8 +74,12 @@ function createReimb(form) {
 	startRequest('./reimb', JSON.stringify(reimbRec));
 }
 
+
+
 function clearForm() {
 	document.getElementById('newReimb').reset();
 }
+
+
 
 

@@ -17,6 +17,7 @@ public class Reimb
 	private String statusName;
 	private String typeName;
 	private String submitTimePretty;
+	private String resolvedTimePretty;
 
 	public Reimb(int reimbId, double amount, String submitTime, String resolveTime, String description, String receipt,
 			int author, int resolver, int statusId, int type)
@@ -188,6 +189,16 @@ public class Reimb
 	public void setSubmitTimePretty(String submitTimePretty)
 	{
 		this.submitTimePretty = submitTimePretty;
+	}
+
+	public String getResolvedTimePretty()
+	{
+		return resolvedTimePretty;
+	}
+
+	public void setResolvedTimePretty(String resolvedTimePretty)
+	{
+		this.resolvedTimePretty = resolvedTimePretty;
 	}
 
 	@Override

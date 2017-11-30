@@ -58,6 +58,14 @@ public class LoginController
 			{
 				log.debug("logged in");
 				request.getSession().setAttribute("user", result);
+				if (result.getRoleId() == 1)
+				{
+					response.setStatus(200);
+				}
+				else if (result.getRoleId() == 2)
+				{
+					response.setStatus(201);
+				}
 
 			}
 

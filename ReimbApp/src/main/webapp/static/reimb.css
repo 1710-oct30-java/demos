@@ -1,7 +1,4 @@
-body
-{
-    background-color: white;
-}
+
 table
 {
     width: 100%;
@@ -11,8 +8,108 @@ table, th, td
 {
     border: 1px solid black;
 }
-/* th
-{
-    text-align:left;
-    column-width: 15%;
-} */
+
+.box-shadow {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+}
+
+#applyStatus {
+    width: 5em;  
+    height: 0.5em;
+    /* text-align: center; */
+    padding-bottom: 2em;
+}
+
+
+.sideBar {
+    position: fixed;
+    z-index: 1000;
+}
+.sideBarRight {
+    position: fixed;
+    z-index: 1000;
+}
+.sideBar.boxLeft {
+    width: 100%;
+    float:left;
+    padding: 0px 0px 0px 0px;
+    /* left:75px; */
+    background-color:rgb(255, 251, 0);
+    top:15%;
+}
+
+.sideBarRight.boxRight {
+    width: 100%;
+    float:right;
+    padding: 0px 0px 0px 0px;
+    /* left:75px; */
+    background-color:rgb(255, 251, 0);
+    top:1%;
+}
+/* Style the links inside the sidenav */
+#mySidenav a {
+    position: absolute; /* Position them relative to the browser window */
+    left: -120px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 150px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    text-align: left;
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenavRight a {
+    position: absolute; /* Position them relative to the browser window */
+    right: 0px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 40%; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 100%; /* Increase font size */
+    color: white; /* White text color */
+    text-align: left;
+    border-radius: 5px 0 0 5px; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+#mySidenavRight a:hover {
+    right: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background */
+#request {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+#all {
+    top: 80px;
+    background-color: #2196F3; /* Blue */
+}
+
+#pending {
+    top: 140px;
+    background-color: #f44336; /* Red */
+}
+
+#denied {
+    top: 200px;
+    background-color: #555/* Light Black */
+}
+
+#approved {
+    top: 260px;
+    background-color: #ff00f2/* Light Black */
+}
+#errChangeOwn {
+    /* top: 2px; */
+    opacity: 0;
+    filter: alpha(opacity=0); /* For IE8 and earlier */
+    background-color: #ff0000/* Light Black */
+}
+

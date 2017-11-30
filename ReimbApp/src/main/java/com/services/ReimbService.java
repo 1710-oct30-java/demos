@@ -26,10 +26,21 @@ public class ReimbService
 	private RoleDao rld = new RoleDaoJDBC();
 	private UserDao ud = new UserDaoJDBC();
 
-	public List<Reimb> getAllReimb()
+	public String getAllReimb() throws IOException
 	{
 		// have checks to see if the user requesting this is an admin
-		return rd.findAll();
+		List<Reimb> reimbTable = rd.findAll();
+
+		reimbTable = popType(reimbTable);
+		reimbTable = popStatus(reimbTable);
+		reimbTable = popAuthor(reimbTable);
+		reimbTable = popResolver(reimbTable);
+
+		ObjectMapper om = new ObjectMapper();
+		ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
+		String json = ow.writeValueAsString(reimbTable);
+		return json;
+
 	}
 
 	public String getUserReimb(User cred) throws IOException
@@ -47,9 +58,17 @@ public class ReimbService
 		return json;
 	}
 
-	public void newReimb(Reimb reimb)
+	public void newReimb(Reimb reimb, int resolver)
 	{
-		rd.insertNewReimb(reimb);
+		if (rd.reimbExistsChanged(reimb))
+		{
+
+			rd.updateReimb(reimb, resolver);
+		}
+		else
+		{
+			rd.insertNewReimb(reimb);
+		}
 	}
 
 	public List<Reimb> popType(List<Reimb> temp)
@@ -88,4 +107,20 @@ public class ReimbService
 		}
 		return temp;
 	}
+
+	public String getReimbOnStatus(int num) throws IOException
+	{
+		List<Reimb> reimbTable = rd.findOnStatus(num);
+
+		reimbTable = popType(reimbTable);
+		reimbTable = popStatus(reimbTable);
+		reimbTable = popAuthor(reimbTable);
+		reimbTable = popResolver(reimbTable);
+
+		ObjectMapper om = new ObjectMapper();
+		ObjectWriter ow = om.writer().withDefaultPrettyPrinter();
+		String json = ow.writeValueAsString(reimbTable);
+		return json;
+	}
+
 }
