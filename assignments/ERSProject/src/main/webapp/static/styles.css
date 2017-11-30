@@ -3,3 +3,7 @@
 .centered {
 	margin: 0 auto;
 }
+
+.float {
+	float: left;
+}
