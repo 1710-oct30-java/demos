@@ -27,7 +27,7 @@ public class ReimbursementDaoJDBC implements ReimbursementDAO{
 		
 		// gets all fields from the table
 		int id = rs.getInt("reimb_id");
-		int amount = rs.getInt("reimb_amount");
+		double amount = rs.getDouble("reimb_amount");
 		Timestamp submitted = rs.getTimestamp("reimb_submitted");
 		Timestamp resolved = rs.getTimestamp("reimb_resolved");
 		String description = rs.getString("reimb_description");
@@ -45,13 +45,13 @@ public class ReimbursementDaoJDBC implements ReimbursementDAO{
 		List<Reimbursement> userReimbursements = new ArrayList<>();
 		
 		try(Connection conn = conUtil.getConnection()){
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM ers_reimbursement WHERE reimb_author = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM ers_reimbursement WHERE reimb_author = ? ORDER BY reimb_id");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				int rId = rs.getInt("reimb_id");
-				int amount = rs.getInt("reimb_amount");
+				double amount = rs.getDouble("reimb_amount");
 				Timestamp submitted = rs.getTimestamp("reimb_submitted");
 				Timestamp resolved = rs.getTimestamp("reimb_resolved");
 				String description = rs.getString("reimb_description");
@@ -95,12 +95,12 @@ public class ReimbursementDaoJDBC implements ReimbursementDAO{
 		List<Reimbursement> reimbursements = new ArrayList<>();
 		
 		try(Connection conn = conUtil.getConnection()){
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM ers_reimbursement");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM ers_reimbursement ORDER BY reimb_id");
 			ResultSet rs = ps.executeQuery();
 						
 			while(rs.next()) {
 				int id = rs.getInt("reimb_id");
-				int amount = rs.getInt("reimb_amount");
+				double amount = rs.getDouble("reimb_amount");
 				Timestamp submitted = rs.getTimestamp("reimb_submitted");
 				Timestamp resolved = rs.getTimestamp("reimb_resolved");
 				String description = rs.getString("reimb_description");
@@ -125,7 +125,7 @@ public class ReimbursementDaoJDBC implements ReimbursementDAO{
 		try(Connection conn = conUtil.getConnection()){
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO ers_reimbursement (reimb_amount, reimb_submitted, reimb_resolved, reimb_description,reimb_author,reimb_status_id,reimb_type_id)"
 					+ "VALUES (?,?,?,?,?,?,?)", new String[] {"reimb_id"});
-			ps.setInt(1, rb.getAmount());
+			ps.setDouble(1, rb.getAmount());
 			ps.setTimestamp(2, rb.getSubmitted());
 			ps.setTimestamp(3, rb.getResolved());
 			ps.setString(4, rb.getDescription());

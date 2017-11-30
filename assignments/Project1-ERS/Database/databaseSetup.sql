@@ -154,6 +154,5 @@ VALUES (2, 'Manager');
 
 /* insert primary user */
 INSERT INTO ers_users (ers_users_id, ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id)
-VALUES (1, 'kylesettles', 'pass', 'Kyle', 'Settles', 'kylesettles@email.com', 1);
+VALUES (1, 'kylesettles', 'pass', 'Kyle', 'Settles', 'kylesettles@email.com', 2);
 
-/* insert first reimbursement */

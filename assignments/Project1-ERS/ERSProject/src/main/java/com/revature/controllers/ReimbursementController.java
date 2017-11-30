@@ -98,6 +98,7 @@ public class ReimbursementController {
 			json = request.getReader().lines().reduce((acc, curr) -> acc + curr).get();
 			ObjectMapper om = new ObjectMapper();
 			Reimbursement r = om.readValue(json, Reimbursement.class);
+			r.setAmount(r.getAmount());
 			r.setAuthorId((Integer)request.getSession().getAttribute("user"));
 			int newReimbursement = rs.add(r);
 			

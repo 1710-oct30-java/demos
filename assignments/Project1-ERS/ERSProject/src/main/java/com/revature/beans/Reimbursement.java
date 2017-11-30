@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 public class Reimbursement {
 
 	private int id;
-	private int amount;
+	private double amount;
 	private Timestamp submitted;
 	private Timestamp resolved;
 	private String description;
@@ -24,7 +24,7 @@ public class Reimbursement {
 		super();
 	}
 
-	public Reimbursement(int id, int amount, Timestamp submitted, Timestamp resolved, String description, int authorId,
+	public Reimbursement(int id, double amount, Timestamp submitted, Timestamp resolved, String description, int authorId,
 			int resolverId, int status, int type) {
 		this.id = id;
 		this.amount = amount;
@@ -37,7 +37,7 @@ public class Reimbursement {
 		this.type = type;
 	}
 	
-	public Reimbursement(int amount, Timestamp submitted, Timestamp resolved, String description, int authorId,
+	public Reimbursement(double amount, Timestamp submitted, Timestamp resolved, String description, int authorId,
 			int resolverId, int status, int type) {
 		this.amount = amount;
 		this.submitted = submitted;
@@ -57,11 +57,11 @@ public class Reimbursement {
 		this.id = id;
 	}
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
@@ -125,7 +125,9 @@ public class Reimbursement {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + amount;
+		long temp;
+		temp = Double.doubleToLongBits(amount);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + authorId;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
@@ -146,7 +148,7 @@ public class Reimbursement {
 		if (getClass() != obj.getClass())
 			return false;
 		Reimbursement other = (Reimbursement) obj;
-		if (amount != other.amount)
+		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
 		if (authorId != other.authorId)
 			return false;
