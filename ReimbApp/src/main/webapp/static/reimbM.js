@@ -71,7 +71,7 @@ function insert_row_filter(num) {
                 </form>
 		 	</tr>`
         }
-        else{
+        else {
             insert_row
         }
     }
@@ -155,6 +155,34 @@ function getMine() {
     startRequest('./reimbM', 'mine');
 }
 
+function filterMine() {
+    document.getElementById('rowEntry').innerHTML = '';
+    for (let i = 0; i < myJson.length; i++) {
+        document.getElementById('rowEntry').innerHTML +=
+            `<tr onchange="updateStatus(this)">
+                <form onsubmit="event.preventDefault()">
+                    <th id="udpateId" scope="row">${myJson[i].reimbId}</th>
+                    <td align="center">$${myJson[i].amount}</td>
+                    <td align="center">${myJson[i].submitTimePretty}</td>
+                    <td align="center">${myJson[i].resolvedTimePretty}</td>
+                    <td align="center">${myJson[i].description}</td>
+                    <td align="center">${myJson[i].receipt}</td>
+                    <td align="center">${myJson[i].authorName}</td>
+                    <td align="center">${myJson[i].resolverName}</td>
+                    <td id="updateStatusName">${myJson[i].statusName}</td>
+                    <td align="center">${myJson[i].typeName}</td>
+                    <td align="center">
+                        <select id="actionStatus${myJson[i].reimbId}">
+                            <option value="0">Action</option>
+                            <option value="1">Pending</option>
+                            <option value="2">Denied</option>
+                            <option value="3">Approved</option>
+                        </select>
+                    </td>
+                </form>
+		 	</tr>`
+    }
+}
 
 function clearForm() {
     document.getElementById('newReimb').reset();
@@ -176,8 +204,7 @@ function errChangeOwn() {
     // tick();
 }
 
-function logOut()
-{
+function logOut() {
     window.location = './login';
 }
 // setTimeout(

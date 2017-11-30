@@ -1,63 +1,19 @@
-.sideBar {
-    position: fixed;
-    z-index: 1000;
-}
-.sideBar.boxLeft {
-    width: 100%;
-    float:left;
-    padding: 0px 0px 0px 0px;
-    /* left:75px; */
-    background-color:rgb(255, 251, 0);
-    top:30%;
-}
-.mainPage 
-{
-    padding: 0 0 0 400px;
-}
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+    height: 5px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  }
 
-.mainPage p
-{
-   text-align:left;
-    padding:0 0 0 2px;
-}
-
-
-/* Style the links inside the sidenav */
-#mySidenav a {
-    position: absolute; /* Position them relative to the browser window */
-    left: -10%; /* Position them outside of the screen */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 2%; /* 15px padding */
-    width: 15%; /* Set a specific width */
-    text-decoration: none; /* Remove underline */
-    font-size: 100%; /* Increase font size */
-    color: white; /* White text color */
-    text-align:left;
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
-}
-
-#mySidenav a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
-}
-
-/* The about link: 20px from the top with a green background */
-#about {
-    top: 20px;
-    background-color: #4CAF50;
-}
-
-#blog {
-    top: 80px;
-    background-color: #2196F3; /* Blue */
-}
-
-#projects {
-    top: 140px;
-    background-color: #f44336; /* Red */
-}
-
-#contact {
-    top: 200px;
-    background-color: #555 /* Light Black */
-}
-
+  .form-signin {
+	position: relative;
+	box-sizing: border-box;
+	height: auto;
+	padding: 10px;
+	font-size: 16px;
+  }

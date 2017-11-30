@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Login</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
 	 crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -35,22 +35,22 @@
 			<div class="col-6">
 				<form class="form-signin" method="post" onsubmit="event.preventDefault();login()">
 					<h2 class="form-signin-heading" align="center">Welcome</h2>
+					<hr class="colorgraph">
 					<label for="inputUsername" class="sr-only">Email address</label>
 					<input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
 					<label for="inputPassword" class="sr-only">Password</label>
 					<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+					<hr class="colorgraph">
 					<div id="loginButton" align="center">
 						<div class="same-line">
-							<button class="btn btn-sm btn-primary btn-block" type="submit" name="Login" value="Login">Sign in</button>
+							<button class="btn btn-lg btn-primary btn-block" type="submit" name="Login" value="Login">Sign in</button>
 						</div>
 					</div>
 				</form>
 			</div>
 			<div class="col-3">
-				<div id="error" class="container"></div>
 			</div>
 		</div>
-
 	</div>
 
 	<div class="modal fade" id="errAuthModal" role="dialog">
@@ -59,10 +59,14 @@
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title"><u>Failed to Log in</u></h4>
+					<h4 class="modal-title">
+						<u>Failed to Log in</u>
+					</h4>
 				</div>
 				<div class="modal-body">
-					<p><strong>Invalid Username/Password</strong></p>
+					<p>
+						<strong>Invalid Username/Password</strong>
+					</p>
 				</div>
 			</div>
 
