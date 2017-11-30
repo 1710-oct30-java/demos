@@ -1,0 +1,64 @@
+<html>
+
+<link rel="stylesheet" 
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+   integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+   crossorigin="anonymous">
+   <body style="background-color:#66CDAA;" onload="getAllReimbursements()">
+   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+       <script src="reimbursement.js"></script>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <h1 font= "Helvetica Header" style="color: #800000" align="center" class="title">Manager Home Page</h1>
+    <span class="navbar-toggler-icon"></span>
+<div>
+<form align ="center">
+                    <label> Reimbursusement ID</label>
+                    <input type="number" id="reimbId">
+                    <div  class="form-group col-md-4" >
+                        <label align="center" for="inputState">Approve or Deny?</label>
+                        <select id="status" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>Approve</option>
+                            <option>Deny</option>
+                        </select>
+                    </div>
+                </form>
+</div>
+
+ <div class="title-dash-container">
+  <link rel="stylesheet" href="./static/reimbursement.css">
+        
+          
+           
+           <button align = "center" style="background-color:darkblue" class="btn btn-primary btn-lg btn-block"  onclick = "ApproveDeny()"> Approve or Deny Reimbursement Request </button>
+           <div class="nav nav-container">
+               <ul class="nav nav-pills">
+                   <li class="nav-item">
+                       <a class="nav-link" href="#">Home</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" onclick="showAddReimbursement()" href="#">Submit Reimbursement</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" onclick="logout()" href="#">Logout</a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+     <table id = "table" align = "center" border= "1" style="background-color:#FFFFE0"> 
+     </table>
+      
+      </li>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    </form>
+  </div>
+  <script src = "./manager.js"></script>
+  </body>
+   
+</nav>
+</html>

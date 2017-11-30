@@ -1,0 +1,49 @@
+<html>
+<head>
+ <link rel="stylesheet" href="./static/reimbursement.css">
+<link rel="stylesheet" 
+   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+   integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+   crossorigin="anonymous">
+</head>
+
+   <body style="background-color:#B0C4DE;" onload="displayByUser()">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"></a>
+  
+    <span class="navbar-toggler-icon"></span>
+
+
+ <div class="title-dash-container">
+ 
+           <h2 font="Verdana" style="color: darkviolet" style="font-size:40px" align="center" class="title">Welcome to The Expense Reimbursement System Home Page!</h2>
+           <br>
+           <p style="font-size:19px" align ="left"> Listed Below is a table of all of your previous Reimbursement requests. Refer to the "status" 
+           column to see if your request is either pending, was approved, or denied. Check back at a later date to see the status </p>
+           
+           <div class="nav nav-container">
+               <ul class="nav nav-pills">
+                   <li class="nav-item" >
+                       <a align="center" style="background-color:violet" class="nav-link" href="#">Home</a>
+                   </li>
+                   <li class="nav-item">
+                       <a style="background-color:lightgreen" class="nav-link" onclick="showAddReimbursement()" href="#">Add Reimbursement</a>
+                   </li>
+                   <li class="nav-item">
+                       <a style="background-color:lightblue"class="nav-link" onclick="logout()" href="#">Logout</a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+       <div></div>
+<table  style="width:100%;background-color:#F5DEB3;" id = "table" align = "center" border= "5">
+
+     </table>
+     </nav>
+  <script src = "./reimbursement.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="reimbursement.js"></script>
+  </body>
+</html>
