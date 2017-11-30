@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+
+<link href="bootstrap.min.css" rel="stylesheet">
+<link href="login.css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</head>
+<body>
+
+	<script src="landing.js"></script>
+  <script src="bootstrap.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="jquery-3.2.1.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  
+<img src="ERS_logo2.png"></img><br><br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand"  href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" onclick="event.preventDefault(); home()" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Requests
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" onclick="event.preventDefault(); myRequests()" href="#">View All My Requests</a>
+          <a class="dropdown-item" onclick="event.preventDefault(); myPending()" href="#">View My Pending Requests</a>
+          <a class="dropdown-item" onclick="event.preventDefault(); newRequest()" href="#">Create New Reimbursement Request</a>
+
+        </div>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+<p id="returnBody"></p>
+<p id="returnBody2"></p>
+</div>
+
+<table class="table" id="myTable" style="display:none">
+    <thead>
+      <tr>
+
+        <th>Id</th>
+        <th>Amount</th>
+        <th>Submitted</th>
+        <th>Resolved</th>
+        <th>Description</th>
+        <th>Author Id</th>
+        <th>Resolver Id</th>
+        <th>Status Id</th>
+        <th>Type Id</th>
+      </tr>
+    </thead>
+    <tbody id="request-table-body">
+    </tbody>
+  </table> 
+  
+  <form class="form-horizontal" id="newReq" onsubmit="event.preventDefault(); submitRequest()" style="display:none" >
+<fieldset>
+
+<!-- Form Name -->
+<legend>Submit Reimbursement Request</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="amountInput">Amount</label>  
+  <div class="col-md-4">
+  <input id="amountInput" name="amountInput" type="text" placeholder="0.00" class="form-control input-md" required>
+  <span class="help-block">Amount to be reimbursed in format 0.00</span>  
+  </div>
+</div>
+
+<!-- Select Multiple -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="reimbType">Reimbursement Type</label>
+  <div class="col-md-4">
+    <select id="reimbType" name="reimbType" class="form-control" required>
+      <option value="1">Lodging</option>
+      <option value="2">Travel</option>
+      <option value="3">Food</option>
+      <option value="4">Other</option>
+    </select>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="reimbDescription">Description</label>
+  <div class="col-md-4">                     
+    <textarea class="form-control" id="reimbDescription" name="reimbDescription" required></textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submitReqButton">Submit Request</label>
+  <div class="col-md-4">
+    <button id="submitReqButton" name="submitReqButton" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+  
+
+ 
+</body>
+</html>

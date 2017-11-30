@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+
+<link href="bootstrap.min.css" rel="stylesheet">
+<link href="login.css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</head>
+<body>
+
+	<script src="landing.js"></script>
+  <script src="bootstrap.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="jquery-3.2.1.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  
+<img src="ERS_logo2.png"></img><br><br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand"  href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" onclick="event.preventDefault(); home()" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Requests
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" onclick="event.preventDefault(); allRequests()" href="#">View all requests</a>
+          <a class="dropdown-item" onclick="event.preventDefault(); allPendingRequests()"  href="#">View pending requests</a>
+          <a class="dropdown-item" onclick="event.preventDefault(); allApprovedRequests()"  href="#">View approved requests</a>
+          <a class="dropdown-item" onclick="event.preventDefault(); allDeniedRequests()"  href="#">View denied requests</a>
+          <a class="dropdown-item" onclick="event.preventDefault(); approveReimbursementForm()"  href="#">Approve Reimbursement</a>
+          <a class="dropdown-item" onclick="event.preventDefault(); denyReimbursementForm()"  href="#">Deny Reimbursement</a>
+        </div>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Users
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" onclick="event.preventDefault(); allUsers()" href="#">View all users</a>
+        </div>
+      </li>
+ 
+    </ul>
+              <div class="nav-item" style="float:right">
+        <input id="search" type="text" placeholder="Search" onkeyup="searchTable()">
+        </div>
+  </div>
+</nav>
+
+<div class="container">
+<p id="returnBody"></p>
+<p id="returnBody2"></p>
+</div>
+
+<table class="table" id="myTable" style="display:none">
+    <thead>
+      <tr>
+
+        <th>Id</th>
+        <th>Amount</th>
+        <th>Submitted</th>
+        <th>Resolved</th>
+        <th>Description</th>
+        <th>Author Id</th>
+        <th>Resolver Id</th>
+        <th>Status Id</th>
+        <th>Type Id</th>
+      </tr>
+    </thead>
+    <tbody id="request-table-body">
+    </tbody>
+  </table> 
+  
+  <form class="form-signin" onsubmit="event.preventDefault(); approveReimbursement()" id="approveReimbursement" style="display:none">
+  Approve Reimbursement by ID <br><br>
+  <input id="reimbursementId" type="number" placeholder="Enter ID"><br><br>
+  <button id="approveButton" type="submit">Submit Approval</button>
+  </form>
+  
+   <form class="form-signin" onsubmit="event.preventDefault(); denyReimbursement()" id="denyReimbursement" style="display:none">
+  Deny Reimbursement by ID <br><br>
+  <input id="denyId" type="number" placeholder="Enter ID"><br><br>
+  <button id="denyButton" type="submit">Submit Denial</button>
+  </form>
+  
+
+ 
+</body>
+</html>

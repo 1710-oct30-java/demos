@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../../../favicon.ico">
+
+
+<link href="bootstrap.min.css" rel="stylesheet">
+<link href="login.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="container">
+
+
+		<form class="form-signin" onsubmit="event.preventDefault(); login()">
+			<h2 class="form-signin-heading">
+				&emsp;<img src="ERS_logo.png" alt="Logo">
+			</h2>
+			<label for="inputUsername" class="sr-only">Email address</label> <input
+				type="text" id="username" class="form-control"
+				placeholder="Username" required autofocus> <label
+				for="inputPassword" class="sr-only">Password</label> <input
+				type="password" id="password" class="form-control"
+				placeholder="Password" required>
+			<div class="checkbox">
+				<label> <input type="checkbox" value="remember-me">
+					Remember me
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" id="loginButton"
+				type="submit">Sign in</button>
+		</form>
+		<script src="login.js">
+  </script>
+
+	</div>
+</body>
+
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+    <form onsubmit="event.preventDefault(); login()">
+    <input type="text" id = "username" placeholder="username">
+    <input type="password" id = "password" placeholder="password">
+    <input type="submit">
+    </form>
+    
+    <script src = "login.js"></script>
+</body>
+</html> -->
