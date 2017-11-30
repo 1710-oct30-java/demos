@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reimbursement Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="reimbursement.css">
+  <link rel="stylesheet" href="reimb.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="instruct">
+  <h2>Reimbursement Management</h2>
+  <p>
+	 When adding a reimbursement, valid type IDs are 1, 2, 3, or 4 for food, general, travel, or lodging respectively.
+  </p>
+  <h4>MANAGERS</h4>
+  <p>
+	 Managers, please enter the ID of the reimbursement you wish to resolve as well as the new status ID. Entering 1,
+	 2, or 3 as the status ID will set the reimbursement to approved, denied, or pending respectively. Managers cannot
+	 resolve their own reimbursements. 	
+  </p>
+  </div>
+  <div style="padding: 25px; display:none" id="tableDiv">
+  <input id="search" type="text" placeholder="Search" onkeyup="searchTable()" style="align: center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>Time Submitted</th>
+        <th>Time Resolved</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Resolver</th>
+        <th>Status</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody id="reimb">
+    </table>
+  </div>
+  <div class="forms">
+  	<button class="btn btn-lg btn-primary btn-block"  onclick="showUserTickets(); showDiv()">View Your Tickets</button>
+  	<button class="btn btn-lg btn-primary btn-block"  onclick="showAllReimbursements(); showDiv()">View All Tickets (Managers Only)</button>
+  	<form class="form-signin" onsubmit="event.preventDefault(); addReimbursement()">
+        <h2 class="form-signin-heading"></h2>
+        <label for="inputAmount" class="sr-only">Amount</label>
+        <input type="text" id="inputAmount" class="form-control" placeholder="Amount" required autofocus>
+        <label for="inputDescription" class="sr-only">Description</label>
+        <input type="text" id="inputDescription" class="form-control" placeholder="Description" required>
+        <label for="inputTypeId" class="sr-only">TypeId</label>
+        <input type="text" id="inputTypeId" class="form-control" placeholder="TypeId" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Add Reimbursement</button>
+      </form>
+      <form class="form-signin" onsubmit="event.preventDefault(); resolveReimbursement()">
+        <h2 class="form-signin-heading"></h2>
+        <label for="inputId" class="sr-only">ID</label>
+        <input type="text" id="inputId" class="form-control" placeholder="ID" required autofocus>
+        <label for="inputStatusId" class="sr-only">Status ID</label>
+        <input type="text" id="inputStatusId" class="form-control" placeholder="StatusID" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Resolve Reimbursement (Managers Only)</button>
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" onclick="logout()">Sign Out</button>
+      </form>
+      </div>
+</div>
+
+<script src="./showUserTickets.js"></script> 
+<script src="./showAllReimbursements.js"></script> 
+<script src="./addReimbursement.js"></script> 
+<script src="./resolveReimbursement.js"></script> 
+<script src="./logout.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
