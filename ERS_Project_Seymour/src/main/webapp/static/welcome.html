@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Add Rows To HTML Table From Array </title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <table id="table" border="1">
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Password</th>
+            </tr>
+        </table>
+        <script>
+            let array = [["A1","B1","C1"],
+                         ["A2","B2","C2"],
+                         ["A3","B3","C3"],
+                         ["A4","B4","C4"],
+                         ["A5","B5","C5"]];
+            let table = document.getElementById("table");
+           for(let i = 0; i < array.length; i++)
+           {
+               // create a new row
+               let newRow = table.insertRow(table.length);
+               for(let j = 0; j < array[i].length; j++)
+               {
+                   // create a new cell
+                   let cell = newRow.insertCell(j);
+                   // add value to the cell
+                   cell.innerHTML = array[i][j];
+               }
+           }
+        </script>
+    </body>
+</html>

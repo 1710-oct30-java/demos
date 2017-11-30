@@ -1,0 +1,71 @@
+@CHARSET "ISO-8859-1";
+
+#myCarousel {
+	padding: 0px;
+}
+
+body {
+	background-color: #F5F5F5;
+}
+
+.darkSection {
+	background-color: #2c3e50;
+	color: #F5F5F5;
+}
+
+.table thead {
+	background-color: #2c3e50;
+	color: #f5f5f5;
+}
+
+#marketplace-navbar{
+	top:110px;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+
+.showingTotal {
+	text-align: center;
+}
+
+
+
+
+
+#mydiv {
+
+  
+  height: 600px;
+  font-family: Arial;
+  padding: 10px;
+  line-height: 2em;
+  font-size: 1em;
+  
+}
+
+p::first-letter { 
+    font-size: 250%;
+    color: light-blue;
+}
+
+#togBut {
+  border: 2px solid white;
+  border-radius: 25px;
+  background: #8296DF;
+  padding: 5px;  
+
+}
+
+#togBut:hover {
+  background: black;
+  color: white;
+  
+  
+}
+
+/* To get Bootstrap's Nav Dropdown to expand on hover */
+/* .dropdown:hover .dropdown-menu { */
+/* 	display: block; */
+/* 	z-index: 1000; */
+/* } */
