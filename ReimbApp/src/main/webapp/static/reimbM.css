@@ -25,7 +25,10 @@ table, th, td
     position: fixed;
     z-index: 1000;
 }
-
+.sideBarRight {
+    position: fixed;
+    z-index: 1000;
+}
 .sideBar.boxLeft {
     width: 100%;
     float:left;
@@ -35,6 +38,14 @@ table, th, td
     top:15%;
 }
 
+.sideBarRight.boxRight {
+    width: 100%;
+    float:right;
+    padding: 0px 0px 0px 0px;
+    /* left:75px; */
+    background-color:rgb(255, 251, 0);
+    top:1%;
+}
 /* Style the links inside the sidenav */
 #mySidenav a {
     position: absolute; /* Position them relative to the browser window */
@@ -49,9 +60,25 @@ table, th, td
     border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
 }
 
+#mySidenavRight a {
+    position: absolute; /* Position them relative to the browser window */
+    right: 0px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 40%; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 100%; /* Increase font size */
+    color: white; /* White text color */
+    text-align: left;
+    border-radius: 5px 0 0 5px; /* Rounded corners on the top right and bottom right side */
+}
 
 #mySidenav a:hover {
     left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+#mySidenavRight a:hover {
+    right: 0; /* On mouse-over, make the elements appear as they should */
 }
 
 /* The about link: 20px from the top with a green background */
@@ -59,27 +86,40 @@ table, th, td
     top: 20px;
     background-color: #4CAF50;
 }
-#all {
+
+#mine {
     top: 80px;
+    background-color: rgb(128, 0, 28)/* Light Black */
+}
+
+#all {
+    top: 140px;
     background-color: #2196F3; /* Blue */
 }
 
 #pending {
-    top: 140px;
+    top: 200px;
     background-color: #f44336; /* Red */
 }
 
 #denied {
-    top: 200px;
+    top: 260px;
     background-color: #555/* Light Black */
 }
 
 #approved {
-    top: 260px;
+    top: 320px;
     background-color: #ff00f2/* Light Black */
 }
 #logout {
-    top: 320px;
+    top: 380px;
     background-color: #0029b1/* Light Black */
+}
+
+#errChangeOwn {
+    /* top: 2px; */
+    opacity: 0;
+    filter: alpha(opacity=0); /* For IE8 and earlier */
+    background-color: #ff0000/* Light Black */
 }
 

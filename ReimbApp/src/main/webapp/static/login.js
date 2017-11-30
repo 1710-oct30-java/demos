@@ -9,16 +9,6 @@ function removeHello() {
     console.log('removed');
 }
 
-document.getElementById('dummy').innerHTML +=
-    `
-<button id="dangerbutton" type="button" class="btn btn-danger">Danger</button>
-`
-
-// document.getElementById('error').innerText = 'Failed to login'; after failed validation
-
-document.getElementById('dangerbutton').addEventListener('click', () => {
-    document.getElementById('dangerbutton').remove();
-})
 
 function login() {
     let username = document.getElementById('inputUsername').value;
@@ -39,8 +29,7 @@ function login() {
             window.location = './reimbM';
         }
         else {
-            document.getElementById('error').innerHTML =
-                `Invalid user/password`
+            errAuthModal();
         }
     }
 
@@ -50,4 +39,10 @@ function login() {
     // JSON.stringify converts a JavaScript object to JSON
     // JSON.parse converts a string to a JavaScript object
     xhttp.send(JSON.stringify(user));
+}
+
+
+function errAuthModal(){
+    
+    $("#errAuthModal").modal("show");
 }

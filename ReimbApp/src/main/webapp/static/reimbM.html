@@ -14,7 +14,7 @@
 	 crossorigin="anonymous"></script>
 
 
-	<link rel="stylesheet" href="./static/reimb.css">
+	<link rel="stylesheet" href="./static/reimbM.css">
 	<script src="./static/reimbM.js"></script>
 
 </head>
@@ -101,7 +101,21 @@
 	</div>
 	<!-- modelFade-->
 
+	<div class="modal fade" id="errChangeModal" role="dialog">
+		<div class="modal-dialog">
 
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><u>Action Did Not Complete</u></h4>
+				</div>
+				<div class="modal-body">
+					<p><strong>Cannot Perform Action on Your Own Request</strong></p>
+				</div>
+			</div>
+
+		</div>
+	</div>
 
 	<!--New Request Button-->
 	<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -112,16 +126,10 @@
 			<a href="#" id="request" data-toggle="modal" data-target="#exampleModal">New Request</a>
 			<a href="#" id="mine" onClick="getMine()">My Requests</a>
 			<a href="#" id="all" onClick="getAll()">All</a>
-			<a href="#" id="pending" onClick="getPending()">Pending</a>
-			<a href="#" id="denied" onClick="getDenied()">Denied</a>
-			<a href="#" id="approved" onClick="getApproved()">Approved</a>
-
-		</div>
-	</div>
-
-	<div class="sideBarRight boxRight">
-		<div id="mySidenavRight" class="sidenavRight">
-			<a href="#" id="errChangeOwn">Cannot Perform Actions on Your Own Requests</a>
+			<a href="#" id="pending" onClick="insert_row_filter(1)">Pending</a>
+			<a href="#" id="denied" onClick="insert_row_filter(2)">Denied</a>
+			<a href="#" id="approved" onClick="insert_row_filter(3)">Approved</a>
+			<a href="#" id="logout" onClick="logOut()">Log Out</a>
 
 		</div>
 	</div>

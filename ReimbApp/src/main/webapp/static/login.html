@@ -39,11 +39,6 @@
 					<input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
 					<label for="inputPassword" class="sr-only">Password</label>
 					<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="remember-me"> Remember me
-						</label>
-					</div>
 					<div id="loginButton" align="center">
 						<div class="same-line">
 							<button class="btn btn-sm btn-primary btn-block" type="submit" name="Login" value="Login">Sign in</button>
@@ -55,8 +50,23 @@
 				<div id="error" class="container"></div>
 			</div>
 		</div>
-		<div id="dummy" class="container"></div>
 
+	</div>
+
+	<div class="modal fade" id="errAuthModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><u>Failed to Log in</u></h4>
+				</div>
+				<div class="modal-body">
+					<p><strong>Invalid Username/Password</strong></p>
+				</div>
+			</div>
+
+		</div>
 	</div>
 
 	<!-- 

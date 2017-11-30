@@ -57,22 +57,7 @@ public class ReimbMController
 
 		if (jb.length() == 0)
 		{
-			returnUserReimbJson(request, response);
-		}
-		else if (jb.toString().equals("pending"))
-		{
-			log.debug("request for pending reimb");
-			returnStatusReimbJson(request, response, 1);
-		}
-		else if (jb.toString().equals("denied"))
-		{
-			log.debug("request for denied reimb");
-			returnStatusReimbJson(request, response, 2);
-		}
-		else if (jb.toString().equals("approved"))
-		{
-			log.debug("request for approved reimb");
-			returnStatusReimbJson(request, response, 3);
+			returnAllReimbJson(request, response);
 		}
 		else if (jb.toString().equals("mine"))
 		{
@@ -81,7 +66,7 @@ public class ReimbMController
 		}
 		else if (jb.toString().equals("all"))
 		{
-			og.debug("request for my reimb");
+			log.debug("request for my reimb");
 			returnAllReimbJson(request, response);
 		}
 		else
@@ -152,15 +137,16 @@ public class ReimbMController
 
 	}
 
-	private void returnStatusReimbJson(HttpServletRequest request, HttpServletResponse response, int num)
-			throws IOException
-	{
-		String json = rs.getReimbOnStatus(num);
-		PrintWriter out = response.getWriter();
-		// System.out.println(json);
-		out.print(json);
-		out.close();
-
-	}
+	// private void returnStatusReimbJson(HttpServletRequest request,
+	// HttpServletResponse response, int num)
+	// throws IOException
+	// {
+	// String json = rs.getReimbOnStatus(num);
+	// PrintWriter out = response.getWriter();
+	// // System.out.println(json);
+	// out.print(json);
+	// out.close();
+	//
+	// }
 
 }
