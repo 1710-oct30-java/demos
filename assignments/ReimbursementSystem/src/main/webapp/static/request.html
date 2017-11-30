@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>New Request</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	 crossorigin="anonymous">
+</head>
+
+<body>
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+		</button>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="./home.html">Home
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="./reimb.html">Reimbursements
+					<span class="sr-only">(current)</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="./request.html">New Request
+				</a>
+			</li>
+		</ul>
+		</div>
+	</nav>
+	<div>Request a reimbursemenet</div>
+	<form method="post">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="amount">Reimbursement Amount</label>
+				<input type="text" class="form-control" id="amount" placeholder="Reimbursement Amount">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="description">Description</label>
+				<input type="text" class="form-control" id="description" placeholder="Description">
+			</div>
+		</div>
+		<div class="form-group col-md-4">
+			<label for="inputType">Reimbursement Type</label>
+			<select id="reimbType" class="form-control">
+				<option selected>Lodging</option>
+				<option selected>Travel</option>
+				<option selected>Food</option>
+				<option selected>Other</option>
+			</select>
+		</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Request</button>
+	</form>
+	<script src="./request.js"></script>
+	<script src="./home.js"></script>
+</body>
+
+</html>
