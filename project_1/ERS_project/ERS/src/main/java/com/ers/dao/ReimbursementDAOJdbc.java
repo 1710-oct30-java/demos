@@ -356,60 +356,38 @@ public class ReimbursementDAOJdbc implements ReimbursementDAO {
 	}
 	
 	
-	/**
-	 * Uses a SQL statement with Inner Joins to populate table data.
-	 * @return List of Reimbursements
-	 */
-	public List<Object> getReimbursementsFormatted() {
+	public int getIdOfLastReimbusement() {
 		
-		List<Object> list = new ArrayList<Object>();
-		
-		log.debug("Retrieving requests for all reimbursements...");
+		log.debug("Retrieving ID last reimbursement added...");
+		int id = 0;
 		
 		try (Connection conn = conUtil.getConnection()) {
 			
-			String query = 
-					"SELECT r_id, USERS.username, r_amount, r_submitted, r_resolved, r_description,\r\n" + 
-					"(SELECT username FROM USERS WHERE REIMBURSEMENT.R_RESOLVER = USERS.USER_ID) AS Approved_By,\r\n" + 
-					"(SELECT r_status FROM REIMBURSEMENT_STATUS WHERE r_status_id = REIMBURSEMENT.R_STATUS_ID) AS Status,\r\n" + 
-					"(SELECT r_type FROM REIMBURSEMENT_TYPE WHERE r_type_id = REIMBURSEMENT.R_type_ID) AS Status\r\n" + 
-					"FROM REIMBURSEMENT\r\n" + 
-					"INNER JOIN USERS ON REIMBURSEMENT.r_author = USERS.user_id\r\n" + 
-					"INNER JOIN REIMBURSEMENT_TYPE ON REIMBURSEMENT.r_type_id = REIMBURSEMENT_TYPE.r_type_id\r\n" + 
-					"INNER JOIN REIMBURSEMENT_STATUS ON REIMBURSEMENT.r_status_id = REIMBURSEMENT_STATUS.r_status_id";
-			
+			String query = "SELECT MAX(r_id) FROM REIMBURSEMENT";
 			PreparedStatement ps = conn.prepareStatement(query);
 
 			ResultSet rs = ps.executeQuery();
 
+			int row = 0;
 			while (rs.next()) {
-				list.add(rs.getString(1));
-				list.add(rs.getString(2));
-				list.add(rs.getString(3));
-				list.add(rs.getString(4));
-				list.add(rs.getString(5));
-				list.add(rs.getString(6));
-				list.add(rs.getString(7));
-				list.add(rs.getString(8));
-				list.add(rs.getString(9));
+				id = rs.getInt(1);
+				row++;
 			}
-
-			// Check if any pending requests are found
-			if (!list.isEmpty()) {
-				log.debug("Requests loaded!\n");
+			
+			if(row > 0) {
+				log.debug("ID #'" + id + "' found!\n");
 			}
-
-			// Else no pending request found
+			
 			else {
-				log.debug("No requests found!\n");
+				log.debug("ID not found!\n");
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			log.debug("Failed to retrieve requests!\n");
+			log.debug("Failed to retrieve ID!\n");
 		}
 		
-		return list;
+		return id;
 	}
 	
 }

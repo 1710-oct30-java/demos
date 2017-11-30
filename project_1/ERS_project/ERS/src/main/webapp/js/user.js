@@ -77,7 +77,7 @@ function managerInfo() {
 		  	<a href="/ERS/pages/reimbursements/view-all"><img class="tilt home-img" style="width: 200px;" src="images/icons/files.png"></a>
 		  	<br><br>
 		  	<div>
-				Here you can all users and reimbursements. You can search for users information and search for reimbursements.
+				Here you can view all users and reimbursements. You can search for users information and search for reimbursements.
 			</div>
 		  </div>
 		</div>

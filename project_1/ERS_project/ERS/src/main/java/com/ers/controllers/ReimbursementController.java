@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 
 import com.ers.beans.Reimbursement;
 import com.ers.beans.User;
+import com.ers.services.ManagerService;
 import com.ers.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -22,6 +23,7 @@ public class ReimbursementController {
 
 	private Logger log = Logger.getRootLogger();
 	UserService us = new UserService();
+	ManagerService ms = new ManagerService();
 
 	/************************************** GET **************************************/
 	/**
@@ -118,7 +120,14 @@ public class ReimbursementController {
             
             else {
             	log.debug("adding reimbursement...");
-                us.addReimbusement(user, reimb);
+            	
+            	// add reimbursement to database
+                us.addReimbusement(user, reimb);					
+
+                // Update user reimbursement that was just added 
+                user.getReimbursements().remove(user.getReimbursements().size() - 1);
+                user.getReimbursements().add(ms.getReimbursementById(ms.getIdOfLastReimbusement()));
+                
                 log.debug("reimbursement added!");
                 response.setHeader("success", "true");
                 response.setStatus(200);

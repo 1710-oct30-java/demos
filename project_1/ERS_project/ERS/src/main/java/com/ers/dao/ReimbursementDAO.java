@@ -67,4 +67,11 @@ public interface ReimbursementDAO {
 	 * @return List
 	 */
 	public List<Reimbursement> getReimbursementsByUserID(int r_author);
+	
+	
+	/**
+	 * Returns last reimbursement added to the database
+	 * @return Reimbursement
+	 */
+	public int getIdOfLastReimbusement();
 }

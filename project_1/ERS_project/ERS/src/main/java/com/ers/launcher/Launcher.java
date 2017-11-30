@@ -18,24 +18,6 @@ public class Launcher {
 	public static void main(String[] args) {
 		PropertyConfigurator.configure("src/main/resources/log4j.properties");
 		
-		ReimbursementDAOJdbc rm = new ReimbursementDAOJdbc();
-		
-		int i = 0;
-		for(Object obj:rm.getReimbursementsFormatted()) {
-			if(i % 9 == 0) {
-				System.out.println();
-				System.out.print(obj + " ");
-				i++;
-			}
-			else {
-				System.out.print(obj + " ");
-				i++;
-			}
-		}
-		
-		
-		
-		
 		/*
 		//ReimbursementDAO reimbDao = new ReimbursementDAO();
 		UserService us = new UserService();

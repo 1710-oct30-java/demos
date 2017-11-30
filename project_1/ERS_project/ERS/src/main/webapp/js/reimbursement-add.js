@@ -1,4 +1,7 @@
 function addReimbursement() {
+	hideAddButton();
+	showLoader();
+	
 	let amount = document.getElementById('r_amount').value;
     let type = getType();
     let description = document.getElementById('r_description').value;
@@ -25,6 +28,8 @@ function addReimbursement() {
 			</div>
 	    `;
 	    document.getElementById("add-reimbursement-form").reset();
+	    showAddButton();
+	    hideLoader();
 	  }
 	  
 	  else if(xhttp.getResponseHeader("success") === 'false'){
@@ -35,6 +40,9 @@ function addReimbursement() {
 			  <strong>Oh no!</strong> Please check your input.
 			</div>
 	    `;  
+		  
+		  showAddButton();
+		  hideLoader();
 	  }
 	};
     
@@ -74,10 +82,27 @@ function getType() {
 	return type;
 }
 
+/*
 function disableButton() {
 	document.getElementById("btn-add-reimbursement").disabled = true;
 }
 
 function enableButton() {
 	document.getElementById("btn-add-reimbursement").disabled = false;
+}
+*/
+function showAddButton() {
+	document.getElementById('btn-add-reimbursement').style.display = "block";
+}
+
+function hideAddButton() {
+	document.getElementById('btn-add-reimbursement').style.display = "none";
+}
+
+function showLoader() {
+	document.getElementById('loader-id').style.display = "block";
+}
+
+function hideLoader() {
+	document.getElementById('loader-id').style.display = "none";
 }

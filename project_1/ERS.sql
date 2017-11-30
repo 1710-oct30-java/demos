@@ -255,56 +255,56 @@ VALUES (4, 'Other');
 -- SAMPLE DATA
 --Users
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id)	-- 100000
-VALUES('batman', 'batman', 'Bruce', 'Wayne', 'batman@ers.com', 1);
+VALUES('wbruce', 'batman', 'Bruce', 'Wayne', 'batman@ers.com', 1);
 
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100001
-VALUES('edel', 'edel', 'Edel', 'Benavides', 'edel@ers.com', 1);
+VALUES('edel', 'password', 'Edel', 'Benavides', 'edel@ers.com', 1);
 
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100002
-VALUES('palfred', 'palfred', 'Alfred', 'Pennyworth', 'palfred@ers.com', 2);
+VALUES('palfred', 'password', 'Alfred', 'Pennyworth', 'palfred@ers.com', 2);
 
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100003
-VALUES('wonderwoman', 'wonderwoman', 'Diana', 'Prince', 'wonderwoman@ers.com', 2);
+VALUES('ppeter', 'spiderman', 'Peter', 'Parker', 'spiderman@ers.com', 2);
 
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100004
-VALUES('flash', 'flash', 'Barry', 'Allen', 'flash@ers.com', 2);
+VALUES('mjane', 'password', 'Mary', 'Jane', 'mjane@ers.com', 2);
 
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100005
-VALUES('superman', 'superman', 'Clark', 'Kent', 'superman@ers.com', 2);
+VALUES('felicity', 'password', 'Felicity', 'Smoak', 'felicity@ers.com', 2);
 
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100006
-VALUES('arrow', 'arrow', 'Olvier', 'Queen', 'arrow@ers.com', 2);
+VALUES('qoliver', 'arrow', 'Olvier', 'Queen', 'arrow@ers.com', 2);
 
 --Reimbursement
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (250, (SELECT CURRENT_TIMESTAMP FROM dual), 100001, 1, 3);
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (451.23, (SELECT CURRENT_TIMESTAMP FROM dual), 'Snacks for general team presentation.', 100000, 1, 3);
+
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (5941.47, (SELECT CURRENT_TIMESTAMP FROM dual), 'Batcave repairs.', 100002, 1, 4);
+
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (351.97, (SELECT CURRENT_TIMESTAMP FROM dual), 'Dinner with Mary Jane.', 100003, 1, 3);
+
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (3400, (SELECT CURRENT_TIMESTAMP FROM dual), 'Weekend in Italy!.', 100004, 1, 2);
+
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (550, (SELECT CURRENT_TIMESTAMP FROM dual), 'Relocation to Gotham.', 100006, 1, 2);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (1000, (SELECT CURRENT_TIMESTAMP FROM dual), 100001, 1, 1);
+VALUES (2100, (SELECT CURRENT_TIMESTAMP FROM dual), 100006, 1, 4);
+
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (600, (SELECT CURRENT_TIMESTAMP FROM dual), 'Relocation to Tampa.', 100006, 1, 2);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (1500, (SELECT CURRENT_TIMESTAMP FROM dual), 100002, 1, 2);
+VALUES (2300, (SELECT CURRENT_TIMESTAMP FROM dual), 100004, 1, 4);
 
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (1250, (SELECT CURRENT_TIMESTAMP FROM dual), 100002, 1, 1);
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (650.99, (SELECT CURRENT_TIMESTAMP FROM dual), 'New arrow gear.', 100006, 1, 1);
 
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (3000, (SELECT CURRENT_TIMESTAMP FROM dual), 100003, 1, 3);
-
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (2151.78, (SELECT CURRENT_TIMESTAMP FROM dual), 100003, 1, 4);
-
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (100.03, (SELECT CURRENT_TIMESTAMP FROM dual), 100000, 1, 3);
-
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (1251, (SELECT CURRENT_TIMESTAMP FROM dual), 100004, 1, 4);
-
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (143.42, (SELECT CURRENT_TIMESTAMP FROM dual), 100001, 1, 4);
-
-INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (33.51, (SELECT CURRENT_TIMESTAMP FROM dual), 100000, 1, 4);
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
+VALUES (3600, (SELECT CURRENT_TIMESTAMP FROM dual), 'Computer upgrade.', 100005, 1, 4);
 
 COMMIT;
 /*******************************************************************************
