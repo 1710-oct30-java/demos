@@ -24,6 +24,8 @@
   </p>
   </div>
   <div style="padding: 25px; display:none" id="tableDiv">
+  Use the search bar to filter. For example, typing in "pending" will only show pending tickets.
+  <br>
   <input id="search" type="text" placeholder="Search" onkeyup="searchTable()" style="align: center">
   <table class="table">
     <thead>
@@ -42,6 +44,7 @@
     <tbody id="reimb">
     </table>
   </div>
+  <br>
   <div class="forms">
   	<button class="btn btn-lg btn-primary btn-block"  onclick="showUserTickets(); showDiv()">View Your Tickets</button>
   	<button class="btn btn-lg btn-primary btn-block"  onclick="showAllReimbursements(); showDiv()">View All Tickets (Managers Only)</button>

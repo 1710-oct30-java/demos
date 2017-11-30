@@ -202,6 +202,9 @@ public class ReimbursementDAOJdbc implements ReimbursementDAO{
 		if (amount < 1) {
 			return;
 		}
+		if (typeId < 1 || typeId > 4) {
+			return;
+		}
 		try (Connection conn = cu.getConnection()) {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO reimbursement (reimb_amount, reimb_submitted, reimb_description, reimb_author,reimb_status_id, reimb_type_id)\r\n" + 
 					"VALUES (?, (SELECT CURRENT_TIMESTAMP FROM dual), ?, ?, 3, ?) ");
@@ -219,6 +222,9 @@ public class ReimbursementDAOJdbc implements ReimbursementDAO{
 	
 	public void approveOrDeny (Users u, int statusId, int id)
 	{
+		if (statusId < 1 || statusId > 3) {
+			return;
+		}
 		try (Connection conn = cu.getConnection()) {
 			if (u.getUser_role_id() == 1 || u.getUser_role_id() == 2) {
 				PreparedStatement ps = conn.prepareStatement("UPDATE reimbursement SET reimb_status_id = ?, reimb_resolver = ?, reimb_resolved = (SELECT CURRENT_TIMESTAMP FROM dual) WHERE (reimb_id = ? AND reimb_author != "+u.getUsers_id()+")");
