@@ -20,6 +20,7 @@ function checkIfFilled() {
 
 function buttonClick()
 {
+    $('#pleaseWaitDialog').modal();
     let firstname = document.getElementById('firstname').value;
     let lastname = document.getElementById('lastname').value;
     let email = document.getElementById('email').value;
@@ -32,6 +33,7 @@ function buttonClick()
     {
         let emailWarning = document.getElementById('emailwarn');
         emailWarning.style.opacity = 1;
+        $('#pleaseWaitDialog').modal('hide');
         return;
     }
     document.getElementById('emailwarn').style.opacity = 0;
@@ -60,6 +62,7 @@ function buttonClick()
             {
                 alert('technical difficulties')
             }
+            $('#pleaseWaitDialog').modal('hide');
         }
         xhttp.open('POST', './new');
         
@@ -72,5 +75,6 @@ function buttonClick()
         {
             label.style.opacity = 1;
         }
+        $('#pleaseWaitDialog').modal('hide');
     }
 }

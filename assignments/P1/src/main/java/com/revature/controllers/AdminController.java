@@ -101,12 +101,7 @@ public class AdminController {
 			} else if (actualURL.equals("/reim")) {
 				log.debug("attempting to get all reims");
 				List<Reimbursement> reims = rs.getAllReimbursements();
-				for(Reimbursement reim : reims)
-				{
-					reim.setReceipt(null);
-				}
-				List<Object> objects = new ArrayList<>();
-				objects.addAll(reims);
+				List<Object> objects = tools.removeReceiptAndObjectify(reims);
 				log.trace(objects);
 				if (reims != null) {
 					if (tools.loadResponseList(response, objects)) {

@@ -5,20 +5,24 @@ let Types = [];
 let statuss = [];
 let Me = null;
 let flag = false;
+$('#newReimModal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset');
+})
+$('#reimbursementInfo').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset');
+})
 function showPending() {
     console.log(flag);
-    if(flag)
-    {
+    if (flag) {
         flag = !flag;
         let pending = Reims.filter(i => i.statusId == (statuss.filter(i => i.name === 'pending')[0].id));
         console.log(pending);
         clearTable();
         setPendingButton('All Pending', pending.length)
         setReimTableContents(pending);
-        
+
     }
-    else
-    {
+    else {
         flag = !flag;
         let pending = Reims.filter(i => (i.statusId == (statuss.filter(i => i.name === 'pending')[0].id) && i.author !== Me.id));
         console.log(pending);
@@ -57,27 +61,26 @@ function addReim() {
             console.log('response is ');
             console.log(resp);
             let reimId = JSON.parse(resp.target.response);
-            console.log(reimId);
-
-            if (reimId)
-                sendFile(reimId);
-            else {
-                clearTable();
-                getReims();
-            }
+            sendFile(reimId);
         }
         else {
-            alert('fail');
-        }
+        alert('fail');
     }
-    xhttp.open('POST', './submit/newreim');
-    xhttp.send(JSON.stringify(reim));
+}
+xhttp.open('POST', './submit/newreim');
+xhttp.send(JSON.stringify(reim));
 }
 function sendFile(reimId) {
     let fileInput = document.getElementById('fileinput');
     let file = fileInput.files[0];
     let formData = new FormData();
     console.log(file);
+    if (!file) {
+        clearTable();
+        getReims();
+        $('#newReimModal').modal('hide');
+        return;
+    }
     formData.append('receipt', file, reimId.number);
     let xhr = new XMLHttpRequest();
     xhr.open('POST', './file');
@@ -153,16 +156,15 @@ function populateModal() {
 
 }
 function setStatus(num, author) {
-    if (author === Me.id || num !== (statuss.filter(i => i.name === 'pending')[0].id))
-    {
+    if (author === Me.id || num !== (statuss.filter(i => i.name === 'pending')[0].id)) {
         console.log('disabling');
-        $('#statusM').prop('disabled', true); 
-        $('#saveButton').prop('disabled',true);
+        $('#statusM').prop('disabled', true);
+        $('#saveButton').prop('disabled', true);
     }
-    else{
+    else {
 
-    $('#statusM').prop('disabled', false); 
-    $('#saveButton').prop('disabled',false);
+        $('#statusM').prop('disabled', false);
+        $('#saveButton').prop('disabled', false);
     }
     console.log('setting status')
     let options = document.getElementById('statusM').children;

@@ -113,14 +113,7 @@ function sendNewReim() {
     xhttp.onload = (resp) => {
         if (xhttp.status !== 500) {
             let reimId = JSON.parse(resp.target.response);
-            if(reimId)
-                sendFile(reimId);
-            else
-            {
-            clearTable();
-            getReims();
-            $('#pleaseWaitDialog').modal('hide');
-            }
+            sendFile(reimId);
         }
         else {
             alert('fail');
@@ -134,6 +127,13 @@ function sendFile(reimId){
     let file = fileInput.files[0];
     let formData = new FormData();
     console.log(file);
+    if(!file) 
+    {
+        $('#newReimModal').modal('hide');
+        clearTable();
+        getReims();
+        return;
+    }
     formData.append('receipt',file, reimId.number);
     let xhr = new XMLHttpRequest();
     xhr.open('POST', './file');
@@ -143,7 +143,6 @@ function sendFile(reimId){
             $('#newReimModal').modal('hide');
             clearTable();
             getReims();
-            $('#pleaseWaitDialog').modal('hide');
         } else{
             alert('An error occurred!');
         }
@@ -181,4 +180,11 @@ function populateModal() {
     document.getElementById('descriptionM').innerText = reim.description;
     document.getElementById('receiptM').innerText = (reim.hasFile ? 'File Submitted' : 'No File Submitted');
     setModalHeader(reim);
+}
+function sort() {
+    let sortByThis = event.path[0].id;
+    console.log(sortByThis);
+    sortResults(Reims, sortByThis, true);
+    clearTable();
+    setReimTableContents(Reims);
 }

@@ -13,6 +13,7 @@
   <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Custom styles for this template -->
   <link href="./static/css/ManagerMainPage.css" rel="stylesheet">
+  <link href="./static/css/loading.css" rel = "stylesheet">
   <link rel="icon" href="./static/img/aico.jpg">
   <title>Manager</title>
 </head>
@@ -175,12 +176,12 @@
     </div>
   </div>
   <div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-header">
+    <div class="modal-header" id = "loadingheader"> 
       <h1>Please Wait</h1>
     </div>
     <div class="modal-body">
       <div id="ajax_loader">
-        <img src="./static/img/usa-flag.gif" style="display: block; margin-left: auto; margin-right: auto;">
+        <img src="./static/img/usa-flag.gif" id = "loadinggif">
       </div>
     </div>
   </div>

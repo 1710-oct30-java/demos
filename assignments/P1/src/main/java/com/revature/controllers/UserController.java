@@ -1,7 +1,6 @@
 package com.revature.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -52,18 +51,11 @@ public class UserController {
 				User u = (User) request.getSession().getAttribute("user");
 				num = u.getId();
 				if (num > 0) {
-					List<Reimbursement> reim = rs.getReimbursement(num);
-					for(Reimbursement r : reim)
-					{
-						r.setReceipt(null);
-					}
-					List<Object> objects = new ArrayList<>();
-					objects.addAll(reim);
+					List<Reimbursement> reims = rs.getReimbursement(num);
+					List<Object> objects = tools.removeReceiptAndObjectify(reims);
 					if (tools.loadResponseList(response, objects)) {
 						log.debug("Successfully loaded all reimbursements of ID: " + num);
 					}
-
-				} else {
 
 				}
 			}

@@ -16,6 +16,7 @@
 <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Custom styles for this template -->
 <link href="./static/css/AdminPage.css" rel="stylesheet">
+<link href="./static/css/loading.css" rel = "stylesheet">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active" id="reimbursementsNav">
 					<!-- active makes the item active --> <a class="nav-link"
-					id="reimbursements" onclick="loadReims()">Reimbursements </a>
+					id="reimbursements" onclick="getReims()">Reimbursements </a>
 				</li>
 				<li class="nav-item" id="usersNav"><a class="nav-link"
 					id="Users" onclick="loadUsers()">Users </a></li>
@@ -195,13 +196,12 @@
 	</div>
 	<div class="modal hide" id="pleaseWaitDialog" data-backdrop="static"
 		data-keyboard="false">
-		<div class="modal-header">
+		<div class="modal-header" id = "loadingheader">
 			<h1>Please Wait</h1>
 		</div>
 		<div class="modal-body">
 			<div id="ajax_loader">
-				<img src="./static/img/usa-flag.gif"
-					style="display: block; margin-left: auto; margin-right: auto;">
+				<img src="./static/img/usa-flag.gif" id = "loadinggif">
 			</div>
 		</div>
 	</div>

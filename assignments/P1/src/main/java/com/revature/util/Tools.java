@@ -1,6 +1,7 @@
 package com.revature.util;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +10,7 @@ import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.beans.Credentials;
+import com.revature.beans.Reimbursement;
 import com.revature.beans.User;
 import com.revature.dao.UsersDAO;
 import com.revature.dao.UsersDAOjdbc;
@@ -58,5 +60,19 @@ public class Tools {
 			return false;
 		}
 		return true;
+	}
+
+	public boolean checkUser(String json) {
+		
+		return false;
+	}
+	public List<Object> removeReceiptAndObjectify(List<Reimbursement> reims)
+	{
+		for (Reimbursement reim : reims) {
+			reim.setReceipt(null);
+		}
+		List<Object> objects = new ArrayList<>();
+		objects.addAll(reims);
+		return objects;
 	}
 }

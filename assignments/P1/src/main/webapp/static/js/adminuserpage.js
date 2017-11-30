@@ -6,9 +6,6 @@ let roles = null;
 let changes = [];
 let userHeaders = ['','ID','UserName','Password','FirstName','Lastname','Email','Role','Flagged'];
 let userIds = ['','id','username','password','firstname','lastname','email','roleId','flag'];
-document.addEventListener('DOMContentLoaded', loadstatuss);
-document.addEventListener('DOMContentLoaded', loadTypes);
-document.addEventListener('DOMContentLoaded', loadRoles);
 function loadUsers() {
     console.log('loading Users');
     try {
@@ -35,7 +32,7 @@ function onlyGetUsers() {
         console.log('got users');
         Users = JSON.parse(resp);
         console.log(Users);
-        getReims();
+        loadTypes()
     })
 }
 function getUsers() {
@@ -190,6 +187,7 @@ function loadstatuss() {
                 option.appendChild(content);
                 drop.appendChild(option);
             }
+            getReims();
         }
     }
     xhttp.open('Get', './types/status');
@@ -200,6 +198,7 @@ function loadTypes() {
     xhttp.onload = (resp) => {
         if (xhttp.status === 200) {
             types = JSON.parse(resp.target.response);
+            loadRoles();
         }
     }
     xhttp.open('Get', './types/types');
@@ -219,6 +218,7 @@ function loadRoles() {
                 option.appendChild(content);
                 drop.appendChild(option);
             }
+            loadstatuss();
         }
     }
     xhttp.open('Get', './types/roles');
@@ -298,6 +298,7 @@ function saveChanges()
     {
         changes.splice(changes.indexOf(modifiedUser),1);
     }
+    document.getElementById(modifiedUser.id).style.background= '#f6ff7f';
     modifiedUser.flag = flag;
     modifiedUser.roleId = role;
     console.log(modifiedUser);

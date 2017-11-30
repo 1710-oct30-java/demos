@@ -8,14 +8,18 @@
     <meta name="author" content="Jacob St Hilaire">
     <!-- Bootstrap core CSS -->
     <link href="./static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- put first the jquery path, otherwise the bootstrap.js won't work-->
+    <script src="./static/js/jquery-3.2.1.js"></script>
+    <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
     <title>CreateUser</title>
-    <link rel = "icon" href = "./static/img/aico.jpg">
+    <link rel="icon" href="./static/img/aico.jpg">
     <!-- Custom styles for this template -->
     <link href="./static/css/AddUserPage.css" rel="stylesheet">
+    <link href="./static/css/loading.css" rel="stylesheet">
 </head>
 
 <body>
-    
+
     <h1 id="Welcome">
         <span class="badge badge-danger">Welcome To The Company</span>
     </h1>
@@ -35,7 +39,7 @@
             <div class="form-group col-md-3">
                 <span class="badge badge-primary">Email</span>
                 <input type="email" placeholder="ValuedEmployee@Company.com" class="form-control" oninput="checkIfFilled()" id="email" aria-describedby="emailHelp">
-                <span class = "form-text font-weight-bold" id = "emailwarn">Must Be A Valid Email</span>
+                <span class="form-text font-weight-bold" id="emailwarn">Must Be A Valid Email</span>
             </div>
         </div>
         <div class="form-row justify-content-center">
@@ -58,6 +62,16 @@
     </form>
     <div class="row justify-content-center">
         <button type="button" class="btn btn-primary btn-lg" id="button" onclick="buttonClick()">Submit</button>
+    </div>
+    <div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-header" id="loadingheader">
+            <h1>Please Wait</h1>
+        </div>
+        <div class="modal-body">
+            <div id="ajax_loader">
+                <img src="./static/img/usa-flag.gif" id="loadinggif">
+            </div>
+        </div>
     </div>
     <script src="./static/js/AddUserPage.js"></script>
 

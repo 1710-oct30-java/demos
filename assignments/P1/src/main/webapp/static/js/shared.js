@@ -50,9 +50,3 @@ function setColor(Reim, tr) {
     }
 
 }
-function sort() {
-    let sortByThis = event.path[0].id;
-    sortResults(Reims, sortByThis, true);
-    clearTable();
-    setReimTableContents(Reims);
-}

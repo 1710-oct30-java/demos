@@ -9,19 +9,6 @@ $('#reimbursementInfo').on('hidden.bs.modal', function () {
 })
 function loadReims() {
     console.log('loading Reims');
-    try {
-        document.getElementById('amountButton').removeEventListener('click', clickedFlagged);
-        document.getElementById('allButton').removeEventListener('click', clickedShowAll);
-        document.getElementById('resolveButton').removeEventListener('click', clickedSubmitUsers);
-        document.getElementById('deleteButton').removeEventListener('click', clickedDeleteUser);
-    } catch (err) { console.log('error?') }
-    document.getElementById('amountButton').addEventListener('click', clickedPending);
-    document.getElementById('allButton').addEventListener('click', clickedShowAllReim);
-    document.getElementById('resolveButton').addEventListener('click', clickedSubmitReims);
-    document.getElementById('deleteButton').addEventListener('click', clickedDeleteReims);
-    document.getElementById('pageName').innerText = 'Reimbursements';
-    $('#reimbursementsNav').addClass('active');
-    $('#usersNav').removeClass('active');
     $('#pleaseWaitDialog').modal();
     onlyGetUsers();
 }
@@ -30,6 +17,20 @@ function getReims()
     $.get('./admin/reim') 
         .done( (resp) =>
     {
+        try {
+            document.getElementById('amountButton').removeEventListener('click', clickedFlagged);
+            document.getElementById('allButton').removeEventListener('click', clickedShowAll);
+            document.getElementById('resolveButton').removeEventListener('click', clickedSubmitUsers);
+            document.getElementById('deleteButton').removeEventListener('click', clickedDeleteUser);
+        } catch (err) { console.log('error?') }
+        document.getElementById('amountButton').addEventListener('click', clickedPending);
+        document.getElementById('allButton').addEventListener('click', clickedShowAllReim);
+        document.getElementById('resolveButton').addEventListener('click', clickedSubmitReims);
+        document.getElementById('deleteButton').addEventListener('click', clickedDeleteReims);
+        document.getElementById('pageName').innerText = 'Reimbursements';
+        $('#reimbursementsNav').addClass('active');
+        $('#usersNav').removeClass('active');
+        $('#pleaseWaitDialog').modal();
         //console.log(resp);
         Reims = JSON.parse(resp);
         //console.log(Reims);
@@ -75,7 +76,7 @@ function clickedShowAllReim() {
     setReimTableContents(Reims);
 }
 
-function sort(){
+function sortAdmin(){
     let sortByThis = event.path[0].id;
     console.log('Sorting by: ' + sortByThis);
     if(document.getElementById('pageName').innerText === 'Reimbursements')
@@ -97,7 +98,11 @@ function sort(){
 }
 
 function populateModal(){
-    if(event.path[0].class == 'checkbox') return;
+    if(event.path[0].class == 'checkbox') 
+    {
+        $('#pleaseWaitDialog').modal('hide');
+        return;
+    }
     let id = event.path[1].id;
     let reim = Reims.filter(i => i.id == id)[0];
     let author = reim.author;
@@ -155,7 +160,8 @@ function clickedSubmitReims()
 {
     console.log('clickedSubmitReims');
     $('#pleaseWaitDialog').modal();
-    if(reimChanges === 0 )
+    console.log(reimChanges);
+    if(reimChanges.length === 0 )
     {
         $('#pleaseWaitDialog').modal('hide');
         return;

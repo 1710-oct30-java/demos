@@ -9,7 +9,7 @@ function setTableHeaders(headers, ids) {
     console.log('settingTableHeaders');
     let tablehead = document.getElementById('tableHead');
     let tr = document.createElement('tr');
-    tr.onclick = sort;
+    tr.onclick = sortAdmin;
     for (let i = 0; i < headers.length; i++) {
         tr.appendChild(addelement('th', headers[i], ids[i]));
     }
