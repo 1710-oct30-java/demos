@@ -22,10 +22,9 @@ public class FrontController extends DefaultServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-
+		System.out.println("get request made with url " + request.getRequestURI());
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
 
-		log.debug("in FrontController : " + request.getRequestURI());
 		switch (actualURL) {
 		case "/":
 			lc.delegateGet(request, response);
@@ -33,7 +32,16 @@ public class FrontController extends DefaultServlet {
 		case "/home":
 			hc.delegateGet(request, response);
 			break;
-		case"/history":
+		case "/history":
+			rc.delegateGet(request, response);
+			break;
+		case "/manageReimbursements":
+			rc.delegateGet(request, response);
+			break;
+		case "/approve":
+			rc.delegateGet(request, response);
+			break;
+		case "/deny":
 			rc.delegateGet(request, response);
 			break;
 		default:
@@ -55,7 +63,7 @@ public class FrontController extends DefaultServlet {
 			throws IOException, ServletException {
 		System.out.println("post request made with url " + request.getRequestURI());
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
-		
+
 		switch (actualURL) {
 		case "/":
 			lc.delegatePost(request, response);
@@ -63,10 +71,24 @@ public class FrontController extends DefaultServlet {
 		case "/new":
 			rc.delegatePost(request, response);
 			break;
+		case "/home":
+			hc.delegatePost(request, response);
+			break;
+		case "/history":
+			rc.delegatePost(request, response);
+			break;
+		case "/manageReimbursements":
+			rc.delegatePost(request, response);
+			break;
+		case "/approve":
+			rc.delegatePost(request, response);
+			break;
+		case "/deny":
+			rc.delegatePost(request, response);
+			break;
 		default:
 			break;
 		}
-
 
 	}
 }

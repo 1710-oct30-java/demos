@@ -19,16 +19,22 @@ import com.revature.services.ReimbursementService;
 
 public class HomeController {
 	private Logger log = Logger.getRootLogger();
+
 	public void delegateGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		log.debug("Get request in Home controller");
-		request.getRequestDispatcher("/static/home.html").forward(request, response);
+		int roleId = (int) request.getSession(false).getAttribute("userId");
+		log.trace(roleId);
+		if (roleId == 1)
+			request.getRequestDispatcher("/static/adminHome.html").forward(request, response);
+		else
+			request.getRequestDispatcher("/static/home.html").forward(request, response);
 	}
 
 	public void delegatePost(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("Post request delegated to Home controller");
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length() + "/home".length());
+		response.setStatus(200);
 
-		
 	}
 }

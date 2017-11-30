@@ -14,6 +14,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.google.gson.Gson;
 import com.revature.beans.User;
 import com.revature.services.UserService;
 
@@ -55,6 +56,13 @@ public class LoginController {
 			} else {
 				response.setStatus(200);
 				request.getSession().setAttribute("userId", actualUser.getUserId());
+				request.getSession().setAttribute("roleId", actualUser.getRoleId());
+				int userId = (int) request.getSession(false).getAttribute("userId");
+				String userSend = new Gson().toJson(userId);
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				response.getWriter().write(userSend);
+				
 			}
 			
 		} catch (JsonParseException e) {

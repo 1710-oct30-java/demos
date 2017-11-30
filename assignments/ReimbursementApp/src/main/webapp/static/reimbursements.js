@@ -1,26 +1,19 @@
 let xhttp = new XMLHttpRequest();
-let jsonResp = xhttp.responseText;
-console.log(jsonResp);
-let jsonObj = JSON.parse(jsonResp);
-
-var table = document.querySelector('table');
-for (var p in jsObj) {
-    let newElement = document.createElement('tr');
-    for (var k in jsObj[p] ) {
-        // console.log(k + ' = ' + jsObj[p][k]);
-        let rowElement = document.createElement('td');
-        rowElement.innerText = jsObj[p][k];
-        newElement.appendChild(rowElement);
+xhttp.onload = (resp) => {
+    if (xhttp.status === 200) {
+        let jsonResp = xhttp.responseText;
+        let jsonObj = JSON.parse(jsonResp);
+        let table = document.querySelector('table');
+        for (let p in jsonObj) {
+            let newElement = document.createElement('tr');
+            for (let k in jsonObj[p]) {
+                let rowElement = document.createElement('td');
+                rowElement.innerText = jsonObj[p][k];
+                newElement.appendChild(rowElement);
+            }
+            document.getElementById('fillReimb').appendChild(newElement);
+        }
     }
-        document.getElementById('fillReimb').appendChild(newElement);
-} 
-
-
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var myArr = JSON.parse(this.responseText);
-        document.getElementById("demo").innerHTML = myArr[0];
-    }
-};
-xmlhttp.open("GET", "json_demo_array.txt", true);
-xmlhttp.send();
+}
+xhttp.open('POST', 'http://localhost:8080/ReimbursementApp/history')
+xhttp.send();

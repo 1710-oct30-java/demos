@@ -4,7 +4,6 @@ function newReimb() {
     let currentTime = Date.now();
     let status = 0;
     let reimbType = null;
-    console.log(text);
     switch (text) {
         case 'Lodging':
             reimbType = 1;
@@ -26,14 +25,6 @@ function newReimb() {
 
     let xhttp = new XMLHttpRequest();
 
-    // xhttp.onload = (resp) => {
-    //     if (xhttp.status === 200) {
-    //         // resp contains the response body
-    //         window.location = './home';
-    //     } else {
-    //         alert('Invalid Credentials')
-    //     }
-    //}
     let newReimbursement = {
         "typeId": reimbType,
         "amount": amount,
@@ -42,6 +33,7 @@ function newReimb() {
         "statusId": status
 
     }
+    xh
     xhttp.open('POST', 'http://localhost:8080/ReimbursementApp/new');
     xhttp.send(JSON.stringify(newReimbursement));
 }

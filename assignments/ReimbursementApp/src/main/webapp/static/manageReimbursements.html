@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Reimbursements</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/stylesheet.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <form onchange="event.preventDefault(); filter()" id='selectedType'>
+            <div class="form-group">
+                <label for="select-type">Filter By</label>
+                <select class="form-control" id="reimbType">
+                    <option>All</option>
+                    <option >Pending</option>
+                    <option>Approved</option>
+                    <option >Denied</option>
+                </select>
+            </div>
+        </form>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th>Select</th>
+                                <th>Id</th>
+                                <th>Amount</th>
+                                <th>Date Submitted</th>
+                                <th>Date Resolved</th>
+                                <th>Description</th>
+                                <th>Author</th>
+                                
+                                <th>Status Id"</th>
+                                <th>Type Id</th>
+                            </tr>
+                        </thead>
+                        <tbody id='fillReimb'>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row align-items-start">
+                <div class="col-3">
+                </div>
+                <div class="col-6">
+                    <div class="form-wrap">
+
+                        <form>
+                            <input type="button" id="approve" class="btn btn-login btn-custom btn-lg btn-block btn-info" value='Approve' onclick="approveOrDeny(this)">
+                            <input type="button" id="deny" class="btn btn-login btn-custom btn-lg btn-block btn-danger" value='Deny' onclick="approveOrDeny(this)">
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
+            <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.8.2/umd/popper.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src='./static/manageReimbursements.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+</body>
+
+</html>

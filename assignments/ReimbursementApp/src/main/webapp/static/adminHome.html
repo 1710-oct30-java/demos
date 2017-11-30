@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/stylesheet.css">
+</head>
+
+<body>
+    <!--Buttons and inputs for Home page -->
+    <div class="container">
+        <div class="Absolute-Center is-Responsive">
+            <div class="row align-items-start">
+                <div class="col-3">
+                </div>
+                <div class="col-6">
+                    <div class="form-wrap">
+                        <h1 class="text-center formTitles">Menu</h1>
+                        <div class="alignButton">
+                            <button data-toggle="modal" data-target="#newReimb" class="btn btn-login btn-custom btn-lg btn-block btn-success">New Reimbursement</button>
+                        </div>
+                        <form>
+                            <input type="button" id="history" class="btn btn-login btn-custom btn-lg btn-block btn-info" value="Reimbursement History"
+                                onclick="nextPage(this)">
+                            <input type="button" id="manageReimbursements" class="btn btn-login btn-custom btn-lg btn-block btn-danger" value="Manage Reimbursements" onclick="nextPage(this)">
+                            <input type="button" id="logout" class="btn btn-login btn-custom btn-lg btn-block btn-danger" value="Logout" onclick="nextPage(this)">
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-3">
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+    </div>
+    <!-- /.container -->
+
+
+    <!-- modal for new Reimbursement -->
+    <div class="modal fade" id="newReimb" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="lineModalLabel">New Reimbursement</h3>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Form for new reimbursement -->
+                    <form onsubmit="event.preventDefault(); newReimb()" autocomplete="off">
+                        <div class="form-group">
+                            <label for="select-type">Select Type</label>
+                            <select class="form-control" id="reimbType">
+                                <option>Lodging</option>
+                                <option>Travel</option>
+                                <option>Food</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="text" id="amount" class="form-control" placeholder="$0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="key">Description</label>
+                            <textarea class="form-control" id="description" class="form-control" rows="3"></textarea>
+                        </div>
+                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block btn-primary" value="Submit Ticket">
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" role="button">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+    <script src="./static/home.js"></script>
+    <script src='./static/newReimbursement.js'></script>
+</body>
+
+</html>
