@@ -14,6 +14,10 @@ import javax.persistence.SequenceGenerator;
 
 import javax.persistence.Table;
 
+@NamedQueries({
+	@NamedQuery(name="findAllEmpty", query="FROM HoneyPot WHERE honeyAmount = 0")
+})
+
 @Entity
 
 @Table(name = "honey_pot")
@@ -21,11 +25,8 @@ import javax.persistence.Table;
 public class HoneyPot {
 
     @Id
-
     @Column(name = "honeypot_id")
-
     @SequenceGenerator(name = "HONEYPOTID_SEQ", sequenceName = "HONEYPOTID_SEQ")
-
     @GeneratedValue(generator = "HONEYPOTID_SEQ", strategy = GenerationType.AUTO)
 
     private int id;

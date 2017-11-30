@@ -35,25 +35,18 @@ public class BearDaoHibernate implements Beardao {
 	}
 
 	@Override
-
 	public Bear get(int id) {
-
 		// open session
 
 		Session se = su.getSession();
-
 		Bear b = (Bear) se.get(Bear.class, 1);
-
 		System.out.println(b);
-
 		se.close();
-
+		
 		return b;
-
 	}
 
 	@Override
-
 	public Bear load(int id) {
 
 		// TODO Auto-generated method stub
@@ -63,38 +56,59 @@ public class BearDaoHibernate implements Beardao {
 	}
 
 	@Override
-
 	public Bear update(Bear b) {
 
 		// TODO Auto-generated method stub
-
-		return null;
+		Session se = su.getSession();
+		Transaction tx = se.beginTransaction();
+		se.persist(se.get(Bear.class, b.getId()));
+		
+		se.update(b);
+		tx.commit();
+		se.close();
+		return b;
 
 	}
 
 	@Override
-
 	public Bear merge(Bear b) {
 
 		// TODO Auto-generated method stub
-
-		return null;
-
+		
+		Session se = su.getSession();
+		Transaction tx = se.beginTransaction();
+		Bear retreived = (Bear) se.get(Bear.class, b.getId());
+		System.out.println(retreived);
+		se.merge(b);
+		tx.commit();
+		se.close();
+		System.out.println(retreived);
+		return b;
 	}
 
 	@Override
-
 	public boolean delete(Bear b) {
 
 		// TODO Auto-generated method stub
-
+		Session se = su.getSession();
+		Transaction tx = se.beginTransaction();
+		
+		
 		return false;
 
 	}
 
 	@Override
+	public Bear findByColorHQL(String color) {
 
-	public Bear findByColor(String color) {
+		// TODO Auto-generated method stub
+
+		return null;
+
+	}
+	
+	@Override
+	public Bear findByColorCriteria(String color) {
 
 		// TODO Auto-generated method stub
 

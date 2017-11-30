@@ -47,7 +47,7 @@ CREATE TABLE Users
     FirstName VARCHAR2(100),
     LastName VARCHAR2(100),
     Email VARCHAR2 (150),
-    RoleID NUMBER,
+    RoleId NUMBER,
     CONSTRAINT PK_Users PRIMARY KEY  (UserId)
 );
 
@@ -55,7 +55,7 @@ CREATE TABLE User_Roles
 (
     UserRoleId NUMBER NOT NULL,
     UserRole VARCHAR2(10),
-    CONSTRAINT PK_Users PRIMARY KEY  (UserRoleId)
+    CONSTRAINT PK_UserRoles PRIMARY KEY  (UserRoleId)
 );
 
 CREATE TABLE Reimbursements
@@ -95,20 +95,21 @@ CREATE TABLE Reimbursement_Type
 /*******************************************************************************
    Create Foreign Keys
 ********************************************************************************/
+ALTER TABLE Users ADD CONSTRAINT FK_RoleId
+    FOREIGN KEY (RoleId) REFERENCES User_Roles (UserRoleId)  ;
+
 ALTER TABLE Reimbursements ADD CONSTRAINT FK_ReimbAuthor
-    FOREIGN KEY (ReimbAuthor) REFERENCES Users (Author)  ;
+    FOREIGN KEY (ReimbAuthor) REFERENCES User_Roles (UserRoleId)  ;
     
-ALTER TABLE Reimbursements ADD CONSTRAINT FK_Resolver
-    FOREIGN KEY (ReimbResolver) REFERENCES Users (ReimbResolver)  ;
+ALTER TABLE Reimbursements ADD CONSTRAINT FK_ReimbResolver
+    FOREIGN KEY (ReimbResolver) REFERENCES User_Roles (UserRoleId)  ;
     
 ALTER TABLE Reimbursements ADD CONSTRAINT FK_ReimbStatus
     FOREIGN KEY (ReimbStatusId) REFERENCES Reimbursement_Status (ReimbStatusId)  ;
     
 ALTER TABLE Reimbursements ADD CONSTRAINT FK_ReimbTypeId
     FOREIGN KEY (ReimbTypeId) REFERENCES Reimbursement_Type (ReimbTypeId)  ;
-    
-ALTER TABLE Users ADD CONSTRAINT FK_UserRoles
-    FOREIGN KEY (UserRoleId) REFERENCES UserRoleId (User_Roles)  ;
+
 
 /*******************************************************************************
    Populate Tables
@@ -120,19 +121,19 @@ INSERT INTO Users VALUES (3, 'roger', 'password', 'roger', 'rogerson', 'rogerrog
 INSERT INTO Users VALUES (4, 'don', 'password', 'don', 'donson', 'dondonson@gmail.com', 4);
 
 INSERT INTO User_Roles VALUES (1, 'Employee');
-INSERT INTO User_Roles VALUES (1, 'Employee');
-INSERT INTO User_Roles VALUES (2, 'Manager');
-INSERT INTO User_Roles VALUES (2, 'Manager');
+INSERT INTO User_Roles VALUES (2, 'Employee');
+INSERT INTO User_Roles VALUES (3, 'Manager');
+INSERT INTO User_Roles VALUES (4, 'Manager');
 
-INSERT INTO Reimbursements VALUES (1, 37, '1997-01-31 09:26:50.12', '1999-08-17 08:26:50.12', 6, EMPTY_BLOB, 5, 4, 6, 7 );
-INSERT INTO Reimbursements VALUES (1, 3, '1997-07-30 09:26:50.12', '1997-01-31 09:26:50.12', 2, EMPTY_BLOB, 1, 7, 2, 7 );
-INSERT INTO Reimbursements VALUES (1, 37, '2000-01-31 09:26:50.12', '2003-01-31 09:26:50.12', 6, EMPTY_BLOB, 3, 4, 6, 152);
-INSERT INTO Reimbursements VALUES (1, 37, '2001-01-21 09:26:50.12', '2007-11-11 09:26:50.12', 6, EMPTY_BLOB, 9, 17, 6, 4 );
+INSERT INTO Reimbursements VALUES (1, 37, TIMESTAMP '2011-03-07 13:35:00', TIMESTAMP '2012-04-04 13:35:00', 6, hextoraw('33333333'), 5, 4, 3, 2 );
+INSERT INTO Reimbursements VALUES (2, 3, TIMESTAMP '2011-03-07 13:35:00', TIMESTAMP '2012-04-04 13:35:00', 2, hextoraw('33333333'), 1, 7, 1, 4);
+INSERT INTO Reimbursements VALUES (3, 37, TIMESTAMP '2011-03-07 13:35:00', TIMESTAMP '2012-04-04 13:35:00', 6, hextoraw('33333333'), 3, 4, 4, 1);
+INSERT INTO Reimbursements VALUES (4, 37, TIMESTAMP '2011-03-07 13:35:00', TIMESTAMP '2012-04-04 13:35:00', 6, hextoraw('33333333'), 9, 17, 2, 3);
 
-INSERT INTO Reimbursement_Status VALUES (2, 'Approved');
-INSERT INTO Reimbursement_Status VALUES (3, 'Denied');
-INSERT INTO Reimbursement_Status VALUES (1, 'Pending');
-INSERT INTO Reimbursement_Status VALUES (3, 'Denied');
+INSERT INTO Reimbursement_Status VALUES (1, 'Approved');
+INSERT INTO Reimbursement_Status VALUES (2, 'Denied');
+INSERT INTO Reimbursement_Status VALUES (3, 'Pending');
+INSERT INTO Reimbursement_Status VALUES (4, 'Denied');
 
 INSERT INTO Reimbursement_Type VALUES (1, 'Lodging');
 INSERT INTO Reimbursement_Type VALUES (2, 'Travel');

@@ -12,14 +12,14 @@ function login() {
 
     // what to do if it succeeds 
     xhttp.onload = (resp) => {
-        if(xhttp.status === 200 || password == "") {
+        if(xhttp.status === 200) {
 
            // resp contains the response body
-            window.location = 'home.html';
+            window.location = './home.html';
         } 
         
         else {
-        	window.location = 'login.html';
+        	 window.location = './home.html';
         }
     }
 

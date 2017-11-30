@@ -33,23 +33,16 @@ import javax.persistence.SequenceGenerator;
 public class Bear {
 
     @Id
-
     @Column(name = "bear_id")
-
     @SequenceGenerator(name = "bearid_seq", sequenceName = "bearid_seq")
-
     @GeneratedValue(generator = "bearid_seq", strategy = GenerationType.AUTO)
-
     private int id;
-
+    
     @Column(name = "bear_color")
 
     private String color;
-
     private double weight;
-
     private double height;
-
     private String breed;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

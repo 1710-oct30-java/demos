@@ -36,6 +36,30 @@
 			<version>12.1.1.0.1</version>
 		</dependency>
 		
+		<!-- We'll be importing EH Cache later -->
+
+        <dependency>
+
+            <groupId>net.sf.ehcache</groupId>
+
+            <artifactId>ehcache-core</artifactId>
+
+            <version>2.5.7</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>4.3.11.Final</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+		
 	</dependencies>
 
 

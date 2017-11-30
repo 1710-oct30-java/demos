@@ -3,16 +3,39 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Expense Reimbursement Systems</title>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+crossorigin="anonymous">
+
 </head>
 <body>
-<form onsubmit="event.preventDefault(); login()">
-	<input type="text" id="username" placeholder="username">
-	<input type="password" id="password" placeholder="password">
-	<input type="submit">
+<div class="centered">
+	<h2>Expense Reimbursement System</h2>
+	
+	<br><br>
+	
+	<form onsubmit="event.preventDefault(); login()" class="centered">
+	
+		<div>
+    		<input type="text" class="form-control input-lg" placeholder="username">
+  		</div>
+  		
+  		<br>
+  		
+		<div>
+    		<input type="password" class="form-control input-lg" placeholder="password">
+  		</div>
+  		
+  		<br>
+  		
+		<input type="submit" class="btn btn-primary btn-lg btn-block"  placeholder="Submit">
+	
+	</form>
+</div>
 
-</form>
 
-
-<script src="login.js"></script>
+<script src="./login.js"></script>
 </body>
 </html>

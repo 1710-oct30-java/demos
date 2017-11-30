@@ -7,7 +7,6 @@ public interface Beardao {
     // C
 
     Bear save(Bear b);
-
     Bear persist(Bear b);
 
     
@@ -15,7 +14,6 @@ public interface Beardao {
     // R
 
     Bear get(int id);
-
     Bear load(int id);
 
     
@@ -23,13 +21,11 @@ public interface Beardao {
     // U
 
     Bear update(Bear b);
-
     Bear merge(Bear b);
 
     
 
     // D
-
     boolean delete(Bear b);
 
     
