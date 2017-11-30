@@ -20,6 +20,6 @@ export class BeanComponent implements OnInit {
     this.styles = {
       background: this.in.color,
       color: 'blue',
-    }
+    };
   }
 }

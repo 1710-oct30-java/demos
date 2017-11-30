@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	th, td {
+		border: 1px solid black;
+	}
+</style>
+</head>
+<body>
+	<div id="container"> loading ... </div>
+
+<script>
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = () => {
+  console.log(`state changed ${xhttp.readyState}`);
+  if(xhttp.readyState === 4 && xhttp.status === 200) {
+	  console.log('we have the response ready');
+	  console.log(`response text: ${xhttp.responseText}`)
+	  // create the initial part of the table
+	  let tableString = `
+	  <table>
+	  	<thead>
+	  		<tr>
+	  			<th>Title</th>
+	  			<th>Body</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	 `;
+    
+	// populate the table rows
+    let array = JSON.parse(xhttp.responseText);
+	array.forEach( (element) => {
+		tableString += `
+	    	<tr>
+	    		<td>${element.title}</td>
+	    		<td>${element.body}</td>
+	    	</tr>
+	    `;
+	})
+	
+	//close out table
+	tableString += `
+		</tbody>
+	</table>
+	`;
+	
+	document.getElementById('container').innerHTML = tableString;
+	
+	
+    
+
+  } else if(xhttp.readyState === 4) {
+    alert('failed to load the pokemon you requested');
+  }
+}
+xhttp.open('GET', `https://jsonplaceholder.typicode.com/posts`);
+xhttp.send();
+
+</script>
+</body>
+</html>
