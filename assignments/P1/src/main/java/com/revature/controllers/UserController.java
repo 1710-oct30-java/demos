@@ -64,10 +64,8 @@ public class UserController {
 			try {
 				response.sendError(403);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.error("unable to send 403 page " + e);
 			}
-			;
 		}
 	}
 

@@ -84,8 +84,7 @@ public class ReimbursementService {
 			log.trace(r);
 			return rdao.addReimbursement(r);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.warn("Issue with getting newReimbursement " + e);
 
 		}
 		return 0;

@@ -16,8 +16,7 @@ public class ConnectionUtil {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("Unable to find oracle driver " + e);
 		}
 	}
 	

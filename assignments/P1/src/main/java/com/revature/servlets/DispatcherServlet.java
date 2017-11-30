@@ -89,9 +89,6 @@ public class DispatcherServlet extends DefaultServlet {
 			case ("login"):
 				lc.handlePost(request, response);
 				break;
-			case ("admin"):
-				ac.handlePost(request, response);
-				break;
 			case ("submit"):
 				sc.handlePost(request, response);
 				break;
@@ -133,9 +130,6 @@ public class DispatcherServlet extends DefaultServlet {
 			break;
 		case ("manager"):
 			mc.handleGet(request, response);
-			break;
-		case ("submit"):
-			sc.handleGet(request, response);
 			break;
 		case ("new"):
 			nc.handleGet(request,response);

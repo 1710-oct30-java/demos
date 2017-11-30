@@ -24,7 +24,6 @@ public class UsersDAOjdbc implements UsersDAO {
 	private static DAOcheck daoc = DAOcheck.getDAOcheck();
 
 	private UsersDAOjdbc() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static UsersDAOjdbc getUserDAOjdbc() {

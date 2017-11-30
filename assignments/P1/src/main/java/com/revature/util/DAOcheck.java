@@ -6,7 +6,6 @@ public class DAOcheck {
 	private static DAOcheck daoc = new DAOcheck();
 	private static Logger log = Logger.getRootLogger();
 	private DAOcheck() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public static DAOcheck getDAOcheck()

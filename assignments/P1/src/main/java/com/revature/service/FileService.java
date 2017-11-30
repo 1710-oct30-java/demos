@@ -23,14 +23,13 @@ public class FileService {
 	public void handleFile(Part filePart) {
 
 		try {
-			String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+			String id = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
 			InputStream fileContent = filePart.getInputStream();
 			System.out.println(filePart.getHeaderNames());
-			System.out.println(fileName);
-			rdao.alterReimbursementRecieptById(Integer.parseInt(fileName), fileContent);
+			System.out.println(id);
+			rdao.alterReimbursementRecieptById(Integer.parseInt(id), fileContent);
 		} catch (IOException | NullPointerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.warn("issue with getting file " + e);
 		}
 		
 		

@@ -44,14 +44,8 @@ public class SubmitController {
 			try {
 				response.sendError(403);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.error("unable to send 403 page " + e);
 			}
 		}
-	}
-
-	public void handleGet(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-
 	}
 }
