@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+	</head>
+	<body>
+		<h1>Reimbursement Home Page</h1>
+		<div>
+			<button type="button" class="btn btn-primary" onclick="viewPast()">Show Past Reimbursements</button>
+			<div id= "pastReimbursements"></div>
+		</div>
+		<br>
+		<div>
+				Filter Reimbursements by Status
+				<form onsubmit="event.preventDefault(); viewByStatus()">
+						<input type="text" id="reimbStatus" placeholder="StatusID">
+						<input type="submit">
+				</form>
+			</div>
+			<br>
+		<div>
+			<button type="button" onclick="viewAll()">Show All Reimbursements</button>
+			<div id= "allReimbursements"></div>
+		</div>
+		<br>
+		<div>
+			Approve Reimbursement
+			<form onsubmit="event.preventDefault(); approve()">
+				<input type="text" id="reimbID" placeholder="ReimbursementID">
+				<input type="submit">
+			</form>
+		</div>
+		<br>
+		<div>
+			Deny Reimbursement
+			<form onsubmit="event.preventDefault(); deny()">
+				<input type="text" id="reimbDeny" placeholder="ReimbursementID">
+				<input type="submit">
+			</form>
+		</div>
+		<br>
+		<div>
+			Create Reimbursement
+			<br>
+			<form onsubmit="event.preventDefault(); add()">
+				Please input the amount that you would like to be reimbursed
+				<br>
+				<input type="text" id="amount" placeholder="Amount">
+				<br>
+				Please input the reasons as to why you feel you should be reimbursed
+				<br>
+				<input type="text" id="description" placeholder="Description">
+				<br>
+				What category do you feel this reimbursement falls under?
+				<br>
+				1. Certification
+				<br>
+				2. Travel
+				<br>
+				3. Equipment
+				<br>
+				4. Food for Company Parties
+				<br>
+				<input type="text" id="type" placeholder="Type">
+				<br>
+				<input type="submit">
+			</form>
+		</div>
+
+		<script src ="./reimbursement.js"></script>
+	</body>	
+</html>
