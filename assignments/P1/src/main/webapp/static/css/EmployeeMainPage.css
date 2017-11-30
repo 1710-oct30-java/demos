@@ -1,0 +1,57 @@
+.display-3{
+    text-align: center;
+}
+th:hover{
+    cursor:pointer;
+}
+html:hover{
+    cursor: context-menu;
+}
+.display-3
+{
+    text-align: center;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.logout
+{
+    padding: 10px;
+}
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+thead, tbody, tr, th, td { display: block; }
+
+thead tr {
+    width: 100%
+}
+
+tr:after {  
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+tbody {
+    height: 50vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody td, thead th {
+    width: 16%;  
+    float: left;
+}
+body,html {
+    height: 100%;
+    background: black url("../img/eagle.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+thead{
+    background: white;
+}

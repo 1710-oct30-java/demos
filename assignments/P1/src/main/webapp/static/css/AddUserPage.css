@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+body,html
+{
+    height: 100%;
+    background: black url("../img/flagincity.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.passwordMatch{
+    color: red;
+    opacity: 0;
+}
+#emailwarn{
+    color: red;
+    opacity: 0;
+}

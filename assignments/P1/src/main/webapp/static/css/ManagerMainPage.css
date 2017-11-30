@@ -1,0 +1,47 @@
+body,html {
+    height: 100%;
+    background: black url("../img/America-eagle.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+thead{
+      background: white;
+  }
+.logout
+  {
+      padding: 10px;
+  }
+table {
+      width: 100%;
+      border-spacing: 0;
+  }
+  
+thead, tbody, tr, th, td { display: block; }
+  
+thead tr {
+      width: 100%
+  }
+ 
+tr:after {  
+      content: ' ';
+      display: block;
+      visibility: hidden;
+      clear: both;
+  }
+  
+tbody {
+      height: 50vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+  }
+  
+tbody td, thead th {
+      width: 16%;  
+      float: left;
+  }
+th:hover{
+    cursor:pointer;
+}
+html:hover{
+    cursor: context-menu;
+}

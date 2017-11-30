@@ -1,0 +1,14 @@
+body, html
+{
+    background: black url("../img/getout.jpg");
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-attachment: fixed;
+}
+h1
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

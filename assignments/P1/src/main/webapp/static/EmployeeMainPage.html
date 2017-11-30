@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="EmployeeMainPage">
+    <meta name="author" content="Jacob St Hilaire">
+    <!-- Bootstrap core CSS -->
+    <link href="./static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- put first the jquery path, otherwise the bootstrap.js won't work-->
+    <script src="./static/js/jquery-3.2.1.js"></script>
+    <script src="./static/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="./static/css/EmployeeMainPage.css" rel="stylesheet">
+    <title>User</title>
+    <link rel = "icon" href = "./static/img/aico.jpg">
+</head>
+
+<body>
+    <!-- <script src = "./static/js/flag.js"></script>
+<script type="text/javascript">
+    alert(flag);
+    if(flag === false)
+    {
+        window.location = './login';
+    }
+</script> -->
+
+    <div class="logout">
+        <button class="btn btn-small btn-danger" id="logout" onclick="logOut()">LogOut</button>
+    </div>
+    <div class="container">
+        <h1 class = "display-3" id = "name"></h1>
+        <h2 class="display-3">Reimbursement Requests</h2>
+        <div class = "table-responsive header-fixed">
+            <table class="table table-hover">
+                <thead>
+                    <tr onclick="sort()">
+                        <th id="id">ID</th>
+                        <th id="amount">Amount</th>
+                        <th id="submitted">Date Submitted</th>
+                        <th id="resolved">Date Resolved</th>
+                        <th id="typeId">Type</th>
+                        <th id="statusId">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#newReimModal">
+            Add New Reimbursement
+        </button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="newReimModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title" id="exampleModalLabel">Add Reimbursement</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="typedropdown">Type of Reimbursement</label>
+                            <select class="form-control" id="typedropdown">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amountinput">Amount</label>
+                            <input type="number" class="form-control" id="amountinput" placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="descriptiontextbox">Description</label>
+                            <textarea class="form-control" id="descriptiontextbox" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="fileinput">Receipt</label>
+                            <input type="file" class="form-control-file" id="fileinput">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="sendNewReim()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="reimbursementInfo" tabindex="-1" role="dialog" aria-labelledby="reimbursementInfo" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id = "header">
+                    <h5 class="modal-title" id="reimbursementInfo">Reimbursement</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <h6>Type</h6>
+                            <p id="typeM"></p>
+                        </div>
+                        <div class="col">
+                            <h6>Amount</h6>
+                            <p id="amountM"></p>
+                        </div>
+                        <div class="col">
+                            <h6>Status</h6>
+                            <p id="statusM"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h6>Author</h6>
+                            <p id="authorM"></p>
+                        </div>
+                        <div class="col">
+                            <h6>Resolver</h6>
+                            <p id="resolverM"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h6>Date Submitted</h6>
+                            <p id="submittedM"></p>
+                        </div>
+                        <div class="col">
+                            <h6>Date Resolved</h6>
+                            <p id="resolvedM"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h6>Receipt</h6>
+                            <p id="receiptM"></p>
+                        </div>
+                        <div class="col">
+                            <h6>Description</h6>
+                            <p id="descriptionM"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-header">
+            <h1>Please Wait</h1>
+        </div>
+        <div class="modal-body">
+            <div id="ajax_loader">
+                <img src="./static/img/usa-flag.gif" style="display: block; margin-left: auto; margin-right: auto;">
+            </div>
+        </div>
+    </div>
+    <script src="./static/js/EmployeeMainPage.js"></script>
+    <script src="./static/js/logout.js"></script>
+    <script src="./static/js/shared.js"></script>
+</body>
+
+</html>

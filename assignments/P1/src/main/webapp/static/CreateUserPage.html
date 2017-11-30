@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="CreateUserPage">
+    <meta name="author" content="Jacob St Hilaire">
+    <!-- Bootstrap core CSS -->
+    <link href="./static/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>CreateUser</title>
+    <link rel = "icon" href = "./static/img/aico.jpg">
+    <!-- Custom styles for this template -->
+    <link href="./static/css/AddUserPage.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <h1 id="Welcome">
+        <span class="badge badge-danger">Welcome To The Company</span>
+    </h1>
+    <h2 id="Employee">
+        <span class="badge badge-danger">Employee</span>
+    </h2>
+    <form id="forms">
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3">
+                <span class="badge badge-primary">First Name</span>
+                <input type="text" placeholder="Valued" class="form-control" oninput="checkIfFilled()" id="firstname">
+            </div>
+            <div class="form-group col-md-3">
+                <span class="badge badge-primary">Last Name</span>
+                <input type="text" placeholder="Employee" class="form-control" oninput="checkIfFilled()" id="lastname">
+            </div>
+            <div class="form-group col-md-3">
+                <span class="badge badge-primary">Email</span>
+                <input type="email" placeholder="ValuedEmployee@Company.com" class="form-control" oninput="checkIfFilled()" id="email" aria-describedby="emailHelp">
+                <span class = "form-text font-weight-bold" id = "emailwarn">Must Be A Valid Email</span>
+            </div>
+        </div>
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3">
+                <span class="badge badge-primary">UserName</span>
+                <input type="text" placeholder="Employee12345" class="form-control" oninput="checkIfFilled()" id="username">
+            </div>
+            <div class="form-group col-md-3">
+                <span class="badge badge-primary">Password</span>
+                <input type="password" placeholder="Password" class="form-control" oninput="checkIfFilled()" id="password">
+                <span class="form-text font-weight-bold passwordMatch">Passwords Must Match</span>
+            </div>
+            <div class="form-group col-md-3">
+                <span class="badge badge-primary">ConfirmPassword</span>
+                <input type="password" placeholder="Confirm Password" class="form-control" oninput="checkIfFilled()" id="password2">
+                <span class="form-text font-weight-bold passwordMatch">Passwords Must Match</span>
+            </div>
+        </div>
+
+    </form>
+    <div class="row justify-content-center">
+        <button type="button" class="btn btn-primary btn-lg" id="button" onclick="buttonClick()">Submit</button>
+    </div>
+    <script src="./static/js/AddUserPage.js"></script>
+
+</body>
+
+</html>

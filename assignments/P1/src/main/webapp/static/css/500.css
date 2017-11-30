@@ -1,0 +1,14 @@
+body, html
+{
+    height: 100%;
+    background: black url("../img/error.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+h1
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

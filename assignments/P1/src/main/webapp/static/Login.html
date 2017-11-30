@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Login">
+	<meta name="author" content="Jacob St Hilaire">
+	<title>Login To Company</title>
+	<link rel = "icon" href = "./static/img/aico.jpg">
+	<!-- Bootstrap core CSS -->
+	<link href="./static/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="./static/css/signin.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="container">
+			<form class="form-signin" onsubmit="event.preventDefault(); signin()">
+				<h2 class="form-signin-heading">Company Login</h2>
+
+				<input type="text" id="inputUsername" class="form-control" placeholder="User Name" required>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<button class="btn btn-lg btn-danger btn-block" type="submit" id="signIn">Sign in</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit" id="createAccount" onclick="window.location = './new'">Create Account</button>
+			</form>
+			
+	</div>
+	<script src = "./static/js/flag.js"></script>
+	<script src = "./static/js/loginpage.js"></script>
+</body>
+
+</html>

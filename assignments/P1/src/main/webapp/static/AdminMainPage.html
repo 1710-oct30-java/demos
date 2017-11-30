@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="AdminPage">
+<meta name="author" content="Jacob St Hilaire">
+<!-- Bootstrap core CSS -->
+<link href="./static/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>AdminPage</title>
+<link rel="icon" href="./static/img/aico.jpg">
+<!-- put first the jquery path, otherwise the bootstrap.js won't work-->
+<script src="./static/js/jquery-3.2.1.js"></script>
+<script src="./static/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom styles for this template -->
+<link href="./static/css/AdminPage.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<button class="btn btn-danger nav-brand" onclick="logOut()">Log
+			Out</button>
+		<div class="navbar-expand" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active" id="reimbursementsNav">
+					<!-- active makes the item active --> <a class="nav-link"
+					id="reimbursements" onclick="loadReims()">Reimbursements </a>
+				</li>
+				<li class="nav-item" id="usersNav"><a class="nav-link"
+					id="Users" onclick="loadUsers()">Users </a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<h2 id="pageName"></h2>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class='col'>
+				<button class="btn btn-primary btn-block" id="amountButton">
+				</button>
+			</div>
+			<div class='col'>
+				<button class="btn btn-primary btn-block" id="allButton">
+					Show All</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="table-responsive header-fixed">
+				<table class="table table-hover">
+					<thead id="tableHead">
+					</thead>
+					<tbody id="tableBody">
+						<tr data-toggle="modal" data-target="#Modal">
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class='col'>
+				<button class="btn btn-primary btn-block" id="resolveButton">Submit
+					Changes</button>
+			</div>
+			<div class='col'>
+				<button class="btn btn-danger btn-block" id="deleteButton">Delete</button>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" id="userHeader">
+					<h5 class="modal-title" id="exampleModalLabel">Modify User</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="row" id="names">
+							<div class="col">
+								<h4>First Name</h4>
+								<p id="firstName"></p>
+							</div>
+							<div class="col">
+								<h4>Last Name</h4>
+								<p id="lastName"></p>
+							</div>
+						</div>
+						<div class="row" id="online">
+							<div class="col">
+								<h4>User Name</h4>
+								<p id="userName"></p>
+							</div>
+							<div class="col">
+								<h4>email</h4>
+								<p id="email1"></p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="flaggedDropDown">Flagged</label> <select
+								class="form-control" id="flaggedDropDown">
+								<option id="Y">Unable to Login</option>
+								<option id="N">Able to Login</option>
+							</select> <label for="roleDropDown">Role</label> <select
+								class="form-control" id="roleDropDown"></select>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary"
+						onclick="saveChanges()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="reimbursementInfo" tabindex="-1"
+		role="dialog" aria-labelledby="reimbursementInfo" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" id="header">
+					<h5 class="modal-title" id="reimbursementInfo">Reimbursement</h5>
+					<h6 class="modal-title" id="idM">id</h6>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col">
+							<h4>Type</h4>
+							<p id="typeM"></p>
+						</div>
+						<div class="col">
+							<h4>Amount</h4>
+							<p id="amountM"></p>
+						</div>
+						<div class="col form-group">
+							<form>
+								<h4 for="statusM">Status</h4>
+								<select class="form-control" id="statusM">
+								</select>
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<h4>Author</h4>
+							<p id="authorM"></p>
+						</div>
+						<div class="col">
+							<h4>Resolver</h4>
+							<p id="resolverM"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<h4>Date Submitted</h4>
+							<p id="submittedM"></p>
+						</div>
+						<div class="col">
+							<h4>Date Resolved</h4>
+							<p id="resolvedM"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<h4>Receipt</h4>
+							<p id="receiptM"></p>
+						</div>
+						<div class="col">
+							<h4>Description</h4>
+							<p id="descriptionM"></p>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary"
+						onclick="saveChangesReim()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal hide" id="pleaseWaitDialog" data-backdrop="static"
+		data-keyboard="false">
+		<div class="modal-header">
+			<h1>Please Wait</h1>
+		</div>
+		<div class="modal-body">
+			<div id="ajax_loader">
+				<img src="./static/img/usa-flag.gif"
+					style="display: block; margin-left: auto; margin-right: auto;">
+			</div>
+		</div>
+	</div>
+	<script src="./static/js/adminuserpage.js"></script>
+	<script src="./static/js/adminreimbursementpage.js"></script>
+	<script src="./static/js/adminTable.js"></script>
+	<script src="./static/js/logout.js"></script>
+	<script src="./static/js/shared.js"></script>
+</body>
+
+</html>
