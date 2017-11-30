@@ -15,6 +15,7 @@ export class RequestsComponent implements OnInit {
   checkedReimbursements: Array<Reimbursement>;
   showingMenu = false;
 
+
   constructor(@Inject(Http) public http: Http, @Inject(LoginService) private ls: LoginService) {
 
   }
@@ -41,19 +42,29 @@ export class RequestsComponent implements OnInit {
   submit() {
     this.showingMenu = false;
     let amountField = <HTMLInputElement>document.getElementById("amount");
-    let amount = amountField.value;
+    let amount = parseFloat(amountField.value);
     let descriptionField = <HTMLInputElement>document.getElementById("description");
     let description = descriptionField.value;
     let typeField = <HTMLInputElement>document.getElementById("type");
-    let type = typeField.value;
+    let type = parseInt(typeField.value);
+
+    if (isNaN(amount) || isNaN(type)) {
+        this.invalidInput();
+        return;
+    }
+
     let reim = new Reimbursement();
-    reim.reimbursementAmount = parseFloat(amount);
+    reim.reimbursementAmount = amount;
     reim.description = description;
-    reim.typeId = parseInt(type);
+    reim.typeId = type;
     reim.authorId = this.ls.currentUser.userId;
     reim.statusId = 1;
 
     this.addReimbursement(reim);
+  }
+
+  invalidInput() {
+      alert("Invalid input.");
   }
   
   addReimbursement(re: Reimbursement) {

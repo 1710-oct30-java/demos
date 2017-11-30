@@ -14,6 +14,7 @@ export class ReimbursementComponent implements OnInit {
   reimbursements: Array<Reimbursement>;
   checkedReimbursements: Array<Reimbursement>;
   noneSelected:boolean;
+  typeIdChecking = 1;
 
   constructor(@Inject(Http) public http: Http, @Inject(LoginService) private ls: LoginService) {
 
@@ -34,6 +35,11 @@ export class ReimbursementComponent implements OnInit {
       
   }
 
+  setTypeChecking(int, idOfButton) {
+    this.typeIdChecking = int;
+
+  }
+
   approve(id) {
     
     for (var i = 0; i < this.reimbursements.length; i++) {
@@ -41,18 +47,24 @@ export class ReimbursementComponent implements OnInit {
 
 
       if (re.reimbursementId == id) {
-        re.statusId = 2;
-        this.http.put('http://localhost:8080/ERS/reimbursements/', JSON.stringify(re)).subscribe(
-          (successResponse) => {
-          
-              
-      },
-          (failResponse) => {
-              alert('failed');
-      });
-      }
+        
+        if (re.authorId == this.ls.currentUser.userId) {
+          alert("Cannot approve your own reimbursements.");
+          return;
+        }
+        else {
+          re.statusId = 2;
+          this.http.put('http://localhost:8080/ERS/reimbursements/', JSON.stringify(re)).subscribe(
+            (successResponse) => {
+            
+                
+        },
+            (failResponse) => {
+                alert('failed');
+        });
+        }
       
-
+    }
     }
 
 

@@ -34,7 +34,17 @@ body {
 <body>
 
 
-
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary">
+      <input type="radio" role="button" name="options" id="option1" autocomplete="off" (click)="setTypeChecking(1, 'option1')"> Pending
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" role="button" name="options" id="option2" autocomplete="off" (click)="setTypeChecking(2, 'option2')"> Approved
+    </label>
+    <label class="btn btn-primary">
+      <input type="radio" role="button" name="options" id="option3" autocomplete="off" (click)="setTypeChecking(3, 'option3')"> Denied
+    </label>
+  </div>
 
 <table id="customers">
   <tr>
@@ -47,13 +57,13 @@ body {
     <th></th>
   </tr>
   <tr *ngFor="let reimb of this.reimbursements">
-    <td *ngIf="reimb.statusId == 1">{{reimb.reimbursementId}}</td>
-    <td *ngIf="reimb.statusId == 1">{{reimb.authorId | employee}}</td>
-    <td *ngIf="reimb.statusId == 1">{{reimb.description}}</td>
-    <td *ngIf="reimb.statusId == 1">{{reimb.reimbursementAmount | currency: 'USD': 'symbol'}}</td>
-    <td *ngIf="reimb.statusId == 1">{{reimb.typeId | type}}</td>
-    <td *ngIf="reimb.statusId == 1" class ="status">{{reimb.statusId | status}}</td>
-    <td align = "center" *ngIf="reimb.statusId == 1"><button role = "button" *ngIf="reimb.statusId == 1" class="btn btn-success" (click)="approve(reimb.reimbursementId)" >Approve</button><button role = "button" *ngIf="reimb.statusId== 1" class="btn btn-danger" (click)="deny(reimb.reimbursementId)">Deny</button></td>
+    <td *ngIf="reimb.statusId == this.typeIdChecking">{{reimb.reimbursementId}}</td>
+    <td *ngIf="reimb.statusId == this.typeIdChecking">{{reimb.authorId | employee}}</td>
+    <td *ngIf="reimb.statusId == this.typeIdChecking">{{reimb.description}}</td>
+    <td *ngIf="reimb.statusId == this.typeIdChecking">{{reimb.reimbursementAmount | currency: 'USD': 'symbol'}}</td>
+    <td *ngIf="reimb.statusId == this.typeIdChecking">{{reimb.typeId | type}}</td>
+    <td *ngIf="reimb.statusId == this.typeIdChecking" class ="status">{{reimb.statusId | status}}</td>
+    <td align = "center" *ngIf="reimb.statusId == 1 && reimb.statusId == this.typeIdChecking"><button role = "button" *ngIf="reimb.statusId == 1" class="btn btn-success" (click)="approve(reimb.reimbursementId)" >Approve</button><button role = "button" *ngIf="reimb.statusId== 1" class="btn btn-danger" (click)="deny(reimb.reimbursementId)">Deny</button></td>
   </tr>
 </table>
 
