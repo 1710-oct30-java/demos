@@ -3,130 +3,107 @@ package com.revature.beans;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Reimbursement implements Serializable
-{
-	private int		id;
-	private float	amount;
-	private Date	submitted;
-	private Date	resolved;
-	private String	description;
-	private Object	receipt;
-	private int		author;
-	private int		resolver;
-	private int		statusId;
-	private int		typeId;
-	
-	public int getId()
-	{
+public class Reimbursement implements Serializable {
+	private int id;
+	private float amount;
+	private Date submitted;
+	private Date resolved;
+	private String description;
+	private Object receipt;
+	private int author;
+	private int resolver;
+	private int statusId;
+	private int typeId;
+
+	public int getId() {
 		return id;
 	}
-	
-	public void setId(int id)
-	{
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public float getAmount()
-	{
+
+	public float getAmount() {
 		return amount;
 	}
-	
-	public void setAmount(float amount)
-	{
+
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
-	
-	public Date getSubmitted()
-	{
+
+	public Date getSubmitted() {
 		return submitted;
 	}
-	
-	public void setSubmitted(Date submitted)
-	{
+
+	public void setSubmitted(Date submitted) {
 		this.submitted = submitted;
 	}
-	
-	public Date getResolved()
-	{
+
+	public Date getResolved() {
 		return resolved;
 	}
-	
-	public void setResolved(Date resolved)
-	{
+
+	public void setResolved(Date resolved) {
 		this.resolved = resolved;
 	}
-	
-	public String getDescription()
-	{
+
+	public String getDescription() {
 		return description;
 	}
-	
-	public void setDescription(String description)
-	{
+
+	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public Object getReceipt()
-	{
+
+	public Object getReceipt() {
 		return receipt;
 	}
-	
-	public void setReceipt(Object receipt)
-	{
+
+	public void setReceipt(Object receipt) {
 		this.receipt = receipt;
 	}
-	
-	public int getAuthor()
-	{
+
+	public int getAuthor() {
 		return author;
 	}
-	
-	public void setAuthor(int author)
-	{
+
+	public void setAuthor(int author) {
 		this.author = author;
 	}
-	
-	public int getResolver()
-	{
+
+	public int getResolver() {
 		return resolver;
 	}
-	
-	public void setResolver(int resolver)
-	{
+
+	public void setResolver(int resolver) {
 		this.resolver = resolver;
 	}
-	
-	public int getStatusId()
-	{
+
+	public int getStatusId() {
 		return statusId;
 	}
-	
-	public void setStatusId(int statusId)
-	{
+
+	public void setStatusId(int statusId) {
 		this.statusId = statusId;
 	}
-	
-	public int getTypeId()
-	{
+
+	public int getTypeId() {
 		return typeId;
 	}
-	
-	public void setTypeId(int typeId)
-	{
+
+	public void setTypeId(int typeId) {
 		this.typeId = typeId;
 	}
-	
+
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "Reimbursement [id=" + id + ", amount=" + amount + ", submitted=" + submitted + ", resolved=" + resolved
 				+ ", decription=" + description + ", receipt=" + receipt + ", author=" + author + ", resolver="
 				+ resolver + ", statusId=" + statusId + ", typeId=" + typeId + "]";
 	}
-	
+
 	public Reimbursement(int id, float amount, Date submitted, Date resolved, String decription, Object receipt,
-			int author, int resolver, int statusId, int typeId)
-	{
+			int author, int resolver, int statusId, int typeId) {
 		super();
 		this.id = id;
 		this.amount = amount;
@@ -139,10 +116,9 @@ public class Reimbursement implements Serializable
 		this.statusId = statusId;
 		this.typeId = typeId;
 	}
-	
+
 	@Override
-	public int hashCode()
-	{
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + Float.floatToIntBits(amount);
@@ -157,10 +133,9 @@ public class Reimbursement implements Serializable
 		result = prime * result + typeId;
 		return result;
 	}
-	
+
 	@Override
-	public boolean equals(Object obj)
-	{
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -172,49 +147,40 @@ public class Reimbursement implements Serializable
 			return false;
 		if (author != other.author)
 			return false;
-		if (description == null)
-		{
+		if (description == null) {
 			if (other.description != null)
 				return false;
-		}
-		else if (!description.equals(other.description))
+		} else if (!description.equals(other.description))
 			return false;
 		if (id != other.id)
 			return false;
-		if (receipt == null)
-		{
+		if (receipt == null) {
 			if (other.receipt != null)
 				return false;
-		}
-		else if (!receipt.equals(other.receipt))
+		} else if (!receipt.equals(other.receipt))
 			return false;
-		if (resolved == null)
-		{
+		if (resolved == null) {
 			if (other.resolved != null)
 				return false;
-		}
-		else if (!resolved.equals(other.resolved))
+		} else if (!resolved.equals(other.resolved))
 			return false;
 		if (resolver != other.resolver)
 			return false;
 		if (statusId != other.statusId)
 			return false;
-		if (submitted == null)
-		{
+		if (submitted == null) {
 			if (other.submitted != null)
 				return false;
-		}
-		else if (!submitted.equals(other.submitted))
+		} else if (!submitted.equals(other.submitted))
 			return false;
 		if (typeId != other.typeId)
 			return false;
 		return true;
 	}
-	
-	public Reimbursement()
-	{
+
+	public Reimbursement() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 }

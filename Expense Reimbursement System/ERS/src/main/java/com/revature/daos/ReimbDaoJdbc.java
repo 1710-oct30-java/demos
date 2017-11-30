@@ -13,13 +13,11 @@ import org.apache.log4j.Logger;
 import com.revature.beans.Reimbursement;
 import com.revature.util.ConnectionUtil;
 
-public class ReimbDaoJdbc implements ReimbDao
-{
-	private Logger			log		= Logger.getRootLogger();
-	private ConnectionUtil	conUtil	= ConnectionUtil.getConnectionUtil();
-	
-	public Reimbursement getReimbFromResultSet(ResultSet rs) throws SQLException
-	{
+public class ReimbDaoJdbc implements ReimbDao {
+	private Logger log = Logger.getRootLogger();
+	private ConnectionUtil conUtil = ConnectionUtil.getConnectionUtil();
+
+	public Reimbursement getReimbFromResultSet(ResultSet rs) throws SQLException {
 		int id = rs.getInt("reimb_id");
 		float amount = rs.getFloat("reimb_amount");
 		Date submitted = rs.getDate("reimb_submitted");
@@ -30,18 +28,16 @@ public class ReimbDaoJdbc implements ReimbDao
 		int resolver = rs.getInt("reimb_resolver");
 		int statusId = rs.getInt("reimb_status_id");
 		int typeId = rs.getInt("reimb_type_id");
-		
+
 		return new Reimbursement(id, amount, submitted, resolved, description, recipt, author, resolver, statusId,
 				typeId);
 	}
-	
+
 	@Override
-	public int save(Reimbursement r)
-	{
+	public int save(Reimbursement r) {
 		log.debug("Trying to save a reimbursement");
-		
-		try (Connection con = conUtil.getConnection())
-		{
+
+		try (Connection con = conUtil.getConnection()) {
 			PreparedStatement ps = con.prepareStatement(
 					"INSERT INTO ers_reimbursement (reimb_amount, reimb_submitted, reimb_description, reimb_status_id, reimb_type_id) VALUES (?, ?, ?, ?, ?)");
 			ps.setFloat(1, r.getAmount());
@@ -50,54 +46,45 @@ public class ReimbDaoJdbc implements ReimbDao
 			ps.setInt(4, r.getStatusId());
 			ps.setInt(5, r.getTypeId());
 			ps.executeQuery();
-			
+
 			// get columns actually saved in the database
 			ResultSet keys = ps.getGeneratedKeys();
-			
-			if (keys.next())
-			{
+
+			if (keys.next()) {
 				log.trace("Row inserted has id: " + keys.getInt(1) + "\nand description: " + keys.getString(3));
 				log.info("Successfully added reimbursement");
 				return keys.getInt(1);
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 			log.debug("Failed to save reimbursement");
 		}
-		
+
 		return 0;
 	}
-	
+
 	@Override
-	public List<Reimbursement> findAll()
-	{
+	public List<Reimbursement> findAll() {
 		List<Reimbursement> reimbs = new ArrayList<>();
 		log.debug("Trying to retreive all reimbursements");
-		
-		try (Connection con = conUtil.getConnection())
-		{
+
+		try (Connection con = conUtil.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("SELECT * FROM ers_reimbursement");
 			ResultSet rs = ps.executeQuery();
-			
-			while (rs.next())
-			{
+
+			while (rs.next()) {
 				Reimbursement r = extractReimb(rs);
 				reimbs.add(r);
 			}
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			log.warn("Failed to retreive all reimbursements");
 			e.printStackTrace();
 		}
-		
+
 		return reimbs;
 	}
-	
-	private Reimbursement extractReimb(ResultSet rs) throws SQLException
-	{
+
+	private Reimbursement extractReimb(ResultSet rs) throws SQLException {
 		Reimbursement r = new Reimbursement();
 		r.setId(rs.getInt("reimb_id"));
 		r.setAmount(rs.getFloat("reimb_amount"));
@@ -111,25 +98,20 @@ public class ReimbDaoJdbc implements ReimbDao
 		r.setTypeId(rs.getInt("reimb_type_id"));
 		return r;
 	}
-	
+
 	@Override
-	public Reimbursement findById(int id)
-	{
+	public Reimbursement findById(int id) {
 		log.debug("Trying to retreive reimbursement with id: " + id);
-		try (Connection con = conUtil.getConnection())
-		{
+		try (Connection con = conUtil.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("SELECT * FROM ers_reimbursement WHERE reimb_id = ?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			
-			if (rs.next())
-			{
+
+			if (rs.next()) {
 				return getReimbFromResultSet(rs);
 			}
-			
-		}
-		catch (SQLException e)
-		{
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 			log.warn("Failed to retreive reimbursement");
 		}

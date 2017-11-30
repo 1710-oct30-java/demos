@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.revature.beans.User;
 
-public interface UserDao
-{
+public interface UserDao {
 	/**
 	 * Uses a Prepared Statement to create a user
 	 * 
@@ -14,21 +13,21 @@ public interface UserDao
 	 * @return the user id in the database
 	 */
 	int save(User u);
-	
+
 	/**
 	 * Finds all users in the database
 	 * 
 	 * @return list of all users
 	 */
 	List<User> findAll();
-	
+
 	/**
 	 * Finds a single user by the id
 	 * 
 	 * @return
 	 */
 	User findById(int id);
-	
+
 	/**
 	 * Finds a single user by their username and password
 	 * 

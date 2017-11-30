@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.revature.beans.Reimbursement;
 
-public interface ReimbDao
-{
+public interface ReimbDao {
 	/**
 	 * Uses a Prepared Statement to create a reimbursement
 	 * 
@@ -13,14 +12,14 @@ public interface ReimbDao
 	 * @return
 	 */
 	int save(Reimbursement r);
-	
+
 	/**
 	 * Finds all reimbursements in the database
 	 * 
 	 * @return
 	 */
 	List<Reimbursement> findAll();
-	
+
 	/**
 	 * Finds a single reimbursement by the id
 	 * 
