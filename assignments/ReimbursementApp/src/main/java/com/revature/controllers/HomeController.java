@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.revature.beans.Reimbursement;
+import com.revature.beans.User;
 import com.revature.services.ReimbursementService;
 
 public class HomeController {
@@ -23,13 +24,13 @@ public class HomeController {
 	public void delegateGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		log.debug("Get request in Home controller");
-		int roleId = (int) request.getSession(false).getAttribute("userId");
-		log.trace(roleId);
-		if (roleId == 1)
-			request.getRequestDispatcher("/static/adminHome.html").forward(request, response);
-		else
-			request.getRequestDispatcher("/static/home.html").forward(request, response);
-	}
+			int roleId = (int) request.getSession().getAttribute("roleId");
+			System.out.println(roleId);
+			if (roleId == 1)
+				request.getRequestDispatcher("/static/adminHome.html").forward(request, response);
+			else
+				request.getRequestDispatcher("/static/home.html").forward(request, response);
+		}
 
 	public void delegatePost(HttpServletRequest request, HttpServletResponse response) {
 		log.debug("Post request delegated to Home controller");

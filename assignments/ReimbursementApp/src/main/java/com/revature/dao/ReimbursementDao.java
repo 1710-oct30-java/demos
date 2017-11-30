@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.revature.beans.Reimbursement;
@@ -15,4 +16,5 @@ public interface ReimbursementDao {
 	int approved(int reimbursement);
 
 	int denied(int reimbursement);
+	
 }

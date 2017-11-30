@@ -6,7 +6,7 @@ public class Reimbursement {
 	private int reimbId;
 	private float amount;
 	private Date submitted;
-	private Date resolved;
+	private String resolved;
 	private String descip;
 	private String receipt;
 	private int authorId;
@@ -19,7 +19,7 @@ public class Reimbursement {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reimbursement(int reimbId, float amount, Date submitted, Date resolved, String descip, String receipt,
+	public Reimbursement(int reimbId, float amount, Date submitted, String resolved, String descip, String receipt,
 			int authorId, int resolver, int statusId, int typeId) {
 		super();
 		this.reimbId = reimbId;
@@ -127,11 +127,11 @@ public class Reimbursement {
 		this.submitted = date;
 	}
 
-	public java.sql.Date getResolved() {
-		return new java.sql.Date(resolved.getTime());
+	public String getResolved() {
+		return resolved;
 	}
 
-	public void setResolved(Date resolved) {
+	public void setResolved(String resolved) {
 		this.resolved = resolved;
 	}
 

@@ -11,6 +11,7 @@ xhttp.onload = (resp) => {
             let checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.name = "checker";
+            checkbox.className = "myCheck";            
             checkbox.id = jsonObj[p].reimbId;
             let firstElement = document.createElement('td');
             firstElement.appendChild(checkbox);
@@ -35,7 +36,6 @@ xhttp.onload = (resp) => {
 xhttp.open('POST', 'http://localhost:8080/ReimbursementApp/manageReimbursements')
 xhttp.send();
 let manage = [];
-
 function selectCheck(selected) {
     if (selected.checked)
         manage.push(selected.id)

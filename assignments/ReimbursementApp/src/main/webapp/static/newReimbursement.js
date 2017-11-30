@@ -33,7 +33,6 @@ function newReimb() {
         "statusId": status
 
     }
-    xh
     xhttp.open('POST', 'http://localhost:8080/ReimbursementApp/new');
     xhttp.send(JSON.stringify(newReimbursement));
 }

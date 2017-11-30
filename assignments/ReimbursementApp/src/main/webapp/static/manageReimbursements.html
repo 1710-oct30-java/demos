@@ -15,7 +15,7 @@
     <div class="container">
         <form onchange="event.preventDefault(); filter()" id='selectedType'>
             <div class="form-group">
-                <label for="select-type">Filter By</label>
+                <label for="select-type"><h3>Filter By</h3></label>
                 <select class="form-control" id="reimbType">
                     <option>All</option>
                     <option >Pending</option>
@@ -28,7 +28,7 @@
                 <div class="col">
                     <table class="table">
                         <thead class="thead-inverse">
-                            <tr>
+                            <tr class = "bg-success text-white">
                                 <th>Select</th>
                                 <th>Id</th>
                                 <th>Amount</th>
@@ -36,12 +36,12 @@
                                 <th>Date Resolved</th>
                                 <th>Description</th>
                                 <th>Author</th>
-                                
+                                <th>Resolver</th>
                                 <th>Status Id"</th>
                                 <th>Type Id</th>
                             </tr>
                         </thead>
-                        <tbody id='fillReimb'>
+                        <tbody id='fillReimb' class='table-active'>
                         </tbody>
                     </table>
                 </div>
@@ -54,7 +54,7 @@
                     <div class="form-wrap">
 
                         <form>
-                            <input type="button" id="approve" class="btn btn-login btn-custom btn-lg btn-block btn-info" value='Approve' onclick="approveOrDeny(this)">
+                            <input type="button" id="approve" class="btn btn-login btn-custom btn-lg btn-block btn-primary" value='Approve' onclick="approveOrDeny(this)">
                             <input type="button" id="deny" class="btn btn-login btn-custom btn-lg btn-block btn-danger" value='Deny' onclick="approveOrDeny(this)">
                         </form>
                         <hr>

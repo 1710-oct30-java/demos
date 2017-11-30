@@ -17,9 +17,12 @@ body{
   }
   .shadow {
     box-shadow: 10px 20px 20px 10px grey;
+    color: white;
+    background-color: skyblue;
+    border-radius: 20px;
   }
   .alignButton {
     padding-bottom: 10px;
   }
 
-  
+

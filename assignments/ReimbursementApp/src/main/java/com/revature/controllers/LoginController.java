@@ -62,9 +62,9 @@ public class LoginController {
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.getWriter().write(userSend);
-				
+
 			}
-			
+
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

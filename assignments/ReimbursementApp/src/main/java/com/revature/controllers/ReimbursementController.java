@@ -32,25 +32,26 @@ public class ReimbursementController {
 		log.debug("Get request in Reimbursement controller");
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
 		log.trace(actualURL);
-
-		switch (actualURL) {
-		case "/history":
-			request.getRequestDispatcher("/static/reimbursements.html").forward(request, response);
-			break;
-		case "/manageReimbursements":
-			request.getRequestDispatcher("/static/manageReimbursements.html").forward(request, response);
-			break;
-		case "/approve":
-			 request.getRequestDispatcher("/static/completed.html").forward(request,
-			 response);
-			break;
-		case "/deny":
-			request.getRequestDispatcher("/static/completed.html").forward(request, response);
-			break;
-		default:
-			break;
+		if (request.getSession().getAttribute("userId") == null) {
+			request.getRequestDispatcher("/static/login.html").forward(request, response);
+		} else {
+			switch (actualURL) {
+			case "/history":
+				request.getRequestDispatcher("/static/reimbursements.html").forward(request, response);
+				break;
+			case "/manageReimbursements":
+				request.getRequestDispatcher("/static/manageReimbursements.html").forward(request, response);
+				break;
+			case "/approve":
+				request.getRequestDispatcher("/static/completed.html").forward(request, response);
+				break;
+			case "/deny":
+				request.getRequestDispatcher("/static/completed.html").forward(request, response);
+				break;
+			default:
+				break;
+			}
 		}
-
 	}
 
 	public void delegatePost(HttpServletRequest request, HttpServletResponse response)
@@ -106,9 +107,9 @@ public class ReimbursementController {
 				.reduce((acc, curr) -> acc + curr) // Convert lines to one String
 				.get(); // Get that single string value
 		ObjectMapper om = new ObjectMapper();
-		List<String> approved = om.readValue(json, List.class);
-		for (String approve : approved) {
-			int send = Integer.parseInt(approve);
+		List<String> denied = om.readValue(json, List.class);
+		for (String deny : denied) {
+			int send = Integer.parseInt(deny);
 			rs.denyReimbursement(send);
 		}
 
@@ -123,6 +124,11 @@ public class ReimbursementController {
 
 		int userId = (int) request.getSession().getAttribute("userId");
 		rl = rs.getReimbursements(userId);
+		for (Reimbursement r : rl) {
+			if (r.getResolved() == null)
+				r.setResolved(" ");
+				
+		}
 		String json = new Gson().toJson(rl);
 		log.trace(json);
 		response.setContentType("application/json");
@@ -138,6 +144,10 @@ public class ReimbursementController {
 		List<Reimbursement> rl = new ArrayList<>();
 		// Gets current logged in User's ID
 		rl = rs.getAllReimbursements();
+		for (Reimbursement r : rl) {
+			if (r.getResolved() == null)
+				r.setResolved(" ");
+		}
 		String json = new Gson().toJson(rl);
 		log.trace(json);
 		response.setContentType("application/json");

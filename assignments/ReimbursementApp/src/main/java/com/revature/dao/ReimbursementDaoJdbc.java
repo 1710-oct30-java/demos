@@ -2,6 +2,7 @@ package com.revature.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -24,7 +25,7 @@ public class ReimbursementDaoJdbc implements ReimbursementDao {
 		r.setDescip(rs.getString("description"));
 		r.setStatusId(rs.getInt("status_id"));
 		r.setSubmitted(rs.getDate("submitted"));
-		r.setResolved(rs.getDate("resolved"));
+		r.setResolved(rs.getString("resolved"));
 		r.setResolver(rs.getInt("REIMB_RESOLVER"));
 
 		return r;
@@ -82,13 +83,14 @@ public class ReimbursementDaoJdbc implements ReimbursementDao {
 		log.debug("Attempting to open add new Reimbursement ticket to DB");
 		try (Connection conn = cu.getConnection()) {
 			PreparedStatement ps = conn.prepareStatement(
-					"INSERT INTO reimbursement (amount,submitted,description,author,status_id,type_id) VALUES (?,?,?,?,?,?)");
+					"INSERT INTO reimbursement (amount,submitted,description,author,status_id,type_id,resolved) VALUES (?,?,?,?,?,?,?)");
 			ps.setFloat(1, newReimb.getAmount());
 			ps.setDate(2, newReimb.getSubmitted());
 			ps.setString(3, newReimb.getDescip());
 			ps.setInt(4, newReimb.getAuthorId());
 			ps.setInt(5, newReimb.getStatusId());
 			ps.setInt(6, newReimb.getTypeId());
+			ps.setString(7, null);
 			ps.executeQuery();
 			log.debug("Reimbursement added successfully");
 
@@ -106,7 +108,7 @@ public class ReimbursementDaoJdbc implements ReimbursementDao {
 		log.debug("Attempting to approve into DB " + reimbursement);
 		try (Connection conn = cu.getConnection()) {
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE reimbursement SET status_id = ?, reimb_resolver = ?  WHERE reimb_id = ?");
+					.prepareStatement("UPDATE reimbursement SET status_id = ?, resolved = CURRENT_TIMESTAMP, reimb_resolver = ?  WHERE reimb_id = ?");
 			ps.setInt(1, 1);
 			ps.setInt(2, 1);
 			ps.setInt(3, reimbursement);
@@ -125,7 +127,7 @@ public class ReimbursementDaoJdbc implements ReimbursementDao {
 		log.debug("Attempting to deny into DB " + reimbursement);
 		try (Connection conn = cu.getConnection()) {
 			PreparedStatement ps = conn
-					.prepareStatement("UPDATE reimbursement SET status_id = ?, reimb_resolver = ?  WHERE reimb_id = ?");
+					.prepareStatement("UPDATE reimbursement SET status_id = ?, resolved = CURRENT_TIMESTAMP, reimb_resolver = ?  WHERE reimb_id = ?");
 			ps.setInt(1, 2);
 			ps.setInt(2, 1);
 			ps.setInt(3, reimbursement);
