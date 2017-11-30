@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.get('http://localhost:8080/bean-project/beans').subscribe( 
+    this.http.get('http://localhost:8080/bean-project/beans', { withCredentials: true }).subscribe(
       (successResp) => {
         this.beans = successResp.json();
       },
