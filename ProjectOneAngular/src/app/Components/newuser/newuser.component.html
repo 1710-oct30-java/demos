@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="card card-container">
+        <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" (ngSubmit)="createUser()">
+            <span id="reauth-username" class="reauth-username"></span>
+            <input type="string" id="inputUsername" class="form-control" placeholder="Username" required autofocus [(ngModel)]="newUser.username"
+                username="inputUsername" [ngModelOptions]="{standalone: true}">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="newUser.password"
+                pass="inputPassword" [ngModelOptions]="{standalone: true}">
+            <input type="string" id="inputFirstname" class="form-control" placeholder="Firstname" required autofocus [(ngModel)]="newUser.firstName"
+                username="inputFirstname" [ngModelOptions]="{standalone: true}">
+            <input type="string" id="inputLastname" class="form-control" placeholder="Lastname" required autofocus [(ngModel)]="newUser.lastName"
+                username="inputLastname" [ngModelOptions]="{standalone: true}">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus [(ngModel)]="newUser.email"
+                username="inputEmail" [ngModelOptions]="{standalone: true}">
+            
+            <div>
+                    <label class="">Account Type</label>
+            </div>
+            
+            <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="newUser.role" [ngModelOptions]="{standalone: true}">
+                <label ngbButtonLabel class="btn-primary btn-radio">
+                    <input ngbButton type="radio" name="radios" id="radios-0" [value]="1"> Employee
+                </label>
+                <label ngbButtonLabel class="btn-primary btn-radio">
+                    <input ngbButton type="radio" name="radios" id="radios-1" [value]="2"> Finance Manager
+                </label>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Create Account</button>
+        </form>
+        <!-- /form -->
+        <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="cancel()">
+            Cancel
+        </button>
+    </div>
+</div>

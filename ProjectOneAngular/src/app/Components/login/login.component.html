@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card card-container">
+        <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" (ngSubmit)="login()">
+            <span id="reauth-username" class="reauth-username"></span>
+            <input type="string" id="inputUsername" class="form-control" placeholder="Username" required autofocus [(ngModel)]="currUser.username" username="inputUsername"[ngModelOptions]="{standalone: true}">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="currUser.password" pass="inputPassword"[ngModelOptions]="{standalone: true}">
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+        </form>
+        <!-- /form -->
+        <a href="#" class="register" (click)="createUser()">
+            Register New User
+        </a>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<button class="btn btn-primary" (click)="toggle();reinitalize();">Hide/Show Your Tickets</button>
+<div id="mylist" hidden=t rue>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Amount</th>
+                    <th>Submitted Date</th>
+                    <th>Resolved Date</th>
+                    <th>Receipt</th>
+                    <th>Resolver</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ticket of tickets">
+                    <td>{{ticket.reimbID}}</td>
+                    <td>{{ticket.amount}}</td>
+                    <td>{{ticket.submitted | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{ticket.resolved | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{ticket.receipt}}</td>
+                    <td>{{ticket.resolver.firstName}} {{ticket.resolver.lastName}}</td>
+                    <td>{{ticket.description}}</td>
+                    <td>{{ticket.status}}</td>
+                    <td>{{ticket.type}}</td>                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h6 id="loading" hidden=true>
+            Loading...
+    </h6>
+</div>

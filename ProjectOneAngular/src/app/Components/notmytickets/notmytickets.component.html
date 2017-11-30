@@ -1,0 +1,57 @@
+<button class="btn btn-primary" (click)="toggle();reinitalize();">Hide/Show All Tickets</button>
+<div id="notmylist" hidden=true>
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Author</th>
+                    <th>Amount</th>
+                    <th>Submitted Date</th>
+                    <th>Resolved Date</th>
+                    <th>Receipt</th>
+                    <th>Resolver</th>
+                    <th>Description</th>
+                    <th>
+                        <label class="radio-inline" for="radios-0">
+                            <input type="radio" name="radios" id="radios-0" [value]="1" (click)="fs = 1;filterTable();"> All
+                        </label>
+                        <label class="radio-inline" for="radios-1">
+                            <input type="radio" name="radios" id="radios-1" [value]="2" (click)="fs = 2; filterTable();"> Pending
+                        </label>
+                        <label class="radio-inline" for="radios-2">
+                            <input type="radio" name="radios" id="radios-2" [value]="3" (click)="fs = 3; filterTable();"> Approved
+                        </label>
+                        <label class="radio-inline" for="radios-3">
+                            <input type="radio" name="radios" id="radios-3" [value]="4" (click)="fs = 4; filterTable();"> Denied
+                        </label>
+                    </th>
+                    <th>
+                        type
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ticket of tickets2">
+                    <td>{{ticket.reimbID}}</td>
+                    <td>{{ticket.author.firstName}} {{ticket.author.lastName}}</td>
+                    <td>{{ticket.amount}}</td>
+                    <td>{{ticket.submitted | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{ticket.resolved | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{ticket.receipt}}</td>
+                    <td>{{ticket.resolver.firstName}} {{ticket.resolver.lastName}}</td>
+                    <td>{{ticket.description}}</td>
+                    <td>{{ticket.status}}</td>
+                    <td>{{ticket.type}}</td>
+                    <button type="button" class="btn btn-success" (click)="approve(ticket);">Approve</button>
+                    <button type="button" class="btn btn-danger" (click)="deny(ticket);">Deny</button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h6 id="loading2" hidden=t>
+        Loading...
+    </h6>
+
+</div>
