@@ -1,0 +1,10 @@
+.check {
+    transform:scale(1.5, 1.5);
+    align-items: center;
+}
+
+.buttons {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    align-content: center;
+}

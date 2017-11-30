@@ -1,0 +1,33 @@
+.check {
+    transform:scale(1.5, 1.5);
+    align-items: center;
+}
+
+.buttons {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    align-content: center;
+}
+
+.right {
+    float: right;
+}
+
+.myForm {
+    max-width: 35%;
+    padding: 2px;
+
+}
+
+.txt {
+    padding: 2px;
+}
+
+.inputForm {
+    padding-bottom: 1px;
+}
+
+.typeInput {
+    max-width: 5%;
+    padding: 2px;
+}

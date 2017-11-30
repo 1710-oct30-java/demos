@@ -1,0 +1,20 @@
+<div class="alert alert-danger" *ngIf="this.failedLogin === true">
+  <strong>Failure</strong> Login credentials are incorrect.
+</div>
+
+<div class="container" [@loginState] = 'this.state'>
+	<div class="row">
+		<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">Log in</h2>
+
+  <form class="login-container">
+    <p><input #username type="username" placeholder="Username" ng-model="un"></p>
+    <p><input #password type="password" placeholder="Password" ng-model="pass"></p>
+    <p><input type="submit" value="Log in" (click)= "attemptLogin(username.value, password.value)"></p>
+  </form>
+</div>
+	</div>
+</div>
+
