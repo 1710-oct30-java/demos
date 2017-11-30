@@ -31,12 +31,8 @@
     width: 80%;
     padding: 12px 20px;
     padding-left: 50px;
-    margin: 8px 0;
-    display: inline-block;
-    background: rgba(0,0,0,0.0);
+    background: rgba(0,0,0,0);
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
     font-size: 18px;
     color: #333;
 }
@@ -93,8 +89,7 @@
 
 .button1:hover {
     background-color: white;
-    color: #515151;
-    
+    color: #515151; 
 }
 
 div .signin_links a {
@@ -130,81 +125,3 @@ div .signin_links a:hover {
         background-size: 22px;
     }
 }
-/*
-.box
-{
-	border: none;
-	background: rgba(0,0,0,0.0.7);
-	box-shadow: 5px rgba(0,0,0,0.2);
-	padding: 10px;
-	width: 400px;
-}
-
-.icon{
-	width: 30px;
-}
-
-form table, tr, th{
-	width: 400px;
-}
-
-div .sign-in-link a {
-	float: left;
-	text-decoration: none;
-	font-size: 18px;
-}
-
-div .sign-in-link a:hover {
-	border-bottom: 2px solid white;
-	font-weight: bold;
-}
-
-input[type=text], [type=password] {
-	width: 250px;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	background: rgba(0,0,0,0.0);
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size:18px;
-	color: #707070;
-}
-
-input[type=text]:focus, [type=password]:focus { 
-	outline: none;
-	border-color: #9ecaed;
-	box-shadow: 0 0 10px #9ecaed;
-}
-
-input[type=checkbox] {
-	display:inline-block;
-	width:21px;
-	height:21px;
-	cursor: pointer;
-}
-
-input[name="login"] {
-	width: 250px;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	background: rgba(0, 172, 230, 0.25);
-	border: none;
-	box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
-	border-radius: 4px;
-	cursor: pointer;
-}
-
-input[name="login"]:hover {
-	box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
-	background: rgba(0, 172, 230, 0.4);
-}
-
-.container {
-	border-radius: 5px;
-	background-color: #f2f2f2;
-	padding: 20px;
-}
-*/

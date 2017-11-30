@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Edel's ERS - Add Reimbursement</title>
+	<link href="../../css/default.css" rel="stylesheet" />
+	<link href="../../css/reimbursement-add.css" rel="stylesheet" />
+	<link href="../../css/alerts.css" rel="stylesheet" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="../../images/icons/money-bag-icon.png" />
+	
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	
+	<!-- Custom styles for this template -->
+	<link href="../../css/dashboard.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+
+	<!-- Menu -->
+	<div id="menuScript"></div>
+	<script src="../../js/menu.js"></script>
+
+	<div id="info" align="center"></div>
+
+	<form id="add-reimbursement-form" onsubmit="event.preventDefault(); addReimbursement();">
+		<div align="center">
+			<h4>Add Reimbursement</h4>
+			<input id="r_amount" type="text" name="amount" placeholder="Amount">
+			
+			<table>
+				<label>
+					<tr>
+						<td><input type="radio" class="option-input radio" name="r_type_id" value="Lodging" /></td>
+						<td><span class="option-padding">Lodging</span></td>			
+					</tr>
+				</label>
+				
+				<label>
+					<tr>
+						<td><input type="radio" class="option-input radio" name="r_type_id" value="Travel" /></td>
+						<td><span class="option-padding">Travel</span></td>			
+					</tr>
+				</label>
+				
+				<label>
+					<tr>
+						<td><input type="radio" class="option-input radio" name="r_type_id" value="Food" /></td>
+						<td><span class="option-padding">Food</span></td>			
+					</tr>
+				</label>
+				
+				<label>
+					<tr>
+						<td><input type="radio" class="option-input radio" name="r_type_id" value="Other" checked /></td>
+						<td><span class="option-padding">Other</span></td>			
+					</tr>
+				</label>
+			</table>
+			<br>
+			
+			<textarea id="r_description" placeholder="Description..."></textarea> <br>
+			
+			<input id="btn-add-reimbursement" type="submit" class="btn btn-primary"
+						value="Add Reimbursement">
+		</div>
+	</form>
+	
+
+
+	<script src="../../js/alerts.js"></script>
+	<script src="../../js/reimbursement-add.js"></script>
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	<script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+	<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

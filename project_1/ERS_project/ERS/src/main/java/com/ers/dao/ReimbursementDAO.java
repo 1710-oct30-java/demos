@@ -42,7 +42,7 @@ public interface ReimbursementDAO {
 	 * Adds a reimbursement to the database
 	 * @param User object
 	 */
-	public void addReimbursement(User user, double amount, String description, int r_type_id);
+	public void addReimbursement(User user, Reimbursement reimb);
 	
 	
 	/**
@@ -53,4 +53,18 @@ public interface ReimbursementDAO {
 	 */
 	public void updateReimbursement(User user, Reimbursement reimb, int r_status_id);
 	
+	
+	/**
+	 * Returns list of all reimbursements.
+	 * @return List<Reimbursement>
+	 */
+	public List<Reimbursement> getReimbursementsAllReimbursements();
+
+	
+	/**
+	 * Returns list of all reimbursements by given user ID.
+	 * @param r_author
+	 * @return List
+	 */
+	public List<Reimbursement> getReimbursementsByUserID(int r_author);
 }

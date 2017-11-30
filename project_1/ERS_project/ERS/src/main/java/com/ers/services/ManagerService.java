@@ -22,7 +22,7 @@ public class ManagerService extends ReimbursementDAOJdbc {
 		log.debug("Checking if user is a manager...");
 		
 		if(user.getRole_id() == 1) {
-			log.debug("User is a manager!\n");
+			log.debug("User '" + user.getUsername() + "' is a manager!\n");
 			return true;
 		}
 		
@@ -66,5 +66,22 @@ public class ManagerService extends ReimbursementDAOJdbc {
 				super.updateReimbursement(user, reimb, r_status_id);
 			}
 		}
+	}
+	
+	
+	/**
+	 * Returns list of all reimbursements in the database.
+	 * @return List<Reimbursement>
+	 */
+	public List<Reimbursement> getAllReimbursements() {
+		return super.getReimbursementsAllReimbursements();
+	}
+	
+	
+	/**
+	 * Returns list of all reimbursements by user ID.
+	 */
+	public List<Reimbursement> getReimbursementsByUserID(int r_author) {
+		return super.getReimbursementsByUserID(r_author);
 	}
 }

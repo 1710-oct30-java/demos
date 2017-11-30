@@ -5,9 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.ers.beans.Reimbursement;
 import com.ers.beans.User;
 import com.ers.util.ConnectionUtil;
 
@@ -263,6 +266,53 @@ public class UsersDAOJdbc implements UsersDAO {
 		}
 		
 		return user;
+	}
+
+
+
+
+	@Override
+	public List<User> getAllUsers() {
+		List<User> list = new ArrayList<User>();
+
+		try (Connection conn = conUtil.getConnection()) {
+			
+			log.debug("Retreiving user information...");
+			User user;
+
+			String query = "SELECT * FROM USERS";
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				user = new User();
+				user.setUser_id(rs.getInt("user_id"));
+				user.setUsername(rs.getString("username"));
+				//user.setPassword(rs.getString("password"));
+				user.setFirstName(rs.getString("firstname"));
+				user.setLastName(rs.getString("lastname"));
+				user.setEmail(rs.getString("email"));
+				user.setRole_id(rs.getInt("role_id"));
+				list.add(user);
+			}
+
+			// Check if any pending requests are found
+			if (!list.isEmpty()) {
+				log.debug("Users loaded!\n");
+			}
+
+			// Else no pending request found
+			else {
+				log.debug("No users found!\n");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			log.debug("Failed to retrieve user information!\n");
+		}
+		
+		return list;
 	}
 	
 }

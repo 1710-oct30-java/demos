@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Edel's ERS - Approve Reimbursements</title>
+	<link href="../../css/default.css" rel="stylesheet" />
+	<link href="../../css/reimbursement.css" rel="stylesheet" />
+	<link href="../../css/alerts.css" rel="stylesheet" />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="../../images/icons/money-bag-icon.png" />
+	
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	
+	<!-- Custom styles for this template -->
+	<link href="../../css/dashboard.css" rel="stylesheet">
+</head>
+<body class="bg-light" onload="displayPendingReimbursements(); hideSubmitChangesButton();">
+
+
+	<!-- Menu -->
+	<div id="menuScript"></div>
+	<script src="../../js/menu.js"></script>
+
+	<div id="info-approve" align="center"></div>
+
+	<div align="center">
+		<h4>Approve Reimbursements</h4>
+		
+		<br>
+		
+		<div align="center">
+			<input type="text" name="search-input" id="reimbursement-search-input" onkeyup="searchReimbursements()" placeholder="Search...">
+		</div>
+		
+		<br><br>
+		<form onsubmit="event.preventDefault(); approveReimbursements();" class="container-fluid">
+			<div id="reimbursements"></div>
+			
+			<div id="submit-changes">
+				<table width="100%">
+					<tr>
+						<td width="50%"><input type="button" value="Refresh" class="btn btn-primary submit-changes gray-btn" onClick="displayPendingReimbursements();"></td>
+						<td width="50%"><input id="submit-requests" type="submit" class="btn btn-primary submit-changes" value="Sumbit Changes"></td>
+					</tr>
+				</table>
+			</div>
+			<br>
+		</form>
+		<br>
+	</div>
+	
+
+
+	
+	<script src="../../js/reimbursement-view-pending.js"></script>
+	<script src="../../js/reimbursement-approve.js"></script>
+	<script src="../../js/alerts.js"></script>
+	<script src="../../js/reimbursement.js"></script>
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+	<script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+	<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.log4j.Logger;
 
+import com.ers.beans.User;
 import com.ers.controllers.LoginController;
+import com.ers.controllers.ManagerController;
+import com.ers.controllers.ReimbursementController;
 import com.ers.controllers.UserController;
 
 /**
@@ -25,6 +28,8 @@ public class DispatcherServlet extends DefaultServlet {
 	private Logger log = Logger.getRootLogger();
 	private UserController uc = new UserController();
 	private LoginController lc = new LoginController();
+	private ReimbursementController rc = new ReimbursementController();
+	private ManagerController mc = new ManagerController();
 
 	
 	@Override
@@ -37,30 +42,38 @@ public class DispatcherServlet extends DefaultServlet {
 		if (actualURL.equals("/") || actualURL.equals("/home")) {
 			
 			request.getRequestDispatcher("/index.html").forward(request, response);
-			return;
 			
 		} else if(actualURL.equals("/pages/signin")) {
 			
 			lc.delegateGet(request, response);
 			
+		} else if(actualURL.equals("/pages/signout")) {
+			
+			lc.delegateLogout(request, response);
+			
 		} else if(actualURL.equals("/pages/data")) {
 			
 			uc.delegateGetData(request, response);
-			return;
 			
-		} else if(actualURL.equals("/pages/user")) {
+		} else if(actualURL.equals("/pages/reimbursements")) {
 			
-			uc.delegateGet(request, response);
+			rc.delegateGet(request, response);
 			
-		} else if (actualURL.equals("/pages/pokemon.html")) {
+		} else if(actualURL.equals("/pages/reimbursements/add")) {
 			
-			request.getRequestDispatcher("/ERS/index.html").forward(request, response);
-			super.doGet(request, response);
-			return;
+			rc.delegateAdd(request, response);
+			
+		} else if(actualURL.equals("/pages/reimbursements/view-all")) {
+			
+			mc.delegateViewAll(request, response);
+			
+		} else if(actualURL.equals("/pages/reimbursements/approve")) {
+			
+			mc.delegateApprove(request, response);
 			
 		} else {
 			
-			log.debug("URL not recognized! URL: '" + actualURL + "'");
+			// log.debug("URL not recognized! URL: '" + actualURL + "'");
 			super.doGet(request, response);
 			return;
 			
@@ -72,10 +85,17 @@ public class DispatcherServlet extends DefaultServlet {
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println(actualURL);
 		
 		if(actualURL.equals("/pages/signin")) {
 			lc.delegatePost(request, response);
+		}
+		
+		else if(actualURL.equals("/pages/reimbursements/add")) {
+			rc.delegatePost(request, response);
+		}
+		
+		else if(actualURL.equals("/pages/reimbursements/approve")) {
+			mc.delegatePost(request, response);
 		}
 	}
 	

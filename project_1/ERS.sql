@@ -254,48 +254,57 @@ VALUES (4, 'Other');
 
 -- SAMPLE DATA
 --Users
-INSERT INTO USERS(username, password, firstname, lastname, email, role_id) --id:100000
-VALUES('wbruce', 'batman', 'Bruce', 'Wayne', 'batman@ers.com', 1);
+INSERT INTO USERS(username, password, firstname, lastname, email, role_id)	-- 100000
+VALUES('batman', 'batman', 'Bruce', 'Wayne', 'batman@ers.com', 1);
 
-INSERT INTO USERS(username, password, firstname, lastname, email, role_id) --id:100001
-VALUES('palfred', 'password', 'Alfred', 'Pennyworth', 'palfred@ers.com', 2);
+INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100001
+VALUES('edel', 'edel', 'Edel', 'Benavides', 'edel@ers.com', 1);
 
-INSERT INTO USERS(username, password, firstname, lastname, email, role_id) --id:100002
-VALUES('pdiana', 'wonderwoman', 'Diana', 'Prince', 'wonderwoman@ers.com', 2);
+INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100002
+VALUES('palfred', 'palfred', 'Alfred', 'Pennyworth', 'palfred@ers.com', 2);
 
-INSERT INTO USERS(username, password, firstname, lastname, email, role_id) --id:100003
-VALUES('abarry', 'flash', 'Barry', 'Allen', 'flash@ers.com', 2);
+INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100003
+VALUES('wonderwoman', 'wonderwoman', 'Diana', 'Prince', 'wonderwoman@ers.com', 2);
 
-INSERT INTO USERS(username, password, firstname, lastname, email, role_id) --id:100004
-VALUES('kclark', 'superman', 'Clark', 'Kent', 'superman@ers.com', 2);
+INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100004
+VALUES('flash', 'flash', 'Barry', 'Allen', 'flash@ers.com', 2);
 
-INSERT INTO USERS(username, password, firstname, lastname, email, role_id) --id:100005
-VALUES('qoliver', 'arrow', 'Olvier', 'Queen', 'arrow@ers.com', 2);
+INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100005
+VALUES('superman', 'superman', 'Clark', 'Kent', 'superman@ers.com', 2);
+
+INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100006
+VALUES('arrow', 'arrow', 'Olvier', 'Queen', 'arrow@ers.com', 2);
 
 --Reimbursement
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (250, (SELECT CURRENT_TIMESTAMP FROM dual), 100001, 2, 3);
+VALUES (250, (SELECT CURRENT_TIMESTAMP FROM dual), 100001, 1, 3);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
 VALUES (1000, (SELECT CURRENT_TIMESTAMP FROM dual), 100001, 1, 1);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (1500, (SELECT CURRENT_TIMESTAMP FROM dual), 100002, 2, 2);
+VALUES (1500, (SELECT CURRENT_TIMESTAMP FROM dual), 100002, 1, 2);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
 VALUES (1250, (SELECT CURRENT_TIMESTAMP FROM dual), 100002, 1, 1);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (420, (SELECT CURRENT_TIMESTAMP FROM dual), 100002, 2, 1);
+VALUES (3000, (SELECT CURRENT_TIMESTAMP FROM dual), 100003, 1, 3);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (3450, (SELECT CURRENT_TIMESTAMP FROM dual), 100002, 3, 4);
+VALUES (2151.78, (SELECT CURRENT_TIMESTAMP FROM dual), 100003, 1, 4);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (3000, (SELECT CURRENT_TIMESTAMP FROM dual), 100003, 3, 3);
+VALUES (100.03, (SELECT CURRENT_TIMESTAMP FROM dual), 100000, 1, 3);
 
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
-VALUES (2150, (SELECT CURRENT_TIMESTAMP FROM dual), 100003, 1, 4);
+VALUES (1251, (SELECT CURRENT_TIMESTAMP FROM dual), 100004, 1, 4);
+
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
+VALUES (143.42, (SELECT CURRENT_TIMESTAMP FROM dual), 100001, 1, 4);
+
+INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_author, r_status_id, r_type_id)
+VALUES (33.51, (SELECT CURRENT_TIMESTAMP FROM dual), 100000, 1, 4);
 
 COMMIT;
 /*******************************************************************************
@@ -312,8 +321,18 @@ COMMIT;
    Sample JOINS
 ********************************************************************************/
 -- Sample inner join where 3 tables are joined together
---SELECT firstname, lastname, r_type, r_status FROM REIMBURSEMENT
+--SELECT username, firstname, lastname, r_type, r_status FROM REIMBURSEMENT
 --INNER JOIN USERS ON REIMBURSEMENT.r_author = USERS.user_id
 --INNER JOIN REIMBURSEMENT_TYPE ON REIMBURSEMENT.r_type_id = REIMBURSEMENT_TYPE.r_type_id
 --INNER JOIN REIMBURSEMENT_STATUS ON REIMBURSEMENT.r_status_id = REIMBURSEMENT_STATUS.r_status_id
---WHERE REIMBURSEMENT.r_author = 100013;
+--WHERE REIMBURSEMENT.r_author = 100003;
+
+
+--SELECT r_id, USERS.username, r_amount, r_submitted, r_resolved, r_description,
+--(SELECT username FROM USERS WHERE REIMBURSEMENT.R_RESOLVER = USERS.USER_ID) AS Approved_By,
+--(SELECT r_status FROM REIMBURSEMENT_STATUS WHERE r_status_id = REIMBURSEMENT.R_STATUS_ID) AS Status,
+--(SELECT r_type FROM REIMBURSEMENT_TYPE WHERE r_type_id = REIMBURSEMENT.R_type_ID) AS Status
+--FROM REIMBURSEMENT
+--INNER JOIN USERS ON REIMBURSEMENT.r_author = USERS.user_id
+--INNER JOIN REIMBURSEMENT_TYPE ON REIMBURSEMENT.r_type_id = REIMBURSEMENT_TYPE.r_type_id
+--INNER JOIN REIMBURSEMENT_STATUS ON REIMBURSEMENT.r_status_id = REIMBURSEMENT_STATUS.r_status_id;

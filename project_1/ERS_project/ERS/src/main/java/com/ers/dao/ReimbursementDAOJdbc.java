@@ -199,7 +199,7 @@ public class ReimbursementDAOJdbc implements ReimbursementDAO {
 	
 	
 	
-	public void addReimbursement(User user, double amount, String description, int r_type_id) {
+	public void addReimbursement(User user, Reimbursement reimb) {
 		
 		log.debug("Connecting to database to add reimbursement...");
 
@@ -208,12 +208,12 @@ public class ReimbursementDAOJdbc implements ReimbursementDAO {
 			String query = "INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)" + 
 							"VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setDouble(1, amount);
+			ps.setDouble(1, reimb.getR_amount());
 			ps.setTimestamp(2, timestamp);
-			ps.setString(3, description);
+			ps.setString(3, reimb.getR_description());
 			ps.setInt(4, user.getUser_id());
 			ps.setInt(5, 1);
-			ps.setInt(6, r_type_id);
+			ps.setInt(6, reimb.getR_type_id());
 
 			log.debug("Adding reimbursement to database...");
 			ps.addBatch();
@@ -252,6 +252,164 @@ public class ReimbursementDAOJdbc implements ReimbursementDAO {
 			e.printStackTrace();
 			log.debug("Failed to update reimbursement!\n");
 		}
+	}
+
+
+
+	@Override
+	public List<Reimbursement> getReimbursementsAllReimbursements() {
+		
+		List<Reimbursement> list = new ArrayList<Reimbursement>();
+		
+		log.debug("Retrieving requests for all reimbursements...");
+		
+		try (Connection conn = conUtil.getConnection()) {
+			
+			Reimbursement reimb;
+
+			String query = "SELECT * FROM REIMBURSEMENT";
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				reimb = new Reimbursement();
+				reimb.setR_id(rs.getInt("r_id"));
+				reimb.setR_amount(rs.getInt("r_amount"));
+				reimb.setR_submitted(rs.getString("r_submitted"));
+				reimb.setR_resolved(rs.getString("r_resolved"));
+				reimb.setR_description(rs.getString("r_description"));
+				// reimb.setR_receipt(rs.getString("r_receipt"));
+				reimb.setR_author(rs.getInt("r_author"));
+				reimb.setR_resolver(rs.getInt("r_resolver"));
+				reimb.setR_status_id(rs.getInt("r_status_id"));
+				reimb.setR_type_id(rs.getInt("r_type_id"));
+				list.add(reimb);
+			}
+
+			// Check if any pending requests are found
+			if (!list.isEmpty()) {
+				log.debug("Requests loaded!\n");
+			}
+
+			// Else no pending request found
+			else {
+				log.debug("No requests found!\n");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			log.debug("Failed to retrieve requests!\n");
+		}
+		
+		return list;
+	}
+
+
+
+	@Override
+	public List<Reimbursement> getReimbursementsByUserID(int r_author) {
+		List<Reimbursement> list = new ArrayList<Reimbursement>();
+
+		try (Connection conn = conUtil.getConnection()) {
+
+			// Get reimbursement requests
+			log.debug("Retrieving requests for user #" + r_author);
+			Reimbursement reimb;
+
+			String query = "SELECT * FROM REIMBURSEMENT WHERE r_author = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, r_author);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				reimb = new Reimbursement();
+				reimb.setR_id(rs.getInt("r_id"));
+				reimb.setR_amount(rs.getInt("r_amount"));
+				reimb.setR_submitted(rs.getString("r_submitted"));
+				reimb.setR_resolved(rs.getString("r_resolved"));
+				reimb.setR_description(rs.getString("r_description"));
+				// reimb.setR_receipt(rs.getString("r_receipt"));
+				reimb.setR_author(rs.getInt("r_author"));
+				reimb.setR_resolver(rs.getInt("r_resolver"));
+				reimb.setR_status_id(rs.getInt("r_status_id"));
+				reimb.setR_type_id(rs.getInt("r_type_id"));
+				list.add(reimb);
+			}
+
+			// Check if any pending requests are found
+			if (!list.isEmpty()) {
+				log.debug("Requests loaded!\n");
+			}
+
+			// Else no pending request found
+			else {
+				log.debug("No requests found!\n");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			log.debug("Failed to retrieve requests!");
+		}
+		return list;
+	}
+	
+	
+	/**
+	 * Uses a SQL statement with Inner Joins to populate table data.
+	 * @return List of Reimbursements
+	 */
+	public List<Object> getReimbursementsFormatted() {
+		
+		List<Object> list = new ArrayList<Object>();
+		
+		log.debug("Retrieving requests for all reimbursements...");
+		
+		try (Connection conn = conUtil.getConnection()) {
+			
+			String query = 
+					"SELECT r_id, USERS.username, r_amount, r_submitted, r_resolved, r_description,\r\n" + 
+					"(SELECT username FROM USERS WHERE REIMBURSEMENT.R_RESOLVER = USERS.USER_ID) AS Approved_By,\r\n" + 
+					"(SELECT r_status FROM REIMBURSEMENT_STATUS WHERE r_status_id = REIMBURSEMENT.R_STATUS_ID) AS Status,\r\n" + 
+					"(SELECT r_type FROM REIMBURSEMENT_TYPE WHERE r_type_id = REIMBURSEMENT.R_type_ID) AS Status\r\n" + 
+					"FROM REIMBURSEMENT\r\n" + 
+					"INNER JOIN USERS ON REIMBURSEMENT.r_author = USERS.user_id\r\n" + 
+					"INNER JOIN REIMBURSEMENT_TYPE ON REIMBURSEMENT.r_type_id = REIMBURSEMENT_TYPE.r_type_id\r\n" + 
+					"INNER JOIN REIMBURSEMENT_STATUS ON REIMBURSEMENT.r_status_id = REIMBURSEMENT_STATUS.r_status_id";
+			
+			PreparedStatement ps = conn.prepareStatement(query);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				list.add(rs.getString(1));
+				list.add(rs.getString(2));
+				list.add(rs.getString(3));
+				list.add(rs.getString(4));
+				list.add(rs.getString(5));
+				list.add(rs.getString(6));
+				list.add(rs.getString(7));
+				list.add(rs.getString(8));
+				list.add(rs.getString(9));
+			}
+
+			// Check if any pending requests are found
+			if (!list.isEmpty()) {
+				log.debug("Requests loaded!\n");
+			}
+
+			// Else no pending request found
+			else {
+				log.debug("No requests found!\n");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			log.debug("Failed to retrieve requests!\n");
+		}
+		
+		return list;
 	}
 	
 }

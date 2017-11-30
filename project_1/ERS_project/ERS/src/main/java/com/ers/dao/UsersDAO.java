@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.ers.beans.User;
 
@@ -76,4 +77,10 @@ public interface UsersDAO {
 	 */
 	public User getUserFromCredentials(String username);
 
+	
+	/**
+	 * Returns a list of all users in the database. List does not include user passwords.
+	 * @return List
+	 */
+	public List<User> getAllUsers();
 }

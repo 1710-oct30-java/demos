@@ -1,98 +1,85 @@
-function findByStatusId() {
-let xhttp = new XMLHttpRequest();
-	
-	xhttp.onreadystatechange = () => {
-		console.log(`state changed ${xhttp.readyState}`);
-		if(xhttp.readyState === 4 && xhttp.status === 200) {
-			console.log('we have the response ready');
-			console.log(`response text: ${xhttp.responseText}`);
-			let reimb = JSON.parse(xhttp.responseText);
-
-			document.getElementById("reimbursement-status").innerHTML = 
-				`
-					<table id="tb-reimbursements">
-					<tr>
-		                <th>ID</th>
-		                <th>Amount</th>
-		                <th>Sumitted</th>
-		                <th>Resolved</th>
-		                <th>Description</th>
-		                <th>Author</th>
-		                <th>Resolver</th>
-		                <th>Status ID</th>
-		                <th>Type ID</th>
-		            </tr>
-				`;
-			
-			for(let i = 0; i < reimb.length; i++) {
-				document.getElementById("tb-reimbursements").innerHTML += 
-					`
-						<tr>
-			                <td><a href="javascript:void(0);">${reimb[i].r_id}</a></td>
-			                <td>${reimb[i].r_amount}</td>
-			                <td>${reimb[i].r_submitted}</td>
-			                <td>${reimb[i].r_resolved}</td>
-			                <td>${reimb[i].r_description}</td>
-			                <td>${reimb[i].r_author}</td>
-			                <td>${reimb[i].r_resolver}</td>
-			                <td>${reimb[i].r_status_id}</td>
-			                <td>${reimb[i].r_type_id}</td>
-			            </tr>
-					`;
-			}
-			
-			document.getElementById("reimbursement-status").innerHTML += 
-				`
-					</table>
-				`;
-			
-			
-		}
-		else if(xhttp.readyState === 4){
-			alert("Failed to load reimbursement!");
-		}
-	}	
-	
-	let num = document.getElementById("status-number").innerText = document.getElementById("status-number").value;
-	xhttp.open('GET', `http://localhost:8080/ERS/pages/data?id=${num}`);
-	xhttp.send();
-}
-
-
-
-function getUserFirstName() {
+function displayInfo() {
 	let xhttp = new XMLHttpRequest();
-		
-	xhttp.onreadystatechange = () => {
-		console.log(`state changed ${xhttp.readyState}`);
-		if(xhttp.readyState === 4 && xhttp.status === 200) {
-			console.log('we have the response ready');
-			console.log(`response text: ${xhttp.responseText}`);
-			let firstName = JSON.parse(xhttp.responseText);
-			
-			let num = document.getElementById("user-first-name").innerHTML = ', Hello';
-			xhttp.open('GET', `http://localhost:8080/ERS/pages/home/${num}`);
-			xhttp.send();
-		}
+	if(sessionStorage.role === '1') {
+		managerInfo();
+	}
+	
+	else if(sessionStorage.role === '2') {
+		userInfo();
 	}
 }
+displayInfo();
 
+function userInfo() {
+	document.getElementById('user').innerHTML = 
+	`
+		<div class="row">
+		  <div class="col">
+		  	<div class="col"><h5>My Reimbursements</h5></div>
+		  	<a href="/ERS/pages/reimbursements"><img class="tilt home-img" src="images/icons/file.png"></a>
+		  	<br><br>
+		  	<div>
+				Here you can view all your reimbursements. You can search, see your pending, and view your past submitted reimbursements.
+			</div>
+		  </div>
+		  
+		  <div class="col">
+		  	<div class="col"><h5>Add Reimbursement</h5></div>
+		  	<a href="/ERS/pages/reimbursements/add"><img class="tilt home-img" src="images/icons/add-icon.png"></a>
+		  	<br><br>
+		  	<div>
+				Here you can submit a new reimbursement. Once submitted, it will be pending until a Finance Manager reviews it.
+			</div>
+		  </div>
+		</div>
+	`;
+}
 
-
-function searchReimbursements() {
-	let input, filter, table, tr, td, i;
-	input = document.getElementById("search-input");
-	filter = input.value.toUpperCase();
-	table = document.getElementById("tb-reimbursements");
-	tr = table.getElementsByTagName("tr");
-	for (i = 0; i < tr.length; i++) {
-		td = tr[i].getElementsByTagName("td")[0];
-		if (td) {
-			if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-				tr[i].style.display = "";
-			} else {
-				tr[i].style.display = "none";
-			}
-		}
-	}
+function managerInfo() {
+	document.getElementById('user').innerHTML = 
+	`
+		<div class="row">
+		  <div class="col">
+		  	<div class="col"><h5>My Reimbursements</h5></div>
+		  	<a href="/ERS/pages/reimbursements"><img class="tilt home-img" style="width: 200px;" src="images/icons/file.png"></a>
+		  	<br><br>
+		  	<div>
+				Here you can view all your reimbursements. You can search, see your pending, and view your past submitted reimbursements.
+			</div>
+		  </div>
+		  
+		  <br><br>
+		  
+		  <div class="col">
+		  <div class="col"><h5>Add Reimbursement</h5></div>
+		  	<a href="/ERS/pages/reimbursements/add"><img class="tilt home-img" style="width: 200px;" src="images/icons/add-icon.png"></a>
+		  	<br><br>
+		  	<div>
+				Here you can submit a new reimbursement. Once submitted, it will be pending until a Finance Manager reviews it.
+			</div>
+		  </div>
+		  
+		  <br><br>
+		  
+		  <div class="col">
+		  	<div class="col"><h5>Approve Reimbursements</h5></div>
+		  	<a href="/ERS/pages/reimbursements/approve"><img class="tilt home-img" style="width: 200px;" src="images/icons/check-folded.png"></a>
+		  	<br><br>
+		  	<div>
+				Here you can approve or deny reimbursements. All pending reimbursements will be shown. 
+			</div>
+		  </div>
+		  
+		  <br><br>
+		  
+		  <div class="col">
+		  	<div class="col"><h5>Users and Reimbursements</h5></div>
+		  	<a href="/ERS/pages/reimbursements/view-all"><img class="tilt home-img" style="width: 200px;" src="images/icons/files.png"></a>
+		  	<br><br>
+		  	<div>
+				Here you can all users and reimbursements. You can search for users information and search for reimbursements.
+			</div>
+		  </div>
+		</div>
+	`;
 }

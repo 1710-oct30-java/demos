@@ -10,7 +10,7 @@ import com.ers.dao.UsersDAOJdbc;
 
 public class UserService extends UsersDAOJdbc {
 	
-ReimbursementDAOJdbc dao = new ReimbursementDAOJdbc();
+	ReimbursementDAOJdbc dao = new ReimbursementDAOJdbc();
 	
 	/**
 	 * Returns list of reimbursements by status ID.
@@ -42,6 +42,18 @@ ReimbursementDAOJdbc dao = new ReimbursementDAOJdbc();
 		}
 	}
 	
+	/**
+	 * Adds reimbursement to database and to user reimbursements list.
+	 * @param user
+	 * @param amount
+	 * @param description
+	 * @param r_type_id
+	 */
+	public void addReimbusement(User user, Reimbursement reimb) {
+		dao.addReimbursement(user, reimb);
+		user.getReimbursements().add(reimb);
+	}
+	
 	
 	/**
 	 * Logs in user.
@@ -53,6 +65,11 @@ ReimbursementDAOJdbc dao = new ReimbursementDAOJdbc();
 		System.out.println(user);
 		System.out.println();
 		System.out.println(user.getReimbursements());
+	}
+	
+	
+	public List<User> getAllUsers() {
+		return super.getAllUsers();
 	}
 	
 }

@@ -46,14 +46,55 @@
 	box-shadow: 8px 12px 16px 2px rgba(0,0,0,0.20);
 }
 
+input[type=text], [type=password] {
+	background-color: rgba(255,255,255,0);
+	margin: 8px 0;
+	border-radius: 5px;
+	border: 2px solid #ccc;
+	-webkit-transition: 0.65s;
+	transition: 0.65s;
+	outline: none;
+}
+
+input[type=text]:focus {
+	border: 2px solid #1aa;
+}
+
+textarea {
+	background-color: rgba(255,255,255,0);
+	padding: 8px 16px;
+	margin: 8px 0;
+	border-radius: 5px;
+	border: 2px solid #ccc;
+	-webkit-transition: 0.65s;
+	transition: 0.65s;
+	outline: none;
+	width: 250px;
+	height: 150px;
+}
+
+textarea:focus {
+	border: 2px solid #1aa;
+}
 
 section {
 	width: 100%;
 }
 
+table th {
+	background-color: #1aa;
+	color: white;
+}
+
+table td a {
+	color: black;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 ::-webkit-input-placeholder
 {
-	color:rgba(255,255,255,0.5);
+	color:rgba(0,0,0,0.5);
 }
 
 ::selection 
@@ -63,33 +104,27 @@ section {
 	color: white;
 }
 
-hr { 
-	height: 1px;
-	border: 0;
-	background: rgba(255,255,255,0.5);
-}
-
 /* unvisited link */
 a:link {
-	color: white;
+	color: black;
 	text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-	color: white;
+	color: black;
 	text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-	color: white;
+	color: black;
 	text-decoration: none;
 }
 
 /* selected link */
 a:active {
-	color: white;
+	color: black;
 	text-decoration: none;
 }
 
@@ -144,4 +179,23 @@ a:active {
 @keyframes animatezoom {
 	from {transform: scale(0)} 
 	to {transform: scale(1)}
+}
+
+
+/* ANIMATIONS */
+/*TILT*/
+.tilt {
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -o-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+ 
+.tilt:hover {
+  -webkit-transform: rotate(-25deg);
+     -moz-transform: rotate(-25deg);
+       -o-transform: rotate(-25deg);
+      -ms-transform: rotate(-25deg);
+          transform: rotate(-25deg);
 }
