@@ -74,8 +74,14 @@ public class ReimbMController
 			log.debug("request for approved reimb");
 			returnStatusReimbJson(request, response, 3);
 		}
+		else if (jb.toString().equals("mine"))
+		{
+			log.debug("request for my reimb");
+			returnUserReimbJson(request, response);
+		}
 		else if (jb.toString().equals("all"))
 		{
+			og.debug("request for my reimb");
 			returnAllReimbJson(request, response);
 		}
 		else
@@ -99,7 +105,7 @@ public class ReimbMController
 			log.debug("request to create new reimb");
 			r.setAuthor(u.getUserId());
 			rs.newReimb(r, u.getUserId());
-			returnUserReimbJson(request, response);
+			returnAllReimbJson(request, response);
 		}
 		else
 		{
@@ -117,7 +123,7 @@ public class ReimbMController
 			else
 			{
 				rs.newReimb(r, u.getUserId());
-				returnUserReimbJson(request, response);
+				returnAllReimbJson(request, response);
 			}
 
 		}

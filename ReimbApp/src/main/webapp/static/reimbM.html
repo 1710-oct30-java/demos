@@ -109,7 +109,8 @@
 	</button> -->
 	<div class="sideBar boxLeft">
 		<div id="mySidenav" class="sidenav">
-			<a href="#" id="request" data-toggle="modal" data-target="#exampleModal">Request</a>
+			<a href="#" id="request" data-toggle="modal" data-target="#exampleModal">New Request</a>
+			<a href="#" id="mine" onClick="getMine()">My Requests</a>
 			<a href="#" id="all" onClick="getAll()">All</a>
 			<a href="#" id="pending" onClick="getPending()">Pending</a>
 			<a href="#" id="denied" onClick="getDenied()">Denied</a>
@@ -119,11 +120,11 @@
 	</div>
 
 	<div class="sideBarRight boxRight">
-			<div id="mySidenavRight" class="sidenavRight">
-				<a href="#" id="errChangeOwn">Cannot Perform Actions on Your Own Requests</a>
-	
-			</div>
+		<div id="mySidenavRight" class="sidenavRight">
+			<a href="#" id="errChangeOwn">Cannot Perform Actions on Your Own Requests</a>
+
 		</div>
+	</div>
 
 
 </body>

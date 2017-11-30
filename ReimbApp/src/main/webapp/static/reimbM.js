@@ -126,7 +126,9 @@ function getDenied() {
 function getApproved() {
     startRequest('./reimbM', 'approved');
 }
-
+function getMine() {
+    startRequest('./reimbM', 'mine');
+}
 
 
 function clearForm() {

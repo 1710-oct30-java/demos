@@ -49,10 +49,10 @@ table, th, td
 /* Style the links inside the sidenav */
 #mySidenav a {
     position: absolute; /* Position them relative to the browser window */
-    left: -120px; /* Position them outside of the screen */
+    left: -135px; /* Position them outside of the screen */
     transition: 0.3s; /* Add transition on hover */
     padding: 15px; /* 15px padding */
-    width: 150px; /* Set a specific width */
+    width: 160px; /* Set a specific width */
     text-decoration: none; /* Remove underline */
     font-size: 20px; /* Increase font size */
     color: white; /* White text color */
@@ -87,25 +87,31 @@ table, th, td
     background-color: #4CAF50;
 }
 
-#all {
+#mine {
     top: 80px;
+    background-color: rgb(128, 0, 28)/* Light Black */
+}
+
+#all {
+    top: 140px;
     background-color: #2196F3; /* Blue */
 }
 
 #pending {
-    top: 140px;
+    top: 200px;
     background-color: #f44336; /* Red */
 }
 
 #denied {
-    top: 200px;
+    top: 260px;
     background-color: #555/* Light Black */
 }
 
 #approved {
-    top: 260px;
+    top: 320px;
     background-color: #ff00f2/* Light Black */
 }
+
 #errChangeOwn {
     /* top: 2px; */
     opacity: 0;
