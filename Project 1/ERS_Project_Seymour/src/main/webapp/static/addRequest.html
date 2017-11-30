@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css"
+	href="resources/libraries/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/libraries/css/freelancer.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/libraries/css/half-slider.css" />
+<link rel="stylesheet" type="text/css"
+	href="resources/styles/custom.css" />
+<link href="resources/libraries/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
+<link
+	href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">
+</head>
+<body id="page-top" class="index">
+	<div id="headerDiv">
+		<!-- Navigation -->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">ERS Employee</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="../static/pastTickets.html">Past Tickets</a></li>
+					<li><a href="../static/addRequest.html">Add Reimbursement
+							Request</a></li>
+					<li><a href="../static/login.html">Sign Out</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div style="padding: 25px;">
+		<form onsubmit="event.preventDefault(); createRequest()">
+			<table>
+				<tr>
+					<td align="left">Amount:</td>
+					<td></td>
+					<td align="left"><input type="text" id="amount"
+						placeholder="amount" /></td>
+				</tr>
+				<tr>
+					<td align="left">Description:</td>
+					<td></td>
+					<td align="left"><input type="text" id="description"
+						placeholder="description" /></td>
+				</tr>
+				<tr>
+					<td align="left">Type:</td>
+					<td></td>
+
+					<td align="left">
+						<div>
+							<select id="type">
+								<option selected>Choose...</option>
+								<option value="1">Lodging</option>
+								<option value="2">Travel</option>
+								<option value="3">Food</option>
+								<option value="4">Other</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td align="left">Click to Submit:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td></td>
+					<td align="left"><input type="submit"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script src="addRequest.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+package com.revature.services;
+
+import java.util.List;
+
+import com.revature.dao.ReimbursementDAO;
+import com.revature.dao.ReimbursementDAOImpl;
+import com.revature.model.Reimbursement;
+
+public class ReimbursementService {
+	
+	private ReimbursementDAO rd = new ReimbursementDAOImpl();
+	
+	public List<Reimbursement> getAllReimbursements() {
+		return rd.getAllReimbs();
+	}
+
+	public List<Reimbursement> getReimbsById(int uid) {
+		return rd.getReimbsById(uid);
+	}
+
+	public Boolean addReimbursement(Reimbursement r) {
+		return rd.addReimbursement(r);
+	}
+
+	public Boolean approveRequests(int uid, List<Integer> reimbIdsToBeApproved) {
+		return rd.approveRequests(uid, reimbIdsToBeApproved);
+	}
+
+	public Boolean denyRequests(int uid, List<Integer> reimbIdsToBeDenied) {
+		return rd.denyRequests(uid, reimbIdsToBeDenied);
+	}
+}

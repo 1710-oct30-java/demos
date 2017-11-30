@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>ERS_Project_Seymour</display-name>
+  <welcome-file-list>
+    <welcome-file>/static/login.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ERSServlet</display-name>
+    <servlet-name>ERSServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ERSServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ERSServlet</servlet-name>
+    <url-pattern>/ERSServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SampleServlet</display-name>
+    <servlet-name>SampleServlet</servlet-name>
+    <servlet-class>com.revature.servlets.SampleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SampleServlet</servlet-name>
+    <url-pattern>/SampleServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RequestDispatcher</servlet-name>
+  	<servlet-class>com.revature.front.controller.DispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>RequestDispatcher</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
