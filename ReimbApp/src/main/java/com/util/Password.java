@@ -7,22 +7,6 @@ import java.security.SecureRandom;
 
 public class Password
 {
-	// public static void main(String[] args) throws NoSuchAlgorithmException,
-	// NoSuchProviderException
-	// {
-	// String passwordToHash = "Thiencao92";
-	// byte[] salt = getSalt();
-	// byte[] test = salt;
-	// System.out.println(test);
-	// String securePassword = getSecurePassword(passwordToHash, salt);
-	// System.out.println(securePassword); // Prints
-	// 83ee5baeea20b6c21635e4ea67847f66
-	//
-	// String regeneratedPassowrdToVerify = getSecurePassword(passwordToHash, salt);
-	// System.out.println(regeneratedPassowrdToVerify); //
-	// Prints83ee5baeea20b6c21635e4ea67847f66
-	// }
-
 	public String getSecurePassword(String passwordToHash, byte[] salt)
 	{
 		String generatedPassword = null;

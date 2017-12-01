@@ -29,14 +29,6 @@ function insert_row() {
                     <td align="center">${myJson[i].resolverName}</td>
                     <td id="updateStatusName">${myJson[i].statusName}</td>
                     <td align="center">${myJson[i].typeName}</td>
-                    <td align="center">
-                        <select id="actionStatus${myJson[i].reimbId}">
-                            <option value="0">Action</option>
-                            <option value="1">Pending</option>
-                            <option value="2">Denied</option>
-                            <option value="3">Approved</option>
-                        </select>
-                    </td>
                 </form>
 		 	</tr>`
     }
@@ -134,6 +126,12 @@ function createReimb(event) {
         "type": parseInt(document.getElementById('typeSelect').value)
     }
     startRequest('./reimb', JSON.stringify(reimbRec));
+    setTimeout(function(){
+        $("#exampleModal").modal("hide");
+            event.disabled = false;
+            clearForm();}
+        , 4000);
+        
 }
 
 function updateStatus(temp) {
@@ -145,7 +143,6 @@ function updateStatus(temp) {
             "authorName": temp.cells[6].innerText,
             "statusId": document.getElementById(option).value
         }
-        console.log(reimbUpd);
         startRequest('./reimb', JSON.stringify(reimbUpd))
     };
 }

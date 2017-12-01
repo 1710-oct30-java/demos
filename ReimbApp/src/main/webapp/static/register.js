@@ -39,4 +39,9 @@ function errRegModal() {
     $("#errRegModal").modal("show");
 }
 
+function loginPage()
+{
+    window.location = './login';
+}
+
 

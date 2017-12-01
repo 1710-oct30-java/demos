@@ -124,7 +124,8 @@ function createReimb(event) {
     startRequest('./reimbM', JSON.stringify(reimbRec));
     setTimeout(function(){
         $("#exampleModal").modal("hide");
-            event.disabled = false;}
+            event.disabled = false;
+            clearForm();}
         , 4000);
 }
 
@@ -137,7 +138,6 @@ function updateStatus(temp) {
             "authorName": temp.cells[6].innerText,
             "statusId": document.getElementById(currRow).value
         }
-        console.log(reimbUpd);
         startRequest('./reimbM', JSON.stringify(reimbUpd))
     };
 }

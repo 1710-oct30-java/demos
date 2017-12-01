@@ -46,3 +46,8 @@ function errAuthModal(){
     
     $("#errAuthModal").modal("show");
 }
+
+function registerPage()
+{
+    window.location = './register';
+}
