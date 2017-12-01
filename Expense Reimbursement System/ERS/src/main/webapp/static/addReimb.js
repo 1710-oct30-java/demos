@@ -27,7 +27,7 @@ function addReimb() {
 
     xhttp.onload = (resp) => {
         if (xhttp.status === 200) {
-            console.log("Reimbursement Added");
+            alert("Reimbursement Added");
         }
     }
 
