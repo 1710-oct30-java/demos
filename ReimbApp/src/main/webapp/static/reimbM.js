@@ -41,6 +41,7 @@ function insert_row() {
                 </form>
 		 	</tr>`
     }
+    disabledSubmit = false;
 }
 
 function insert_row_filter(num) {
@@ -121,6 +122,10 @@ function createReimb(event) {
         "type": parseInt(document.getElementById('typeSelect').value)
     }
     startRequest('./reimbM', JSON.stringify(reimbRec));
+    setTimeout(function(){
+        $("#exampleModal").modal("hide");
+            event.disabled = false;}
+        , 4000);
 }
 
 function updateStatus(temp) {
