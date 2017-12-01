@@ -19,7 +19,9 @@ public class SubmitController {
 	private static Token t = Token.getToken();
 	private static Tools tools = Tools.getTools();
 	private static ReimbursementService rs = ReimbursementService.getReimburesmentService();
-	private SubmitController() {}
+
+	private SubmitController() {
+	}
 
 	public static SubmitController getSubmitController() {
 		return sc;
@@ -31,7 +33,7 @@ public class SubmitController {
 			try {
 				String json = request.getReader().lines().reduce((acc, cur) -> acc + cur).get();
 				log.trace("json received = " + json);
-				int id = rs.newReimbursement(json,((User) request.getSession().getAttribute("user")).getId());
+				int id = rs.newReimbursement(json, ((User) request.getSession().getAttribute("user")).getId());
 				log.trace(id);
 				Number num = new Number();
 				num.number = id;

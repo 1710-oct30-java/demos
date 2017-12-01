@@ -13,13 +13,17 @@ import com.revature.dao.ReimbursementDAOjdbc;
 
 public class FileService {
 	private static FileService fs = new FileService();
-	private FileService() {}
-	public static FileService getFileService()
-	{
+
+	private FileService() {
+	}
+
+	public static FileService getFileService() {
 		return fs;
 	}
+
 	private Logger log = Logger.getRootLogger();
 	private ReimbursementDAO rdao = ReimbursementDAOjdbc.getReimburesmentDAOjdbc();
+
 	public void handleFile(Part filePart) {
 
 		try {
@@ -31,14 +35,14 @@ public class FileService {
 		} catch (IOException | NullPointerException e) {
 			log.warn("issue with getting file " + e);
 		}
-		
-		
+
 	}
+
 	public byte[] getFile(String number) {
-			log.trace("getting ");
-			int id = Integer.parseInt(number);
-			byte[] file = rdao.getReimbursementById(id);
-			log.trace("got file");
-			return file;
+		log.trace("getting ");
+		int id = Integer.parseInt(number);
+		byte[] file = rdao.getReimbursementById(id);
+		log.trace("got file");
+		return file;
 	}
 }

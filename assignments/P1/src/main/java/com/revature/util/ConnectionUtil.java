@@ -19,26 +19,24 @@ public class ConnectionUtil {
 			log.error("Unable to find oracle driver " + e);
 		}
 	}
-	
-	private ConnectionUtil()
-	{
-		
+
+	private ConnectionUtil() {
+
 		super();
 	}
-	public static ConnectionUtil getConnectionUtil()
-	{
+
+	public static ConnectionUtil getConnectionUtil() {
 		return connutil;
 	}
-	
-	public Connection getConnection() throws SQLException, IOException
-	{
+
+	public Connection getConnection() throws SQLException, IOException {
 		log.info("Attempt");
 		Properties prop = new Properties();
 		InputStream dbProps = ConnectionUtil.class.getClassLoader().getResourceAsStream("DB.properties");
 		prop.load(dbProps);
 		return DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"),
 				prop.getProperty("password"));
-		
+
 	}
-	
+
 }

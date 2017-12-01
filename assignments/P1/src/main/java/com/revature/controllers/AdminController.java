@@ -53,7 +53,7 @@ public class AdminController {
 				String json;
 				try {
 					json = request.getReader().lines().reduce((c, a) -> c + a).get();
-					if (rs.putReimbursement(json, (User)request.getSession().getAttribute("user"))) {
+					if (rs.putReimbursement(json, (User) request.getSession().getAttribute("user"))) {
 						response.setStatus(200);
 					} else {
 						response.setStatus(401);

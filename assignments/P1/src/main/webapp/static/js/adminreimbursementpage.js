@@ -14,6 +14,7 @@ function loadReims() {
 }
 function getReims()
 {
+    $('#pleaseWaitDialog').modal();
     $.get('./admin/reim') 
         .done( (resp) =>
     {

@@ -19,6 +19,7 @@ import com.revature.controllers.NewController;
 import com.revature.controllers.SubmitController;
 import com.revature.controllers.TypeController;
 import com.revature.controllers.UserController;
+
 @MultipartConfig
 public class DispatcherServlet extends DefaultServlet {
 
@@ -35,15 +36,16 @@ public class DispatcherServlet extends DefaultServlet {
 	private NewController nc = NewController.getNewController();
 	private TypeController tc = TypeController.getTypeController();
 	private FileController fc = FileController.getFileController();
+
 	@Override
 	public void init() throws ServletException {
-		if(!uc.checkAdmin())
-		{
+		if (!uc.checkAdmin()) {
 			log.info("Creating Admin");
 			uc.createAdmin();
 		}
 		super.init();
 	}
+
 	@Override
 	protected void doPut(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
 		System.out.println("Put");
@@ -95,11 +97,11 @@ public class DispatcherServlet extends DefaultServlet {
 			case ("new"):
 				nc.handlePost(request, response);
 				break;
-			case("logout"):
+			case ("logout"):
 				lc.handleLogOutPost(request, response);
 				break;
-			case("file"):
-				fc.handlePost(request,response);
+			case ("file"):
+				fc.handlePost(request, response);
 				break;
 			default:
 				break;
@@ -132,12 +134,12 @@ public class DispatcherServlet extends DefaultServlet {
 			mc.handleGet(request, response);
 			break;
 		case ("new"):
-			nc.handleGet(request,response);
+			nc.handleGet(request, response);
 			break;
 		case ("types"):
-			tc.handleGet(request,response);
+			tc.handleGet(request, response);
 			break;
-		case("file"):
+		case ("file"):
 			fc.handleGet(request, response);
 			break;
 		default:
