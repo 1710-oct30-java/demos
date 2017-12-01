@@ -38,7 +38,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/twosu/.m2/ojdbc7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/twosu/eclipse-workspace/apache-tomcat-9.0.1/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/twosu/eclipse-workspace/apache-tomcat-9.0.1/lib/catalina.jar"/>
 	<classpathentry kind="output" path="target/classes"/>

@@ -102,6 +102,7 @@ public class UserDaoJdbc implements UserDao {
 
 	@Override
 	public User findByCredentials(String username, String password) {
+		System.out.println("In dao");
 		try (Connection con = conUtil.getConnection()) {
 			PreparedStatement ps = con
 					.prepareStatement("SELECT * FROM ers_users WHERE ers_username = ? AND ers_password = ?");

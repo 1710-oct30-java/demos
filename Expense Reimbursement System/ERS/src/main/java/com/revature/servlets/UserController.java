@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.revature.beans.User;
@@ -22,7 +21,7 @@ public class UserController {
 	private UserService us = new UserService();
 
 	public void delegateGet(HttpServletRequest request, HttpServletResponse response) {
-		log.debug("Get request has been delegated to user controller");
+		log.debug("GET request has been delegated to user controller");
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length() + "/user".length());
 
 		if (actualURL.equals("/") || actualURL.equals("")) {
@@ -48,9 +47,12 @@ public class UserController {
 	}
 
 	public void delegatePost(HttpServletRequest request, HttpServletResponse response)
-			throws InvalidCredentialException {
-		log.debug("get request delegated to user controller");
-		String actualURL = request.getRequestURI().substring(request.getContextPath().length() + "/login".length());
+			throws InvalidCredentialException, ServletException {
+		log.debug("POST request delegated to user controller");
+		String actualURL = request.getRequestURI()
+				.substring(request.getContextPath().length() + "/static/login".length());
+
+		log.debug("inside user controller post with actualURL: " + actualURL);
 
 		if (actualURL.equals("")) {
 			try {
@@ -65,14 +67,12 @@ public class UserController {
 
 				u = us.login(u);
 
-				if (u != null)
-					log.debug(u + " has logged in.");
-				else
-					throw new InvalidCredentialException(401);
-			} catch (JsonParseException e) {
-				e.printStackTrace();
-			} catch (JsonMappingException e) {
-				e.printStackTrace();
+				if (u == null) {
+					response.setStatus(401);
+				} else {
+					request.getSession().setAttribute("user", u);
+					request.getSession().setAttribute("userId", u.getId());
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

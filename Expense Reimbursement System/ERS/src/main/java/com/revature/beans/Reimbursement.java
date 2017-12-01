@@ -3,6 +3,9 @@ package com.revature.beans;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Reimbursement implements Serializable {
 	private int id;
 	private float amount;

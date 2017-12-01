@@ -23,20 +23,20 @@ public class DispatcherServlet extends DefaultServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
-		// System.out.println(actualURL);
-		log.debug("actualURL: " + actualURL);
+
+		log.debug("GET request made with actualURL: " + actualURL);
 
 		if (actualURL.startsWith("/static")) {
 			super.doGet(request, response);
 			return;
-		} else if (actualURL.equals("/home")) {
-			// forward, the clients url will not change
-			request.getRequestDispatcher("/static/index.html").forward(request, response);
-			// redirect, the clients url will change
-			// response.sendRedirect(request.getContextPath() + "/static/index.html");
+		} else if (actualURL.equals("/home.html")) {
+			// forward, the client's url will not change
+			// request.getRequestDispatcher("/static/home.html").forward(request, response);
+			// redirect, the client's url will change
+			response.sendRedirect(request.getContextPath() + "/static/home.html");
 		} else if (actualURL.startsWith("/user")) {
 			uc.delegateGet(request, response);
-		} else if (actualURL.startsWith("/reimb")) {
+		} else if (actualURL.startsWith("/reimbs")) {
 			rc.delegateGet(request, response);
 		} else {
 			throw new UrlNotRecognizedException();
@@ -46,13 +46,13 @@ public class DispatcherServlet extends DefaultServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-		System.out.println("post request made with url" + request.getRequestURI());
 		String actualURL = request.getRequestURI().substring(request.getContextPath().length());
 
-		if (actualURL.startsWith("/reimb")) {
+		log.debug("POST request made with actualURL: " + actualURL);
+
+		if (actualURL.startsWith("/reimbs")) {
 			rc.delegatePost(request, response);
-		} else if ("/login".equals(actualURL)) {
-			System.out.println("login");
+		} else if ("/static/login".equals(actualURL)) {
 			try {
 				uc.delegatePost(request, response);
 			} catch (InvalidCredentialException e) {

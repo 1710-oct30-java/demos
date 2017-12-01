@@ -39,22 +39,24 @@ public class ReimbDaoJdbc implements ReimbDao {
 
 		try (Connection con = conUtil.getConnection()) {
 			PreparedStatement ps = con.prepareStatement(
-					"INSERT INTO ers_reimbursement (reimb_amount, reimb_submitted, reimb_description, reimb_status_id, reimb_type_id) VALUES (?, ?, ?, ?, ?)");
+					"INSERT INTO ers_reimbursement (reimb_amount, reimb_submitted, reimb_description, reimb_status_id, reimb_type_id, reimb_author) VALUES (?, ?, ?, ?, ?, ?)");
 			ps.setFloat(1, r.getAmount());
 			ps.setDate(2, (java.sql.Date) r.getSubmitted());
 			ps.setString(3, r.getDescription());
 			ps.setInt(4, r.getStatusId());
 			ps.setInt(5, r.getTypeId());
+			ps.setInt(6, r.getAuthor());
 			ps.executeQuery();
 
 			// get columns actually saved in the database
-			ResultSet keys = ps.getGeneratedKeys();
-
-			if (keys.next()) {
-				log.trace("Row inserted has id: " + keys.getInt(1) + "\nand description: " + keys.getString(3));
-				log.info("Successfully added reimbursement");
-				return keys.getInt(1);
-			}
+			// ResultSet keys = ps.getGeneratedKeys();
+			//
+			// if (keys.next()) {
+			// log.trace("Row inserted has id: " + keys.getInt(1) + "\nand description: " +
+			// keys.getString(3));
+			// log.info("Successfully added reimbursement");
+			// return keys.getInt(1);
+			// }
 		} catch (SQLException e) {
 			e.printStackTrace();
 			log.debug("Failed to save reimbursement");
@@ -86,6 +88,7 @@ public class ReimbDaoJdbc implements ReimbDao {
 
 	private Reimbursement extractReimb(ResultSet rs) throws SQLException {
 		Reimbursement r = new Reimbursement();
+		// log.trace("reimb id is " + rs.getInt("reimb_id"));
 		r.setId(rs.getInt("reimb_id"));
 		r.setAmount(rs.getFloat("reimb_amount"));
 		r.setSubmitted(rs.getDate("reimb_submitted"));

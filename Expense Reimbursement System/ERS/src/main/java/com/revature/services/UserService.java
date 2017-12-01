@@ -15,6 +15,7 @@ public class UserService {
 	}
 
 	public User login(User u) {
+		System.out.println("In user service");
 		return ud.findByCredentials(u.getUsername(), u.getPassword());
 	}
 
