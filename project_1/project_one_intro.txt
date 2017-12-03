@@ -1,0 +1,4 @@
+This project uses an oracle database that is hosted on AWS, Amazon Web Services.
+It relies on JDBC to access the database and uses AJAX to send and receive data
+from the server. One of the main components used is bootstrap to make the pages
+responsive. 

@@ -273,7 +273,7 @@ INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 10
 VALUES('felicity', 'password', 'Felicity', 'Smoak', 'felicity@ers.com', 2);
 
 INSERT INTO USERS(username, password, firstname, lastname, email, role_id) -- 100006
-VALUES('qoliver', 'arrow', 'Olvier', 'Queen', 'arrow@ers.com', 2);
+VALUES('qoliver', 'arrow', 'Oliver', 'Queen', 'arrow@ers.com', 2);
 
 --Reimbursement
 INSERT INTO REIMBURSEMENT(r_amount, r_submitted, r_description, r_author, r_status_id, r_type_id)
