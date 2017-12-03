@@ -30,7 +30,7 @@ hs_err_pid*
 /bin/
 /Servers/
 /target/
-*/target/
+**/target/**
 /RemoteSystemsTempFiles/
 /External Files/
 

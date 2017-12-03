@@ -17,9 +17,13 @@ public class ConnectionUtil
 		{
 			System.out.println("done");
 			Class.forName("oracle.jdbc.driver.OracleDriver");
+<<<<<<< HEAD:Projects/ReimbProject/src/main/java/com/util/ConnectionUtil.java
 
 		} catch (ClassNotFoundException e)
 		{
+=======
+		} catch (ClassNotFoundException e) {
+>>>>>>> 6a6bfd1e636f5e14285f1e7d570ff83b12f70160:my-demos/FrontController/src/main/java/com/revature/util/ConnectionUtil.java
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
