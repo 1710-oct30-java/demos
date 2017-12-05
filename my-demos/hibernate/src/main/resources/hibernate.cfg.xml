@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Configuration of Database -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@orcl.cixj48tduq7e.us-west-2.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.username">bears</property>
+		<property name="hibernate.connection.password">p4ssw0rd</property>
+		<property name="hibernate.connection.pool_size">35</property>
+		
+		<!-- The property that must not be used -->
+		<!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+		
+		<!-- Some hibernate configurations -->
+		<property name="show_sql">false</property>
+		<property name="hibernate.format_sql">false</property>
+		
+		<!-- Cache Configuration -->
+		<property name="net.sf.ehcache.configurationResourceName">/ehcache.xml</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		
+		<!-- Tell Hibernate how we are mapping classes -->
+		<mapping class="com.revature.entities.HoneyPot"/>
+		<!-- <mapping resource="HoneyPot.hbm.xml"></mapping> -->
+		<mapping class="com.revature.entities.Bear"/>
+		<mapping class="com.revature.entities.Cave"/>
+		<!-- <mapping resource="HoneyPot.hbm.xml"/>  -->
+		
+	</session-factory>
+</hibernate-configuration>

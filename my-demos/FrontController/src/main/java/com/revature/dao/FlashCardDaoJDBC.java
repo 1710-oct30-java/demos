@@ -45,5 +45,4 @@ public class FlashCardDaoJDBC implements FlashCardDao {
 			return null;
 		}
 	}
-
 }
