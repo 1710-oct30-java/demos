@@ -8,19 +8,32 @@ import { FormsModule } from '@angular/forms';
 
 // components
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 // user components
 import { UserNavComponent } from './user/nav/nav.component';
 
 // routes
 import { appRoutes } from './app.routes';
+import { UserComponent } from './user/user.component';
+import { HomeComponent } from './user/home/home.component';
+import { TestComponent } from './test/test.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
 
     //user components
-    UserNavComponent
+    UserNavComponent,
+
+    LoginComponent,
+
+    UserComponent,
+
+    HomeComponent,
+
+    TestComponent
   ],
   imports: [
     BrowserModule,
