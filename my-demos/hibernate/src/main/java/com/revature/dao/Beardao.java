@@ -1,5 +1,7 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import com.revature.entities.Bear;
 
 public interface Beardao {
@@ -20,5 +22,9 @@ public interface Beardao {
 	
 	
 	// custom queries
-	Bear findByColor(String color);
+	List<Bear> findByColorHQL(String color);
+	List<Bear> findByColorCriteria(String color);
+	List<Bear> findAll();
+	
+	List<Bear> findByHoneyPotAmountGreaterThan(double amount);
 }

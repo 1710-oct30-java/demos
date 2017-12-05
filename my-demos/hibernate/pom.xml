@@ -38,6 +38,7 @@
 			<artifactId>ojdbc7</artifactId>
 			<version>12.1.1.0.1</version>
 		</dependency>
+<<<<<<< HEAD
 <<<<<<< HEAD:my-demos/bean-project/target/m2e-wtp/web-resources/META-INF/maven/revature/bean-project/pom.xml
 
 		<dependency>
@@ -48,5 +49,31 @@
 		</dependency>
 =======
 >>>>>>> ed2fd185b02d5c179ebe26bca6c8797a2558241a:my-demos/hibernate/pom.xml
+=======
+
+		<!-- We'll be importing EH Cache later -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.5.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>4.3.11.Final</version>
+			<exclusions>
+				<exclusion>
+					<groupId>net.sf.ehcache</groupId>
+					<artifactId>ehcache-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+>>>>>>> 6a6bfd1e636f5e14285f1e7d570ff83b12f70160
 	</dependencies>
 </project>
