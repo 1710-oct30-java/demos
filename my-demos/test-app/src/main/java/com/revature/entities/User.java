@@ -1,7 +1,23 @@
 package com.revature.entities;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class User {
+	@Id
+	@SequenceGenerator(name = "user_seq", sequenceName = "user_seq")
+	@GeneratedValue(generator = "user_seq", strategy = GenerationType.AUTO)
 	private int id;
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private Credential cred;
 
 	public User() {
