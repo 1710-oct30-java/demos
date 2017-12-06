@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- the most important line, this allows spring to scan out packages for @Component or similar -->
+	<context:component-scan base-package="com.revature"></context:component-scan>
+	
+	<bean id="Life Cycle" class="com.revature.spring.beans.LifecycleBean" scope="singleton"
+		init-method="customInit" destroy-method="customDestroy">
+		<property name="property" value="Hello"></property>
+	</bean>
+	<bean id="post processor" class="com.revature.spring.beans.BeanProcessor">
+	</bean>
+	
+	<bean id="house of cards" class="com.revature.spring.beans.House" scope="prototype">
+		<property name="name" value="House of Cards"/>
+		<property name="numWalls" value="20"></property>
+		<property name="wall" ref="card wall"></property>
+	</bean>
+	
+	<bean id="card wall" class="com.revature.spring.beans.WallImpl" scope="singleton">
+		<property name="material" value="Cards"></property>
+	</bean>
+	
+	<bean id="house of bricks" class="com.revature.spring.beans.House" scope="prototype">
+		<property name="name" value="House of Bricks"/>
+		<property name="numWalls" value="20"></property>
+		<property name="wall" ref="brick wall"></property>
+	</bean>
+	
+	<bean id="brick wall" class="com.revature.spring.beans.WallImpl" scope="singleton">
+		<constructor-arg value="Brick"></constructor-arg>
+	</bean>
+</beans>
+	
+	
+	
