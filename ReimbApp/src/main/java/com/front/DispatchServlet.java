@@ -41,9 +41,10 @@ public class DispatchServlet extends DefaultServlet
 			switch (actualURL)
 			{
 				case "/login":
-					request.getSession().setAttribute("user", null);
-					request.getSession().invalidate();
-					lc.delegateGet(response, request);
+					System.out.println("received get");
+//					request.getSession().setAttribute("user", null);
+//					request.getSession().invalidate();
+//					lc.delegateGet(response, request);
 					break;
 				case "/register":
 					request.getSession().setAttribute("user", null);
@@ -74,7 +75,8 @@ public class DispatchServlet extends DefaultServlet
 		switch (actualURL)
 		{
 			case "/login":
-				lc.delegatePost(response, request);
+				System.out.println("received post");
+//				lc.delegatePost(response, request);
 				break;
 			case "/register":
 				try
