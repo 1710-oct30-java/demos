@@ -25,12 +25,7 @@ public class UserController {
 
 	@GetMapping
 	public List<User> getAllUsers() {
-		List<User> users = new ArrayList<>();
-		users.add(new User(1, new Credential("user", "pass")));
-		users.add(new User(2, new Credential("admin", "admin")));
-		users.add(new User(3, new Credential("blake", "p4ssw0rd")));
-
-		return users;
+		return us.findAll();
 	}
 
 	@GetMapping("{id}/{other}")
@@ -55,6 +50,12 @@ public class UserController {
 	@PostMapping
 	public User save(@RequestBody User u) {
 		return us.save(u);
+	}
+	
+	@GetMapping("nested")
+	public void nested() {
+		us.saveTwo(new User(0, new Credential("john", "pass")), new User(0, new Credential("mitch", "pass")));
+		
 	}
 
 }
