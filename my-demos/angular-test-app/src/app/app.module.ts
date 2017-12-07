@@ -18,6 +18,7 @@ import { appRoutes } from './app.routes';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './user/home/home.component';
 import { TestComponent } from './test/test.component';
+import { QuestionComponent } from './test/question/question.component';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { TestComponent } from './test/test.component';
 
     HomeComponent,
 
-    TestComponent
+    TestComponent,
+
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

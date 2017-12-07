@@ -1,0 +1,15 @@
+<table>
+    <thead>
+      <td>{{question.question}}</td>
+      <td></td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let answer of question.answers">
+        <td>{{ answer }}</td>
+        <td><input type="radio" [name]="'radiogroup'+question.id" (change)="onSelectionChange(question, answer)" [checked]="(idx === 0)" [value]="answer"></td>
+      </tr>
+    </tbody>
+</table>
+<p>
+    answer selected: {{question.selectAnswer}}
+</p>
