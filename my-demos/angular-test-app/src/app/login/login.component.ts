@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Http } from '@angular/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +10,25 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   credential = {
-    email: '',
+    username: '',
     password: '',
   };
 
-  constructor(public router: Router) { }
+  constructor(private router: Router, private http: Http) { }
 
   ngOnInit() {
   }
 
   submit() {
-    if (this.credential.email === 'user' && this.credential.password === 'pass') {
-      this.router.navigateByUrl('/user/home');
-    } else {
-      alert('login failed');
-    }
+
+    this.http.post(environment.context + 'users/login', this.credential, {withCredentials: true})
+      .subscribe( (succResp) => {
+        if (succResp.text() !== '') {
+          this.router.navigateByUrl('/user/home');
+        } else {
+          alert('failed to login');
+        }
+      });
   }
 
 }

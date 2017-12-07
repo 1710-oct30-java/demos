@@ -2,10 +2,9 @@ package com.revature.repositories;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -24,9 +23,10 @@ public class UserRepoHibernate implements UserRepo {
 	@Transactional
 	public User findByCredential(Credential cred) {
 		Session session = sf.getCurrentSession();
-		Criteria cr = session.createCriteria(User.class);
-		cr.add(Restrictions.eq("cred", cred));
-		return (User) cr.uniqueResult();
+		Query q = session.createQuery("FROM User WHERE cred.username = :username AND cred.password = :password");
+		q.setString("username", cred.getUsername());
+		q.setString("password", cred.getPassword());
+		return (User) q.uniqueResult();
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class UserRepoHibernate implements UserRepo {
 	}
 
 	@Override
-	@Transactional(propagation = Propagation.NOT_SUPPORTED, rollbackForClassName="Exception")
+	@Transactional(propagation = Propagation.NOT_SUPPORTED, rollbackForClassName = "Exception")
 	public User saveNested(User u) throws Exception {
 		sf.getCurrentSession().save(u);
 		throw new Exception();

@@ -19,6 +19,7 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './user/home/home.component';
 import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './test/question/question.component';
+import { HttpTestsComponent } from './user/http-tests/http-tests.component';
 
 
 @NgModule({
@@ -36,7 +37,9 @@ import { QuestionComponent } from './test/question/question.component';
 
     TestComponent,
 
-    QuestionComponent
+    QuestionComponent,
+
+    HttpTestsComponent
   ],
   imports: [
     BrowserModule,
