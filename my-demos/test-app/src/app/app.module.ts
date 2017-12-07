@@ -14,13 +14,20 @@ import { UserNavComponent } from './user/nav/nav.component';
 
 // routes
 import { appRoutes } from './app.routes';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { HomeComponent } from './user/home/home.component';
+import { TestComponent } from './user/test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    LoginComponent,
     //user components
-    UserNavComponent
+    UserNavComponent,
+    UserComponent,
+    HomeComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
