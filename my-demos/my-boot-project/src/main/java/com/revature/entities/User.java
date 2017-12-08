@@ -19,7 +19,7 @@ public class User {
 	private int id;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(unique=true)
+	@JoinColumn(unique = true)
 	private Credential cred;
 
 	public User() {

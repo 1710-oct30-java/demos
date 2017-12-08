@@ -1,7 +1,10 @@
 package com.revature.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +22,28 @@ public class UserController {
 	UserService us;
 
 	@GetMapping
-	public String test() {
-		return "test";
+	public List<User> findAll() {
+		return us.findAll();
+	}
+
+	@GetMapping("startswith/{letter}")
+	public List<User> usernameStartsWith(@PathVariable String letter) {
+		return us.usernameStartsWith(letter);
+	}
+
+	@GetMapping("idbetween/{one}/{two}")
+	public List<User> findByIdBetween(@PathVariable int one, @PathVariable int two) {
+		return us.findByIdBetween(one, two);
+	}
+
+	@PostMapping("login")
+	public User login(@RequestBody Credential cred) {
+		return us.login(cred);
 	}
 
 	@PostMapping
-	public User login(@RequestBody Credential cred) {
-		return us.login(cred);
+	public User save(@RequestBody User u) {
+		return us.save(u);
 	}
 
 }

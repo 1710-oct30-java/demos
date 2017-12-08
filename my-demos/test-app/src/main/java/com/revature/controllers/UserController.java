@@ -25,7 +25,7 @@ public class UserController {
 	@Autowired
 	private UserService us;
 
-	@GetMapping
+	@GetMapping(produces = "application/xml")
 	public List<User> getAllUsers() {
 		return us.findAll();
 	}
