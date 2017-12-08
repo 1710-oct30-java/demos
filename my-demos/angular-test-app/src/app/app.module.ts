@@ -20,6 +20,7 @@ import { HomeComponent } from './user/home/home.component';
 import { TestComponent } from './test/test.component';
 import { QuestionComponent } from './test/question/question.component';
 import { HttpTestsComponent } from './user/http-tests/http-tests.component';
+import { HttpDemosComponent } from './http-demos/http-demos.component';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { HttpTestsComponent } from './user/http-tests/http-tests.component';
 
     QuestionComponent,
 
-    HttpTestsComponent
+    HttpTestsComponent,
+
+    HttpDemosComponent
   ],
   imports: [
     BrowserModule,

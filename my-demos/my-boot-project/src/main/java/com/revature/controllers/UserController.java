@@ -2,7 +2,10 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +19,7 @@ import com.revature.services.UserService;
 
 @RestController
 @RequestMapping("users")
+@CrossOrigin(allowCredentials = "true", origins = "http://localhost:4200")
 public class UserController {
 
 	@Autowired
@@ -37,7 +41,7 @@ public class UserController {
 	}
 
 	@PostMapping("login")
-	public User login(@RequestBody Credential cred) {
+	public User login(@Valid @RequestBody Credential cred) {
 		return us.login(cred);
 	}
 

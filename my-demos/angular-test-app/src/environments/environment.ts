@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  context: 'http://localhost:8080/test-app/'
+  context: 'http://localhost:8080/test-app/',
+  bootContext: 'http://localhost/'
 };

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.entities.Credential;
 import com.revature.entities.User;
+import com.revature.exceptions.InvalidCredentialException;
 import com.revature.repositories.UserRepo;
 
 @Service
@@ -22,9 +23,14 @@ public class UserService {
 	@Autowired
 	private SessionFactory sf;
 
-	public User login(Credential cred) {
+	public User login(Credential cred) throws InvalidCredentialException {
 		log.trace("login method called from user service with credentials of: " + cred);
-		return ur.findByCredential(cred);
+		User u = ur.findByCredential(cred);
+		if (u == null) {
+			throw new InvalidCredentialException("Username or password invalid");
+		} else {
+			return u;
+		}
 	}
 
 	public User save(User u) {
@@ -43,7 +49,7 @@ public class UserService {
 		try {
 			ur.saveNested(two);
 		} catch (Exception e) {
-			
+
 		}
 	}
 

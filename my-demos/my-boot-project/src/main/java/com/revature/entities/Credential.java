@@ -2,6 +2,7 @@ package com.revature.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -10,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class Credential {
 
 	@Id
+	@NotNull
 	private String username;
 
 	@JsonProperty(access = Access.WRITE_ONLY)
