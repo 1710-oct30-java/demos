@@ -9,35 +9,35 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class LifecycleBean implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean{
+public class LifecycleBean implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 	private String property;
 	
 	public LifecycleBean() {
-		System.out.println("Instatiation");
+		System.out.println("Instantiation");
 	}
 	
 	public String getProperty() {
 		return property;
 	}
-
+	
 	public void setProperty(String property) {
 		System.out.println("Populate properties");
 		this.property = property;
 	}
-
+	
 	@Override
 	public void setBeanName(String arg0) {
-		System.out.println("Set bean name aware");
+		System.out.println("set bean name aware");
+	}
+	
+	@Override 
+	public void setBeanFactory(BeanFactory arg0) throws BeansException {
+		System.out.println("set bean factory aware");
 	}
 	
 	@Override
-	public void setBeanFactory(BeanFactory arg0) throws BeansException {
-		System.out.println("set bean factory aware");
-		
-	}
-	@Override
-	public void setApplicationContext(ApplicationContext arg0) throws BeansException {
-		System.out.println("set application context aware");
+	public void setApplicationContext(ApplicationContext arg0) {
+		System.out.println("set application aware");
 	}
 	
 	@Override
@@ -48,7 +48,7 @@ public class LifecycleBean implements BeanNameAware, BeanFactoryAware, Applicati
 	public void customInit() {
 		System.out.println("Custom init");
 	}
-
+	
 	@Override
 	public void destroy() throws Exception {
 		System.out.println("destroy");
@@ -57,5 +57,6 @@ public class LifecycleBean implements BeanNameAware, BeanFactoryAware, Applicati
 	public void customDestroy() {
 		System.out.println("custom destroy");
 	}
+	
 
 }

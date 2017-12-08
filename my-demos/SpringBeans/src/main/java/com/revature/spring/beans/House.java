@@ -4,17 +4,17 @@ public class House {
 	private String name;
 	private Wall wall;
 	private int numWalls;
+	
+	public House() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public House(String name, Wall wall, int numWalls) {
 		super();
 		this.name = name;
 		this.wall = wall;
 		this.numWalls = numWalls;
-	}
-
-	public House() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -43,7 +43,10 @@ public class House {
 
 	@Override
 	public String toString() {
-		return "House [name=" + name + ", wall=" + wall + ", numWalls=" + numWalls + "]";
+		return "House [name=" + name + ", numWalls=" + numWalls + "]";
 	}
-
+	
+	
+	
+	
 }
