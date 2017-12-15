@@ -1,0 +1,47 @@
+<!-- <form (ngSubmit)="login()" #loginForm="ngForm">
+  <div>
+      <label for="username">Username: </label>
+      <input id="usernam" type="text"
+             [(ngModel)]="model.username" #firstname="ngModel" name="username"
+             pInputText>
+  </div>
+  <div>
+      <label for="password">Password: </label>
+      <input id="password" type="password"
+             [(ngModel)]="model.password" #password="ngModel" name="password"
+             pInputText>
+  </div>
+  <button class="btn btn-primary" type="submit" label="Log In">Login</button>
+</form> -->
+
+<!-- {{messages}} -->
+
+
+<div class="container" style="background-color: black; height: 92vh;">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-10">
+        <form class="form-signin" (ngSubmit)="updatePass()" #updateForm="ngForm">
+          <hr class="colorgraph">
+          <label for="inputUsername" class="sr-only">Password</label>
+          <input type="password" [(ngModel)]="newpassword" name="newpassword" id="newpassword" class="form-control" placeholder="New Password"
+            required autofocus>
+
+          <label for="inputPassword" class="sr-only">Repeat</label>
+          <input type="password" [(ngModel)]="confpassword" name="confpassword" id="confpassword" class="form-control" placeholder="Confirm Password"
+            required>
+          <hr class="colorgraph">
+
+          <button class="btn btn-md btn-primary btn-block" type="submit" name="Update" [disabled]="!updateForm.form.valid" value="Update">Update</button>
+
+          <!-- <button class="btn btn-md btn-primary btn-block" name="Back" value="Back" onClick="loginPage()">Back</button> -->
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+      <alert></alert>
+    </div>
+</div>

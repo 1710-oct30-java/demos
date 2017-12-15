@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configuration of Database -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+<!--    
+		 Randy's DB
+		<property name="hibernate.connection.username">reimbdb</property>
+	    <property name="hibernate.connection.password">123456789</property>
+	    <property name="hibernate.connection.url">jdbc:oracle:thin:@orcl.cxyopmedwyxf.us-east-2.rds.amazonaws.com:1521:ORCL</property>
+
+ -->  
+		<!-- My DB  -->    
+	    <!-- <property name="hibernate.connection.url">jdbc:oracle:thin:@orcl.cxyopmedwyxf.us-east-2.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.username">randy</property>
+	    <property name="hibernate.connection.password">123456789</property>
+        <property name="hibernate.connection.pool_size">35</property> -->
+        
+        <!-- My RDS DB  -->    
+ 	    <property name="hibernate.connection.url">jdbc:oracle:thin:@orcl.ccpzelfz4uew.us-east-2.rds.amazonaws.com:1521:ORCL</property>
+		<property name="hibernate.connection.username">ers</property>
+	    <property name="hibernate.connection.password">pass</property>
+        <property name="hibernate.connection.pool_size">10</property>
+         
+        
+        <!-- The property that must not be used -->
+<!--         <property name="hibernate.hbm2ddl.auto">update</property>       
+ -->        <!-- Some hibernate configurations -->
+        <property name="show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+        
+        <!-- Cache Configuration -->
+<!--         <property name="net.sf.ehcache.configurationResourceName">/ehcache.xml</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+    -->     
+        <!-- Tell Hibernate how we are mapping classes -->
+        <mapping class="com.revature.entities.User"/>
+        <mapping class="com.revature.entities.Restaurant"/>
+        <mapping class="com.revature.entities.Review"/>
+        <mapping class="com.revature.entities.UserRole"/>
+          
+    </session-factory>
+</hibernate-configuration>

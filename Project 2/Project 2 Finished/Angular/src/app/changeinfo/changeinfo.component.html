@@ -1,0 +1,48 @@
+<div class="container" style="background-color: black; color: white; height: 92vh;">
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-8">
+      <form class="form-signin" #updateForm="ngForm">
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-4">
+            First Name:
+          </div>
+          <div class="col-8">
+            <inline-editor type="text" [(ngModel)]="user.firstName" name="firstName" size="10"></inline-editor>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            Last Name:
+          </div>
+          <div class="col-8">
+            <inline-editor type="text" [(ngModel)]="user.lastName" name="lastName" size="10"></inline-editor>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            Email:
+          </div>
+          <div class="col-8">
+            <inline-editor type="text" [(ngModel)]="user.email" name="email" size="10"></inline-editor>
+          </div>
+        </div>
+
+        <hr class="colorgraph">
+        <div class="container">
+          <button class="btn btn-md btn-primary btn-block" type="submit" name="Update" [disabled]="!updateForm.form.valid" (click)="updateInfo()"
+            value="Update">Update</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-3">
+      <alert></alert>
+    </div>
+  </div>
+</div>
+
+<div>
+
+</div>

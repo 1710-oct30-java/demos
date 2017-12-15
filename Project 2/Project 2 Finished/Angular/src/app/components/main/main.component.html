@@ -1,0 +1,38 @@
+<!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)"> -->
+<!-- 
+<div class="container" style="background-color: black; height: 92vh;">
+	<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false">
+	<agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng"
+	 [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+
+		<agm-info-window>
+			<strong>HAHA I DID IT</strong>
+		</agm-info-window>
+
+	</agm-marker>
+</agm-map> -->
+
+
+<ngui-map zoom="15" center="28.0584618,-82.4095894" (mapReady$)="onMapReady($event)">
+	<marker *ngFor="let pos of positions" [position]="pos" (click)="markerClicked($event)"></marker>
+  </ngui-map>
+
+  
+  <!-- <button (click)="positions = getRandomMarkers()">Show Markers</button> <br/> -->
+  <!-- <button (click)="showMarkersFromObservable()">Show Random Markers From Observable</button> -->
+
+<!-- {{markers | json}} -->
+	
+  <!-- USE COMPONENT HERE-->
+
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span> -->
+<router-outlet></router-outlet>
+
+
+<!-- </div> -->

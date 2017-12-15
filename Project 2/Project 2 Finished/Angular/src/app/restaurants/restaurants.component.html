@@ -1,0 +1,33 @@
+<router-outlet></router-outlet>
+<div>
+    <table class="table table-striped" style="color:white">
+        <thead>
+            <tr>
+                <!-- <th>ID</th> -->
+                <th>Name</th>
+                <th>Street Address</th>
+                <th>Culture</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+            </tr>
+        </thead>
+        <tbody id="ers-table-body">
+            <tr class="clickable" *ngFor = "let key of allRestaurants" (click)="restChosen(key.restaruantId)">
+                <!-- <td>{{key.restaruantId}}</td> -->
+                <td>{{key.name}}</td>
+                <td>{{key.culture}}</td>
+                <td>{{key.streetAddress}}</td>
+                <td>{{key.city}}</td>
+                <td>{{key.state}}</td>
+                <td>{{key.zipCode}}</td>
+
+                <!-- <td *ngFor="let review of restaurants.reviews">{{review.review_id}}</td> -->
+                <!-- <td>{{restaurants.reviews[0].review_id}}</td>-->
+
+            </tr>
+            <!-- {{restaurants | json}} -->
+
+        </tbody>
+    </table>
+</div>

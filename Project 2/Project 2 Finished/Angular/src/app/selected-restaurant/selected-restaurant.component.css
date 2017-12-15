@@ -1,0 +1,53 @@
+
+  .checked {
+    color: orange;
+}
+.titleCard {
+  width: 30%;
+  background: rgba(0, 255, 234, 0.9);
+}
+.card {
+
+  margin-bottom:30px; 
+}
+.restRev {
+  background: rgba(255, 255, 255, 0.614);
+  margin-bottom:30px; 
+  width: 20rem;
+  display: block;
+}
+.card-header {
+  background: rgba(4, 0, 255, 0.614);
+  color: white;
+}
+
+/* #outDiv {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+} */
+
+
+.outDiv {
+  position: fixed;
+  width: 100%;
+  /* padding-top: 100%; 1:1 Aspect Ratio */
+  z-index: -1111;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.parallax { 
+  /* The image used */
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

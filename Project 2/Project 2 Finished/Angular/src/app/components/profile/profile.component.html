@@ -1,0 +1,45 @@
+<!-- <ul>
+    <li> Welcome, {{user.firstName}} </li>
+    <li routerLink="pass"> Change password </li>
+    <li> Change Name </li>
+    <li> Your Posts </li>
+    <li> Welcome, {{user.firstName}} </li>
+</ul> -->
+
+<!-- <div class="sideBar boxLeft" id="side">
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="request">Welcome {{user.firstName}}</a>
+        <a href="#" id="all" routerLink="pass">Change Password</a>
+        <a href="#" id="pending" onClick="insert_row_filter(1)">Pending</a>
+        <a href="#" id="denied" onClick="insert_row_filter(2)">Denied</a>
+        <a href="#" id="approved" onClick="insert_row_filter(3)">Approved</a>
+        <a href="#" id="logout" onClick="logOut()">Log Out</a>
+
+    </div>
+</div> -->
+
+<div>
+    
+    <div class="row">
+        <div class="col-3" style="background-color: black; height: 92vh;">
+            <ul>
+                <li id="welcome">
+                    Welcome, {{user.firstName}}
+                </li>
+                <li>
+                    <a routerLink="pass">Change Password</a>
+                </li>
+                <li>
+                    <a routerLink="details">Update Info</a>
+                </li>
+                <li>
+                    <a routerLink="ireviewed">Your Reviews</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9" style="background-color: black; height: 92vh;">
+                <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

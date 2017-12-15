@@ -1,0 +1,62 @@
+<!-- <p-growl [value]="messages" sticky="sticky"></p-growl> -->
+<div class="container" style="color: white">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <form class="form-signin" (ngSubmit)="register()" #registerForm="ngForm">
+                <h2 class="form-signin-heading" align="center">Welcome</h2>
+                <hr class="colorgraph">
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="text" [(ngModel)]="model.username" name="username" id="username" class="form-control" placeholder="Username"
+                    required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" [(ngModel)]="model.password" name="password" id="inputPassword" class="form-control" placeholder="Password"
+                    required>
+                <input type="text" [(ngModel)]="model.firstName" name="firstName" id="inputFirst" class="form-control" placeholder="First Name"
+                    required>
+                <input type="text" [(ngModel)]="model.lastName" name="lastName" id="inputLast" class="form-control" placeholder="Last Name"
+                    required>
+                <input type="email" [(ngModel)]="model.email" name="email" id="inputEmail" class="form-control" placeholder="Email" required>
+                <!-- <select [(ngModel)]="model.roleId" name="selectRole"> -->
+                    <!--(ngModelChange)="toNumber()"> -->
+                    <!-- <option *ngFor="let role of roles" [ngValue]="role.num">{{role.name}}</option> -->
+                <!-- </select> -->
+                <hr class="colorgraph">
+                <pre>{{registerForm.valid}}</pre>
+                <button class="btn btn-md btn-primary btn-block" type="submit" name="Register" [disabled]="!registerForm.form.valid" value="Register">Register</button>
+                <button class="btn btn-md btn-primary btn-block" name="Register" value="Register" [routerLink]="['/login']">Back</button>
+                <!-- <button class="btn btn-md btn-primary btn-block" name="Back" value="Back" onClick="loginPage()">Back</button> -->
+            </form>
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
+</div>
+
+    <!-- <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <div>
+        <label for="username">Username: </label>
+        <input id="username" type="username"
+               [(ngModel)]="model.username" #firstname="ngModel" name="username"
+               pInputText>
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input id="password" type="password"
+               [(ngModel)]="model.password" #password="ngModel" name="password"
+               pInputText>
+    </div>
+    <div>
+        <label for="firstname">First Name: </label>
+        <input id="firstname" type="text"
+               [(ngModel)]="model.firstname" #firstname="ngModel" name="firstname"
+               pInputText>
+    </div>
+    <div>
+        <label for="lastname">Last Name: </label>
+        <input id="lastname" type="text"
+               [(ngModel)]="model.lastname" #lastname="ngModel" name="lastname"
+               pInputText>
+    </div>
+    <button class="btn btn-primary" type="submit" label="Register">Register</button>
+</form> -->

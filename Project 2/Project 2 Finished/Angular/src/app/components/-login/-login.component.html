@@ -1,0 +1,42 @@
+
+<!-- <form (ngSubmit)="login()" #loginForm="ngForm">
+  <div>
+      <label for="username">Username: </label>
+      <input id="usernam" type="text"
+             [(ngModel)]="model.username" #firstname="ngModel" name="username"
+             pInputText>
+  </div>
+  <div>
+      <label for="password">Password: </label>
+      <input id="password" type="password"
+             [(ngModel)]="model.password" #password="ngModel" name="password"
+             pInputText>
+  </div>
+  <button class="btn btn-primary" type="submit" label="Log In">Login</button>
+</form> -->
+
+<!-- {{messages}} -->
+
+
+<div class="container" style="color:white">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <form class="form-signin" (ngSubmit)="login()" #loginForm="ngForm">
+        <h2 class="form-signin-heading" align="center">Welcome</h2>
+        <hr class="colorgraph">
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" [(ngModel)]="model.username" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" [(ngModel)]="model.password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <hr class="colorgraph">
+
+        <button class="btn btn-md btn-primary btn-block" type="submit" name="Login" [disabled]="!loginForm.form.valid" value="Login">Log in</button>
+        <button class="btn btn-md btn-primary btn-block" name="Register" value="Register" [routerLink]="['/register']" >Register</button>
+        <!-- <button class="btn btn-md btn-primary btn-block" name="Back" value="Back" onClick="loginPage()">Back</button> -->
+      </form>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+</div>
