@@ -312,5 +312,5 @@ create index idx_emp_dept on cluster employee;
 
 -- UPDATE album SET title='testing' WHERE albumid=5;
 -- variable rc refcursor;
--- exec insert_customer(62,'test','test','test@test.com');
+-- exec return_manager(8, :rc);
 -- print rc;
